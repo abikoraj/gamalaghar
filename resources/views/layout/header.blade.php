@@ -4,6 +4,45 @@
     <div class="header-top">
         <div class="container">
             <div class="row align-items-center">
+                <!-- Header Top Category Toggle Start -->
+                <a href="#ec-mobile-sidebar" class="ec-header-btn ec-sidebar-toggle d-lg-none">
+                    <i class="fi fi-rr-apps"></i>
+                </a>
+                <!-- Header Top Category Toggle End -->
+                <!-- Header Top Message Start -->
+                <div class="col text-center header-top-center">
+                    <div class="header-top-message">
+                        100% secure delivery without contacting the courier
+                    </div>
+                </div>
+                <!-- Header Top Message End -->
+                <!-- Header Top Language Currency -->
+                <div class="col header-top-right d-none d-lg-block">
+                    <div class="header-top-lan-curr d-flex justify-content-end">
+                        <!-- Currency Start -->
+                        <div class="header-top-curr dropdown">
+                            <button class="dropdown-toggle" data-bs-toggle="dropdown">Currency<i
+                                    class="fi-rr-angle-small-down"></i></button>
+                            <ul class="dropdown-menu">
+                                <li class="active"><a class="dropdown-item" href="#">USD $</a></li>
+                                <li><a class="dropdown-item" href="#">EUR €</a></li>
+                            </ul>
+                        </div>
+                        <!-- Currency End -->
+                        <!-- Language Start -->
+                        <div class="header-top-lan dropdown">
+                            <button class="dropdown-toggle" data-bs-toggle="dropdown">Language<i
+                                    class="fi-rr-angle-small-down"></i></button>
+                            <ul class="dropdown-menu">
+                                <li class="active"><a class="dropdown-item" href="#">English</a></li>
+                                <li><a class="dropdown-item" href="#">Italiano</a></li>
+                            </ul>
+                        </div>
+                        <!-- Language End -->
+
+                    </div>
+                </div>
+                <!-- Header Top Language Currency -->
                 <!-- Header Top responsive Action -->
                 <div class="col d-lg-none ">
                     <div class="ec-header-bottons">
@@ -70,8 +109,7 @@
                                                 <ul class="mega-menu d-block">
                                                     <li class="d-flex">
                                                         <ul class="d-block">
-                                                            <li class="menu_title"><a
-                                                                    href="javascript:void(0)">Classic
+                                                            <li class="menu_title"><a href="javascript:void(0)">Classic
                                                                     Variation</a></li>
                                                             <li><a href="shop-left-sidebar-col-3.html">Left sidebar
                                                                     3 column</a>
@@ -89,8 +127,7 @@
                                                                     column</a></li>
                                                         </ul>
                                                         <ul class="d-block">
-                                                            <li class="menu_title"><a
-                                                                    href="javascript:void(0)">Classic
+                                                            <li class="menu_title"><a href="javascript:void(0)">Classic
                                                                     Variation</a></li>
                                                             <li><a href="shop-banner-left-sidebar-col-3.html">Banner
                                                                     left 3
@@ -107,8 +144,7 @@
                                                             </li>
                                                         </ul>
                                                         <ul class="d-block">
-                                                            <li class="menu_title"><a
-                                                                    href="javascript:void(0)">Columns
+                                                            <li class="menu_title"><a href="javascript:void(0)">Columns
                                                                     Variation</a></li>
                                                             <li><a href="shop-full-width-col-3.html">3 Columns full
                                                                     width</a></li>
@@ -124,8 +160,7 @@
                                                             </li>
                                                         </ul>
                                                         <ul class="d-block">
-                                                            <li class="menu_title"><a
-                                                                    href="javascript:void(0)">List
+                                                            <li class="menu_title"><a href="javascript:void(0)">List
                                                                     Variation</a>
                                                             </li>
                                                             <li><a href="shop-list-left-sidebar.html">Shop left

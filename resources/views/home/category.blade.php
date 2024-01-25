@@ -1,0 +1,70 @@
+<!--  category Section Start -->
+<section class="section ec-category-section section-space-p">
+    <div class="container">
+        <div class="row margin-minus-b-15 margin-minus-t-15">
+            <div id="ec-cat-slider" class="ec-cat-slider owl-carousel">
+                <div class="ec_cat_content ec_cat_content_2">
+                    <div class="ec_cat_inner ec_cat_inner-2">
+                        <div class="ec-category-image">
+                            <img src="assets/images/icons/vegetable.png" class="svg_img" alt="drink" />
+                        </div>
+                        <div class="ec-category-desc">
+                            <span>Vegetables & Fruits</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ec_cat_content ec_cat_content_2">
+                    <div class="ec_cat_inner ec_cat_inner-2">
+                        <div class="ec-category-image">
+                            <img src="assets/images/icons/groceries.png" class="svg_img" alt="drink" />
+                        </div>
+                        <div class="ec-category-desc">
+                            <span>Grocery & Staples</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ec_cat_content ec_cat_content_3">
+                    <div class="ec_cat_inner ec_cat_inner-3">
+                        <div class="ec-category-image">
+                            <img src="assets/images/icons/dairy-products.png" class="svg_img" alt="drink" />
+                        </div>
+                        <div class="ec-category-desc">
+                            <p>Dairy & Eggs</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ec_cat_content ec_cat_content_4">
+                    <div class="ec_cat_inner ec_cat_inner-4">
+                        <div class="ec-category-image">
+                            <img src="assets/images/icons/beverage.png" class="svg_img" alt="drink" />
+                        </div>
+                        <div class="ec-category-desc">
+                            <p>Beverage</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ec_cat_content ec_cat_content_5">
+                    <div class="ec_cat_inner ec_cat_inner-5">
+                        <div class="ec-category-image">
+                            <img src="assets/images/icons/salad.png" class="svg_img" alt="drink" />
+                        </div>
+                        <div class="ec-category-desc">
+                            <p>Salad</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ec_cat_content ec_cat_content_6">
+                    <div class="ec_cat_inner ec_cat_inner-6">
+                        <div class="ec-category-image">
+                            <img src="assets/images/icons/cake.png" class="svg_img" alt="drink" />
+                        </div>
+                        <div class="ec-category-desc">
+                            <p>Bakery</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--category Section End -->
