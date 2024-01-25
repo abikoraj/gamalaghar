@@ -65,7 +65,7 @@
             </div>
             <div class="col-lg-6 col-md-12">
                 <div class="faq-img">
-                    <img src="assets/images/faq/faq.png" alt="">
+                    <img src="{{url('assets/img/faq.png')}}" alt="">
                 </div>
             </div>
         </div>
