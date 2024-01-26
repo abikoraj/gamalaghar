@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home.home');
 });
+
+Route::get('/wishlist', function () {
+    return view('wishlist.wishlist');
+});

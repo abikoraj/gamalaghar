@@ -80,21 +80,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="row">
-                    <!-- Footer payment -->
-                    <div class="footer-bottom-right">
-                        <div class="footer-bottom-payment d-flex justify-content-center">
-                            <div class="payment-link">
-                                <img src="assets/images/icons/payment.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Footer payment -->
-                </div>
-            </div>
-        </div>
+
         <!-- Footer Copyright Start -->
         <div class="container">
             <div class="footer-copy">
@@ -131,7 +117,7 @@
     <div class="cc-panel">
         <!-- Panel Content -->
         <div class="cc-header">
-            <img src="assets/images/whatsapp/profile_01.jpg" alt="profile image" />
+            <img src="{{ url('assets/img/Logo.png') }}" alt="profile image" />
             <h2>John Mark</h2>
             <p>Tachnical Manager</p>
         </div>
@@ -218,7 +204,12 @@
 <script src="{{ url('assets/js/owl.carousel.min.js') }}"></script>
 <script src="{{ url('assets/js/infiniteslidev2.js') }}"></script>
 <script src="{{ url('assets/js/click-to-call.js') }}"></script>
+<script src="{{ url('assets/js/jquery.magnific-popup.min.js') }}"></script>
 
 <!-- Main Js -->
 <script src="{{ url('assets/js/index.js') }}"></script>
 <script src="{{ url('assets/js/demo-11.js') }}"></script>
+<script src="{{ url('assets/js/main.js') }}"></script>
+</body>
+
+</html>

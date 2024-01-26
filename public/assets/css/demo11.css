@@ -18846,23 +18846,12 @@ section.ec-instagram-section {
     height: 80vh;
 }
 .ec-main-slider .slide-1 {
-    background-image: url(../images/main-slider-banner/29.jpg);
+    background-image: url(../img/main_banner.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
-.ec-main-slider .slide-2 {
-    background-image: url(../images/main-slider-banner/30.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.ec-main-slider .slide-3 {
-    background-image: url(../images/main-slider-banner/31.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
 .ec-main-slider .container {
     position: absolute;
     left: 0;
@@ -18960,7 +18949,6 @@ section.ec-instagram-section {
 }
 
 .ec-slide-content {
-    padding-left: 100px;
     position: relative;
     z-index: 9;
     display: -webkit-box;

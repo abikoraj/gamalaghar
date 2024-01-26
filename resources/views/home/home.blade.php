@@ -1,30 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-
-    <title>GamalaGhar</title>
-    <meta name="keywords"
-        content="apparel, catalog, clean, ecommerce, ecommerce HTML, electronics, fashion, html eCommerce, html store, minimal, multipurpose, multipurpose ecommerce, online store, responsive ecommerce template, shops" />
-    <meta name="description" content="Best ecommerce html template for single and multi vendor store.">
-    <meta name="author" content="ashishmaraviya">
     @include('layout.header')
 
 
 
-</head>
 
-<body>
 
 
     @include('layout.nav')
 
     @include('home.mycart')
 
-    @include('mobile_category')
 
     @include('home.main_banner')
 
@@ -93,13 +78,9 @@
     @include('home.bottom_banner')
     @include('home.faq')
 
-
-
     @include('home.get_in_touch')
 
 
 
     @include('layout.footer')
-</body>
 
-</html>

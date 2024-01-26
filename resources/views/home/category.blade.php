@@ -6,7 +6,7 @@
                 <div class="ec_cat_content ec_cat_content_2">
                     <div class="ec_cat_inner ec_cat_inner-2">
                         <div class="ec-category-image">
-                            <img src="assets/images/icons/vegetable.png" class="svg_img" alt="drink" />
+                            <img src="{{ url('assets/img/vegetable.png') }}" class="svg_img" alt="drink" />
                         </div>
                         <div class="ec-category-desc">
                             <span>Vegetables & Fruits</span>
@@ -16,7 +16,7 @@
                 <div class="ec_cat_content ec_cat_content_2">
                     <div class="ec_cat_inner ec_cat_inner-2">
                         <div class="ec-category-image">
-                            <img src="assets/images/icons/groceries.png" class="svg_img" alt="drink" />
+                            <img src="{{ url('assets/img/groceries.png') }}" class="svg_img" alt="drink" />
                         </div>
                         <div class="ec-category-desc">
                             <span>Grocery & Staples</span>
@@ -26,7 +26,7 @@
                 <div class="ec_cat_content ec_cat_content_3">
                     <div class="ec_cat_inner ec_cat_inner-3">
                         <div class="ec-category-image">
-                            <img src="assets/images/icons/dairy-products.png" class="svg_img" alt="drink" />
+                            <img src="{{ url('assets/img/dairy-products.png') }}" class="svg_img" alt="drink" />
                         </div>
                         <div class="ec-category-desc">
                             <p>Dairy & Eggs</p>
@@ -36,7 +36,7 @@
                 <div class="ec_cat_content ec_cat_content_4">
                     <div class="ec_cat_inner ec_cat_inner-4">
                         <div class="ec-category-image">
-                            <img src="assets/images/icons/beverage.png" class="svg_img" alt="drink" />
+                            <img src="{{ url('assets/img/beverage.png') }}" class="svg_img" alt="drink" />
                         </div>
                         <div class="ec-category-desc">
                             <p>Beverage</p>
@@ -46,7 +46,7 @@
                 <div class="ec_cat_content ec_cat_content_5">
                     <div class="ec_cat_inner ec_cat_inner-5">
                         <div class="ec-category-image">
-                            <img src="assets/images/icons/salad.png" class="svg_img" alt="drink" />
+                            <img src="{{ url('assets/img/salad.png') }}" class="svg_img" alt="drink" />
                         </div>
                         <div class="ec-category-desc">
                             <p>Salad</p>
@@ -56,7 +56,7 @@
                 <div class="ec_cat_content ec_cat_content_6">
                     <div class="ec_cat_inner ec_cat_inner-6">
                         <div class="ec-category-image">
-                            <img src="assets/images/icons/cake.png" class="svg_img" alt="drink" />
+                            <img src="{{ url('assets/img/cake.png') }}" class="svg_img" alt="drink" />
                         </div>
                         <div class="ec-category-desc">
                             <p>Bakery</p>

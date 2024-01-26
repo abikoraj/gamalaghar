@@ -4,11 +4,7 @@
     <div class="header-top">
         <div class="container">
             <div class="row align-items-center">
-                <!-- Header Top Category Toggle Start -->
-                <a href="#ec-mobile-sidebar" class="ec-header-btn ec-sidebar-toggle d-lg-none">
-                    <i class="fi fi-rr-apps"></i>
-                </a>
-                <!-- Header Top Category Toggle End -->
+
                 <!-- Header Top Message Start -->
                 <div class="col text-center header-top-center">
                     <div class="header-top-message">
@@ -19,27 +15,9 @@
                 <!-- Header Top Language Currency -->
                 <div class="col header-top-right d-none d-lg-block">
                     <div class="header-top-lan-curr d-flex justify-content-end">
-                        <!-- Currency Start -->
-                        <div class="header-top-curr dropdown">
-                            <button class="dropdown-toggle" data-bs-toggle="dropdown">Currency<i
-                                    class="fi-rr-angle-small-down"></i></button>
-                            <ul class="dropdown-menu">
-                                <li class="active"><a class="dropdown-item" href="#">USD $</a></li>
-                                <li><a class="dropdown-item" href="#">EUR €</a></li>
-                            </ul>
+                        <!-- Phone Number   -->
+                        <div class="header-top-message"><i class='bx bxs-phone' style='color:#692c91'></i> 9810907768
                         </div>
-                        <!-- Currency End -->
-                        <!-- Language Start -->
-                        <div class="header-top-lan dropdown">
-                            <button class="dropdown-toggle" data-bs-toggle="dropdown">Language<i
-                                    class="fi-rr-angle-small-down"></i></button>
-                            <ul class="dropdown-menu">
-                                <li class="active"><a class="dropdown-item" href="#">English</a></li>
-                                <li><a class="dropdown-item" href="#">Italiano</a></li>
-                            </ul>
-                        </div>
-                        <!-- Language End -->
-
                     </div>
                 </div>
                 <!-- Header Top Language Currency -->
@@ -104,274 +82,23 @@
                                     <div class="ec-main-menu">
                                         <ul>
                                             <li><a href="index.html">Home</a></li>
-                                            <li class="dropdown position-static"><a
-                                                    href="javascript:void(0)">Categories</a>
-                                                <ul class="mega-menu d-block">
-                                                    <li class="d-flex">
-                                                        <ul class="d-block">
-                                                            <li class="menu_title"><a href="javascript:void(0)">Classic
-                                                                    Variation</a></li>
-                                                            <li><a href="shop-left-sidebar-col-3.html">Left sidebar
-                                                                    3 column</a>
-                                                            </li>
-                                                            <li><a href="shop-left-sidebar-col-4.html">Left sidebar
-                                                                    4 column</a>
-                                                            </li>
-                                                            <li><a href="shop-right-sidebar-col-3.html">Right
-                                                                    sidebar 3 column</a>
-                                                            </li>
-                                                            <li><a href="shop-right-sidebar-col-4.html">Right
-                                                                    sidebar 4 column</a>
-                                                            </li>
-                                                            <li><a href="shop-full-width.html">Full width 4
-                                                                    column</a></li>
-                                                        </ul>
-                                                        <ul class="d-block">
-                                                            <li class="menu_title"><a href="javascript:void(0)">Classic
-                                                                    Variation</a></li>
-                                                            <li><a href="shop-banner-left-sidebar-col-3.html">Banner
-                                                                    left 3
-                                                                    column</a></li>
-                                                            <li><a href="shop-banner-left-sidebar-col-4.html">Banner
-                                                                    left 4
-                                                                    column</a></li>
-                                                            <li><a href="shop-banner-right-sidebar-col-3.html">Banner
-                                                                    right 3 column</a></li>
-                                                            <li><a href="shop-banner-right-sidebar-col-4.html">Banner
-                                                                    right 4 column</a></li>
-                                                            <li><a href="shop-banner-full-width.html">Banner Full
-                                                                    width 4</a>
-                                                            </li>
-                                                        </ul>
-                                                        <ul class="d-block">
-                                                            <li class="menu_title"><a href="javascript:void(0)">Columns
-                                                                    Variation</a></li>
-                                                            <li><a href="shop-full-width-col-3.html">3 Columns full
-                                                                    width</a></li>
-                                                            <li><a href="shop-full-width-col-4.html">4 Columns full
-                                                                    width</a></li>
-                                                            <li><a href="shop-full-width-col-5.html">5 Columns full
-                                                                    width</a></li>
-                                                            <li><a href="shop-full-width-col-6.html">6 Columns full
-                                                                    width</a></li>
-                                                            <li><a href="shop-banner-full-width-col-3.html">Banner
-                                                                    3
-                                                                    Columns</a>
-                                                            </li>
-                                                        </ul>
-                                                        <ul class="d-block">
-                                                            <li class="menu_title"><a href="javascript:void(0)">List
-                                                                    Variation</a>
-                                                            </li>
-                                                            <li><a href="shop-list-left-sidebar.html">Shop left
-                                                                    sidebar</a></li>
-                                                            <li><a href="shop-list-right-sidebar.html">Shop right
-                                                                    sidebar</a></li>
-                                                            <li><a href="shop-list-banner-left-sidebar.html">Banner
-                                                                    left sidebar</a>
-                                                            </li>
-                                                            <li><a href="shop-list-banner-right-sidebar.html">Banner
-                                                                    right
-                                                                    sidebar</a></li>
-                                                            <li><a href="shop-list-full-col-2.html">Full width 2
-                                                                    columns</a></li>
-                                                        </ul>
+                                            <li class="dropdown"><a href="javascript:void(0)">Plants</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="shop-left-sidebar-.html">Indoor Plants</a>
+                                                    </li>
+                                                    <li><a href="shop-left-sidebar-col-4.html">Outdoor Plants</a>
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li class="dropdown"><a href="javascript:void(0)">Products</a>
+                                            <li class="dropdown"><a href="javascript:void(0)">Pots</a>
                                                 <ul class="sub-menu">
-                                                    <li class="dropdown position-static"><a
-                                                            href="javascript:void(0)">Product page
-                                                            <i class="ecicon eci-angle-right"></i></a>
-                                                        <ul class="sub-menu sub-menu-child">
-                                                            <li><a href="product-left-sidebar.html">Product left
-                                                                    sidebar</a></li>
-                                                            <li><a href="product-right-sidebar.html">Product right
-                                                                    sidebar</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="dropdown position-static"><a
-                                                            href="javascript:void(0)">Product 360
-                                                            <i class="ecicon eci-angle-right"></i></a>
-                                                        <ul class="sub-menu sub-menu-child">
-                                                            <li><a href="product-360-left-sidebar.html">360 left
-                                                                    sidebar</a></li>
-                                                            <li><a href="product-360-right-sidebar.html">360 right
-                                                                    sidebar</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="dropdown position-static"><a
-                                                            href="javascript:void(0)">Product video
-                                                            <i class="ecicon eci-angle-right"></i></a>
-                                                        <ul class="sub-menu sub-menu-child">
-                                                            <li><a href="product-video-left-sidebar.html">Video
-                                                                    left
-                                                                    sidebar</a>
-                                                            </li>
-                                                            <li><a href="product-video-right-sidebar.html">Video
-                                                                    right sidebar</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="dropdown position-static"><a
-                                                            href="javascript:void(0)">Product
-                                                            gallery
-                                                            <i class="ecicon eci-angle-right"></i></a>
-                                                        <ul class="sub-menu sub-menu-child">
-                                                            <li><a href="product-gallery-left-sidebar.html">Gallery
-                                                                    left sidebar</a>
-                                                            </li>
-                                                            <li><a href="product-gallery-right-sidebar.html">Gallery
-                                                                    right
-                                                                    sidebar</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a href="product-full-width.html">Product full width</a>
-                                                    </li>
-                                                    <li><a href="product-360-full-width.html">360 full width</a>
-                                                    </li>
-                                                    <li><a href="product-video-full-width.html">Video full
-                                                            width</a>
-                                                    </li>
-                                                    <li><a href="product-gallery-full-width.html">Gallery full
-                                                            width</a></li>
+                                                    <li><a href="shop-left-sidebar-.html">Chinese Post</a></li>
+                                                    <li><a href="shop-left-sidebar-col-4.html">Indian Post</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="dropdown"><a href="javascript:void(0)">Pages</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="about-us.html">About Us</a></li>
-                                                    <li><a href="contact-us.html">Contact Us</a></li>
-                                                    <li><a href="cart.html">Cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="compare.html">Compare</a></li>
-                                                    <li><a href="faq.html">FAQ</a></li>
-                                                    <li><a href="login.html">Login</a></li>
-                                                    <li><a href="register.html">Register</a></li>
-                                                    <li><a href="track-order.html">Track Order</a></li>
-                                                    <li><a href="terms-condition.html">Terms Condition</a></li>
-                                                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                                </ul>
+                                            <li class="dropdown"><a href="javascript:void(0)">Soil &amp; Fertilizers</a>
                                             </li>
-                                            <li class="dropdown"><span class="main-label-note-new"
-                                                    data-toggle="tooltip" title="NEW"></span><a
-                                                    href="javascript:void(0)">Others</a>
-                                                <ul class="sub-menu">
-                                                    <li class="dropdown position-static"><a
-                                                            href="javascript:void(0)">Mail
-                                                            Confirmation
-                                                            <i class="ecicon eci-angle-right"></i></a>
-                                                        <ul class="sub-menu sub-menu-child">
-                                                            <li><a href="email-template-confirm-1.html">Mail
-                                                                    Confirmation 1</a></li>
-                                                            <li><a href="email-template-confirm-2.html">Mail
-                                                                    Confirmation 2</a></li>
-                                                            <li><a href="email-template-confirm-3.html">Mail
-                                                                    Confirmation 3</a></li>
-                                                            <li><a href="email-template-confirm-4.html">Mail
-                                                                    Confirmation 4</a></li>
-                                                            <li><a href="email-template-confirm-5.html">Mail
-                                                                    Confirmation 5</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="dropdown position-static"><a
-                                                            href="javascript:void(0)">Mail Reset
-                                                            password
-                                                            <i class="ecicon eci-angle-right"></i></a>
-                                                        <ul class="sub-menu sub-menu-child">
-                                                            <li><a href="email-template-forgot-password-1.html">Reset
-                                                                    password 1</a>
-                                                            </li>
-                                                            <li><a href="email-template-forgot-password-2.html">Reset
-                                                                    password 2</a>
-                                                            </li>
-                                                            <li><a href="email-template-forgot-password-3.html">Reset
-                                                                    password 3</a>
-                                                            </li>
-                                                            <li><a href="email-template-forgot-password-4.html">Reset
-                                                                    password 4</a>
-                                                            </li>
-                                                            <li><a href="email-template-forgot-password-5.html">Reset
-                                                                    password 5</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="dropdown position-static"><a
-                                                            href="javascript:void(0)">Mail
-                                                            Promotional
-                                                            <i class="ecicon eci-angle-right"></i></a>
-                                                        <ul class="sub-menu sub-menu-child">
-                                                            <li><a href="email-template-offers-1.html">Offer mail
-                                                                    1</a></li>
-                                                            <li><a href="email-template-offers-2.html">Offer mail
-                                                                    2</a></li>
-                                                            <li><a href="email-template-offers-3.html">Offer mail
-                                                                    3</a></li>
-                                                            <li><a href="email-template-offers-4.html">Offer mail
-                                                                    4</a></li>
-                                                            <li><a href="email-template-offers-5.html">Offer mail
-                                                                    5</a></li>
-                                                            <li><a href="email-template-offers-6.html">Offer mail
-                                                                    6</a></li>
-                                                            <li><a href="email-template-offers-7.html">Offer mail
-                                                                    7</a></li>
-                                                            <li><a href="email-template-offers-8.html">Offer mail
-                                                                    8</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="dropdown position-static">
-                                                        <span class="label-note-hot"></span>
-                                                        <a href="javascript:void(0)">Vendor account pages
-                                                            <i class="ecicon eci-angle-right"></i></a>
-                                                        <ul class="sub-menu sub-menu-child">
-                                                            <li><a href="vendor-dashboard.html">Vendor
-                                                                    Dashboard</a>
-                                                            </li>
-                                                            <li><a href="vendor-profile.html">Vendor Profile</a>
-                                                            </li>
-                                                            <li><a href="vendor-uploads.html">Vendor Uploads</a>
-                                                            </li>
-                                                            <li><a href="vendor-settings.html">Vendor Settings</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="dropdown position-static">
-                                                        <span class="label-note-trending"></span>
-                                                        <a href="javascript:void(0)">User account pages
-                                                            <i class="ecicon eci-angle-right"></i></a>
-                                                        <ul class="sub-menu sub-menu-child">
-                                                            <li><a href="user-profile.html">User Profile</a></li>
-                                                            <li><a href="user-history.html">History</a></li>
-                                                            <li><a href="wishlist.html">Wishlist</a></li>
-                                                            <li><a href="track-order.html">Track Order</a></li>
-                                                            <li><a href="user-invoice.html">Invoice</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="dropdown position-static"><a
-                                                            href="javascript:void(0)">Construction
-                                                            pages
-                                                            <i class="ecicon eci-angle-right"></i></a>
-                                                        <ul class="sub-menu sub-menu-child">
-                                                            <li><a href="404-error-page.html">404 error page</a>
-                                                            </li>
-                                                            <li><a href="under-maintenance.html">maintanence
-                                                                    page</a></li>
-                                                            <li><a href="coming-soon.html">Coming soon page</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="dropdown position-static">
-                                                        <span class="label-note-new"></span>
-                                                        <a href="javascript:void(0)">Vendor Catalog pages
-                                                            <i class="ecicon eci-angle-right"></i></a>
-                                                        <ul class="sub-menu sub-menu-child">
-                                                            <li><a href="catalog-single-vendor.html">Catalog Single
-                                                                    Vendor</a></li>
-                                                            <li><a href="catalog-multi-vendor.html">Catalog Multi
-                                                                    Vendor</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
+                                            <li class="dropdown"><a href="javascript:void(0)">Garden Decor</a>
                                             </li>
                                             <li class="dropdown"><a href="javascript:void(0)">Blog</a>
                                                 <ul class="sub-menu">
@@ -440,9 +167,10 @@
                                 class="fi fi-rr-menu-burger"></i><span>Shop By Catagories</span><i
                                 class="fi fi-rr-angle-small-down"></i></button>
                         <ul class="sub-menu">
-                            <li class="active"><a class="dropdown-item" href="#">Bakery</a></li>
-                            <li><a class="dropdown-item" href="#">Vegetables</a></li>
-                            <li><a class="dropdown-item" href="#">Drinks</a></li>
+                            <li class="active"><a class="dropdown-item" href="#">Plants</a></li>
+                            <li><a class="dropdown-item" href="#">Pots</a></li>
+                            <li><a class="dropdown-item" href="#">Soil &amp; Fertilizer</a></li>
+                            <li><a class="dropdown-item" href="#">Garden Decor</a></li>
                         </ul>
                     </div>
                     <!-- Header cat End -->
@@ -472,7 +200,7 @@
                                 </ul>
                             </div>
                             <!-- Header wishlist Start -->
-                            <a href="wishlist.html" class="ec-header-btn ec-header-wishlist">
+                            <a href="{{ url('/wishlist') }}" class="ec-header-btn ec-header-wishlist">
                                 <div class="header-icon"><i class="fi-rr-heart"></i></div>
                                 <span class="ec-header-count">4</span>
                             </a>
@@ -501,8 +229,8 @@
                 <!-- Ec Header Logo Start -->
                 <div class="col">
                     <div class="header-logo">
-                        <a href="index.html"><img src="assets/images/logo/logo-11.png" alt="Site Logo" /><img
-                                class="dark-logo" src="assets/images/logo/dark-logo-11.png" alt="Site Logo"
+                        <a href="index.html"><img src="{{ url('assets/img/Logo.png') }}" alt="Site Logo" /><img
+                                class="dark-logo" src="{{ url('assets/img/logo-white.png') }}" alt="Site Logo"
                                 style="display: none;" /></a>
                     </div>
                 </div>
@@ -532,7 +260,7 @@
             <div class="ec-menu-content">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="javascript:void(0)">Categories</a>
+                    <li><a href="javascript:void(0)">Plants</a>
                         <ul class="sub-menu">
                             <li>
                                 <a href="javascript:void(0)">Classic Variation</a>
@@ -579,7 +307,7 @@
                                 </ul>
                             </li>
                             <li><a class="p-0" href="shop-left-sidebar-col-3.html"><img class="img-responsive"
-                                        src="assets/images/menu-banner/1.jpg" alt=""></a>
+                                        src="{{ url('assets/img/1.jpg') }}" alt=""></a>
                             </li>
                         </ul>
                     </li>
