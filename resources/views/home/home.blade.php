@@ -1,14 +1,8 @@
 
     @include('layout.header')
 
-
-
-
-
-
     @include('layout.nav')
 
-    @include('home.mycart')
 
 
     @include('home.main_banner')

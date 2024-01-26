@@ -1,5 +1,6 @@
 @include('layout.header')
 @include('layout.nav')
+
 @include('breadcrumb')
 <!-- Ec Wishlist page -->
 <section class="ec-page-content section-space-p">
@@ -421,4 +422,4 @@
 </div>
 <!-- Modal end -->
 
-@extends('layout.footer')
+@include('layout.footer')

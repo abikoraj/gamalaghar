@@ -42,3 +42,5 @@
 </head>
 
 <body>
+    @include('home.mycart')
+

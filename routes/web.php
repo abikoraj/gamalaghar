@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/wishlist', function () {
     return view('wishlist.wishlist');
 });
+
+Route::get('/customer/register', function () {
+    return view('auth.register');
+});
