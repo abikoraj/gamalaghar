@@ -24,3 +24,7 @@ Route::get('/wishlist', function () {
 Route::get('/customer/register', function () {
     return view('auth.register');
 });
+
+Route::get('/login', function () {
+    return view('auth.login');
+});

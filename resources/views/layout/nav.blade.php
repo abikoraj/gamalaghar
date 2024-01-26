@@ -145,7 +145,7 @@
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li><a class="dropdown-item" href="{{ url('/customer/register') }}">Register</a></li>
                                     <li><a class="dropdown-item" href="checkout.html">Setting</a></li>
-                                    <li><a class="dropdown-item" href="login.html">Login</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/login') }}">Login</a></li>
                                 </ul>
                             </div>
                             <!-- Header User End -->
