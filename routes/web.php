@@ -28,3 +28,7 @@ Route::get('/customer/register', function () {
 Route::get('/login', function () {
     return view('auth.login');
 });
+
+Route::get('/singleproduct', function () {
+    return view('shop.single_product');
+});
