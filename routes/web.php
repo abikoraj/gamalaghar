@@ -32,3 +32,11 @@ Route::get('/login', function () {
 Route::get('/singleproduct', function () {
     return view('shop.single_product');
 });
+
+Route::get('/blog', function () {
+    return view('blog.all_blog');
+});
+
+Route::get('/blog/details', function () {
+    return view('blog.blog_details');
+});
