@@ -67,8 +67,9 @@
                     <!-- Ec Header Logo Start -->
                     <div class="align-self-center">
                         <div class="header-logo">
-                            <a href="{{ url('/') }}"><img src="{{ url('assets/img/Logo.png') }}" alt="Site Logo" /><img
-                                    class="dark-logo" src="{{ url('assets/img/logo-white.png') }}" alt="Site Logo"
+                            <a href="{{ url('/') }}"><img src="{{ url('assets/img/Logo.png') }}"
+                                    alt="Site Logo" /><img class="dark-logo"
+                                    src="{{ url('assets/img/logo-white.png') }}" alt="Site Logo"
                                     style="display: none;" /></a>
                         </div>
                     </div>
@@ -100,19 +101,7 @@
                                             </li>
                                             <li class="dropdown"><a href="javascript:void(0)">Garden Decor</a>
                                             </li>
-                                            <li class="dropdown"><a href="javascript:void(0)">Blog</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
-                                                    <li><a href="blog-right-sidebar.html">Blog right sidebar</a>
-                                                    </li>
-                                                    <li><a href="blog-detail-left-sidebar.html">Blog detail left
-                                                            sidebar</a></li>
-                                                    <li><a href="blog-detail-right-sidebar.html">Blog detail right
-                                                            sidebar</a></li>
-                                                    <li><a href="blog-full-width.html">Blog full width</a></li>
-                                                    <li><a href="blog-detail-full-width.html">Blog detail full
-                                                            width</a></li>
-                                                </ul>
+                                            <li class="dropdown"><a href="{{ url('/blog') }}">Blog</a>
                                             </li>
                                             <li class="dropdown"><a href="javascript:void(0)">Elements</a>
                                                 <ul class="sub-menu">
@@ -143,7 +132,8 @@
                                 <button class="dropdown-toggle button" data-bs-toggle="dropdown"><span>Login/Sign
                                         up</span><i class="fi fi-rr-angle-small-down"></i></button>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a class="dropdown-item" href="{{ url('/customer/register') }}">Register</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/customer/register') }}">Register</a>
+                                    </li>
                                     <li><a class="dropdown-item" href="checkout.html">Setting</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/login') }}">Login</a></li>
                                 </ul>

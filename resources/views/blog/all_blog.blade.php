@@ -5,6 +5,125 @@
 <section class="ec-page-content section-space-p">
     <div class="container">
         <div class="row">
+
+            <!-- Sidebar Area Start -->
+            <div class="ec-blogs-leftside col-lg-4 order-lg-first col-md-12 order-md-last">
+                <div class="ec-blog-search">
+                    <form class="ec-blog-search-form" action="#">
+                        <input class="form-control" placeholder="Search Our Blog" type="text">
+                        <button class="submit" type="submit"><i class="ecicon eci-search"></i></button>
+                    </form>
+                </div>
+                <div class="ec-sidebar-wrap">
+                    <!-- Sidebar Recent Blog Block -->
+                    <div class="ec-sidebar-block ec-sidebar-recent-blog">
+                        <div class="ec-sb-title">
+                            <h3 class="ec-sidebar-title">Recent Articles</h3>
+                        </div>
+                        <div class="ec-sb-block-content">
+                            <div class="ec-sidebar-block-item">
+                                <h5 class="ec-blog-title"><a href="blog-detail-left-sidebar.html">The best fashion
+                                        influencers.</a></h5>
+                                <div class="ec-blog-date">February 10, 2021-2022</div>
+                            </div>
+                            <div class="ec-sidebar-block-item">
+                                <h5 class="ec-blog-title"><a href="blog-detail-left-sidebar.html">Vogue Shopping
+                                        Weekend.</a></h5>
+                                <div class="ec-blog-date">March 14, 2021-2022</div>
+                            </div>
+                            <div class="ec-sidebar-block-item">
+                                <h5 class="ec-blog-title"><a href="blog-detail-left-sidebar.html">Fashion Market
+                                        Reveals Her Jacket.</a></h5>
+                                <div class="ec-blog-date">June 09, 2021-2022</div>
+                            </div>
+                            <div class="ec-sidebar-block-item">
+                                <h5 class="ec-blog-title"><a href="blog-detail-left-sidebar.html">Summer Trending
+                                        Fashion Market.</a></h5>
+                                <div class="ec-blog-date">July 17, 2021-2022</div>
+                            </div>
+                            <div class="ec-sidebar-block-item">
+                                <h5 class="ec-blog-title"><a href="blog-detail-left-sidebar.html">Winter 2021 Trending
+                                        Fashion Market.</a></h5>
+                                <div class="ec-blog-date">August 02, 2021-2022</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sidebar Recent Blog Block -->
+                    <!-- Sidebar Category Block -->
+                    <div class="ec-sidebar-block">
+                        <div class="ec-sb-title">
+                            <h3 class="ec-sidebar-title">Categories</h3>
+                        </div>
+                        <div class="ec-sb-block-content">
+                            <ul>
+                                <li>
+                                    <div class="ec-sidebar-block-item">
+                                        <input type="checkbox" checked /> <a href="#">clothes</a><span
+                                            class="checked"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="ec-sidebar-block-item">
+                                        <input type="checkbox" /> <a href="#">Bags</a><span
+                                            class="checked"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="ec-sidebar-block-item">
+                                        <input type="checkbox" /> <a href="#">Shoes</a><span
+                                            class="checked"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="ec-sidebar-block-item">
+                                        <input type="checkbox" /> <a href="#">cosmetics</a><span
+                                            class="checked"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="ec-sidebar-block-item">
+                                        <input type="checkbox" /> <a href="#">electrics</a><span
+                                            class="checked"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="ec-sidebar-block-item">
+                                        <input type="checkbox" /> <a href="#">phone</a><span
+                                            class="checked"></span>
+                                    </div>
+                                </li>
+                                <li id="ec-more-toggle-content" style="padding: 0; display: none;">
+                                    <ul>
+                                        <li>
+                                            <div class="ec-sidebar-block-item">
+                                                <input type="checkbox" /> <a href="#">Watch</a><span
+                                                    class="checked"></span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="ec-sidebar-block-item">
+                                                <input type="checkbox" /> <a href="#">Cap</a><span
+                                                    class="checked"></span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="ec-sidebar-block-item ec-more-toggle">
+                                        <span class="checked"></span><span id="ec-more-toggle">More
+                                            Categories</span>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Sidebar Category Block -->
+                </div>
+            </div>
+
+
+            
             <div class="ec-blogs-rightside col-lg-8 order-lg-last col-md-12 order-md-first">
 
                 <!-- Blog content Start -->
@@ -167,121 +286,8 @@
                 </div>
                 <!--Blog content End -->
             </div>
-            <!-- Sidebar Area Start -->
-            <div class="ec-blogs-leftside col-lg-4 order-lg-first col-md-12 order-md-last">
-                <div class="ec-blog-search">
-                    <form class="ec-blog-search-form" action="#">
-                        <input class="form-control" placeholder="Search Our Blog" type="text">
-                        <button class="submit" type="submit"><i class="ecicon eci-search"></i></button>
-                    </form>
-                </div>
-                <div class="ec-sidebar-wrap">
-                    <!-- Sidebar Recent Blog Block -->
-                    <div class="ec-sidebar-block ec-sidebar-recent-blog">
-                        <div class="ec-sb-title">
-                            <h3 class="ec-sidebar-title">Recent Articles</h3>
-                        </div>
-                        <div class="ec-sb-block-content">
-                            <div class="ec-sidebar-block-item">
-                                <h5 class="ec-blog-title"><a href="blog-detail-left-sidebar.html">The best fashion
-                                        influencers.</a></h5>
-                                <div class="ec-blog-date">February 10, 2021-2022</div>
-                            </div>
-                            <div class="ec-sidebar-block-item">
-                                <h5 class="ec-blog-title"><a href="blog-detail-left-sidebar.html">Vogue Shopping
-                                        Weekend.</a></h5>
-                                <div class="ec-blog-date">March 14, 2021-2022</div>
-                            </div>
-                            <div class="ec-sidebar-block-item">
-                                <h5 class="ec-blog-title"><a href="blog-detail-left-sidebar.html">Fashion Market
-                                        Reveals Her Jacket.</a></h5>
-                                <div class="ec-blog-date">June 09, 2021-2022</div>
-                            </div>
-                            <div class="ec-sidebar-block-item">
-                                <h5 class="ec-blog-title"><a href="blog-detail-left-sidebar.html">Summer Trending
-                                        Fashion Market.</a></h5>
-                                <div class="ec-blog-date">July 17, 2021-2022</div>
-                            </div>
-                            <div class="ec-sidebar-block-item">
-                                <h5 class="ec-blog-title"><a href="blog-detail-left-sidebar.html">Winter 2021 Trending
-                                        Fashion Market.</a></h5>
-                                <div class="ec-blog-date">August 02, 2021-2022</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Sidebar Recent Blog Block -->
-                    <!-- Sidebar Category Block -->
-                    <div class="ec-sidebar-block">
-                        <div class="ec-sb-title">
-                            <h3 class="ec-sidebar-title">Categories</h3>
-                        </div>
-                        <div class="ec-sb-block-content">
-                            <ul>
-                                <li>
-                                    <div class="ec-sidebar-block-item">
-                                        <input type="checkbox" checked /> <a href="#">clothes</a><span
-                                            class="checked"></span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="ec-sidebar-block-item">
-                                        <input type="checkbox" /> <a href="#">Bags</a><span
-                                            class="checked"></span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="ec-sidebar-block-item">
-                                        <input type="checkbox" /> <a href="#">Shoes</a><span
-                                            class="checked"></span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="ec-sidebar-block-item">
-                                        <input type="checkbox" /> <a href="#">cosmetics</a><span
-                                            class="checked"></span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="ec-sidebar-block-item">
-                                        <input type="checkbox" /> <a href="#">electrics</a><span
-                                            class="checked"></span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="ec-sidebar-block-item">
-                                        <input type="checkbox" /> <a href="#">phone</a><span
-                                            class="checked"></span>
-                                    </div>
-                                </li>
-                                <li id="ec-more-toggle-content" style="padding: 0; display: none;">
-                                    <ul>
-                                        <li>
-                                            <div class="ec-sidebar-block-item">
-                                                <input type="checkbox" /> <a href="#">Watch</a><span
-                                                    class="checked"></span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="ec-sidebar-block-item">
-                                                <input type="checkbox" /> <a href="#">Cap</a><span
-                                                    class="checked"></span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <div class="ec-sidebar-block-item ec-more-toggle">
-                                        <span class="checked"></span><span id="ec-more-toggle">More
-                                            Categories</span>
-                                    </div>
-                                </li>
 
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Sidebar Category Block -->
-                </div>
-            </div>
+
         </div>
     </div>
 </section>

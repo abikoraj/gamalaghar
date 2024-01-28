@@ -20,9 +20,7 @@
                                         class="dark-logo" src="{{ url('assets/img/logo-white.png') }}" alt="Site Logo"
                                         style="display: none;" /></a>
                             </div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley</p>
+                            <p>Plant boost moods, increase creativity, reduce stress, and eliminate air pollutants—making for a healthier, happier you. Indoor plants don’t just look good—they can make us feel good, too.</p>
                         </div>
                     </div>
                     <div class="col-sm-12 col-lg-2 ec-footer-cat">
