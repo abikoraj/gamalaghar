@@ -82,7 +82,7 @@
                                 <div class="col-md-12 align-self-center">
                                     <div class="ec-main-menu">
                                         <ul>
-                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="{{ url('/') }}">Home</a></li>
                                             <li class="dropdown"><a href="javascript:void(0)">Plants</a>
                                                 <ul class="sub-menu">
                                                     <li><a href="shop-left-sidebar-.html">Indoor Plants</a>

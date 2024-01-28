@@ -9,7 +9,7 @@
                             <img src="{{ url('assets/img/vegetable.png') }}" class="svg_img" alt="drink" />
                         </div>
                         <div class="ec-category-desc">
-                            <span>Vegetables & Fruits</span>
+                            <span>Indoor Plants</span>
                         </div>
                     </div>
                 </div>
@@ -19,7 +19,7 @@
                             <img src="{{ url('assets/img/groceries.png') }}" class="svg_img" alt="drink" />
                         </div>
                         <div class="ec-category-desc">
-                            <span>Grocery & Staples</span>
+                            <span>Outdoor Plants</span>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                             <img src="{{ url('assets/img/dairy-products.png') }}" class="svg_img" alt="drink" />
                         </div>
                         <div class="ec-category-desc">
-                            <p>Dairy & Eggs</p>
+                            <p>Chinese Pot</p>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                             <img src="{{ url('assets/img/beverage.png') }}" class="svg_img" alt="drink" />
                         </div>
                         <div class="ec-category-desc">
-                            <p>Beverage</p>
+                            <p>Indian Pot</p>
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                             <img src="{{ url('assets/img/salad.png') }}" class="svg_img" alt="drink" />
                         </div>
                         <div class="ec-category-desc">
-                            <p>Salad</p>
+                            <p>Soil & Fertilizers</p>
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                             <img src="{{ url('assets/img/cake.png') }}" class="svg_img" alt="drink" />
                         </div>
                         <div class="ec-category-desc">
-                            <p>Bakery</p>
+                            <p>Garden Decor</p>
                         </div>
                     </div>
                 </div>
