@@ -52,3 +52,7 @@ Route::get('/contact_us', function () {
 Route::get('/cart', function () {
     return view('user.user_cart');
 });
+
+Route::get('/hot-offer', function () {
+    return view('hot_offer');
+});

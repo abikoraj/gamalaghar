@@ -115,7 +115,7 @@
                                                     <li><a href="elemets-blog.html">Blogs</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="offer.html">Hot Offers</a></li>
+                                            <li><a href="{{ url('/hot-offer') }}">Hot Offers</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -434,7 +434,7 @@
                             <li><a href="elemets-blog.html">Blogs</a></li>
                         </ul>
                     </li>
-                    <li><a href="offer.html">Hot Offers</a></li>
+                    <li><a href="{{ url('/hot-offer') }}">Hot Offers</a></li>
                 </ul>
             </div>
             <div class="header-res-lan-curr">
