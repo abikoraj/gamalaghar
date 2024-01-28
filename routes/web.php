@@ -48,3 +48,7 @@ Route::get('/profile', function () {
 Route::get('/contact_us', function () {
     return view('contact_us');
 });
+
+Route::get('/cart', function () {
+    return view('user.user_cart');
+});
