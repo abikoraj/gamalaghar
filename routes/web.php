@@ -40,3 +40,7 @@ Route::get('/blog', function () {
 Route::get('/blog/details', function () {
     return view('blog.blog_details');
 });
+
+Route::get('/profile', function () {
+    return view('user.profile');
+});
