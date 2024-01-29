@@ -20,8 +20,8 @@
                                             <a href="product-left-sidebar.html" class="image">
                                                 <img class="main-image" src="{{ url('assets/img/7_1.jpg') }}"
                                                     alt="Product" />
-                                                <img class="hover-image" src="{{ url('assets/img/7_2.jpg') }}"
-                                                    alt="Product" />
+                                                {{-- <img class="hover-image" src="{{ url('assets/img/7_2.jpg') }}"
+                                                    alt="Product" /> --}}
                                             </a>
                                             <span class="ec-com-remove ec-remove-wish"><a
                                                     href="javascript:void(0)">×</a></span>
@@ -30,8 +30,8 @@
                                                 title="Quick view" data-bs-toggle="modal"
                                                 data-bs-target="#ec_quickview_modal"><i class="fi-rr-eye"></i></a>
                                             <div class="ec-pro-actions">
-                                                <a href="compare.html" class="ec-btn-group compare"
-                                                    title="Compare"><i class="fi fi-rr-arrows-repeat"></i></a>
+                                                <a href="compare.html" class="ec-btn-group compare" title="Compare"><i
+                                                        class="fi fi-rr-arrows-repeat"></i></a>
                                                 <button title="Add To Cart" class="add-to-cart"><i
                                                         class="fi-rr-shopping-basket"></i> Add To Cart</button>
                                                 <a class="ec-btn-group wishlist" title="Wishlist"><i
@@ -95,8 +95,8 @@
                                             <a href="product-left-sidebar.html" class="image">
                                                 <img class="main-image" src="{{ url('assets/img/1_1.jpg') }}"
                                                     alt="Product" />
-                                                <img class="hover-image" src="{{ url('assets/img/1_2.jpg') }}"
-                                                    alt="Product" />
+                                                {{-- <img class="hover-image" src="{{ url('assets/img/1_2.jpg') }}"
+                                                    alt="Product" /> --}}
                                             </a>
                                             <span class="ec-com-remove ec-remove-wish"><a
                                                     href="javascript:void(0)">×</a></span>
@@ -178,8 +178,8 @@
                                             <a href="product-left-sidebar.html" class="image">
                                                 <img class="main-image" src="{{ url('assets/img/2_1.jpg') }}"
                                                     alt="Product" />
-                                                <img class="hover-image" src="{{ url('assets/img/2_2.jpg') }}"
-                                                    alt="Product" />
+                                                {{-- <img class="hover-image" src="{{ url('assets/img/2_2.jpg') }}"
+                                                    alt="Product" /> --}}
                                             </a>
                                             <span class="ec-com-remove ec-remove-wish"><a
                                                     href="javascript:void(0)">×</a></span>
@@ -236,8 +236,8 @@
                                             <a href="product-left-sidebar.html" class="image">
                                                 <img class="main-image" src="{{ url('assets/img/8_1.jpg') }}"
                                                     alt="Product" />
-                                                <img class="hover-image" src="{{ url('assets/img/8_2.jpg') }}"
-                                                    alt="Product" />
+                                                {{-- <img class="hover-image" src="{{ url('assets/img/8_2.jpg') }}"
+                                                    alt="Product" /> --}}
                                             </a>
                                             <span class="ec-com-remove ec-remove-wish"><a
                                                     href="javascript:void(0)">×</a></span>
@@ -280,12 +280,14 @@
                                                             data-src="{{ url('assets/img/8_1.jpg') }}"
                                                             data-src-hover="{{ url('assets/img/8_1.jpg') }}"
                                                             data-tooltip="Gray"><span
-                                                                style="background-color:#e2e2e2;"></span></a></li>
+                                                                style="background-color:#e2e2e2;"></span></a>
+                                                    </li>
                                                     <li><a href="#" class="ec-opt-clr-img"
                                                             data-src="{{ url('assets/img/8_2.jpg') }}"
                                                             data-src-hover="{{ url('assets/img/8_2.jpg') }}"
                                                             data-tooltip="Orange"><span
-                                                                style="background-color:#ffcef7;"></span></a></li>
+                                                                style="background-color:#ffcef7;"></span></a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                             <div class="ec-pro-size">
@@ -399,7 +401,8 @@
                                                     data-tooltip="Small">S</a></li>
                                             <li><a href="#" class="ec-opt-sz" data-tooltip="Medium">M</a></li>
                                             <li><a href="#" class="ec-opt-sz" data-tooltip="Large">X</a></li>
-                                            <li><a href="#" class="ec-opt-sz" data-tooltip="Extra Large">XL</a></li>
+                                            <li><a href="#" class="ec-opt-sz" data-tooltip="Extra Large">XL</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>

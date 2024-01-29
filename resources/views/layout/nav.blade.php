@@ -132,7 +132,7 @@
                                 <button class="dropdown-toggle button" data-bs-toggle="dropdown"><span>Login/Sign
                                         up</span><i class="fi fi-rr-angle-small-down"></i></button>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a class="dropdown-item" href="{{ url('/customer/register') }}">Register</a>
+                                    <li><a class="dropdown-item" href="{{ url('register') }}">Register</a>
                                     </li>
                                     <li><a class="dropdown-item" href="checkout.html">Setting</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/login') }}">Login</a></li>

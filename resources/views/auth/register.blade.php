@@ -18,14 +18,11 @@
             <div class="ec-register-wrapper">
                 <div class="ec-register-container">
                     <div class="ec-register-form">
-                        <form action="#" method="post">
-                            <span class="ec-register-wrap ec-register-half">
-                                <label>First Name*</label>
-                                <input type="text" name="firstname" placeholder="Enter your first name" required />
-                            </span>
-                            <span class="ec-register-wrap ec-register-half">
-                                <label>Last Name*</label>
-                                <input type="text" name="lastname" placeholder="Enter your last name" required />
+                        <form action="{{ url('register') }}" method="post">
+                            @csrf
+                            <span class="ec-register-wrap">
+                                <label>Full Name*</label>
+                                <input type="text" name="fullname" placeholder="Enter your last name" required />
                             </span>
                             <span class="ec-register-wrap ec-register-half">
                                 <label>Email*</label>
@@ -33,20 +30,22 @@
                             </span>
                             <span class="ec-register-wrap ec-register-half">
                                 <label>Phone Number*</label>
-                                <input type="text" name="phonenumber" placeholder="Enter your phone number"
-                                    required />
-                            </span>
-                            <span class="ec-register-wrap">
-                                <label>Address</label>
-                                <input type="text" name="address" placeholder="Address Line 1" />
+                                <input type="text" name="phone" placeholder="Enter your phone number" required />
                             </span>
                             <span class="ec-register-wrap ec-register-half">
                                 <label>Password*</label>
-                                <input type="password" name="phonenumber" placeholder="Enter your password" required />
+                                <input type="password" name="password" placeholder="Enter your password" required />
+                                @error('password')
+                                    {{ $message }}
+                                @enderror
                             </span>
                             <span class="ec-register-wrap ec-register-half">
                                 <label>Confirm Password*</label>
-                                <input type="text" name="phonenumber" placeholder="Confirm Your Password" required />
+                                <input type="password" name="confirm_password" placeholder="Confirm Your Password"
+                                    required />
+                                @error('confirm_password')
+                                    {{ $message }}
+                                @enderror
                             </span>
                             <span class="ec-register-wrap ec-recaptcha">
                                 <span class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S"
