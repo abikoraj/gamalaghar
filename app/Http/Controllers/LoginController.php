@@ -24,4 +24,9 @@ class LoginController extends Controller
             return back()->with('error', $e->getMessage());
         }
     }
+
+    public function logout(){
+        session()->flush();
+        return redirect('/')->with('success', 'You have logout successfully!');
+    }
 }

@@ -129,14 +129,29 @@
                         <div class="ec-header-bottons">
                             <!-- Header User Start -->
                             <div class="ec-header-user dropdown">
-                                <button class="dropdown-toggle button" data-bs-toggle="dropdown"><span>Login/Sign
-                                        up</span><i class="fi fi-rr-angle-small-down"></i></button>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a class="dropdown-item" href="{{ url('register') }}">Register</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="checkout.html">Setting</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/login') }}">Login</a></li>
-                                </ul>
+                                @auth
+                                    <button class="dropdown-toggle button" data-bs-toggle="dropdown"><span>My
+                                            Account</span><i class="fi fi-rr-angle-small-down"></i></button>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a class="dropdown-item" href="">My Account</a>
+                                        </li>
+                                        <li>
+                                            <form action="{{ url('logout') }}" method="POST">
+                                                @csrf
+                                                <button class="dropdown-item">Logout</button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                @else
+                                    <button class="dropdown-toggle button" data-bs-toggle="dropdown"><span>Login/Sign
+                                            up</span><i class="fi fi-rr-angle-small-down"></i></button>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a class="dropdown-item" href="{{ url('register') }}">Register</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{{ url('/login') }}">Login</a></li>
+                                    </ul>
+                                @endauth
+
                             </div>
                             <!-- Header User End -->
                         </div>

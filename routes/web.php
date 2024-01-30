@@ -20,12 +20,14 @@ Route::get('register', [UserController::class, 'index']);
 Route::post('register', [UserController::class, 'store']);
 
 Route::post('login',[LoginController::class, 'login']);
+Route::post('logout',[LoginController::class, 'logout']);
 
-Route::get('/login', function () {
+
+Route::get('login', function () {
     return view('auth.login');
 });
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('home.home');
 });
 
