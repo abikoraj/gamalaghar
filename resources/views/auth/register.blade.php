@@ -22,19 +22,31 @@
                             @csrf
                             <span class="ec-register-wrap">
                                 <label>Full Name*</label>
-                                <input type="text" name="fullname" placeholder="Enter your last name" required />
+                                <input type="text" name="fullname" placeholder="Enter your last name" />
+                                @error('fullname')
+                                <p class="text-danger">{{$message}}</p>
+                                    
+                                @enderror
                             </span>
                             <span class="ec-register-wrap ec-register-half">
                                 <label>Email*</label>
-                                <input type="email" name="email" placeholder="Enter your email address" required />
+                                <input type="email" name="email" placeholder="Enter your email address" />
+                                 @error('email')
+                                <p class="text-danger">{{$message}}</p>
+                                    
+                                @enderror
                             </span>
                             <span class="ec-register-wrap ec-register-half">
                                 <label>Phone Number*</label>
-                                <input type="text" name="phone" placeholder="Enter your phone number" required />
+                                <input type="text" name="phone" placeholder="Enter your phone number" />
+                                 @error('phone')
+                                <p class="text-danger">{{$message}}</p>
+                                    
+                                @enderror
                             </span>
                             <span class="ec-register-wrap ec-register-half">
                                 <label>Password*</label>
-                                <input type="password" name="password" placeholder="Enter your password" required />
+                                <input type="password" name="password" placeholder="Enter your password" />
                                 @error('password')
                                     {{ $message }}
                                 @enderror
@@ -42,7 +54,7 @@
                             <span class="ec-register-wrap ec-register-half">
                                 <label>Confirm Password*</label>
                                 <input type="password" name="confirm_password" placeholder="Confirm Your Password"
-                                    required />
+                                     />
                                 @error('confirm_password')
                                     {{ $message }}
                                 @enderror
@@ -51,7 +63,7 @@
                                 <span class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S"
                                     data-callback="verifyRecaptchaCallback"
                                     data-expired-callback="expiredRecaptchaCallback"></span>
-                                <input class="form-control d-none" data-recaptcha="true" required
+                                <input class="form-control d-none" data-recaptcha="true" 
                                     data-error="Please complete the Captcha">
                                 <span class="help-block with-errors"></span>
                             </span>
