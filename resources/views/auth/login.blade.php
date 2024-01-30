@@ -16,21 +16,28 @@
             <div class="ec-login-wrapper">
                 <div class="ec-login-container">
                     <div class="ec-login-form">
-                        <form action="#" method="post">
+                        <form action="{{ url('login') }}" method="post">
+                            @csrf
                             <span class="ec-login-wrap">
                                 <label>Email Address*</label>
-                                <input type="text" name="name" placeholder="Enter your email add..." required />
+                                <input type="text" name="email" placeholder="Enter your email add..." required />
+                                @error('email')
+                                    <p class="text-danger">{{ $message }}</p>
+                                @enderror
                             </span>
                             <span class="ec-login-wrap">
                                 <label>Password*</label>
                                 <input type="password" name="password" placeholder="Enter your password" required />
+                                @error('password')
+                                    <p class="text-danger">{{ $message }}</p>
+                                @enderror
                             </span>
                             <span class="ec-login-wrap ec-login-fp">
                                 <label><a href="#">Forgot Password?</a></label>
                             </span>
                             <span class="ec-login-wrap ec-login-btn">
                                 <button class="btn btn-primary" type="submit">Login</button>
-                                <a href="{{ url('/customer/register') }}" class="btn btn-secondary">Register</a>
+                                <a href="{{ url('register') }}" class="btn btn-secondary">Register</a>
                             </span>
                         </form>
                     </div>
