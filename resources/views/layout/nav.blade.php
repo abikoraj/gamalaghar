@@ -171,10 +171,11 @@
                                 class="fi fi-rr-menu-burger"></i><span>Shop By Catagories</span><i
                                 class="fi fi-rr-angle-small-down"></i></button>
                         <ul class="sub-menu">
-                            <li class="active"><a class="dropdown-item" href="#">Plants</a></li>
-                            <li><a class="dropdown-item" href="#">Pots</a></li>
-                            <li><a class="dropdown-item" href="#">Soil &amp; Fertilizer</a></li>
-                            <li><a class="dropdown-item" href="#">Garden Decor</a></li>
+                            @forelse ($mainCategory as $data)
+                            <li><a class="dropdown-item" href="#">{{ $data->main_category }}</a></li>
+                            @empty
+
+                            @endforelse
                         </ul>
                     </div>
                     <!-- Header cat End -->
