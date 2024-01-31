@@ -83,24 +83,23 @@
                                     <div class="ec-main-menu">
                                         <ul>
                                             <li><a href="{{ url('/') }}">Home</a></li>
-                                            <li class="dropdown"><a href="javascript:void(0)">Plants</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="shop-left-sidebar-.html">Indoor Plants</a>
-                                                    </li>
-                                                    <li><a href="shop-left-sidebar-col-4.html">Outdoor Plants</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown"><a href="javascript:void(0)">Pots</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="shop-left-sidebar-.html">Chinese Post</a></li>
-                                                    <li><a href="shop-left-sidebar-col-4.html">Indian Post</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown"><a href="javascript:void(0)">Soil &amp; Fertilizers</a>
-                                            </li>
-                                            <li class="dropdown"><a href="javascript:void(0)">Garden Decor</a>
-                                            </li>
+                                            @forelse ($mainCategory as $data)
+                                                <li class="dropdown"><a
+                                                        href="javascript:void(0)">{{ $data->main_category }}</a>
+                                                    @if ($data->subcategories->isNotEmpty())
+                                                        <ul class="sub-menu">
+                                                            @foreach ($data->subcategories as $subCategory)
+                                                                <li><a
+                                                                        href="shop-left-sidebar-.html">{{ $subCategory->sub_category }}</a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    @endif
+                                                </li>
+                                            @empty
+
+                                            @endforelse
+
                                             <li class="dropdown"><a href="{{ url('/blog') }}">Blog</a>
                                             </li>
                                             <li class="dropdown"><a href="javascript:void(0)">Elements</a>
