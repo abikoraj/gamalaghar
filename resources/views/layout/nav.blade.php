@@ -97,7 +97,6 @@
                                                     @endif
                                                 </li>
                                             @empty
-
                                             @endforelse
 
                                             <li class="dropdown"><a href="{{ url('/blog') }}">Blog</a>
@@ -172,9 +171,8 @@
                                 class="fi fi-rr-angle-small-down"></i></button>
                         <ul class="sub-menu">
                             @forelse ($mainCategory as $data)
-                            <li><a class="dropdown-item" href="#">{{ $data->main_category }}</a></li>
+                                <li><a class="dropdown-item" href="#">{{ $data->main_category }}</a></li>
                             @empty
-
                             @endforelse
                         </ul>
                     </div>
