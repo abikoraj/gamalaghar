@@ -90,7 +90,7 @@
                                                         <ul class="sub-menu">
                                                             @foreach ($data->subcategories as $subCategory)
                                                                 <li><a
-                                                                        href="shop-left-sidebar-.html">{{ $subCategory->sub_category }}</a>
+                                                                        href="{{ url('product/'. $subCategory->slug) }}">{{ $subCategory->sub_category }}</a>
                                                                 </li>
                                                             @endforeach
                                                         </ul>

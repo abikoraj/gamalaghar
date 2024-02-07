@@ -3,12 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\MainCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
+
+    public function index(){
+        $mainCategory = MainCategory::with('subcategories')->get();
+        return view('auth.login',compact('mainCategory'));
+    }
+
     public function login(LoginRequest $request)
     {
         $confidential = $request->only('email', 'password');

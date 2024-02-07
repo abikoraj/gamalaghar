@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Models\MainCategory;
 use Illuminate\Support\Facades\Route;
@@ -21,23 +22,24 @@ use Illuminate\Support\Facades\Route;
 Route::get('register', [UserController::class, 'index']);
 Route::post('register', [UserController::class, 'store']);
 
-Route::post('login',[LoginController::class, 'login']);
-Route::post('logout',[LoginController::class, 'logout']);
 
-Route::get('/',[HomeController::class, 'index']);
+Route::get('login', [LoginController::class, 'index']);
+Route::post('login', [LoginController::class, 'login']);
+Route::post('logout', [LoginController::class, 'logout']);
 
+Route::get('/', [HomeController::class, 'index']);
 
-Route::get('login', function () {
-    $mainCategory = MainCategory::with('subcategories')->get();
-    return view('auth.login',compact('mainCategory'));
-});
-
-
+Route::get('product/{slug}', [ProductController::class, 'showProduct']);
 
 Route::get('/wishlist', function () {
     return view('wishlist.wishlist');
 });
 
+
+Route::get('/product-show', function () {
+    $mainCategory = MainCategory::with('subcategories')->get();
+    return view('shop.product', compact('mainCategory'));
+});
 
 
 Route::get('/singleproduct', function () {
