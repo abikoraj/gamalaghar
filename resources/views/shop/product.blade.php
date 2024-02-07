@@ -44,20 +44,9 @@
                                                         alt="Product" />
                                                 </a>
                                                 <span class="percentage">20%</span>
-                                                <a href="#" class="quickview" data-link-action="quickview"
-                                                    title="Quick view" data-bs-toggle="modal"
-                                                    data-bs-target="#ec_quickview_modal"><i class="fi-rr-eye"></i></a>
-                                                <div class="ec-pro-actions">
-                                                    <a href="compare.html" class="ec-btn-group compare"
-                                                        title="Compare"><i class="fi fi-rr-arrows-repeat"></i></a>
-                                                    <button title="Add To Cart" class="add-to-cart"><i
-                                                            class="fi-rr-shopping-basket"></i> Add To Cart</button>
-                                                    <a class="ec-btn-group wishlist" title="Wishlist"><i
-                                                            class="fi-rr-heart"></i></a>
-                                                </div>
                                             </div>
                                         </div>
-                                        <div class="ec-pro-content">
+                                        <div class="ec-pro-content mx-4">
                                             <h5 class="ec-pro-title"><a
                                                     href="product-left-sidebar.html">{{ $productData->product_name }}</a>
                                             </h5>
@@ -77,23 +66,6 @@
                                                 <span class="old-price">$27.00</span>
                                                 <span class="new-price">$22.00</span>
                                             </span>
-                                            <div class="ec-pro-option">
-                                                <div class="ec-pro-size">
-                                                    <span class="ec-pro-opt-label">Size</span>
-                                                    <ul class="ec-opt-size">
-                                                        <li class="active"><a href="#" class="ec-opt-sz"
-                                                                data-old="$25.00" data-new="$20.00"
-                                                                data-tooltip="Small">S</a></li>
-                                                        <li><a href="#" class="ec-opt-sz" data-old="$27.00"
-                                                                data-new="$22.00" data-tooltip="Medium">M</a></li>
-                                                        <li><a href="#" class="ec-opt-sz" data-old="$30.00"
-                                                                data-new="$25.00" data-tooltip="Large">X</a></li>
-                                                        <li><a href="#" class="ec-opt-sz" data-old="$35.00"
-                                                                data-new="$30.00" data-tooltip="Extra Large">XL</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -124,47 +96,6 @@
                         <h1>Filter Products By</h1>
                     </div>
                     <div class="ec-sidebar-wrap">
-
-                        <!-- Sidebar Size Block -->
-                        <div class="ec-sidebar-block">
-                            <div class="ec-sb-title">
-                                <h3 class="ec-sidebar-title">Size</h3>
-                            </div>
-                            <div class="ec-sb-block-content">
-                                <ul>
-                                    <li>
-                                        <div class="ec-sidebar-block-item">
-                                            <input type="checkbox" value="" checked /><a
-                                                href="#">S</a><span class="checked"></span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="ec-sidebar-block-item">
-                                            <input type="checkbox" value="" /><a href="#">M</a><span
-                                                class="checked"></span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="ec-sidebar-block-item">
-                                            <input type="checkbox" value="" /> <a href="#">L</a><span
-                                                class="checked"></span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="ec-sidebar-block-item">
-                                            <input type="checkbox" value="" /><a href="#">XL</a><span
-                                                class="checked"></span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="ec-sidebar-block-item">
-                                            <input type="checkbox" value="" /><a href="#">XXL</a><span
-                                                class="checked"></span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
                         <!-- Sidebar Price Block -->
                         <div class="ec-sidebar-block">
                             <div class="ec-sb-title">
@@ -172,8 +103,8 @@
                             </div>
                             <div class="ec-sb-block-content es-price-slider">
                                 <div class="ec-price-filter">
-                                    <div id="ec-sliderPrice" class="filter__slider-price" data-min="0"
-                                        data-max="250" data-step="10"></div>
+                                    <div id="ec-sliderPrice" class="filter__slider-price" data-min="0" data-max="250"
+                                        data-step="10"></div>
                                     <div class="ec-price-input">
                                         <label class="filter__label"><input type="text"
                                                 class="filter__input"></label>
