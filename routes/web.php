@@ -29,7 +29,8 @@ Route::post('logout', [LoginController::class, 'logout']);
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('product/{slug}', [ProductController::class, 'showProduct']);
+Route::get('products/{slug}', [ProductController::class, 'showProduct']);
+Route::get('product/{slug}', [ProductController::class, 'showSingleProduct']);
 
 Route::get('/wishlist', function () {
     return view('wishlist.wishlist');

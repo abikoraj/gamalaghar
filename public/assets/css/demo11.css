@@ -20067,12 +20067,12 @@ section.ec-instagram-section {
 .ec-product-inner .ec-pro-content .ec-pro-title {
     padding: 0 20px;
     font-size: 18px;
-    color: #333;
+    color: #692c91;
     line-height: 27px;
 }
 .ec-product-inner .ec-pro-content .ec-pro-title a {
     text-decoration: none;
-    color: #333;
+    color: #692c91;
     display: block;
     font-size: 18px;
     line-height: 20px;
@@ -20113,8 +20113,8 @@ section.ec-instagram-section {
 .ec-product-inner .ec-pro-content .ec-pro-rating {
     opacity: 0.7;
     position: relative;
-    margin-left: auto;
 }
+
 .ec-product-inner .ec-pro-content .ec-pro-rating .qty {
     position: absolute;
     bottom: 0;
@@ -20122,6 +20122,7 @@ section.ec-instagram-section {
     color: #777;
     font-size: 13px;
 }
+
 .ec-product-inner .ec-pro-image.pro-loading:before {
     position: absolute;
     z-index: 1;

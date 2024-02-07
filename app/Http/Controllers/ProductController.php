@@ -18,4 +18,9 @@ class ProductController extends Controller
         $product = Product::where('sub_category_id', $subCategory->id)->get();
         return view('shop.product', compact('mainCategory', 'subCategory', 'product'));
     }
+
+    public function showSingleProduct(){
+        $mainCategory = MainCategory::with('subcategories')->get();
+        return view('shop.single_product', compact('mainCategory'));
+    }
 }

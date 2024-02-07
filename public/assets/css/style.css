@@ -18324,11 +18324,11 @@ button.btn-close.qty_close {
     background-color: #ffffff;
     letter-spacing: 0.6px;
 }
-.ec-product-inner .ec-pro-content .ec-pro-title {
+.ec-product-inner .ec-pro-content .ec-pro-title .ec-price{
     font-size: 20px;
     margin: 0 0 7px;
 }
-.ec-product-inner .ec-pro-content .ec-pro-title a {
+.ec-product-inner .ec-pro-content .ec-pro-title .ec-price a {
     text-decoration: none;
     color: #692c91;
     white-space: nowrap;
@@ -18360,7 +18360,7 @@ button.btn-close.qty_close {
     margin-bottom: 5px;
 }
 .ec-product-inner .ec-pro-content .ec-price span.new-price {
-    color: #555;
+    color: #692c91;
     font-weight: 700;
     font-size: 15px;
     font-family: "Montserrat";
@@ -18379,6 +18379,7 @@ button.btn-close.qty_close {
 .ec-product-inner .ec-pro-content .ec-pro-rating {
     margin-bottom: 5px;
 }
+
 .ec-product-inner .ec-pro-content .ec-pro-rating i {
     opacity: 0.7;
 }
@@ -21396,9 +21397,10 @@ h4.ec-faq-title::after {
     .ec-sb-pro-sl-item
     .ec-pro-content
     .ec-pro-title
+    .ec-price
     a {
     text-decoration: none;
-    color: #444444;
+    color: #692c91;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

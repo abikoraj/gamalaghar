@@ -37,32 +37,30 @@
                             @forelse ($product as $productData)
                                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
                                     <div class="ec-product-inner">
-                                        <div class="ec-pro-image-outer">
-                                            <div class="ec-pro-image">
-                                                <a href="product-left-sidebar.html" class="image">
-                                                    <img class="main-image" src="{{ url('assets/img/8_1.jpg') }}"
-                                                        alt="Product" />
-                                                </a>
-                                                <span class="percentage">20%</span>
-                                            </div>
+                                        <div class="ec-pro-image">
+                                            <a href="{{ url('product/' . $productData->slug) }}" class="image">
+                                                <img class="main-image" src="{{ url('assets/img/8_1.jpg') }}"
+                                                    alt="Product" />
+                                            </a>
+                                            <span class="percentage">20%</span>
                                         </div>
-                                        <div class="ec-pro-content mx-4">
-                                            <h5 class="ec-pro-title"><a
-                                                    href="product-left-sidebar.html">{{ $productData->product_name }}</a>
-                                            </h5>
-                                            <div class="ec-pro-rating">
+                                        <div class="ec-pro-content">
+                                            <div class="ec-pro-title"><a
+                                                    href="{{ url('product/' . $productData->slug) }}">{{ $productData->product_name }}</a>
+                                            </div>
+                                            <div class="ec-pro-rating px-3">
                                                 <i class="ecicon eci-star fill"></i>
                                                 <i class="ecicon eci-star fill"></i>
                                                 <i class="ecicon eci-star fill"></i>
                                                 <i class="ecicon eci-star fill"></i>
                                                 <i class="ecicon eci-star"></i>
                                             </div>
-                                            <div class="ec-pro-list-desc">Lorem Ipsum is simply dummy text of the
+                                            <div class="ec-pro-list-desc px-3">Lorem Ipsum is simply dummy text of the
                                                 printing
                                                 and typesetting industry. Lorem Ipsum is simply dutmmy text ever
                                                 since the
                                                 1500s, when an unknown printer took a galley.</div>
-                                            <span class="ec-price">
+                                            <span class="ec-price px-3">
                                                 <span class="old-price">$27.00</span>
                                                 <span class="new-price">$22.00</span>
                                             </span>
