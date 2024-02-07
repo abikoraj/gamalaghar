@@ -18324,7 +18324,7 @@ button.btn-close.qty_close {
     background-color: #ffffff;
     letter-spacing: 0.6px;
 }
-.ec-product-inner .ec-pro-content .ec-pro-title .ec-price{
+.ec-product-inner .ec-pro-content .ec-pro-title .ec-price {
     font-size: 20px;
     margin: 0 0 7px;
 }
@@ -20160,7 +20160,7 @@ select::-ms-expand {
     margin-bottom: 15px;
     position: relative;
     display: block;
-    color: #555;
+    color: #692c91;
     font-family: "Montserrat";
 }
 .ec-sidebar-wrap .h3 {
@@ -20406,7 +20406,7 @@ select::-ms-expand {
 
 .ec-sidebar-heading h1 {
     text-decoration: none;
-    color: #777;
+    color: #692c91;
     display: block;
     font-size: 16px;
     font-family: "Montserrat";
@@ -20415,7 +20415,7 @@ select::-ms-expand {
     background: #f7f7f7;
     padding: 14px 15px 14px;
     letter-spacing: 0.2px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     border: 1px solid #eeeeee;
 }
 
@@ -20449,11 +20449,11 @@ select::-ms-expand {
 }
 
 .noUi-connect {
-    background: #444444;
+    background: #692c91;
 }
 
 .noUi-base {
-    background: #777777;
+    background: #444444;
 }
 
 .noUi-handle.noUi-handle-upper {
@@ -20505,7 +20505,7 @@ select::-ms-expand {
     align-items: baseline;
     margin-bottom: 0;
     font-size: 16px;
-    color: #777;
+    color: #692c91;
 }
 .filter__label:before {
     color: #777;
@@ -24280,7 +24280,7 @@ i.ecicon.eci-star-o {
 
 /*-----  Sidebar Page CSS  ------*/
 .ec-sidebar-wrap .ec-sidebar-block {
-    padding: 15px;
+    padding: 10px;
 }
 .ec-sidebar-wrap .ec-sidebar-block .ec-checkout-pro {
     margin-top: 34px;

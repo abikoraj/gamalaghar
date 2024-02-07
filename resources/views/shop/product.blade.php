@@ -2,9 +2,34 @@
 @include('layout.nav')
 @include('breadcrumb')
 <!-- Ec Shop page -->
-<section class="ec-page-content section-space-p">
+<section class="ec-page-content ">
     <div class="container">
         <div class="row">
+            <!-- Sidebar Area Start -->
+            <div class="ec-shop-leftside col-lg-3 order-lg-first col-md-12 order-md-last">
+                <div class="ec-sidebar-wrap">
+                    <div class="ec-sidebar-heading">
+                        <h1>Filter Products By</h1>
+                    </div>
+                    <!-- Sidebar Price Block -->
+                    <div class="ec-sidebar-block">
+                        <div class="ec-sb-title">
+                            <h3 class="ec-sidebar-title">Price</h3>
+                        </div>
+                        <div class="ec-sb-block-content es-price-slider">
+                            <div class="ec-price-filter">
+                                <div id="ec-sliderPrice" class="filter__slider-price" data-min="0" data-max="250"
+                                    data-step="10"></div>
+                                <div class="ec-price-input">
+                                    <label class="filter__label"><input type="text" class="filter__input"></label>
+                                    <span class="ec-price-divider"></span>
+                                    <label class="filter__label"><input type="text" class="filter__input"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="ec-shop-rightside col-lg-9 order-lg-last col-md-12 order-md-first margin-b-30">
                 <!-- Shop Top Start -->
                 <div class="ec-pro-list-top d-flex">
@@ -70,54 +95,26 @@
                             @empty
                             @endforelse
                         </div>
-                    </div>
-                    <!-- Ec Pagination Start -->
-                    <div class="ec-pro-pagination">
-                        <span>Showing 1-12 of 21 item(s)</span>
-                        <ul class="ec-pro-pagination-inner">
-                            <li><a class="active" href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a class="next" href="#">Next <i class="ecicon eci-angle-right"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- Ec Pagination End -->
-                </div>
-                <!--Shop content End -->
-            </div>
-            <!-- Sidebar Area Start -->
-            <div class="ec-shop-leftside col-lg-3 order-lg-first col-md-12 order-md-last">
-                <div id="shop_sidebar">
-                    <div class="ec-sidebar-heading">
-                        <h1>Filter Products By</h1>
-                    </div>
-                    <div class="ec-sidebar-wrap">
-                        <!-- Sidebar Price Block -->
-                        <div class="ec-sidebar-block">
-                            <div class="ec-sb-title">
-                                <h3 class="ec-sidebar-title">Price</h3>
+                        <div>
+                            <!-- Ec Pagination Start -->
+                            <div class="ec-pro-pagination">
+                                <span>Showing 1-12 of 21 item(s)</span>
+                                <ul class="ec-pro-pagination-inner">
+                                    <li><a class="active" href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a class="next" href="#">Next <i class="ecicon eci-angle-right"></i></a>
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="ec-sb-block-content es-price-slider">
-                                <div class="ec-price-filter">
-                                    <div id="ec-sliderPrice" class="filter__slider-price" data-min="0" data-max="250"
-                                        data-step="10"></div>
-                                    <div class="ec-price-input">
-                                        <label class="filter__label"><input type="text"
-                                                class="filter__input"></label>
-                                        <span class="ec-price-divider"></span>
-                                        <label class="filter__label"><input type="text"
-                                                class="filter__input"></label>
-                                    </div>
-                                </div>
-                            </div>
+                            <!-- Ec Pagination End -->
                         </div>
+                        <!--Shop content End -->
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 </section>
 <!-- End Shop page -->
 
