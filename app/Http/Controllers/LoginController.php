@@ -11,9 +11,10 @@ use Illuminate\Support\Facades\Session;
 class LoginController extends Controller
 {
 
-    public function index(){
+    public function index()
+    {
         $mainCategory = MainCategory::with('subcategories')->get();
-        return view('auth.login',compact('mainCategory'));
+        return view('auth.login', compact('mainCategory'));
     }
 
     public function login(LoginRequest $request)
@@ -23,7 +24,7 @@ class LoginController extends Controller
             if (Auth::attempt($confidential)) {
                 $user = Auth()->user();
                 Session::put('user_id', $user->id);
-                return redirect('/home')->with('success', 'Welcome ' . $user->name);
+                return redirect('/')->with('success', 'Welcome ' . $user->name);
             } else {
                 return back()->with('error', 'Incorrect email or password!');
             }
@@ -32,7 +33,8 @@ class LoginController extends Controller
         }
     }
 
-    public function logout(){
+    public function logout()
+    {
         session()->flush();
         return redirect('/')->with('success', 'You have logout successfully!');
     }
