@@ -35,29 +35,24 @@
                                         </div>
                                     </div>
                                     <div class="ec-single-desc">{{ strip_tags($product->short_description) }}</div>
-
-
                                     <div class="ec-single-price-stoke">
                                         <div class="ec-single-price">
                                             <span class="ec-single-ps-title">As low as</span>
-                                            @foreach ($product->productsizeprice as $productSizePrice)
-                                                <span class="new-price"> Rs. {{ $productSizePrice->price }}</span>
-                                            @endforeach
-
+                                            <span class="new-price" id="product-new-price">
+                                                Rs.{{ $product->productsizeprice->first()->price }}</span>
                                         </div>
                                         <div class="ec-single-stoke">
-                                            <span class="ec-single-ps-title">IN STOCK</span>
+                                            <span id="product-stock-status" class="ec-single-ps-title">IN STOCK</span>
                                             <span class="ec-single-sku">SKU#: WH12</span>
                                         </div>
                                     </div>
-
                                     <div class="ec-pro-variation">
                                         <div class="ec-pro-variation-inner ec-pro-variation-size">
                                             <span>SIZE</span>
                                             <div class="ec-pro-variation-content">
                                                 <ul>
-                                                    @foreach ($size as $key => $sizeData)
-                                                        <li class="{{ $key == 0 ? 'active' : '' }}">
+                                                    @foreach ($size as $sizeData)
+                                                        <li data-size-id="{{ $sizeData->id }}">
                                                             <span>{{ $sizeData->size }}</span>
                                                         </li>
                                                     @endforeach
@@ -400,3 +395,29 @@
 
 @include('shop.related_product')
 @include('layout.footer')
+
+
+
+<script>
+    $(document).ready(function() {
+        $('.ec-pro-variation-content').on('click', 'li', function(e) {
+            e.preventDefault();
+            var sizeId = $(this).data('size-id');
+
+            $.ajax({
+                url: '{{ route('get.price') }}',
+                method: 'GET',
+                data: {
+                    size_id: sizeId
+                },
+                success: function(response) {
+                    $('#product-new-price').text('Rs. ' + response.price);
+                    $('#product-stock-status').text(response.stock);
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        });
+    });
+</script>
