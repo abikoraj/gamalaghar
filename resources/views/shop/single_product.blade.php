@@ -40,7 +40,10 @@
                                     <div class="ec-single-price-stoke">
                                         <div class="ec-single-price">
                                             <span class="ec-single-ps-title">As low as</span>
-                                            <span class="new-price">$97.00</span>
+                                            @foreach ($product->productsizeprice as $productSizePrice)
+                                                <span class="new-price"> Rs. {{ $productSizePrice->price }}</span>
+                                            @endforeach
+
                                         </div>
                                         <div class="ec-single-stoke">
                                             <span class="ec-single-ps-title">IN STOCK</span>
@@ -53,10 +56,11 @@
                                             <span>SIZE</span>
                                             <div class="ec-pro-variation-content">
                                                 <ul>
-                                                    <li class="active"><span>S</span></li>
-                                                    <li><span>M</span></li>
-                                                    <li><span>L</span></li>
-                                                    <li><span>XL</span></li>
+                                                    @foreach ($size as $key => $sizeData)
+                                                        <li class="{{ $key == 0 ? 'active' : '' }}">
+                                                            <span>{{ $sizeData->size }}</span>
+                                                        </li>
+                                                    @endforeach
                                                 </ul>
                                             </div>
                                         </div>

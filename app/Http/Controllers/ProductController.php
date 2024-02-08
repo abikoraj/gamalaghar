@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MainCategory;
 use App\Models\Product;
+use App\Models\Size;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,7 @@ class ProductController extends Controller
         $mainCategory = MainCategory::with('subcategories')->get();
         $subCategory = Product::where('slug', $slug)->first();
         $product = Product::with('productsizeprice')->where('id', $subCategory->id)->first();
-        return view('shop.single_product', compact('mainCategory', 'subCategory', 'product'));
+        $size= Size::all();
+        return view('shop.single_product', compact('mainCategory', 'subCategory', 'product', 'size'));
     }
 }
