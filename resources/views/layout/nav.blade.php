@@ -284,8 +284,6 @@
 
                     @endforelse
 
-
-
                     <li class="dropdown"><a href="javascript:void(0)">Blog</a>
                         <ul class="sub-menu">
                             <li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
