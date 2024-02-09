@@ -23,8 +23,7 @@
                                                 {{-- <img class="hover-image" src="{{ url('assets/img/7_2.jpg') }}"
                                                     alt="Product" /> --}}
                                             </a>
-                                            <span class="ec-com-remove ec-remove-wish"><a
-                                                    href="javascript:void(0)">×</a></span>
+
                                             <span class="percentage">20%</span>
                                         </div>
                                     </div>
