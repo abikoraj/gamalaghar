@@ -274,7 +274,9 @@
                             @if ($data->subcategories->isNotEmpty())
                                 <ul class="sub-menu">
                                     @foreach ($data->subcategories as $subCategory)
-                                        <li><a href="">{{ $subCategory->sub_category }}</a></li>
+                                        <li><a
+                                                href="{{ url('products/' . $subCategory->slug) }} ">{{ $subCategory->sub_category }}</a>
+                                        </li>
                                     @endforeach
                                 </ul>
                             @endif
