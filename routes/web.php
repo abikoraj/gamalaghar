@@ -60,3 +60,8 @@ Route::get('/cart', function () {
 Route::get('/hot-offer', function () {
     return view('hot_offer');
 });
+
+Route::get('/history', function () {
+    $mainCategory = MainCategory::with('subcategories')->get();
+    return view('user.history', compact('mainCategory'));
+});
