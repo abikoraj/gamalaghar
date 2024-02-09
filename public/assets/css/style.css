@@ -32306,7 +32306,7 @@ input[type="email"]:focus::-webkit-input-placeholder {
     margin-bottom: 15px;
     text-transform: uppercase;
     font-weight: 700;
-    color: #777;
+    color: #692c91;
 }
 .ec-vendor-setting-card .ec-vendor-block-img {
     padding-bottom: 30px;
@@ -33688,6 +33688,10 @@ input[type="email"]:focus::-webkit-input-placeholder {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.user-profile{
+    color: #692c91;
 }
 
 /* Responsive styles */

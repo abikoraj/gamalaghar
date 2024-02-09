@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
@@ -34,6 +35,8 @@ Route::get('product/{slug}', [ProductController::class, 'showSingleProduct']);
 
 Route::get('/get-price', [ProductController::class, 'getPrice'])->name('get.price');
 
+Route::get('profile', [AccountController::class, 'index']);
+
 
 Route::get('/wishlist', function () {
     return view('wishlist.wishlist');
@@ -58,9 +61,7 @@ Route::get('/blog/details', function () {
     return view('blog.blog_details');
 });
 
-Route::get('/profile', function () {
-    return view('user.profile');
-});
+
 
 Route::get('/contact_us', function () {
     return view('contact_us');

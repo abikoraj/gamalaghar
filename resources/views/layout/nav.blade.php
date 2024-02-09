@@ -131,7 +131,7 @@
                                     <button class="dropdown-toggle button" data-bs-toggle="dropdown"><span>My
                                             Account</span><i class="fi fi-rr-angle-small-down"></i></button>
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a class="dropdown-item" href="">My Account</a>
+                                        <li><a class="dropdown-item" href="{{ url('profile') }}">My Account</a>
                                         </li>
                                         <li>
                                             <form action="{{ url('logout') }}" method="POST">

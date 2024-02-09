@@ -20,7 +20,9 @@
                                         class="dark-logo" src="{{ url('assets/img/logo-white.png') }}" alt="Site Logo"
                                         style="display: none;" /></a>
                             </div>
-                            <p>Plant boost moods, increase creativity, reduce stress, and eliminate air pollutants—making for a healthier, happier you. Indoor plants don’t just look good—they can make us feel good, too.</p>
+                            <p>Plant boost moods, increase creativity, reduce stress, and eliminate air
+                                pollutants—making for a healthier, happier you. Indoor plants don’t just look good—they
+                                can make us feel good, too.</p>
                         </div>
                     </div>
                     <div class="col-sm-12 col-lg-2 ec-footer-cat">
