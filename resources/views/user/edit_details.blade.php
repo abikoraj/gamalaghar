@@ -15,7 +15,7 @@
                                 <div class="thumb-preview ec-preview">
                                     <div class="image-thumb-preview">
                                         <img class="image-thumb-preview ec-image-preview v-img"
-                                            src="assets/images/banner/8.jpg" alt="edit" />
+                                            src="{{ url('assets/img/main_banner.png') }}" alt="edit" />
                                     </div>
                                 </div>
                             </div>
@@ -36,42 +36,34 @@
                             </div>
                         </div>
                         <div class="ec-vendor-upload-detail">
-                            <form class="row g-3">
-                                <div class="col-md-6 space-t-15">
-                                    <label class="form-label">First name</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="col-md-6 space-t-15">
-                                    <label class="form-label">Last name</label>
-                                    <input type="text" class="form-control">
+                            <form class="row g-3" action="{{ url('profile') }}" method="POST">
+                                @csrf
+                                <div class="col-md-12 space-t-15">
+                                    <label class="form-label user-profile">Full Name</label>
+                                    <input type="text" class="form-control"value="{{ $user->name }}"
+                                        name="name">
                                 </div>
                                 <div class="col-md-12 space-t-15">
-                                    <label class="form-label">Address 1</label>
-                                    <input type="text" class="form-control">
+                                    <label class="form-label user-profile">Address</label>
+                                    <input type="text" class="form-control" name="address">
                                 </div>
                                 <div class="col-md-12 space-t-15">
-                                    <label class="form-label">Address 2</label>
-                                    <input type="text" class="form-control">
+                                    <label class="form-label user-profile">Shipping Address</label>
+                                    <input type="text" class="form-control" name="shipping_address">
                                 </div>
                                 <div class="col-md-12 space-t-15">
-                                    <label class="form-label">Address 3</label>
-                                    <input type="text" class="form-control">
+                                    <label class="form-label user-profile">Email ID</label>
+                                    <input type="text" class="form-control" value="{{ $user->email }}"
+                                        name="email">
                                 </div>
                                 <div class="col-md-6 space-t-15">
-                                    <label class="form-label">Email id 1</label>
-                                    <input type="text" class="form-control">
+                                    <label class="form-label user-profile">Primary Phone number</label>
+                                    <input type="text" class="form-control" value="{{ $user->phone }}"
+                                        name="phone">
                                 </div>
                                 <div class="col-md-6 space-t-15">
-                                    <label class="form-label">Email id 2</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="col-md-6 space-t-15">
-                                    <label class="form-label">Phone number 1</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="col-md-6 space-t-15">
-                                    <label class="form-label">Phone number 2</label>
-                                    <input type="text" class="form-control">
+                                    <label class="form-label user-profile">Secondary Phone number</label>
+                                    <input type="text" class="form-control" name="secondary_phone">
                                 </div>
                                 <div class="col-md-12 space-t-15">
                                     <button type="submit" class="btn btn-primary">Update</button>

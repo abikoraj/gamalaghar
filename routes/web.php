@@ -36,6 +36,7 @@ Route::get('product/{slug}', [ProductController::class, 'showSingleProduct']);
 Route::get('/get-price', [ProductController::class, 'getPrice'])->name('get.price');
 
 Route::get('profile', [AccountController::class, 'index']);
+Route::post('profile', [AccountController::class, 'edituserdetails']);
 
 
 Route::get('/wishlist', function () {
