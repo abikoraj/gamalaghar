@@ -45,7 +45,7 @@
                                     <li>
                                         <a class="dropdown-item" href="{{ url('/login') }}">Login</a>
                                     </li>
-                                </ul>
+                                </ul>                                                                                                                      
                             @endauth
 
 
