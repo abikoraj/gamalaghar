@@ -15,8 +15,8 @@
                                 <div class="single-product-scroll">
                                     <div class="single-product-cover">
                                         <div class="single-slide zoom-image-hover">
-                                            <img class="img-responsive" src="{{ url('assets/img/8_1.jpg') }}"
-                                                alt="">
+                                            <img class="img-responsive"
+                                                src="{{ $product->getFirstMediaUrl('product_image') }}" alt="">
                                         </div>
                                     </div>
 

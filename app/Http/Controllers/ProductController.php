@@ -24,7 +24,7 @@ class ProductController extends Controller
     {
         $mainCategory = MainCategory::with('subcategories')->get();
         $subCategory = Product::with('media')->where('slug', $slug)->first();
-        $product = Product::with('productsizeprice')->where('id', $subCategory->id)->first();
+        $product = Product::with('media')->with('productsizeprice')->where('id', $subCategory->id)->first();
         $size = Size::all();
         return view('shop.single_product', compact('mainCategory', 'subCategory', 'product', 'size'));
     }
