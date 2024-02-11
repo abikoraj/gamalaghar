@@ -26,9 +26,11 @@ class ProductController extends Controller
         $product = Product::with('media')->with('productsizeprice')->where('slug', $slug)->first();
         $size = Size::all();
 
+
+        $bestSellingProducts = Product::with('media')->with('productsizeprice')->take(12)->get();
         $relatedProducts = Product::with('media')->with('productsizeprice')->take(4)->get();
 
-        return view('shop.single_product', compact('mainCategory', 'product', 'size', 'relatedProducts'));
+        return view('shop.single_product', compact('mainCategory', 'product', 'size', 'relatedProducts', 'bestSellingProducts'));
     }
 
     public function getPrice(Request $request)
