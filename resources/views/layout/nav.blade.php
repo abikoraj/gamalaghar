@@ -45,10 +45,10 @@
                                     <li>
                                         <a class="dropdown-item" href="{{ url('/login') }}">Login</a>
                                     </li>
-                                </ul>                                                                                                                      
+                                </ul>
                             @endauth
 
-
+                            
                         </div>
                         <!-- Header User End -->
                         <!-- Header Cart Start -->
