@@ -43,7 +43,7 @@
                                         </div>
                                         <div class="ec-single-stoke">
                                             <span id="product-stock-status" class="ec-single-ps-title">IN STOCK</span>
-                                            <span class="ec-single-sku">SKU#: WH12</span>
+                                            <span class="ec-single-sku">SKU#: {{$product->productsizeprice->first()->product_stock}}</span>
                                         </div>
                                     </div>
                                     <div class="ec-pro-variation">

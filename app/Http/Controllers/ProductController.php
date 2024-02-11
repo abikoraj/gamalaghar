@@ -23,10 +23,12 @@ class ProductController extends Controller
     public function showSingleProduct($slug)
     {
         $mainCategory = MainCategory::with('subcategories')->get();
-        $subCategory = Product::with('media')->where('slug', $slug)->first();
-        $product = Product::with('media')->with('productsizeprice')->where('id', $subCategory->id)->first();
+        $product = Product::with('media')->with('productsizeprice')->where('slug', $slug)->first();
         $size = Size::all();
-        return view('shop.single_product', compact('mainCategory', 'subCategory', 'product', 'size'));
+
+        $relatedProducts = Product::with('media')->with('productsizeprice')->take(4)->get();
+
+        return view('shop.single_product', compact('mainCategory', 'product', 'size', 'relatedProducts'));
     }
 
     public function getPrice(Request $request)
