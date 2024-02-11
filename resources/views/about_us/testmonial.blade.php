@@ -17,7 +17,7 @@
                         <i class="fi-rr-quote-right top"></i>
                         <div class="ec-test-inner">
                             <div class="ec-test-img"><img alt="testimonial" title="testimonial"
-                                    src="assets/images/testimonial/1.jpg" /></div>
+                                    src="{{ Avatar::create('Joko Widodo')->toBase64() }}" /></div>
                             <div class="ec-test-content">
                                 <div class="ec-test-desc">Lorem Ipsum is simply dummy text of the printing and
                                     typesetting industry. Lorem Ipsum has been the industry's standard dummy text
@@ -40,7 +40,7 @@
                         <i class="fi-rr-quote-right top"></i>
                         <div class="ec-test-inner">
                             <div class="ec-test-img"><img alt="testimonial" title="testimonial"
-                                    src="assets/images/testimonial/2.jpg" /></div>
+                                    src="{{ Avatar::create('Joko Widodo')->toBase64() }}" /></div>
                             <div class="ec-test-content">
                                 <div class="ec-test-desc">Lorem Ipsum is simply dummy text of the printing and
                                     typesetting industry. Lorem Ipsum has been the industry's standard dummy text
@@ -63,7 +63,7 @@
                         <i class="fi-rr-quote-right top"></i>
                         <div class="ec-test-inner">
                             <div class="ec-test-img"><img alt="testimonial" title="testimonial"
-                                    src="assets/images/testimonial/3.jpg" /></div>
+                                    src="{{ Avatar::create('Joko Widodo')->toBase64() }}" /></div>
                             <div class="ec-test-content">
                                 <div class="ec-test-desc">Lorem Ipsum is simply dummy text of the printing and
                                     typesetting industry. Lorem Ipsum has been the industry's standard dummy text

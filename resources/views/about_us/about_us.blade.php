@@ -36,8 +36,8 @@
             <div class="ec-common-wrapper">
                 <div class="row">
                     <div class="col-md-6 ec-cms-block ec-abcms-block text-center">
-                        <div class="ec-cms-block-inner"><br>
-                            <img class="a-img mt-5" src="{{url('assets/img/gamala-ghar-logo.png')}}" alt="about">
+                        <div class="ec-cms-block-inner">
+                            <img class="a-img mt-5" src="{{url('assets/img/gamala-ghar-banner.jpg')}}" alt="about">
                         </div>
                     </div>
                     <div class="col-md-6 ec-cms-block ec-abcms-block text-center">

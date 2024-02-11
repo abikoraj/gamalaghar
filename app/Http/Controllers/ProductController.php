@@ -16,14 +16,14 @@ class ProductController extends Controller
     {
         $mainCategory = MainCategory::with('subcategories')->get();
         $subCategory = SubCategory::where('slug', $slug)->first();
-        $product = Product::where('sub_category_id', $subCategory->id)->get();
+        $product = Product::with('media')->where('sub_category_id', $subCategory->id)->get();
         return view('shop.product', compact('mainCategory', 'subCategory', 'product'));
     }
 
     public function showSingleProduct($slug)
     {
         $mainCategory = MainCategory::with('subcategories')->get();
-        $subCategory = Product::where('slug', $slug)->first();
+        $subCategory = Product::with('media')->where('slug', $slug)->first();
         $product = Product::with('productsizeprice')->where('id', $subCategory->id)->first();
         $size = Size::all();
         return view('shop.single_product', compact('mainCategory', 'subCategory', 'product', 'size'));
