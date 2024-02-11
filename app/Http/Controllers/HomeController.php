@@ -13,6 +13,7 @@ class HomeController extends Controller
     {
         $mainCategory = MainCategory::with('subcategories')->get();
         $product= Product::with('media')->latest()->get();
+      
         return view('home.home', compact('mainCategory', 'product'));
     }
 

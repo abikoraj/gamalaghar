@@ -23,7 +23,7 @@
                                         <div class="ec-pro-image-outer">
                                             <div class="ec-pro-image">
                                                 <a href="product-left-sidebar.html" class="image">
-                                                    <img class="main-image" src="{{$productData->getFirstMediaUrl('product-image')}}"
+                                                    <img class="main-image" src="{{$productData->getFirstMediaUrl('product_image')}}"
                                                         alt="Product" />
 
                                                 </a>
