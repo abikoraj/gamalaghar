@@ -28,7 +28,7 @@
 
                                                 </a>
 
-                                                <span class="percentage">20%</span>
+                                                <span class="percentage">{{$productData->discount}}</span>
                                             </div>
                                         </div>
                                         <div class="ec-pro-content">
