@@ -6,7 +6,8 @@
                 <div class="social-links">
                     <a href="" class="social-btn">Facebook</a>
                     <a href="" class="social-btn">Twitter</a>
-                    <a href="" class="social-btn">Instagram</a>
+                    <a href="{{ url('https://www.instagram.com/gamala.gharnp/') }}" target="_blank"
+                        class="social-btn">Instagram</a>
                     <a href="" class="social-btn">Linkedin</a>
                     <a href="" class="social-btn">Google</a>
                     <a href="" class="social-btn">Youtube</a>
@@ -20,9 +21,10 @@
                                         class="dark-logo" src="{{ url('assets/img/logo-white.png') }}" alt="Site Logo"
                                         style="display: none;" /></a>
                             </div>
-                            <p>Plant boost moods, increase creativity, reduce stress, and eliminate air
-                                pollutants—making for a healthier, happier you. Indoor plants don’t just look good—they
-                                can make us feel good, too.</p>
+                            <p>At Gamala Ghar, customers can explore a diverse array of indoor plants suitable for
+                                various preferences and living spaces. Whether it's lush foliage plants like peace
+                                lilies and snake plants, or flowering varieties like orchids and begonias, there's
+                                something for every taste and style. </p>
                         </div>
                     </div>
                     <div class="col-sm-12 col-lg-2 ec-footer-cat">
@@ -30,7 +32,7 @@
                             <h4 class="ec-footer-heading">About</h4>
                             <div class="ec-footer-links ec-footer-dropdown">
                                 <ul class="align-items-center">
-                                    <li class="ec-footer-link"><a href="#">About Grocery</a></li>
+                                    <li class="ec-footer-link"><a href="{{url('about-us')}}">About Gamala Ghar</a></li>
                                     <li class="ec-footer-link"><a href="#">Plans & Pricing</a></li>
                                     <li class="ec-footer-link"><a href="#">Services</a></li>
                                     <li class="ec-footer-link"><a href="#">Blog</a></li>
@@ -44,7 +46,7 @@
                             <div class="ec-footer-links ec-footer-dropdown">
                                 <ul class="align-items-center">
                                     <li class="ec-footer-link"><a href="#">Home</a></li>
-                                    <li class="ec-footer-link"><a href="#">About Us</a></li>
+                                    <li class="ec-footer-link"><a href="{{url('about-us')}}">About Us</a></li>
                                     <li class="ec-footer-link"><a href="#">Testimonial</a></li>
                                     <li class="ec-footer-link"><a href="#">Contact Us</a></li>
                                 </ul>
@@ -168,9 +170,9 @@
             </div>
             <div class="ec-nav-panel-icons">
                 @auth
-                <a href="{{ url('profile') }}" class="ec-header-btn"><i class="fi-rr-user"></i></a>
+                    <a href="{{ url('profile') }}" class="ec-header-btn"><i class="fi-rr-user"></i></a>
                 @else
-                <a href="{{ url('/login') }}" class="ec-header-btn"><i class="fi-rr-user"></i></a>
+                    <a href="{{ url('/login') }}" class="ec-header-btn"><i class="fi-rr-user"></i></a>
                 @endauth
 
             </div>

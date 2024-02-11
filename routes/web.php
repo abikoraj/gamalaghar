@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -65,3 +66,5 @@ Route::get('/history', function () {
     $mainCategory = MainCategory::with('subcategories')->get();
     return view('user.history', compact('mainCategory'));
 });
+
+Route::get('about-us',[AboutUsController::class,'index']);
