@@ -227,12 +227,12 @@
                         @endforeach
                         <div>
                             <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.html" class="sidekka_pro_img"><img
+                                <a href="{{ url('product/' . $bestSellingProduct->slug) }}" class="sidekka_pro_img"><img
                                         src="{{ $bestSellingProduct->getFirstMediaUrl('product_image') }}"
                                         alt="product" /></a>
                                 <div class="ec-pro-content">
                                     <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.html">{{ $bestSellingProduct->product_name }}</a>
+                                            href="{{ url('product/' . $bestSellingProduct->slug) }}">{{ $bestSellingProduct->product_name }}</a>
                                     </h5>
                                     <div class="ec-pro-rating">
                                         <i class="ecicon eci-star fill"></i>

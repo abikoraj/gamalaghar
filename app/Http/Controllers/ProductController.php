@@ -27,7 +27,7 @@ class ProductController extends Controller
         $size = Size::all();
 
 
-        $bestSellingProducts = Product::with('media')->with('productsizeprice')->take(12)->get();
+        $bestSellingProducts = Product::with('media')->with('productsizeprice')->take(6)->get();
         $relatedProducts = Product::with('media')->with('productsizeprice')->take(4)->get();
 
         return view('shop.single_product', compact('mainCategory', 'product', 'size', 'relatedProducts', 'bestSellingProducts'));
