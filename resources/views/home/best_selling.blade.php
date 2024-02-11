@@ -33,7 +33,7 @@
                                         </div>
                                         <div class="ec-pro-content">
                                             <h5 class="ec-pro-title"><a
-                                                    href="product-left-sidebar.html">{{ $productData->product_name }}</a>
+                                                    href="{{ url('product/' . $productData->slug) }}">{{ $productData->product_name }}</a>
                                             </h5>
                                             <div class="ec-pro-rating px-3">
                                                 <i class="ecicon eci-star fill"></i>
