@@ -12,7 +12,6 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
 
-
     public function showProduct($slug)
     {
         $mainCategory = MainCategory::with('subcategories')->get();

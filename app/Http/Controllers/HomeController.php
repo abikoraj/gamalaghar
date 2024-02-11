@@ -12,8 +12,9 @@ class HomeController extends Controller
     public function index()
     {
         $mainCategory = MainCategory::with('subcategories')->get();
-        return view('home.home', compact('mainCategory'));
+        $product= Product::latest()->get();
+        return view('home.home', compact('mainCategory', 'product'));
     }
 
-    
+
 }
