@@ -41,6 +41,7 @@ Route::get('profile', [AccountController::class, 'index']);
 Route::post('profile', [AccountController::class, 'edituserdetails']);
 
 Route::get('wishlist', [WishlistController::class, 'index']);
+Route::post('wishlist', [WishlistController::class, 'store'])->name('wishlist');
 
 Route::get('/blog', function () {
     return view('blog.all_blog');

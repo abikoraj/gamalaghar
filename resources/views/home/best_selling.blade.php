@@ -23,12 +23,11 @@
                                         <div class="ec-pro-image-outer">
                                             <div class="ec-pro-image">
                                                 <a href="product-left-sidebar.html" class="image">
-                                                    <img class="main-image" src="{{$productData->getFirstMediaUrl('product_image')}}"
+                                                    <img class="main-image"
+                                                        src="{{ $productData->getFirstMediaUrl('product_image') }}"
                                                         alt="Product" />
-
                                                 </a>
-
-                                                <span class="percentage">{{$productData->discount}}</span>
+                                                <span class="percentage">{{ $productData->discount }}</span>
                                             </div>
                                         </div>
                                         <div class="ec-pro-content">
@@ -47,13 +46,21 @@
                                                 <span class="old-price">$12.00</span>
                                                 <span class="new-price">$10.00</span>
                                             </span>
+
                                             <div class="ec-spe-pro-btn">
                                                 <a href="#" class="btn btn-lg btn-primary">Add To Cart<span
                                                         class="cart-icon"><i class="fi-rr-shopping-basket"></i></a>
-                                                <span class="social-btn">
-                                                    <a class="wishlist"><i class="fi-rr-heart"></i></a>
-
-                                                </span>
+                                                <form id="wishlistForm_{{ $productData->id }}"
+                                                    action="{{ url('wishlist') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="product_id"
+                                                        value="{{ $productData->id }}">
+                                                    <span class="social-btn">
+                                                        <button class="wishlist" type="button"
+                                                            data-form-id="wishlistForm_{{ $productData->id }}"><i
+                                                                class="fi-rr-heart"></i></button>
+                                                    </span>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -69,3 +76,25 @@
     </div>
 </section>
 <!-- Grocery section End -->
+
+<script>
+    $(document).ready(function() {
+        $('.wishlist').click(function(e) {
+            e.preventDefault();
+            var formId = $(this).data('form-id');
+            var formData = $('#' + formId).serialize();
+            $.ajax({
+                type: 'POST',
+                url: $('#' + formId).attr('action'),
+                data: formData,
+                error: function(xhr, status, error) {
+                    // Handle Ajax errors here
+                    if (xhr.status == 401) {
+                        // Redirect to the login page
+                        window.location.href = 'login';
+                    } 
+                }
+            });
+        });
+    });
+</script>
