@@ -19,7 +19,6 @@
                                                 src="{{ $product->getFirstMediaUrl('product_image') }}" alt="">
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="single-pro-desc">
