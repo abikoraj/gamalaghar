@@ -18,22 +18,23 @@ class WishlistController extends Controller
         $mainCategory = MainCategory::with('subcategories')->get();
 
         $wishLists = Wishlist::join('products', 'products.id', '=', 'wishlists.product_id')
-        ->join('product_size_prices', 'products.id', '=', 'product_size_prices.product_id')
-        ->select('products.id', 'products.product_name', 'products.description',  \DB::raw('MIN(product_size_prices.price) as price'))
-        ->groupBy('products.id', 'products.product_name', 'products.description')
-        ->get();
+            ->join('product_size_prices', 'products.id', '=', 'product_size_prices.product_id')
+            ->select('products.id', 'products.product_name', 'products.description',  \DB::raw('MIN(product_size_prices.price) as price'))
+            ->groupBy('products.id', 'products.product_name', 'products.description')
+            ->get();
 
-        $productID=$wishLists->pluck('id');
+        $productID
+            = $wishLists->pluck('id')->toArray();
 
-        $productImage=Product::with('media')->find($productID);
-      
-       
-
+        $productImages = Product::with('media')->whereIn('id', $productID)->get();
 
 
-       
-        
-        return view('wishlist.wishlist', compact('mainCategory','wishLists', 'productImage'));
+
+
+
+
+
+        return view('wishlist.wishlist', compact('mainCategory', 'wishLists', 'productImages'));
     }
 
     public function store(WishlistCreateRequest $request)

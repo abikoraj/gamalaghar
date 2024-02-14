@@ -14,14 +14,17 @@
                         <div class="row margin-minus-b-30">
 
                             @foreach ($wishLists as $wishList)
-                           
                                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-6 pro-gl-content">
                                     <div class="ec-product-inner">
                                         <div class="ec-pro-image-outer">
                                             <div class="ec-pro-image">
                                                 <a href="product-left-sidebar.html" class="image">
-                                                    <img class="main-image" src="{{ $productImage->getFirstMediaUrl('product_image') }}"
-                                                        alt="Product" />
+                                                    @foreach ($productImages as $productImage)
+                                                        @if ($productImage->id == $wishList->id)
+                                                            <img src="{{ $productImage->getFirstMediaUrl('product_images') }}"
+                                                                alt="{{ $wishList->product_name }}">
+                                                        @endif
+                                                    @endforeach
                                                     {{-- <img class="hover-image" src="{{ url('assets/img/7_2.jpg') }}"
                                                     alt="Product" /> --}}
                                                 </a>
@@ -45,8 +48,7 @@
                                                 ever since the 1500s, when an unknown printer took a galley.</div>
                                             <span class="ec-price px-3">
 
-                                                <span
-                                                    class="new-price">${{ $wishList->price }}</span>
+                                                <span class="new-price">${{ $wishList->price }}</span>
                                             </span>
                                             <div class="ec-spe-pro-btn">
                                                 <a href="#" class="btn btn-lg btn-primary">Add To Cart<span
