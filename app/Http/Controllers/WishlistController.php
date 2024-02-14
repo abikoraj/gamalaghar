@@ -33,14 +33,18 @@ class WishlistController extends Controller
                 // Handle the case where the wishlist is empty for the authenticated user
                 $productImages = [];
             }
+            $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
         } else {
             // Handle the case where the user is not authenticated
             $productImages = [];
             $wishLists=[];
+             $countWishList="";
         }
 
+       
 
-        return view('wishlist.wishlist', compact('mainCategory', 'wishLists', 'productImages'));
+
+        return view('wishlist.wishlist', compact('mainCategory', 'wishLists', 'productImages', 'countWishList'));
     }
 
     public function store(WishlistCreateRequest $request)

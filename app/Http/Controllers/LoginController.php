@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Auth\LoginRequest;
 use App\Models\MainCategory;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -14,7 +15,15 @@ class LoginController extends Controller
     public function index()
     {
         $mainCategory = MainCategory::with('subcategories')->get();
-        return view('auth.login', compact('mainCategory'));
+
+        if (auth()->check()) {
+            $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
+        } else {
+            $countWishList = "";
+        }
+
+
+        return view('auth.login', compact('mainCategory', 'countWishList'));
     }
 
     public function login(LoginRequest $request)

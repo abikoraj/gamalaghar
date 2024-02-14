@@ -210,8 +210,16 @@
                         <div class="ec-header-bottons">
                             <!-- Header wishlist Start -->
                             <a href="{{ url('wishlist') }}" class="ec-header-btn ec-header-wishlist">
+
+                                @if ($countWishList)
+                                    <div class="header-icon"><i class="fi-rr-heart"></i></div>
+                                    <span class="ec-header-count">
+                                        {{ $countWishList }}
+                                        0</span>
+                                @else
                                 <div class="header-icon"><i class="fi-rr-heart"></i></div>
-                                <span class="ec-header-count">4</span>
+                                @endif
+
                             </a>
                             <!-- Header wishlist End -->
                             <!-- Header Cart Start -->
