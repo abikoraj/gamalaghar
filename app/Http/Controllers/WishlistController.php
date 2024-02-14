@@ -19,8 +19,8 @@ class WishlistController extends Controller
 
         $wishLists = Wishlist::join('products', 'products.id', '=', 'wishlists.product_id')
             ->join('product_size_prices', 'products.id', '=', 'product_size_prices.product_id')
-            ->select('products.id', 'products.product_name', 'products.description',  \DB::raw('MIN(product_size_prices.price) as price'))
-            ->groupBy('products.id', 'products.product_name', 'products.description')
+            ->select('products.id', 'products.product_name', 'products.description', 'products.slug',  \DB::raw('MIN(product_size_prices.price) as price'))
+            ->groupBy('products.id', 'products.product_name', 'products.description','products.slug')
             ->get();
 
         $productID

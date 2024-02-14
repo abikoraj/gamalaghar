@@ -34,7 +34,7 @@
                                         </div>
                                         <div class="ec-pro-content">
                                             <h5 class="ec-pro-title"><a
-                                                    href="product-left-sidebar.html">{{ $wishList->product_name }}</a>
+                                                    href="{{ url('product/' . $wishList->slug) }}">{{ $wishList->product_name }}</a>
                                             </h5>
                                             <div class="ec-pro-rating px-3">
                                                 <i class="ecicon eci-star fill"></i>
@@ -53,8 +53,7 @@
                                             <div class="ec-spe-pro-btn">
                                                 <a href="#" class="btn btn-lg btn-primary">Add To Cart<span
                                                         class="cart-icon"><i class="fi-rr-shopping-basket"></i></a>
-                                                <span class="social-btn">
-                                                    <a class="wishlist"><i class="fi-rr-heart"></i></a>
+                                                
 
                                                 </span>
                                             </div>
