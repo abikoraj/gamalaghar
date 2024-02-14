@@ -215,7 +215,7 @@
                                     <div class="header-icon"><i class="fi-rr-heart"></i></div>
                                     <span class="ec-header-count">
                                         {{ $countWishList }}
-                                        0</span>
+                                        </span>
                                 @else
                                 <div class="header-icon"><i class="fi-rr-heart"></i></div>
                                 @endif
