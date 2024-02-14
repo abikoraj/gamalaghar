@@ -8,7 +8,6 @@
                 <button class="ec-close">×</button>
             </div>
             <ul class="eccart-pro-items">
-                @forelse ($cart as $cartData)
                 <li>
                     <a href="product-left-sidebar.html" class="sidecart_pro_img"><img
                             src="assets/images/product-image/93_1.jpg" alt="product"></a>
@@ -21,10 +20,6 @@
                         <a href="#" class="remove">×</a>
                     </div>
                 </li>
-                @empty
-
-                @endforelse
-
             </ul>
         </div>
         <div class="ec-cart-bottom">
