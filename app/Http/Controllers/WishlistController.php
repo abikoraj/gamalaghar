@@ -28,12 +28,6 @@ class WishlistController extends Controller
 
         $productImages = Product::with('media')->whereIn('id', $productID)->get();
 
-
-
-
-
-
-
         return view('wishlist.wishlist', compact('mainCategory', 'wishLists', 'productImages'));
     }
 
