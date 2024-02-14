@@ -21,7 +21,7 @@
                                                 <a href="product-left-sidebar.html" class="image">
                                                     @foreach ($productImages as $productImage)
                                                        
-                                                            <img src="{{ $productImage->getFirstMediaUrl('product_images') }}"
+                                                            <img src="{{ $productImage->getFirstMediaUrl('product_image') }}"
                                                                 alt="{{ $wishList->product_name }}">
                                                        
                                                     @endforeach
