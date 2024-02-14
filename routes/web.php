@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
@@ -43,6 +44,9 @@ Route::post('profile', [AccountController::class, 'edituserdetails']);
 Route::get('wishlist', [WishlistController::class, 'index']);
 Route::post('wishlist', [WishlistController::class, 'store'])->name('wishlist');
 
+Route::get('cart',[CartController::class, 'index']);
+Route::post('cart', [CartController::class, 'store']);
+
 Route::get('/blog', function () {
     return view('blog.all_blog');
 });
@@ -55,9 +59,7 @@ Route::get('/contact_us', function () {
     return view('contact_us');
 });
 
-Route::get('/cart', function () {
-    return view('user.user_cart');
-});
+
 
 Route::get('/hot-offer', function () {
     return view('hot_offer');

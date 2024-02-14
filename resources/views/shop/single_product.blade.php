@@ -42,8 +42,7 @@
                                         </div>
                                         <div class="ec-single-stoke">
                                             <span id="product-stock-status" class="ec-single-ps-title">IN STOCK</span>
-                                            <span class="ec-single-sku">SKU#:
-                                                {{ $product->productsizeprice->first()->product_stock }}</span>
+                                            {{ $product->productsizeprice->first()->product_stock }}
                                         </div>
                                     </div>
                                     <div class="ec-pro-variation">
@@ -62,10 +61,17 @@
                                     </div>
                                     <div class="ec-single-qty">
                                         <div class="qty-plus-minus">
-                                            <input class="qty-input" type="text" name="ec_qtybtn" value="1" />
+                                            <input class="qty-input" type="text" name="quantity" value="1" />
                                         </div>
                                         <div class="ec-single-cart ">
-                                            <button class="btn btn-primary">Add To Cart</button>
+                                            <form action="{{ url('cart') }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                <input type="hidden" name="quantity" value="1">
+                                                <button id="cart" class="btn btn-primary">Add To
+                                                    Cart <span class="cart-icon mx-2 mt-1"><i
+                                                            class="fi-rr-shopping-basket"></i></button>
+                                            </form>
                                         </div>
                                         <div class="ec-single-wishlist">
                                             <a class="ec-btn-group wishlist" title="Wishlist"><i
@@ -226,7 +232,8 @@
                         @endforeach
                         <div>
                             <div class="ec-sb-pro-sl-item">
-                                <a href="{{ url('product/' . $bestSellingProduct->slug) }}" class="sidekka_pro_img"><img
+                                <a href="{{ url('product/' . $bestSellingProduct->slug) }}"
+                                    class="sidekka_pro_img"><img
                                         src="{{ $bestSellingProduct->getFirstMediaUrl('product_image') }}"
                                         alt="product" /></a>
                                 <div class="ec-pro-content">

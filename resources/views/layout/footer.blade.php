@@ -32,7 +32,8 @@
                             <h4 class="ec-footer-heading">About</h4>
                             <div class="ec-footer-links ec-footer-dropdown">
                                 <ul class="align-items-center">
-                                    <li class="ec-footer-link"><a href="{{url('about-us')}}">About Gamala Ghar</a></li>
+                                    <li class="ec-footer-link"><a href="{{ url('about-us') }}">About Gamala Ghar</a>
+                                    </li>
                                     <li class="ec-footer-link"><a href="#">Plans & Pricing</a></li>
                                     <li class="ec-footer-link"><a href="#">Services</a></li>
                                     <li class="ec-footer-link"><a href="#">Blog</a></li>
@@ -46,7 +47,7 @@
                             <div class="ec-footer-links ec-footer-dropdown">
                                 <ul class="align-items-center">
                                     <li class="ec-footer-link"><a href="#">Home</a></li>
-                                    <li class="ec-footer-link"><a href="{{url('about-us')}}">About Us</a></li>
+                                    <li class="ec-footer-link"><a href="{{ url('about-us') }}">About Us</a></li>
                                     <li class="ec-footer-link"><a href="#">Testimonial</a></li>
                                     <li class="ec-footer-link"><a href="#">Contact Us</a></li>
                                 </ul>
@@ -218,3 +219,26 @@
 <script src="{{ url('assets/js/demo-11.js') }}"></script>
 <script src="{{ url('assets/js/main.js') }}"></script>
 
+<script>
+    $(document).ready(function(){
+        $('#cart').click(function(){
+            $.ajax({
+                url: 'cart', // Replace with your backend route
+                type: 'POST',
+                data: {
+                    // Data you want to send to the server
+                    product_id: 123,
+                    quantity: 1
+                },
+                success: function(response) {
+                    // Handle success response
+                    // No action needed here
+                },
+                error: function(xhr, status, error) {
+                    // Handle error response
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    });
+    </script>

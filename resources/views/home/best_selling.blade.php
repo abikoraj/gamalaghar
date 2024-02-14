@@ -48,8 +48,14 @@
                                             </span>
 
                                             <div class="ec-spe-pro-btn">
-                                                <a href="#" class="btn btn-lg btn-primary">Add To Cart<span
-                                                        class="cart-icon"><i class="fi-rr-shopping-basket"></i></a>
+                                                <form action="{{ url('cart') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="product_id" value="{{ $productData->id }}">
+                                                    <input type="hidden" name="quantity" value="1">
+                                                    <button id="cart" class="btn btn-lg btn-primary">Add To
+                                                        Cart<span class="cart-icon"><i
+                                                                class="fi-rr-shopping-basket"></i></button>
+                                                </form>
                                                 <form id="wishlistForm_{{ $productData->id }}"
                                                     action="{{ url('wishlist') }}" method="POST">
                                                     @csrf
@@ -77,24 +83,3 @@
 </section>
 <!-- Grocery section End -->
 
-<script>
-    $(document).ready(function() {
-        $('.wishlist').click(function(e) {
-            e.preventDefault();
-            var formId = $(this).data('form-id');
-            var formData = $('#' + formId).serialize();
-            $.ajax({
-                type: 'POST',
-                url: $('#' + formId).attr('action'),
-                data: formData,
-                error: function(xhr, status, error) {
-                    // Handle Ajax errors here
-                    if (xhr.status == 401) {
-                        // Redirect to the login page
-                        window.location.href = 'login';
-                    } 
-                }
-            });
-        });
-    });
-</script>

@@ -89,11 +89,26 @@
                                                 <span class="new-price">$22.00</span>
                                             </span>
                                             <div class="ec-spe-pro-btn">
-                                                <a href="#" class="btn btn-lg btn-primary">Add To Cart<span
-                                                        class="cart-icon"><i class="fi-rr-shopping-basket"></i></a>
-                                                <span class="social-btn">
-                                                    <a class="wishlist"><i class="fi-rr-heart"></i></a>
-                                                </span>
+                                                <form action="{{ url('cart') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="product_id"
+                                                        value="{{ $productData->id }}">
+                                                    <input type="hidden" name="quantity" value="1">
+                                                    <button id="cart" class="btn btn-lg btn-primary">Add To
+                                                        Cart<span class="cart-icon"><i
+                                                                class="fi-rr-shopping-basket"></i></button>
+                                                </form>
+                                                <form id="wishlistForm_{{ $productData->id }}"
+                                                    action="{{ url('wishlist') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="product_id"
+                                                        value="{{ $productData->id }}">
+                                                    <span class="social-btn">
+                                                        <button class="wishlist" type="button"
+                                                            data-form-id="wishlistForm_{{ $productData->id }}"><i
+                                                                class="fi-rr-heart"></i></button>
+                                                    </span>
+                                                </form>
                                             </div>
                                         </div>
 
@@ -112,7 +127,8 @@
                                     <li><a href="#">3</a></li>
                                     <li><a href="#">4</a></li>
                                     <li><a href="#">5</a></li>
-                                    <li><a class="next" href="#">Next <i class="ecicon eci-angle-right"></i></a>
+                                    <li><a class="next" href="#">Next <i
+                                                class="ecicon eci-angle-right"></i></a>
                                     </li>
                                 </ul>
                             </div>
