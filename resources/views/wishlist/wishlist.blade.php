@@ -63,9 +63,10 @@
                                     </div>
 
                                 @empty
+                                <img src="{{url('assets/img/Empty-rafiki.png')}}" alt="Wishlist image" class="img-fluid d-block mx-auto" style="max-width: 300px;"/>
                                 @endforelse
                             @else
-                                <h1>hy</h1>
+                                <h2 class="text-center m-5">Kindly proceed with logging in to access the wishlist.</h2>
                             @endauth
 
 
