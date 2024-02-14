@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MainCategory;
 use App\Models\User;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -13,7 +14,16 @@ class AccountController extends Controller
     {
         $mainCategory = MainCategory::with('subcategories')->get();
         $user = User::with('userDetail')->where('id', auth()->user()->id)->first();
-        return view('user.profile', compact('mainCategory', 'user'));
+
+
+        if (auth()->check()) {
+            $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
+        } else {
+            $countWishList = "";
+        }
+
+        
+        return view('user.profile', compact('mainCategory', 'user', 'countWishList'));
     }
 
     public function edituserdetails(Request $request)

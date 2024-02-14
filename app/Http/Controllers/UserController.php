@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\User\CreateUserRequest;
 use App\Models\MainCategory;
 use App\Models\User;
+use App\Models\Wishlist;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -17,8 +18,15 @@ class UserController extends Controller
      */
     public function index()
     {
+        if (auth()->check()) {
+            $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
+        } else {
+            $countWishList = "";
+        }
+
+        
         $mainCategory = MainCategory::with('subcategories')->get();
-        return view('auth.register',compact('mainCategory'));
+        return view('auth.register',compact('mainCategory', 'countWishList'));
     }
 
     /**
