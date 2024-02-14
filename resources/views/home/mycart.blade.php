@@ -12,7 +12,7 @@
                     <a href="product-left-sidebar.html" class="sidecart_pro_img"><img
                             src="assets/images/product-image/93_1.jpg" alt="product"></a>
                     <div class="ec-pro-content">
-                        <a href="single-product-left-sidebar.html" class="cart_pro_title">{{ $cartData->product_name }}</a>
+                        <a href="single-product-left-sidebar.html" class="cart_pro_title">Product Name</a>
                         <span class="cart-price"><span>$49.00</span> x 1</span>
                         <div class="qty-plus-minus">
                             <input class="qty-input" type="text" name="ec_qtybtn" value="1" />
