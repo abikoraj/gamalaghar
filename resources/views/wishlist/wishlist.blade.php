@@ -20,10 +20,10 @@
                                             <div class="ec-pro-image">
                                                 <a href="product-left-sidebar.html" class="image">
                                                     @foreach ($productImages as $productImage)
-                                                        @if ($productImage->id == $wishList->id)
+                                                       
                                                             <img src="{{ $productImage->getFirstMediaUrl('product_images') }}"
                                                                 alt="{{ $wishList->product_name }}">
-                                                        @endif
+                                                       
                                                     @endforeach
                                                     {{-- <img class="hover-image" src="{{ url('assets/img/7_2.jpg') }}"
                                                     alt="Product" /> --}}
