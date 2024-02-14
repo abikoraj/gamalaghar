@@ -15,7 +15,18 @@ class WishlistController extends Controller
     public function index()
     {
         $mainCategory = MainCategory::with('subcategories')->get();
-        return view('wishlist.wishlist', compact('mainCategory'));
+
+        $wishLists = Wishlist::join('products', 'products.id', '=', 'wishlists.product_id')
+        ->join('product_size_prices', 'products.id', '=', 'product_size_prices.product_id')
+        ->select('products.id', 'products.product_name', 'products.description',  \DB::raw('MIN(product_size_prices.price) as price'))
+        ->groupBy('products.id', 'products.product_name', 'products.description')
+        ->get();
+
+
+
+       
+        
+        return view('wishlist.wishlist', compact('mainCategory','wishLists'));
     }
 
     public function store(WishlistCreateRequest $request)
