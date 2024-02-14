@@ -166,8 +166,23 @@
                 <a href="{{ url('/') }}" class="ec-header-btn"><i class="fi-rr-home"></i></a>
             </div>
             <div class="ec-nav-panel-icons">
-                <a href="{{ url('wishlist') }}" class="ec-header-btn"><i class="fi-rr-heart"></i><span
-                        class="ec-cart-noti">4</span></a>
+
+
+
+
+
+                <a href="{{ url('wishlist') }}" class="ec-header-btn">
+
+                    @if ($countWishList)
+                        <i class="fi-rr-heart"></i>
+                        <span class="ec-cart-noti">
+                            {{ $countWishList }}
+                        </span>
+                    @else
+                        <i class="fi-rr-heart"></i>
+                    @endif
+
+                </a>
             </div>
             <div class="ec-nav-panel-icons">
                 @auth
@@ -220,8 +235,8 @@
 {{-- <script src="{{ url('assets/js/main.js') }}"></script> --}}
 
 <script>
-    $(document).ready(function(){
-        $('#cart').click(function(){
+    $(document).ready(function() {
+        $('#cart').click(function() {
             $.ajax({
                 url: 'cart', // Replace with your backend route
                 type: 'POST',
@@ -241,4 +256,4 @@
             });
         });
     });
-    </script>
+</script>

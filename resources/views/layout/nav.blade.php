@@ -53,26 +53,39 @@
                         <!-- Header User End -->
                         <!-- Header Cart Start -->
                         <a href="{{ url('wishlist') }}" class="ec-header-btn ec-header-wishlist">
-                            <div class="header-icon"><i class="fi-rr-heart"></i></div>
-                            <span class="ec-header-count">4</span>
-                        </a>
-                        <!-- Header Cart End -->
-                        <!-- Header Cart Start -->
-                        <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                            <div class="header-icon"><i class="fi-rr-shopping-basket"></i></div>
-                            <span class="ec-header-count ec-cart-count cart-count-lable">3</span>
-                        </a>
-                        <!-- Header Cart End -->
-                        <!-- Header menu Start -->
-                        <a href="#ec-mobile-menu" class="ec-header-btn ec-side-toggle d-lg-none">
-                            <i class="fi-rr-menu-burger"></i>
-                        </a>
-                        <!-- Header menu End -->
+                            <div class="header-icon">
+
+
+                                @if ($countWishList)
+                                    <i class="fi-rr-heart"></i>
+                            </div>
+                            <span class="ec-header-count">
+                                {{ $countWishList }}
+                            </span>
+                        @else
+                            <i class="fi-rr-heart"></i>
                     </div>
+                    @endif
+
+
+                    </a>
+                    <!-- Header Cart End -->
+                    <!-- Header Cart Start -->
+                    <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
+                        <div class="header-icon"><i class="fi-rr-shopping-basket"></i></div>
+                        <span class="ec-header-count ec-cart-count cart-count-lable">3</span>
+                    </a>
+                    <!-- Header Cart End -->
+                    <!-- Header menu Start -->
+                    <a href="#ec-mobile-menu" class="ec-header-btn ec-side-toggle d-lg-none">
+                        <i class="fi-rr-menu-burger"></i>
+                    </a>
+                    <!-- Header menu End -->
                 </div>
-                <!-- Header Top responsive Action -->
             </div>
+            <!-- Header Top responsive Action -->
         </div>
+    </div>
     </div>
     <!-- Ec Header Top  End -->
     <!-- Ec Header Bottom  Start -->
@@ -215,9 +228,9 @@
                                     <div class="header-icon"><i class="fi-rr-heart"></i></div>
                                     <span class="ec-header-count">
                                         {{ $countWishList }}
-                                        </span>
+                                    </span>
                                 @else
-                                <div class="header-icon"><i class="fi-rr-heart"></i></div>
+                                    <div class="header-icon"><i class="fi-rr-heart"></i></div>
                                 @endif
 
                             </a>
