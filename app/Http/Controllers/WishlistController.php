@@ -17,16 +17,28 @@ class WishlistController extends Controller
     {
         $mainCategory = MainCategory::with('subcategories')->get();
 
-        $wishLists = Wishlist::join('products', 'products.id', '=', 'wishlists.product_id')
+        if (auth()->check()) {
+            $wishLists = Wishlist::join('products', 'products.id', '=', 'wishlists.product_id')
             ->join('product_size_prices', 'products.id', '=', 'product_size_prices.product_id')
             ->select('products.id', 'products.product_name', 'products.description', 'products.slug',  \DB::raw('MIN(product_size_prices.price) as price'))
-            ->groupBy('products.id', 'products.product_name', 'products.description','products.slug')
+            ->groupBy('products.id', 'products.product_name', 'products.description', 'products.slug')
+            ->where('wishlists.user_id', auth()->user()->id)
             ->get();
 
-        $productID
-            = $wishLists->pluck('id')->toArray();
+            if ($wishLists->isNotEmpty()) {
+                $productID = $wishLists->pluck('id')->toArray();
 
-        $productImages = Product::with('media')->whereIn('id', $productID)->get();
+                $productImages = Product::with('media')->whereIn('id', $productID)->get();
+            } else {
+                // Handle the case where the wishlist is empty for the authenticated user
+                $productImages = [];
+            }
+        } else {
+            // Handle the case where the user is not authenticated
+            $productImages = [];
+            $wishLists=[];
+        }
+
 
         return view('wishlist.wishlist', compact('mainCategory', 'wishLists', 'productImages'));
     }
