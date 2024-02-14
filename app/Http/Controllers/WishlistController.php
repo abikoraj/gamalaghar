@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Wishlist\WishlistCreateRequest;
 use App\Models\MainCategory;
+use App\Models\Product;
 use App\Models\Wishlist;
 use Illuminate\Http\Client\ResponseSequence;
 use Illuminate\Http\Request;
@@ -22,11 +23,17 @@ class WishlistController extends Controller
         ->groupBy('products.id', 'products.product_name', 'products.description')
         ->get();
 
+        $productID=$wishLists->pluck('id');
+
+        $productImage=Product::with('media')->find($productID);
+      
+       
+
 
 
        
         
-        return view('wishlist.wishlist', compact('mainCategory','wishLists'));
+        return view('wishlist.wishlist', compact('mainCategory','wishLists', 'productImage'));
     }
 
     public function store(WishlistCreateRequest $request)
