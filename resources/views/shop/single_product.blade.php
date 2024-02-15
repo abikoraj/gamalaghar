@@ -60,19 +60,23 @@
                                         </div>
                                     </div>
                                     <div class="ec-single-qty">
-                                        <div class="qty-plus-minus">
-                                            <input class="qty-input" type="text" name="quantity" value="1" />
-                                        </div>
-                                        <div class="ec-single-cart ">
-                                            <form action="{{ url('cart') }}" method="POST">
-                                                @csrf
+                                        <form action="{{ url('cart') }}" method="POST">
+                                            @csrf
+
+                                            <div class="qty-plus-minus">
+                                                <input class="qty-input" type="text" name="quantity"
+                                                    value="1" />
+                                            </div>
+                                            <div class="ec-single-cart ">
                                                 <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                <input type="hidden" name="quantity" value="1">
+                                                <input type="hidden" name="product_size_price_id"
+                                                    id="product_size_price_id"
+                                                    value="{{ $product->productsizeprice->first()->id }}">
                                                 <button id="cart" class="btn btn-primary">Add To
                                                     Cart <span class="cart-icon mx-2 mt-1"><i
                                                             class="fi-rr-shopping-basket"></i></button>
-                                            </form>
-                                        </div>
+                                            </div>
+                                        </form>
                                         <div class="ec-single-wishlist">
                                             <a class="ec-btn-group wishlist" title="Wishlist"><i
                                                     class="fi-rr-heart"></i></a>
@@ -385,6 +389,7 @@
                 },
                 success: function(response) {
                     $('#product-new-price').text('Rs. ' + response.price);
+                    $('#product_size_price_id').val(response.productsizeid);
                     $('#product-stock-status').text(response.stock);
                 },
                 error: function(xhr, status, error) {

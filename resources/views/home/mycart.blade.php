@@ -8,18 +8,31 @@
                 <button class="ec-close">×</button>
             </div>
             <ul class="eccart-pro-items">
-                <li>
-                    <a href="product-left-sidebar.html" class="sidecart_pro_img"><img
-                            src="assets/images/product-image/93_1.jpg" alt="product"></a>
-                    <div class="ec-pro-content">
-                        <a href="single-product-left-sidebar.html" class="cart_pro_title">Product Name</a>
-                        <span class="cart-price"><span>$49.00</span> x 1</span>
-                        <div class="qty-plus-minus">
-                            <input class="qty-input" type="text" name="ec_qtybtn" value="1" />
+                @forelse ($cart as $cartData)
+                    <li>
+                        <a href="product-left-sidebar.html" class="sidecart_pro_img">
+                            @foreach ($productImages as $productImage)
+                                <img src="{{ $productImage->getFirstMediaUrl('product_image') }}" alt="product">
+                            @endforeach
+                        </a>
+
+                        <div class="ec-pro-content">
+                            <a href="single-product-left-sidebar.html"
+                                class="cart_pro_title">{{ $cartData->product_name }}</a>
+                            <span class="cart-price"><span>Rs. {{ $cartData->price }}</span> x
+                                {{ $cartData->quantity }}</span>
+                            <div class="ec-pro-variation-inner ec-pro-variation-size">
+                                <span>SIZE: {{ $cartData->size }}</span>
+                            </div>
+                            <div class="qty-plus-minus">
+                                <input class="qty-input" type="text" name="quantity" value="1" />
+                            </div>
+                            <a href="#" class="remove">×</a>
                         </div>
-                        <a href="#" class="remove">×</a>
-                    </div>
-                </li>
+                    </li>
+                @empty
+                @endforelse
+
             </ul>
         </div>
         <div class="ec-cart-bottom">

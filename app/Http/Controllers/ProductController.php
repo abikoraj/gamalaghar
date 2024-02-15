@@ -24,8 +24,6 @@ class ProductController extends Controller
         } else {
             $countWishList = "";
         }
-
-        
         return view('shop.product', compact('mainCategory', 'subCategory', 'product', 'countWishList'));
     }
 
@@ -45,9 +43,14 @@ class ProductController extends Controller
             $countWishList = "";
         }
 
-        return view('shop.single_product', compact('mainCategory', 'product',
-         'size', 'relatedProducts', 'bestSellingProducts',
-            'countWishList'));
+        return view('shop.single_product', compact(
+            'mainCategory',
+            'product',
+            'size',
+            'relatedProducts',
+            'bestSellingProducts',
+            'countWishList'
+        ));
     }
 
     public function getPrice(Request $request)
@@ -56,11 +59,13 @@ class ProductController extends Controller
         $productSizePrice = ProductSizePrice::where('size_id', $sizeId)->first();
         if ($productSizePrice->product_stock == 0) {
             return response()->json([
+                'productsizeid' => $productSizePrice->id,
                 'price' => $productSizePrice->price,
                 'stock' => 'OUT OF STOCK',
             ]);
         } else {
             return response()->json([
+                'productsizeid' => $productSizePrice->id,
                 'price' => $productSizePrice->price,
                 'stock' => "IN STOCK",
             ]);

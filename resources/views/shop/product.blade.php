@@ -88,7 +88,7 @@
                                                 <span class="old-price">$27.00</span>
                                                 <span class="new-price">$22.00</span>
                                             </span>
-                                            <div class="ec-spe-pro-btn">
+                                            {{-- <div class="ec-spe-pro-btn">
                                                 <form action="{{ url('cart') }}" method="POST">
                                                     @csrf
                                                     <input type="hidden" name="product_id"
@@ -109,7 +109,7 @@
                                                                 class="fi-rr-heart"></i></button>
                                                     </span>
                                                 </form>
-                                            </div>
+                                            </div> --}}
                                         </div>
 
                                     </div>
@@ -127,8 +127,7 @@
                                     <li><a href="#">3</a></li>
                                     <li><a href="#">4</a></li>
                                     <li><a href="#">5</a></li>
-                                    <li><a class="next" href="#">Next <i
-                                                class="ecicon eci-angle-right"></i></a>
+                                    <li><a class="next" href="#">Next <i class="ecicon eci-angle-right"></i></a>
                                     </li>
                                 </ul>
                             </div>

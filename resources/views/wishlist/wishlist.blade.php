@@ -25,8 +25,6 @@
                                                             <img src="{{ $productImage->getFirstMediaUrl('product_image') }}"
                                                                 alt="{{ $wishList->product_name }}">
                                                         @endforeach
-                                                        {{-- <img class="hover-image" src="{{ url('assets/img/7_2.jpg') }}"
-                                                    alt="Product" /> --}}
                                                     </a>
 
                                                     <span class="percentage">20%</span>

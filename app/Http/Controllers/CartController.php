@@ -11,18 +11,6 @@ use Illuminate\Support\Facades\DB;
 class CartController extends Controller
 {
 
-    // public function index(){
-
-    //     $cart = Cart::join('products', 'products.id', '=','carts.product_id')
-    //     ->join('product_size_prices', 'producrs.id', '=', 'product_size_prices.product_id')
-    //     ->select('products.id', 'products.product_name', 'products.slug',  \DB::raw('MIN(product_size_prices.price) as price'))
-    //     ->groupBy('products.id', 'products.product_name', 'products.slug')
-    //     ->get();
-
-    //     $productId = $cart->pluck('id')->toArray();
-    //     $productImages= Product::with('media')->whereIn('id', $productId)->get();
-    //     return view('user.user_cart', compact('cart', 'productImages'));
-    // }
 
     public function store(Request $request)
     {
@@ -33,11 +21,13 @@ class CartController extends Controller
 
             $user_id = auth()->user()->id;
             $product_id = $request->product_id;
+            $product_size_price_id= $request->product_size_price_id;
 
-            $cart = DB::transaction(function () use ($user_id, $product_id, $request) {
+            $cart = DB::transaction(function () use ($user_id, $product_id, $product_size_price_id, $request) {
                 // Check if the product already exists in the user's cart
                 $existingCart = Cart::where('user_id', $user_id)
                     ->where('product_id', $product_id)
+                    ->where('product_size_price_id', $product_size_price_id)
                     ->first();
 
                 if ($existingCart) {
@@ -51,6 +41,7 @@ class CartController extends Controller
                     $cart = Cart::create([
                         'user_id' => $user_id,
                         'product_id' => $product_id,
+                        'product_size_price_id'=>$product_size_price_id,
                         'quantity' => $request->quantity,
                     ]);
                     return $cart;
