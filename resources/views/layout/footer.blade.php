@@ -284,9 +284,16 @@
     $(document).ready(function() {
         // Function to update total price
         function updateTotalPrice() {
-            var price = parseFloat($(".cart-price").text().replace('Rs. ', '').trim()) || 0;
-            var quantity = parseFloat($(".qty-input").val()) || 0;
-            var total = price * quantity;
+            var total = 0; // Initialize total price to zero
+
+            // Loop through each item in the cart
+            $("li").each(function() {
+                var price = parseFloat($(this).find(".cart-price").text().replace('Rs. ', '').trim()) || 0;
+                var quantity = parseFloat($(this).find(".qty-input").val()) || 0;
+                total += price * quantity; // Multiply price by quantity and add to total
+            });
+
+            // Update the total price on the page
             $('#total-price').text('Rs. ' + total.toFixed(2));
         }
 
@@ -303,14 +310,12 @@
             $(".qty-input").val(newValue).trigger('change');
         }
 
-         setTimeout(function() {
-            updateQuantityValue(parseFloat($(".qty-input").val())); // Change quantity value to 5 after 2 seconds
-        }, 2000);
-
         // Example usage:
         // Change quantity value programmatically
         // You can call this function whenever you change the quantity value through JavaScript
         // For example, updateQuantityValue(10); will set the quantity value to 10 and trigger the updateTotalPrice() function.
     });
 </script>
+
+
 

@@ -47,7 +47,7 @@
 
                         <tr>
                             <td class="text-left">Total :</td>
-                            <td class="text-right primary-color total-price" id="total-price">$360.00</td>
+                            <td class="text-right primary-color total-price" id="total-price"></td>
                         </tr>
                     </tbody>
                 </table>
