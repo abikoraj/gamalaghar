@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\MainCategory;
 use App\Models\User;
 use App\Models\Wishlist;
@@ -18,12 +19,14 @@ class AccountController extends Controller
 
         if (auth()->check()) {
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
+            $countCarts = Cart::where('user_id', auth()->user()->id)->count();
         } else {
             $countWishList = "";
+            $countCarts="";
         }
 
         
-        return view('user.profile', compact('mainCategory', 'user', 'countWishList'));
+        return view('user.profile', compact('mainCategory', 'user', 'countWishList', 'countCarts'));
     }
 
     public function edituserdetails(Request $request)
