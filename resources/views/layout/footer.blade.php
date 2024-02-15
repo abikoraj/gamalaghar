@@ -165,7 +165,7 @@
                     @if ($countCarts)
                         <i class="fi-rr-shopping-basket"></i>
 
-                        <span class="ec-header-count ec-cart-count cart-count-lable">
+                        <span class="ec-cart-noti ec-header-count cart-count-lable">
                             {{ $countCarts }}
                         </span>
                     @else
