@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Wishlist\WishlistCreateRequest;
+use App\Models\Cart;
 use App\Models\MainCategory;
 use App\Models\Product;
 use App\Models\Wishlist;
@@ -19,11 +20,11 @@ class WishlistController extends Controller
 
         if (auth()->check()) {
             $wishLists = Wishlist::join('products', 'products.id', '=', 'wishlists.product_id')
-            ->join('product_size_prices', 'products.id', '=', 'product_size_prices.product_id')
-            ->select('products.id', 'products.product_name', 'products.description', 'products.slug',  \DB::raw('MIN(product_size_prices.price) as price'))
-            ->groupBy('products.id', 'products.product_name', 'products.description', 'products.slug')
-            ->where('wishlists.user_id', auth()->user()->id)
-            ->get();
+                ->join('product_size_prices', 'products.id', '=', 'product_size_prices.product_id')
+                ->select('products.id', 'products.product_name', 'products.description', 'products.slug',  \DB::raw('MAX(product_size_prices.price) as price'))
+                ->groupBy('products.id', 'products.product_name', 'products.description', 'products.slug')
+                ->where('wishlists.user_id', auth()->user()->id)
+                ->get();
 
             if ($wishLists->isNotEmpty()) {
                 $productID = $wishLists->pluck('id')->toArray();
@@ -37,14 +38,22 @@ class WishlistController extends Controller
         } else {
             // Handle the case where the user is not authenticated
             $productImages = [];
-            $wishLists=[];
-             $countWishList="";
+            $wishLists = [];
+            $countWishList = "";
         }
 
-       
+        $cart = Cart::join('products', 'products.id', '=', 'carts.product_id')
+            ->join('product_size_prices', 'product_size_prices.id', '=', 'carts.product_size_price_id')
+            ->join('sizes', 'sizes.id', '=', 'product_size_prices.size_id')
+            ->select('products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity')
+            ->groupBy('products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity')
+            ->where('carts.user_id', auth()->user()->id)
+            ->get();
 
+        $productId = $cart->pluck('id')->toArray();
+        $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
 
-        return view('wishlist.wishlist', compact('mainCategory', 'wishLists', 'productImages', 'countWishList'));
+        return view('wishlist.wishlist', compact('mainCategory', 'wishLists', 'productImages', 'countWishList', 'cart', 'cartproductImages'));
     }
 
     public function store(WishlistCreateRequest $request)

@@ -11,7 +11,7 @@
                             <h1 class="ec-slide-title">Make your home<span class="outline-txt">fresh</span></h1>
                             <div class="ec-slide-disc">
                                 <p>with Indoor Plants</p>
-                                <a href="#" class="btn btn-lg btn-primary"><span>Shop Now</span><i
+                                <a href="#best-selling-section" class="btn btn-lg btn-primary"><span>Shop Now</span><i
                                         class="fi-rr-shopping-basket"></i></a>
                             </div>
                         </div>

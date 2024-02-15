@@ -28,9 +28,9 @@ class HomeController extends Controller
             ->get();
 
         $productId = $cart->pluck('id')->toArray();
-        $productImages = Product::with('media')->whereIn('id', $productId)->get();
+        $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
 
 
-        return view('home.home', compact('mainCategory', 'product', 'countWishList', 'cart', 'productImages'));
+        return view('home.home', compact('mainCategory', 'product', 'countWishList', 'cart', 'cartproductImages'));
     }
 }

@@ -11,8 +11,8 @@
                 @forelse ($cart as $cartData)
                     <li>
                         <a href="product-left-sidebar.html" class="sidecart_pro_img">
-                            @foreach ($productImages as $productImage)
-                                <img src="{{ $productImage->getFirstMediaUrl('product_image') }}" alt="product">
+                            @foreach ($cartproductImages as $cartproductImage)
+                                <img src="{{ $cartproductImage->getFirstMediaUrl('product_image') }}" alt="product">
                             @endforeach
                         </a>
 

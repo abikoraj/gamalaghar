@@ -1,5 +1,5 @@
 <!-- Best Selling section start -->
-<section class="section ec-grocery-sec section-space-ptb-80 section-space-m">
+<section class="section ec-grocery-sec section-space-ptb-80 section-space-m" id="best-selling-section">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
