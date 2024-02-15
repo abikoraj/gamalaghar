@@ -239,15 +239,16 @@
                                 <div class="header-icon">
 
 
-                                    @if ($countWishList)
+                                    @if ($countCarts)
                                         <i class="fi-rr-shopping-basket"></i>
                                 </div>
                                 <span class="ec-header-count ec-cart-count cart-count-lable">
-                                    {{ $countWishList }}
+                                    {{ $countCarts }}
                                 </span>
                             @else
-                                <span class="ec-header-count ec-cart-count cart-count-lable"></span>
+                                <i class="fi-rr-shopping-basket"></i>
                                 @endif
+
 
 
 
