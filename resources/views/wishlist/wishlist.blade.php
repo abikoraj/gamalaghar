@@ -22,8 +22,10 @@
                                                 <div class="ec-pro-image">
                                                     <a href="product-left-sidebar.html" class="image">
                                                         @foreach ($productImages as $productImage)
+                                                        @if($productImage->id == $wishList->id)
                                                             <img src="{{ $productImage->getFirstMediaUrl('product_image') }}"
                                                                 alt="{{ $wishList->product_name }}">
+                                                                @endif
                                                         @endforeach
                                                     </a>
 
