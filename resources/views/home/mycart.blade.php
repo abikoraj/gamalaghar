@@ -22,7 +22,7 @@
                         <div class="ec-pro-content">
                             <a href="single-product-left-sidebar.html"
                                 class="cart_pro_title">{{ $cartData->product_name }}</a>
-                            <span class="cart-price price-value"><span class="">Rs. {{ $cartData->price }}</span>
+                            <span class="cart-price">Rs. {{ $cartData->price }}</span>
 
                                 <div class="ec-pro-variation-inner ec-pro-variation-size">
                                     <span>SIZE: {{ $cartData->size }}</span>

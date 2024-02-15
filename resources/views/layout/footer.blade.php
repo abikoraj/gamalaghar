@@ -284,7 +284,7 @@
     $(document).ready(function() {
         // Function to update total price
         function updateTotalPrice() {
-            var price = parseFloat($(".cart-price .price-value span").text().replace('Rs. ', '').trim()) || 0;
+            var price = parseFloat($(".cart-price").text().replace('Rs. ', '').trim()) || 0;
             var quantity = parseFloat($(".qty-input").val()) || 0;
             var total = price * quantity;
             $('#total-price').text('$' + total.toFixed(2));
