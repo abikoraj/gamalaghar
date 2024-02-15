@@ -35,11 +35,15 @@ class WishlistController extends Controller
                 $productImages = [];
             }
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
+            $countCarts = Cart::where('user_id', auth()->user()->id)->count();
+
+            
         } else {
             // Handle the case where the user is not authenticated
             $productImages = [];
             $wishLists = [];
             $countWishList = "";
+            $countCarts="";
         }
 
         $cart = Cart::join('products', 'products.id', '=', 'carts.product_id')
@@ -53,7 +57,7 @@ class WishlistController extends Controller
         $productId = $cart->pluck('id')->toArray();
         $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
 
-        return view('wishlist.wishlist', compact('mainCategory', 'wishLists', 'productImages', 'countWishList', 'cart', 'cartproductImages'));
+        return view('wishlist.wishlist', compact('mainCategory', 'wishLists', 'productImages', 'countWishList', 'cart', 'cartproductImages', 'countCarts'));
     }
 
     public function store(WishlistCreateRequest $request)

@@ -72,19 +72,31 @@
                     <!-- Header Cart End -->
                     <!-- Header Cart Start -->
                     <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                        <div class="header-icon"><i class="fi-rr-shopping-basket"></i></div>
-                        <span class="ec-header-count ec-cart-count cart-count-lable">3</span>
-                    </a>
-                    <!-- Header Cart End -->
-                    <!-- Header menu Start -->
-                    <a href="#ec-mobile-menu" class="ec-header-btn ec-side-toggle d-lg-none">
-                        <i class="fi-rr-menu-burger"></i>
-                    </a>
-                    <!-- Header menu End -->
+                        <div class="header-icon">
+
+                            @if ($countCarts)
+                                <i class="fi-rr-shopping-basket"></i>
+                        </div>
+                        <span class="ec-header-count ec-cart-count cart-count-lable">
+                            {{ $countCarts }}
+                        </span>
+                    @else
+                        <i class="fi-rr-shopping-basket"></i>
+
                 </div>
+                @endif
+
+                </a>
+                <!-- Header Cart End -->
+                <!-- Header menu Start -->
+                <a href="#ec-mobile-menu" class="ec-header-btn ec-side-toggle d-lg-none">
+                    <i class="fi-rr-menu-burger"></i>
+                </a>
+                <!-- Header menu End -->
             </div>
-            <!-- Header Top responsive Action -->
         </div>
+        <!-- Header Top responsive Action -->
+    </div>
     </div>
     </div>
     <!-- Ec Header Top  End -->

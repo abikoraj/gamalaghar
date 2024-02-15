@@ -17,8 +17,10 @@ class HomeController extends Controller
         $product = Product::with('media')->latest()->get();
         if (auth()->check()) {
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
+            $countCarts = Cart::where('user_id', auth()->user()->id)->count();
         } else {
             $countWishList = "";
+            $countCarts = "";
         }
         $cart = Cart::join('products', 'products.id', '=', 'carts.product_id')
             ->join('product_size_prices', 'product_size_prices.id', '=', 'carts.product_size_price_id')
@@ -31,6 +33,6 @@ class HomeController extends Controller
         $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
 
 
-        return view('home.home', compact('mainCategory', 'product', 'countWishList', 'cart', 'cartproductImages'));
+        return view('home.home', compact('mainCategory', 'product', 'countWishList', 'cart', 'cartproductImages', 'countCarts'));
     }
 }
