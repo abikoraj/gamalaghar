@@ -293,10 +293,24 @@
         // Call the function when the page is loaded
         updateTotalPrice();
 
-        // Bind input event to the quantity input
-        $(".qty-input, .cart-price .price-value span").on('input', function() {
+        // Manually trigger updateTotalPrice() when quantity value changes
+        $(".qty-input").on('change', function() {
             updateTotalPrice();
         });
+
+        // Simulate change event when quantity value changes programmatically
+        function updateQuantityValue(newValue) {
+            $(".qty-input").val(newValue).trigger('change');
+        }
+
+         setTimeout(function() {
+            updateQuantityValue(parseFloat($(".qty-input").val())); // Change quantity value to 5 after 2 seconds
+        }, 2000);
+
+        // Example usage:
+        // Change quantity value programmatically
+        // You can call this function whenever you change the quantity value through JavaScript
+        // For example, updateQuantityValue(10); will set the quantity value to 10 and trigger the updateTotalPrice() function.
     });
 </script>
 
