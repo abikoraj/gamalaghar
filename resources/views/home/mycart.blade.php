@@ -22,15 +22,16 @@
                         <div class="ec-pro-content">
                             <a href="single-product-left-sidebar.html"
                                 class="cart_pro_title">{{ $cartData->product_name }}</a>
-                            <span class="cart-price"><span>Rs. {{ $cartData->price }}</span> x
-                                {{ $cartData->quantity }}</span>
-                            <div class="ec-pro-variation-inner ec-pro-variation-size">
-                                <span>SIZE: {{ $cartData->size }}</span>
-                            </div>
-                            <div class="qty-plus-minus">
-                                <input class="qty-input" type="text" name="quantity" value="1" />
-                            </div>
-                            <a href="{{ url('cart/delete/' . $cartData->cartid) }}" class="remove">×</a>
+                            <span class="cart-price price-value"><span class="">Rs. {{ $cartData->price }}</span>
+
+                                <div class="ec-pro-variation-inner ec-pro-variation-size">
+                                    <span>SIZE: {{ $cartData->size }}</span>
+                                </div>
+                                <div class="qty-plus-minus">
+                                    <input class="qty-input" type="text" name="quantity"
+                                        value="{{ $cartData->quantity }}" />
+                                </div>
+                                <a href="{{ url('cart/delete/' . $cartData->cartid) }}" class="remove">×</a>
 
                         </div>
                     </li>
@@ -43,17 +44,10 @@
             <div class="cart-sub-total">
                 <table class="table cart-table">
                     <tbody>
-                        <tr>
-                            <td class="text-left">Sub-Total :</td>
-                            <td class="text-right">$300.00</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left">VAT (20%) :</td>
-                            <td class="text-right">$60.00</td>
-                        </tr>
+
                         <tr>
                             <td class="text-left">Total :</td>
-                            <td class="text-right primary-color">$360.00</td>
+                            <td class="text-right primary-color total-price" id="total-price">$360.00</td>
                         </tr>
                     </tbody>
                 </table>
