@@ -44,8 +44,8 @@ Route::post('profile', [AccountController::class, 'edituserdetails']);
 Route::get('wishlist', [WishlistController::class, 'index']);
 Route::post('wishlist', [WishlistController::class, 'store'])->name('wishlist');
 
-Route::get('cart',[CartController::class, 'index']);
 Route::post('cart', [CartController::class, 'store']);
+Route::get('cart/delete/{id}', [CartController::class, 'destroy']);
 
 Route::get('/blog', function () {
     return view('blog.all_blog');
@@ -70,4 +70,4 @@ Route::get('/history', function () {
     return view('user.history', compact('mainCategory'));
 });
 
-Route::get('about-us',[AboutUsController::class,'index']);
+Route::get('about-us', [AboutUsController::class, 'index']);

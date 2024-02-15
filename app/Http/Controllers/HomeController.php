@@ -23,8 +23,8 @@ class HomeController extends Controller
         $cart = Cart::join('products', 'products.id', '=', 'carts.product_id')
             ->join('product_size_prices', 'product_size_prices.id', '=', 'carts.product_size_price_id')
             ->join('sizes', 'sizes.id', '=', 'product_size_prices.size_id')
-            ->select('products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity')
-            ->groupBy('products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity')
+            ->select('products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity', 'carts.id as cartid')
+            ->groupBy('cartid', 'products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity')
             ->get();
 
         $productId = $cart->pluck('id')->toArray();

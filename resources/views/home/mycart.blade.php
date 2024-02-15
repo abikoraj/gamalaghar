@@ -27,7 +27,8 @@
                             <div class="qty-plus-minus">
                                 <input class="qty-input" type="text" name="quantity" value="1" />
                             </div>
-                            <a href="#" class="remove">×</a>
+                            <a href="{{ url('cart/delete/' . $cartData->cartid) }}" class="remove">×</a>
+
                         </div>
                     </li>
                 @empty

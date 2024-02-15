@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use League\CommonMark\Extension\CommonMark\Parser\Inline\BacktickParser;
 
 class CartController extends Controller
 {
@@ -49,6 +50,24 @@ class CartController extends Controller
             });
             if ($cart) {
                 return back()->with('success', 'Product Added to Cart!');
+            }
+        } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function destroy($id){
+        $cart=Cart::find($id);
+        if (is_null($cart)) {
+            return back()->with('error', 'Product Not Found!');
+        }
+        try {
+            $cart=DB::transaction(function () use($cart){
+                $cart->delete();
+                return $cart;
+            });
+            if ($cart) {
+                return back()->with('success', 'Product Deleted From Cart!');
             }
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
