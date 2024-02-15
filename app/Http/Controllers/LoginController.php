@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\Cart;
 use App\Models\MainCategory;
+use App\Models\Product;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,8 +24,18 @@ class LoginController extends Controller
             $countWishList = "";
         }
 
+        $cart = Cart::join('products', 'products.id', '=', 'carts.product_id')
+        ->join('product_size_prices', 'product_size_prices.id', '=', 'carts.product_size_price_id')
+        ->join('sizes', 'sizes.id', '=', 'product_size_prices.size_id')
+        ->select('products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity', 'carts.id as cartid')
+        ->groupBy('cartid', 'products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity')
+        ->get();
 
-        return view('auth.login', compact('mainCategory', 'countWishList'));
+        $productId = $cart->pluck('id')->toArray();
+        $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
+
+
+        return view('auth.login', compact('mainCategory', 'countWishList', 'cart', 'cartproductImages'));
     }
 
     public function login(LoginRequest $request)
