@@ -12,7 +12,10 @@
                     <li>
                         <a href="product-left-sidebar.html" class="sidecart_pro_img">
                             @foreach ($cartproductImages as $cartproductImage)
-                                <img src="{{ $cartproductImage->getFirstMediaUrl('product_image') }}" alt="product">
+                                @if ($cartproductImage->id == $cartData->id)
+                                    <img src="{{ $cartproductImage->getFirstMediaUrl('product_image') }}"
+                                        alt="product">
+                                @endif
                             @endforeach
                         </a>
 
