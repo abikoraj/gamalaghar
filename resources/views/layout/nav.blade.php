@@ -236,8 +236,21 @@
                             <!-- Header wishlist End -->
                             <!-- Header Cart Start -->
                             <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                <div class="header-icon"><i class="fi-rr-shopping-basket"></i></div>
-                                <span class="ec-header-count ec-cart-count cart-count-lable">3</span>
+                                <div class="header-icon">
+
+
+                                    @if ($countWishList)
+                                        <i class="fi-rr-shopping-basket"></i>
+                                </div>
+                                <span class="ec-header-count ec-cart-count cart-count-lable">
+                                    {{ $countWishList }}
+                                </span>
+                            @else
+                                <span class="ec-header-count ec-cart-count cart-count-lable"></span>
+                                @endif
+
+
+
                             </a>
                             <!-- Header Cart End -->
                         </div>
