@@ -22,8 +22,10 @@ class ProductController extends Controller
 
         if (auth()->check()) {
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
+            $countCarts = Cart::where('user_id', auth()->user()->id)->count();
         } else {
             $countWishList = "";
+            $countCarts="";
         }
 
         $cart = Cart::join('products', 'products.id', '=', 'carts.product_id')
@@ -35,7 +37,7 @@ class ProductController extends Controller
 
         $productId = $cart->pluck('id')->toArray();
         $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
-        return view('shop.product', compact('mainCategory', 'subCategory', 'product', 'countWishList', 'cart', 'cartproductImages'));
+        return view('shop.product', compact('mainCategory', 'subCategory', 'product', 'countWishList', 'cart', 'cartproductImages', 'countCarts'));
     }
 
     public function showSingleProduct($slug)
@@ -50,8 +52,10 @@ class ProductController extends Controller
 
         if (auth()->check()) {
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
+            $countCarts = Cart::where('user_id', auth()->user()->id)->count();
         } else {
             $countWishList = "";
+             $countCarts="";
         }
         $cart = Cart::join('products', 'products.id', '=', 'carts.product_id')
             ->join('product_size_prices', 'product_size_prices.id', '=', 'carts.product_size_price_id')
@@ -71,7 +75,8 @@ class ProductController extends Controller
             'bestSellingProducts',
             'countWishList',
             'cart',
-            'cartproductImages'
+            'cartproductImages',
+            'countCarts'
         ));
     }
 
