@@ -59,30 +59,39 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="ec-single-qty">
-                                        <form action="{{ url('cart') }}" method="POST">
-                                            @csrf
 
-                                            <div class="qty-plus-minus">
+                                    <div class="ec-single-qty">
+
+
+                                        <div class="qty-plus-minus">
+                                            
+                                            <form action="{{ url('cart') }}" method="POST">
+                                                @csrf
                                                 <input class="qty-input" type="text" name="quantity"
                                                     value="1" />
-                                            </div>
-                                            <div class="ec-single-cart ">
-                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                <input type="hidden" name="product_size_price_id"
-                                                    id="product_size_price_id"
-                                                    value="{{ $product->productsizeprice->first()->id }}">
-                                                <button id="cart" class="btn btn-primary">Add To
-                                                    Cart <span class="cart-icon mx-2 mt-1"><i
-                                                            class="fi-rr-shopping-basket"></i></button>
-                                            </div>
+                                        </div>
+                                        <div class="ec-single-cart ">
+                                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                            <input type="hidden" name="product_size_price_id"
+                                                id="product_size_price_id"
+                                                value="{{ $product->productsizeprice->first()->id }}">
+                                            <button id="cart" class="btn btn-primary">Add To
+                                                Cart <span class="cart-icon mx-2 mt-1"><i
+                                                        class="fi-rr-shopping-basket"></i></button>
+                                        </div>
                                         </form>
+
+
                                         <div class="ec-single-wishlist">
-                                            <a class="ec-btn-group wishlist" title="Wishlist"><i
-                                                    class="fi-rr-heart"></i></a>
+                                            <form>
+                                                <a class="ec-btn-group wishlist" title="Wishlist"><i
+                                                        class="fi-rr-heart"></i></a>
+                                            </form>
+
                                         </div>
 
                                     </div>
+
                                     <div class="ec-single-social">
                                         <ul class="mb-0">
                                             <li class="list-inline-item facebook"><a href="#"><i
