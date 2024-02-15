@@ -272,7 +272,7 @@
                 <!-- Ec Header Logo Start -->
                 <div class="col">
                     <div class="header-logo">
-                        <a href="index.html"><img src="{{ url('assets/img/Logo.png') }}" alt="Site Logo" /><img
+                        <a href="{{url('/')}}"><img src="{{ url('assets/img/Logo.png') }}" alt="Site Logo" /><img
                                 class="dark-logo" src="{{ url('assets/img/logo-white.png') }}" alt="Site Logo"
                                 style="display: none;" /></a>
                     </div>
