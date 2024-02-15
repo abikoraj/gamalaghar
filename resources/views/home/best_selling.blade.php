@@ -84,24 +84,4 @@
 </section>
 <!-- Grocery section End -->
 
-<script>
-    $(document).ready(function() {
-        $('.wishlist').click(function(e) {
-            e.preventDefault();
-            var formId = $(this).data('form-id');
-            var formData = $('#' + formId).serialize();
-            $.ajax({
-                type: 'POST',
-                url: $('#' + formId).attr('action'),
-                data: formData,
-                error: function(xhr, status, error) {
-                    // Handle Ajax errors here
-                    if (xhr.status == 401) {
-                        // Redirect to the login page
-                        window.location.href = 'login';
-                    }
-                }
-            });
-        });
-    });
-</script>
+

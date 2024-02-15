@@ -64,7 +64,7 @@
 
 
                                         <div class="qty-plus-minus">
-                                            
+
                                             <form action="{{ url('cart') }}" method="POST">
                                                 @csrf
                                                 <input class="qty-input" type="text" name="quantity"
@@ -83,9 +83,13 @@
 
 
                                         <div class="ec-single-wishlist">
-                                            <form>
-                                                <a class="ec-btn-group wishlist" title="Wishlist"><i
-                                                        class="fi-rr-heart"></i></a>
+                                            <form id="wishlistForm_{{ $product->id }}" action="{{ url('wishlist') }}"
+                                                method="POST">
+                                                @csrf
+                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                <button type="submit" class="ec-btn-group wishlist" title="Wishlist"
+                                                    data-form-id="wishlistForm_{{ $product->id }}"><i
+                                                        class="fi-rr-heart"></i></button>
                                             </form>
 
                                         </div>
@@ -124,9 +128,9 @@
                         <div class="ec-single-pro-tab-nav">
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#ec-spt-nav-details"
-                                        role="tab" aria-controls="ec-spt-nav-details"
-                                        aria-selected="true">Detail</a>
+                                    <a class="nav-link active" data-bs-toggle="tab"
+                                        data-bs-target="#ec-spt-nav-details" role="tab"
+                                        aria-controls="ec-spt-nav-details" aria-selected="true">Detail</a>
                                 </li>
 
                                 <li class="nav-item">
@@ -403,6 +407,28 @@
                 },
                 error: function(xhr, status, error) {
                     console.error(error);
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('.wishlist').click(function(e) {
+            e.preventDefault();
+            var formId = $(this).data('form-id');
+            var formData = $('#' + formId).serialize();
+            $.ajax({
+                type: 'POST',
+                url: $('#' + formId).attr('action'),
+                data: formData,
+                error: function(xhr, status, error) {
+                    // Handle Ajax errors here
+                    if (xhr.status == 401) {
+                        // Redirect to the login page
+                        window.location.href = 'login';
+                    }
                 }
             });
         });
