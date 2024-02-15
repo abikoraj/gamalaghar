@@ -158,9 +158,24 @@
                         class="fi fi-rr-menu-burger"></i></a>
             </div>
             <div class="ec-nav-panel-icons">
-                <a href="#ec-side-cart" class="toggle-cart ec-header-btn ec-side-toggle"><i
-                        class="fi-rr-shopping-basket"></i><span
-                        class="ec-cart-noti ec-header-count cart-count-lable">3</span></a>
+                <a href="#ec-side-cart" class="toggle-cart ec-header-btn ec-side-toggle">
+
+
+
+                    @if ($countCarts)
+                        <i class="fi-rr-shopping-basket"></i>
+
+                        <span class="ec-header-count ec-cart-count cart-count-lable">
+                            {{ $countCarts }}
+                        </span>
+                    @else
+                        <i class="fi-rr-shopping-basket"></i>
+                    @endif
+
+
+
+
+                </a>
             </div>
             <div class="ec-nav-panel-icons">
                 <a href="{{ url('/') }}" class="ec-header-btn"><i class="fi-rr-home"></i></a>
