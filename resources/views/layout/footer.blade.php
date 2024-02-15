@@ -287,7 +287,7 @@
             var price = parseFloat($(".cart-price").text().replace('Rs. ', '').trim()) || 0;
             var quantity = parseFloat($(".qty-input").val()) || 0;
             var total = price * quantity;
-            $('#total-price').text('$' + total.toFixed(2));
+            $('#total-price').text('Rs. ' + total.toFixed(2));
         }
 
         // Call the function when the page is loaded
