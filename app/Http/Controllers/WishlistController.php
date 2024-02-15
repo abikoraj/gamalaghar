@@ -31,11 +31,21 @@ class WishlistController extends Controller
 
                 $productImages = Product::with('media')->whereIn('id', $productID)->get();
             } else {
-                // Handle the case where the wishlist is empty for the authenticated user
+              
                 $productImages = [];
             }
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
             $countCarts = Cart::where('user_id', auth()->user()->id)->count();
+
+
+            $cart = Cart::join('products', 'products.id', '=', 'carts.product_id')
+            ->join('product_size_prices', 'product_size_prices.id', '=', 'carts.product_size_price_id')
+            ->join('sizes', 'sizes.id', '=', 'product_size_prices.size_id')
+            ->select('products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity', 'carts.id as cartid', 'carts.user_id')
+            ->groupBy('cartid', 'products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity')
+            ->where('carts.user_id', auth()->user()->id)->get();
+            $productId = $cart->pluck('id')->toArray();
+            $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
 
             
         } else {
@@ -44,18 +54,11 @@ class WishlistController extends Controller
             $wishLists = [];
             $countWishList = "";
             $countCarts="";
+            $cart = [];
+            $cartproductImages = [];
         }
 
-        $cart = Cart::join('products', 'products.id', '=', 'carts.product_id')
-            ->join('product_size_prices', 'product_size_prices.id', '=', 'carts.product_size_price_id')
-            ->join('sizes', 'sizes.id', '=', 'product_size_prices.size_id')
-            ->select('products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity')
-            ->groupBy('products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity')
-            ->where('carts.user_id', auth()->user()->id)
-            ->get();
-
-        $productId = $cart->pluck('id')->toArray();
-        $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
+       
 
         return view('wishlist.wishlist', compact('mainCategory', 'wishLists', 'productImages', 'countWishList', 'cart', 'cartproductImages', 'countCarts'));
     }
