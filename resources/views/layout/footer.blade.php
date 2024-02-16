@@ -222,7 +222,7 @@
 <!-- Main Js -->
 <script src="{{ url('assets/js/index.js') }}"></script>
 <script src="{{ url('assets/js/demo-11.js') }}"></script>
-{{-- <script src="{{ url('assets/js/main.js') }}"></script> --}}
+<script src="{{ url('assets/js/main.js') }}"></script>
 
 <script>
     $(document).ready(function() {
@@ -263,7 +263,8 @@
 
             // Loop through each item in the cart
             $("li").each(function() {
-                var price = parseFloat($(this).find(".cart-price").text().replace('Rs. ', '').trim()) || 0;
+                var price = parseFloat($(this).find(".cart-price").text().replace('Rs. ', '').trim()) ||
+                    0;
                 var quantity = parseFloat($(this).find(".qty-input").val()) || 0;
                 total += price * quantity; // Multiply price by quantity and add to total
             });
@@ -291,6 +292,3 @@
         // For example, updateQuantityValue(10); will set the quantity value to 10 and trigger the updateTotalPrice() function.
     });
 </script>
-
-
-

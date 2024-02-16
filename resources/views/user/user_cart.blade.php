@@ -13,7 +13,7 @@
                     <div class="col-md-6 col-sm-12">
                         <!-- ec-breadcrumb-list start -->
                         <ul class="ec-breadcrumb-list">
-                            <li class="ec-breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="ec-breadcrumb-item"><a href="{{ url('profile') }}">Profile</a></li>
                             <li class="ec-breadcrumb-item active">Cart</li>
                         </ul>
                         <!-- ec-breadcrumb-list end -->
@@ -41,91 +41,48 @@
                                                 <th>Product</th>
                                                 <th>Price</th>
                                                 <th style="text-align: center;">Quantity</th>
+                                                <th>Size</th>
                                                 <th>Total</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td data-label="Product" class="ec-cart-pro-name"><a
-                                                        href="product-left-sidebar.html"><img
-                                                            class="ec-cart-pro-img mr-4"
-                                                            src="assets/images/product-image/1.jpg" alt="" />Stylish
-                                                        Baby Shoes</a></td>
-                                                <td data-label="Price" class="ec-cart-pro-price"><span
-                                                        class="amount">$56.00</span></td>
-                                                <td data-label="Quantity" class="ec-cart-pro-qty"
-                                                    style="text-align: center;">
-                                                    <div class="cart-qty-plus-minus">
-                                                        <input class="cart-plus-minus" type="text"
-                                                            name="cartqtybutton" value="1" />
-                                                    </div>
-                                                </td>
-                                                <td data-label="Total" class="ec-cart-pro-subtotal">$56.00</td>
-                                                <td data-label="Remove" class="ec-cart-pro-remove">
-                                                    <a href="#"><i class="ecicon eci-trash-o"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td data-label="Product" class="ec-cart-pro-name"><a
-                                                        href="product-left-sidebar.html"><img
-                                                            class="ec-cart-pro-img mr-4"
-                                                            src="assets/images/product-image/2.jpg" alt="" />Unisex
-                                                        Fully Solid Hoodie</a></td>
-                                                <td data-label="Price" class="ec-cart-pro-price"><span
-                                                        class="amount">$75.00</span></td>
-                                                <td data-label="Quantity" class="ec-cart-pro-qty"
-                                                    style="text-align: center;">
-                                                    <div class="cart-qty-plus-minus">
-                                                        <input class="cart-plus-minus" type="text"
-                                                            name="cartqtybutton" value="1" />
-                                                    </div>
-                                                </td>
-                                                <td data-label="Total" class="ec-cart-pro-subtotal">$75.00</td>
-                                                <td data-label="Remove" class="ec-cart-pro-remove">
-                                                    <a href="#"><i class="ecicon eci-trash-o"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td data-label="Product" class="ec-cart-pro-name"><a
-                                                        href="product-left-sidebar.html"><img
-                                                            class="ec-cart-pro-img mr-4"
-                                                            src="assets/images/product-image/3.jpg"
-                                                            alt="" />Beautiful T-shirt For Women</a></td>
-                                                <td data-label="Price" class="ec-cart-pro-price"><span
-                                                        class="amount">$48.00</span></td>
-                                                <td data-label="Quantity" class="ec-cart-pro-qty"
-                                                    style="text-align: center;">
-                                                    <div class="cart-qty-plus-minus">
-                                                        <input class="cart-plus-minus" type="text"
-                                                            name="cartqtybutton" value="1" />
-                                                    </div>
-                                                </td>
-                                                <td data-label="Total" class="ec-cart-pro-subtotal">$48.00</td>
-                                                <td data-label="Remove" class="ec-cart-pro-remove">
-                                                    <a href="#"><i class="ecicon eci-trash-o"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td data-label="Product" class="ec-cart-pro-name"><a
-                                                        href="product-left-sidebar.html"><img
-                                                            class="ec-cart-pro-img mr-4"
-                                                            src="assets/images/product-image/4.jpg" alt="" />Wool
-                                                        Hat For Men</a></td>
-                                                <td data-label="Price" class="ec-cart-pro-price"><span
-                                                        class="amount">$95.00</span></td>
-                                                <td data-label="Quantity" class="ec-cart-pro-qty"
-                                                    style="text-align: center;">
-                                                    <div class="cart-qty-plus-minus">
-                                                        <input class="cart-plus-minus" type="text"
-                                                            name="cartqtybutton" value="1" />
-                                                    </div>
-                                                </td>
-                                                <td data-label="Total" class="ec-cart-pro-subtotal">$95.00</td>
-                                                <td data-label="Remove" class="ec-cart-pro-remove">
-                                                    <a href="#"><i class="ecicon eci-trash-o"></i></a>
-                                                </td>
-                                            </tr>
+                                            @forelse ($cart as $cartData)
+                                                <tr>
+                                                    @foreach ($cartproductImages as $cartproductImage)
+                                                        @if ($cartproductImage->id == $cartData->id)
+                                                            <td data-label="Product" class="ec-cart-pro-name"><a
+                                                                    href="product-left-sidebar.html"><img
+                                                                        class="ec-cart-pro-img mr-4"
+                                                                        src="{{ $cartproductImage->getFirstMediaUrl('product_image') }}"
+                                                                        alt="{{ $cartData->product_name }}" />{{ $cartData->product_name }}</a>
+                                                            </td>
+                                                        @endif
+                                                    @endforeach
+
+                                                    <td data-label="Price" class="ec-cart-pro-price"><span
+                                                            class="amount">Rs. {{ $cartData->price }}</span>
+                                                    </td>
+                                                    <td data-label="Quantity" class="ec-cart-pro-qty"
+                                                        style="text-align: center;">
+                                                        <div class="cart-qty-plus-minus">
+                                                            <input class="cart-plus-minus" type="text"
+                                                                name="cartqtybutton"
+                                                                value="{{ $cartData->quantity }}" />
+                                                    </td>
+                                                    <td><span class="size">{{ $cartData->size }}</span></td>
+                                                    <td data-label="Total" class="ec-cart-pro-subtotal">
+                                                        Rs. {{ $cartData->price * $cartData->quantity }}</td>
+                                                    <td data-label="Remove" class="ec-cart-pro-remove">
+                                                        <a href="{{ url('cart/delete/' . $cartData->cartid) }}"><i
+                                                                class="ecicon eci-trash-o"></i></a>
+                                                    </td>
+                                                </tr>
+                                            @empty
+                                                <img src="{{ url('assets/img/Empty-rafiki.png') }}" alt="Wishlist image"
+                                                    class="img-fluid d-block mx-auto" style="max-width: 300px;" />
+                                            @endforelse
+
                                         </tbody>
                                     </table>
                                 </div>
