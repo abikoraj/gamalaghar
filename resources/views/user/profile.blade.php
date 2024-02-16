@@ -23,7 +23,7 @@
                                     <li><a href="{{ url('history') }}">History</a></li>
                                     <li><a href="{{ url('wishlist') }}">Wishlist</a></li>
                                     <li><a href="{{ url('cart') }}">Cart</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
+                                    <li><a href="{{ url('user/checkout') }}">Checkout</a></li>
                                     <li><a href="track-order.html">Track Order</a></li>
                                     <li><a href="user-invoice.html">Invoice</a></li>
                                 </ul>

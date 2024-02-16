@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
@@ -47,6 +48,8 @@ Route::post('wishlist', [WishlistController::class, 'store']);
 Route::get('cart', [CartController::class, 'index']);
 Route::post('cart', [CartController::class, 'store']);
 Route::get('cart/delete/{id}', [CartController::class, 'destroy']);
+
+Route::get('user/checkout', [CheckoutController::class,'index']);
 
 
 Route::get('/contact_us', function () {
