@@ -79,8 +79,13 @@
                                                     </td>
                                                 </tr>
                                             @empty
-                                                <img src="{{ url('assets/img/Empty-rafiki.png') }}" alt="Wishlist image"
-                                                    class="img-fluid d-block mx-auto" style="max-width: 300px;" />
+                                                <tr>
+                                                    <td colspan="5">
+                                                        <img src="{{ url('assets/img/Empty-rafiki.png') }}"
+                                                            alt="Wishlist image" class="img-fluid d-block mx-auto"
+                                                            style="max-width: 300px;" />
+                                                    </td>  
+                                                </tr>
                                             @endforelse
 
                                         </tbody>

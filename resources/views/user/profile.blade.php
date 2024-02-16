@@ -20,7 +20,7 @@
                             <div class="ec-vendor-block-items">
                                 <ul>
                                     <li><a href="user-profile.html">User Profile</a></li>
-                                    <li><a href="user-history.html">History</a></li>
+                                    <li><a href="{{ url('history') }}">History</a></li>
                                     <li><a href="{{ url('wishlist') }}">Wishlist</a></li>
                                     <li><a href="{{ url('cart') }}">Cart</a></li>
                                     <li><a href="checkout.html">Checkout</a></li>

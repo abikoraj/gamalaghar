@@ -48,23 +48,12 @@ Route::get('cart', [CartController::class, 'index']);
 Route::post('cart', [CartController::class, 'store']);
 Route::get('cart/delete/{id}', [CartController::class, 'destroy']);
 
-Route::get('/blog', function () {
-    return view('blog.all_blog');
-});
-
-Route::get('/blog/details', function () {
-    return view('blog.blog_details');
-});
 
 Route::get('/contact_us', function () {
     return view('contact_us');
 });
 
 
-
-Route::get('/hot-offer', function () {
-    return view('hot_offer');
-});
 
 Route::get('/history', function () {
     $mainCategory = MainCategory::with('subcategories')->get();
