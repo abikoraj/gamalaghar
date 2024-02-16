@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\MainCategory;
 use App\Models\Product;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -12,6 +14,29 @@ use League\CommonMark\Extension\CommonMark\Parser\Inline\BacktickParser;
 class CartController extends Controller
 {
 
+
+    public function index()
+    {
+        $mainCategory = MainCategory::with('subcategories')->get();
+        if (auth()->check()) {
+            $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
+            $countCarts = Cart::where('user_id', auth()->user()->id)->count();
+            $cart = Cart::join('products', 'products.id', '=', 'carts.product_id')
+                ->join('product_size_prices', 'product_size_prices.id', '=', 'carts.product_size_price_id')
+                ->join('sizes', 'sizes.id', '=', 'product_size_prices.size_id')
+                ->select('products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity', 'carts.id as cartid', 'carts.user_id')
+                ->groupBy('cartid', 'products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity', 'carts.user_id')
+                ->where('carts.user_id', auth()->user()->id)->get();
+            $productId = $cart->pluck('id')->toArray();
+            $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
+        } else {
+            $countWishList = "";
+            $countCarts = "";
+            $cart = [];
+            $cartproductImages = [];
+        }
+        return view('user.user_cart', compact('mainCategory', 'countWishList', 'countCarts', 'cart', 'cartproductImages'));
+    }
 
     public function store(Request $request)
     {
@@ -22,7 +47,7 @@ class CartController extends Controller
 
             $user_id = auth()->user()->id;
             $product_id = $request->product_id;
-            $product_size_price_id= $request->product_size_price_id;
+            $product_size_price_id = $request->product_size_price_id;
 
             $cart = DB::transaction(function () use ($user_id, $product_id, $product_size_price_id, $request) {
                 // Check if the product already exists in the user's cart
@@ -42,7 +67,7 @@ class CartController extends Controller
                     $cart = Cart::create([
                         'user_id' => $user_id,
                         'product_id' => $product_id,
-                        'product_size_price_id'=>$product_size_price_id,
+                        'product_size_price_id' => $product_size_price_id,
                         'quantity' => $request->quantity,
                     ]);
                     return $cart;
@@ -56,13 +81,14 @@ class CartController extends Controller
         }
     }
 
-    public function destroy($id){
-        $cart=Cart::find($id);
+    public function destroy($id)
+    {
+        $cart = Cart::find($id);
         if (is_null($cart)) {
             return back()->with('error', 'Product Not Found!');
         }
         try {
-            $cart=DB::transaction(function () use($cart){
+            $cart = DB::transaction(function () use ($cart) {
                 $cart->delete();
                 return $cart;
             });

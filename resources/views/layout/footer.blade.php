@@ -159,35 +159,21 @@
             </div>
             <div class="ec-nav-panel-icons">
                 <a href="#ec-side-cart" class="toggle-cart ec-header-btn ec-side-toggle">
-
-
-
                     @if ($countCarts)
                         <i class="fi-rr-shopping-basket"></i>
-
                         <span class="ec-cart-noti ec-header-count cart-count-lable">
                             {{ $countCarts }}
                         </span>
                     @else
                         <i class="fi-rr-shopping-basket"></i>
                     @endif
-
-
-
-
                 </a>
             </div>
             <div class="ec-nav-panel-icons">
                 <a href="{{ url('/') }}" class="ec-header-btn"><i class="fi-rr-home"></i></a>
             </div>
             <div class="ec-nav-panel-icons">
-
-
-
-
-
                 <a href="{{ url('wishlist') }}" class="ec-header-btn">
-
                     @if ($countWishList)
                         <i class="fi-rr-heart"></i>
                         <span class="ec-cart-noti">
@@ -196,7 +182,6 @@
                     @else
                         <i class="fi-rr-heart"></i>
                     @endif
-
                 </a>
             </div>
             <div class="ec-nav-panel-icons">
@@ -212,16 +197,6 @@
 </div>
 <!-- Footer navigation panel for responsive display end -->
 
-
-
-<!-- Add to Cart successfully toast Start -->
-<div id="addtocart_toast" class="addtocart_toast">
-    <div class="desc">You Have Add To Cart Successfully</div>
-</div>
-<div id="wishlist_toast" class="wishlist_toast">
-    <div class="desc">You Have Add To Wishlist Successfully</div>
-</div>
-<!-- Add to Cart successfully toast end -->
 
 <!-- Vendor JS -->
 <script src="{{ url('assets/js/jquery-3.5.1.min.js') }}"></script>

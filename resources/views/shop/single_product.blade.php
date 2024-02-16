@@ -83,15 +83,12 @@
 
 
                                         <div class="ec-single-wishlist">
-                                            <form id="wishlistForm_{{ $product->id }}" action="{{ url('wishlist') }}"
-                                                method="POST">
+                                            <form action="{{ url('wishlist') }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                <button type="submit" class="ec-btn-group wishlist" title="Wishlist"
-                                                    data-form-id="wishlistForm_{{ $product->id }}"><i
-                                                        class="fi-rr-heart"></i></button>
+                                                <button type="submit" class="ec-btn-group wishlist" title="Wishlist">
+                                                    <i class="fi-rr-heart"></i></button>
                                             </form>
-
                                         </div>
 
                                     </div>
@@ -128,9 +125,9 @@
                         <div class="ec-single-pro-tab-nav">
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-bs-toggle="tab"
-                                        data-bs-target="#ec-spt-nav-details" role="tab"
-                                        aria-controls="ec-spt-nav-details" aria-selected="true">Detail</a>
+                                    <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#ec-spt-nav-details"
+                                        role="tab" aria-controls="ec-spt-nav-details"
+                                        aria-selected="true">Detail</a>
                                 </li>
 
                                 <li class="nav-item">
@@ -413,7 +410,8 @@
     });
 </script>
 
-<script>
+
+{{-- <script>
     $(document).ready(function() {
         $('.wishlist').click(function(e) {
             e.preventDefault();
@@ -433,7 +431,7 @@
             });
         });
     });
-</script>
+</script> --}}
 
 
 
