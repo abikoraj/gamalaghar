@@ -161,7 +161,7 @@
                             <div class="ec-checkout-summary">
                                 <div>
                                     <span class="text-left">Sub-Total</span>
-                                    <span class="text-right">$80.00</span>
+                                    <span class="text-right">Rs. {{ $selectedProducts->first()->price }}</span>
                                 </div>
                                 <div>
                                     <span class="text-left">Delivery Charges</span>
@@ -186,90 +186,38 @@
                                 </div>
                             </div>
                             <div class="ec-checkout-pro">
-                                @foreach ( $selectedProducts as $products)
-                                <div class="col-sm-12 mb-6">
-                                    <div class="ec-product-inner">
-                                        <div class="ec-pro-image-outer">
-                                            <div class="ec-pro-image">
-                                                <a href="product-left-sidebar.html" class="image">
-                                                    <img class="main-image" src="assets/images/product-image/1_1.jpg"
-                                                        alt="Product" />
-                                                </a>
+                                @foreach ($selectedProducts as $products)
+                                    <div class="col-sm-12 mb-6">
+                                        <div class="ec-product-inner">
+                                            <div class="ec-pro-image-outer">
+                                                <div class="ec-pro-image">
+                                                    <a href="product-left-sidebar.html" class="image">
+                                                        <img class="main-image"
+                                                            src="assets/images/product-image/1_1.jpg"
+                                                            alt="{{ $products->product_name }}" />
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="ec-pro-content">
-                                            <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Baby toy
-                                                    teddy bear</a></h5>
-                                            <div class="ec-pro-rating">
-                                                <i class="ecicon eci-star fill"></i>
-                                                <i class="ecicon eci-star fill"></i>
-                                                <i class="ecicon eci-star fill"></i>
-                                                <i class="ecicon eci-star fill"></i>
-                                                <i class="ecicon eci-star"></i>
-                                            </div>
-                                            <span class="ec-price">
-                                                <span class="old-price">$95.00</span>
-                                                <span class="new-price">$79.00</span>
-                                            </span>
-                                            <div class="ec-pro-option">
-                                                <div class="ec-pro-size">
-                                                    <span class="ec-pro-opt-label">Size</span>
-                                                    <ul class="ec-opt-size">
-                                                        <li class="active"><a href="#" class="ec-opt-sz"
-                                                                data-old="$95.00" data-new="$79.00"
-                                                                data-tooltip="Small">S</a></li>
-                                                        <li><a href="#" class="ec-opt-sz" data-old="$90.00"
-                                                                data-new="$70.00" data-tooltip="Medium">M</a></li>
-                                                        <li><a href="#" class="ec-opt-sz" data-old="$80.00"
-                                                                data-new="$60.00" data-tooltip="Large">X</a></li>
-                                                        <li><a href="#" class="ec-opt-sz" data-old="$70.00"
-                                                                data-new="$50.00" data-tooltip="Extra Large">XL</a>
-                                                        </li>
-                                                    </ul>
+                                            <div class="ec-pro-content">
+                                                <h5 class="ec-pro-title "><a
+                                                        href="product-left-sidebar.html">{{ $products->product_name }}</a>
+                                                </h5>
+                                                <span class="ec-price">
+                                                    <span class="new-price mx-4">Rs. {{ $products->price }}</span>
+                                                </span>
+                                                <div class="ec-pro-size mx-4">
+                                                    <span class="ec-pro-opt-label">Size: {{ $products->size }}</span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 @endforeach
                             </div>
                         </div>
                     </div>
                     <!-- Sidebar Summary Block -->
                 </div>
-                <div class="ec-sidebar-wrap ec-checkout-del-wrap">
-                    <!-- Sidebar Summary Block -->
-                    <div class="ec-sidebar-block">
-                        <div class="ec-sb-title">
-                            <h3 class="ec-sidebar-title">Delivery Method</h3>
-                        </div>
-                        <div class="ec-sb-block-content">
-                            <div class="ec-checkout-del">
-                                <div class="ec-del-desc">Please select the preferred shipping method to use on this
-                                    order.</div>
-                                <form action="#">
-                                    <span class="ec-del-option">
-                                        <span>
-                                            <span class="ec-del-opt-head">Free Shipping</span>
-                                            <input type="radio" id="del1" name="radio-group" checked>
-                                            <label for="del1">Rate - $0 .00</label>
-                                        </span>
-                                        <span>
-                                            <span class="ec-del-opt-head">Flat Rate</span>
-                                            <input type="radio" id="del2" name="radio-group">
-                                            <label for="del2">Rate - $5.00</label>
-                                        </span>
-                                    </span>
-                                    <span class="ec-del-commemt">
-                                        <span class="ec-del-opt-head">Add Comments About Your Order</span>
-                                        <textarea name="your-commemt" placeholder="Comments"></textarea>
-                                    </span>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Sidebar Summary Block -->
-                </div>
+
                 <div class="ec-sidebar-wrap ec-checkout-pay-wrap">
                     <!-- Sidebar Payment Block -->
                     <div class="ec-sidebar-block">

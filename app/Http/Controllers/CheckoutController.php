@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $mainCategory = MainCategory::with('subcategories')->get();
         if (auth()->check()) {
@@ -30,16 +30,10 @@ class CheckoutController extends Controller
             $cart = [];
             $cartproductImages = [];
         }
-        return view('user.checkout', compact('mainCategory', 'countWishList', 'countCarts', 'cart', 'cartproductImages'));
-    }
+
+        $selectedProducts = $request->session()->get('selectedProducts');
 
 
-    public function showCheckoutPage(Request $request)
-    {
-        // Retrieve selected products from the session
-        $selectedProducts = $request->session()->all();
-
-        // Do something with the selected products, such as display them in the checkout page
-        return view('user.checkout', compact('selectedProducts'));
+        return view('user.checkout', compact('mainCategory', 'countWishList', 'countCarts', 'cart', 'cartproductImages', 'selectedProducts'));
     }
 }
