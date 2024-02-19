@@ -99,4 +99,26 @@ class CartController extends Controller
             return back()->with('error', $e->getMessage());
         }
     }
+
+    public function checkout(Request $request)
+    {
+        // Retrieve selected product IDs from the form submission
+        $selectedProductIds = $request->input('selectedProducts', []);
+
+        // Retrieve products based on the selected IDs
+        $selectedProducts = Cart::join('products', 'products.id', '=', 'carts.product_id')
+            ->join('product_size_prices', 'product_size_prices.id', '=', 'carts.product_size_price_id')
+            ->join('sizes', 'sizes.id', '=', 'product_size_prices.size_id')
+            ->select('products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity', 'carts.id as cartid', 'carts.user_id')
+            ->groupBy('cartid', 'products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity', 'carts.user_id')
+            ->where('carts.user_id', auth()->user()->id)
+            ->whereIn('carts.id', $selectedProductIds)->get();
+
+        // dd($selectedProducts);
+
+        // Store the selected products in the session
+        $request->session()->put('selectedProducts', $selectedProducts);
+
+        return redirect()->route('checkout'); // Assuming you have a named route for your checkout page
+    }
 }

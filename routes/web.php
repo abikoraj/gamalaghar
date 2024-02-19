@@ -49,7 +49,8 @@ Route::get('cart', [CartController::class, 'index']);
 Route::post('cart', [CartController::class, 'store']);
 Route::get('cart/delete/{id}', [CartController::class, 'destroy']);
 
-Route::get('user/checkout', [CheckoutController::class,'index']);
+Route::get('user/checkout', [CheckoutController::class,'index'])->name('checkout');
+Route::post('user/checkouts', [CartController::class, 'checkout']);
 
 
 Route::get('/contact_us', function () {

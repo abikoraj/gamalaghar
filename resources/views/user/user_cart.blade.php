@@ -28,16 +28,18 @@
 <section class="ec-page-content section-space-p">
     <div class="container">
         <div class="row">
-            <div class="ec-cart-leftside col-lg-8 col-md-12 ">
+            <div class="ec-cart-leftside col-lg-12 col-md-12 ">
                 <!-- cart content Start -->
                 <div class="ec-cart-content">
                     <div class="ec-cart-inner">
                         <div class="row">
-                            <form action="#">
+                            <form action="{{ url('user/checkouts') }}" method="POST">
+                                @csrf
                                 <div class="table-content cart-table-content">
                                     <table>
                                         <thead>
                                             <tr>
+                                                <th></th>
                                                 <th>Product</th>
                                                 <th>Price</th>
                                                 <th style="text-align: center;">Quantity</th>
@@ -49,6 +51,8 @@
                                         <tbody>
                                             @forelse ($cart as $cartData)
                                                 <tr>
+                                                    <td><input type="checkbox" name="selectedProducts[]"
+                                                            value="{{ $cartData->cartid }}"></td>
                                                     @foreach ($cartproductImages as $cartproductImage)
                                                         @if ($cartproductImage->id == $cartData->id)
                                                             <td data-label="Product" class="ec-cart-pro-name"><a
@@ -84,7 +88,7 @@
                                                         <img src="{{ url('assets/img/Empty-rafiki.png') }}"
                                                             alt="Wishlist image" class="img-fluid d-block mx-auto"
                                                             style="max-width: 300px;" />
-                                                    </td>  
+                                                    </td>
                                                 </tr>
                                             @endforelse
 
@@ -105,7 +109,7 @@
                 </div>
                 <!--cart content End -->
             </div>
-            <!-- Sidebar Area Start -->
+            {{-- <!-- Sidebar Area Start -->
             <div class="ec-cart-rightside col-lg-4 col-md-12">
                 <div class="ec-sidebar-wrap">
                     <!-- Sidebar Summary Block -->
@@ -190,7 +194,7 @@
                     </div>
                     <!-- Sidebar Summary Block -->
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </section>

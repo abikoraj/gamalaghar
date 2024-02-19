@@ -82,8 +82,8 @@
                                             </span>
                                             <span class="ec-bill-wrap ec-bill-half">
                                                 <label>Last Name*</label>
-                                                <input type="text" name="lastname"
-                                                    placeholder="Enter your last name" required />
+                                                <input type="text" name="lastname" placeholder="Enter your last name"
+                                                    required />
                                             </span>
                                             <span class="ec-bill-wrap">
                                                 <label>Address</label>
@@ -186,22 +186,20 @@
                                 </div>
                             </div>
                             <div class="ec-checkout-pro">
+                                @foreach ( $selectedProducts as $products)
                                 <div class="col-sm-12 mb-6">
                                     <div class="ec-product-inner">
                                         <div class="ec-pro-image-outer">
                                             <div class="ec-pro-image">
                                                 <a href="product-left-sidebar.html" class="image">
-                                                    <img class="main-image"
-                                                        src="assets/images/product-image/1_1.jpg"
-                                                        alt="Product" />
-                                                    <img class="hover-image"
-                                                        src="assets/images/product-image/1_2.jpg"
+                                                    <img class="main-image" src="assets/images/product-image/1_1.jpg"
                                                         alt="Product" />
                                                 </a>
                                             </div>
                                         </div>
                                         <div class="ec-pro-content">
-                                            <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Baby toy teddy bear</a></h5>
+                                            <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Baby toy
+                                                    teddy bear</a></h5>
                                             <div class="ec-pro-rating">
                                                 <i class="ecicon eci-star fill"></i>
                                                 <i class="ecicon eci-star fill"></i>
@@ -214,35 +212,6 @@
                                                 <span class="new-price">$79.00</span>
                                             </span>
                                             <div class="ec-pro-option">
-                                                <div class="ec-pro-color">
-                                                    <span class="ec-pro-opt-label">Color</span>
-                                                    <ul class="ec-opt-swatch ec-change-img">
-                                                        <li class="active"><a href="#" class="ec-opt-clr-img"
-                                                                data-src="assets/images/product-image/1_1.jpg"
-                                                                data-src-hover="assets/images/product-image/1_1.jpg"
-                                                                data-tooltip="Gray"><span
-                                                                    style="background-color:#6d4c36;"></span></a>
-                                                        </li>
-                                                        <li><a href="#" class="ec-opt-clr-img"
-                                                                data-src="assets/images/product-image/1_2.jpg"
-                                                                data-src-hover="assets/images/product-image/1_2.jpg"
-                                                                data-tooltip="Orange"><span
-                                                                    style="background-color:#ffb0e1;"></span></a>
-                                                        </li>
-                                                        <li><a href="#" class="ec-opt-clr-img"
-                                                                data-src="assets/images/product-image/1_3.jpg"
-                                                                data-src-hover="assets/images/product-image/1_3.jpg"
-                                                                data-tooltip="Green"><span
-                                                                    style="background-color:#8beeff;"></span></a>
-                                                        </li>
-                                                        <li><a href="#" class="ec-opt-clr-img"
-                                                                data-src="assets/images/product-image/1_4.jpg"
-                                                                data-src-hover="assets/images/product-image/1_4.jpg"
-                                                                data-tooltip="Sky Blue"><span
-                                                                    style="background-color:#74f8d1;"></span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
                                                 <div class="ec-pro-size">
                                                     <span class="ec-pro-opt-label">Size</span>
                                                     <ul class="ec-opt-size">
@@ -262,76 +231,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 mb-0">
-                                    <div class="ec-product-inner">
-                                        <div class="ec-pro-image-outer">
-                                            <div class="ec-pro-image">
-                                                <a href="product-left-sidebar.html" class="image">
-                                                    <img class="main-image"
-                                                        src="assets/images/product-image/8_1.jpg"
-                                                        alt="Product" />
-                                                    <img class="hover-image"
-                                                        src="assets/images/product-image/8_2.jpg"
-                                                        alt="Product" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="ec-pro-content">
-                                            <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Smart I watch 2GB</a></h5>
-                                            <div class="ec-pro-rating">
-                                                <i class="ecicon eci-star fill"></i>
-                                                <i class="ecicon eci-star fill"></i>
-                                                <i class="ecicon eci-star fill"></i>
-                                                <i class="ecicon eci-star fill"></i>
-                                                <i class="ecicon eci-star"></i>
-                                            </div>
-                                            <span class="ec-price">
-                                                <span class="old-price">$58.00</span>
-                                                <span class="new-price">$45.00</span>
-                                            </span>
-                                            <div class="ec-pro-option">
-                                                <div class="ec-pro-color">
-                                                    <span class="ec-pro-opt-label">Color</span>
-                                                    <ul class="ec-opt-swatch ec-change-img">
-                                                        <li class="active"><a href="#" class="ec-opt-clr-img"
-                                                                data-src="assets/images/product-image/8_2.jpg"
-                                                                data-src-hover="assets/images/product-image/8_2.jpg"
-                                                                data-tooltip="Gray"><span
-                                                                    style="background-color:#f3f3f3;"></span></a>
-                                                        </li>
-                                                        <li><a href="#" class="ec-opt-clr-img"
-                                                                data-src="assets/images/product-image/8_3.jpg"
-                                                                data-src-hover="assets/images/product-image/8_3.jpg"
-                                                                data-tooltip="Orange"><span
-                                                                    style="background-color:#fac7f3;"></span></a>
-                                                        </li>
-                                                        <li><a href="#" class="ec-opt-clr-img"
-                                                                data-src="assets/images/product-image/8_4.jpg"
-                                                                data-src-hover="assets/images/product-image/8_4.jpg"
-                                                                data-tooltip="Green"><span
-                                                                    style="background-color:#c5f1ff;"></span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="ec-pro-size">
-                                                    <span class="ec-pro-opt-label">Size</span>
-                                                    <ul class="ec-opt-size">
-                                                        <li class="active"><a href="#" class="ec-opt-sz"
-                                                                data-old="$48.00" data-new="$45.00"
-                                                                data-tooltip="Small">S</a></li>
-                                                        <li><a href="#" class="ec-opt-sz" data-old="$90.00"
-                                                                data-new="$70.00" data-tooltip="Medium">M</a></li>
-                                                        <li><a href="#" class="ec-opt-sz" data-old="$80.00"
-                                                                data-new="$60.00" data-tooltip="Large">X</a></li>
-                                                        <li><a href="#" class="ec-opt-sz" data-old="$70.00"
-                                                                data-new="$50.00" data-tooltip="Extra Large">XL</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -391,7 +291,8 @@
                                         <span class="ec-pay-opt-head">Add Comments About Your Order</span>
                                         <textarea name="your-commemt" placeholder="Comments"></textarea>
                                     </span>
-                                    <span class="ec-pay-agree"><input type="checkbox" value=""><a href="#">I have
+                                    <span class="ec-pay-agree"><input type="checkbox" value=""><a
+                                            href="#">I have
                                             read and agree to the <span>Terms & Conditions</span></a><span
                                             class="checked"></span></span>
                                 </form>
