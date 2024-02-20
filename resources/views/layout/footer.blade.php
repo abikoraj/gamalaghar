@@ -222,7 +222,7 @@
 <!-- Main Js -->
 <script src="{{ url('assets/js/index.js') }}"></script>
 <script src="{{ url('assets/js/demo-11.js') }}"></script>
-<script src="{{ url('assets/js/main.js') }}"></script>
+{{-- <script src="{{ url('assets/js/main.js') }}"></script> --}}
 
 <script>
     $(document).ready(function() {
