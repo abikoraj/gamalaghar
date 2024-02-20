@@ -9,55 +9,7 @@
                 <!-- checkout content Start -->
                 <div class="ec-checkout-content">
                     <div class="ec-checkout-inner">
-                        <div class="ec-checkout-wrap margin-bottom-30">
-                            <div class="ec-checkout-block ec-check-new">
-                                <h3 class="ec-checkout-title">New Customer</h3>
-                                <div class="ec-check-block-content">
-                                    <div class="ec-check-subtitle">Checkout Options</div>
-                                    <form action="#">
-                                        <span class="ec-new-option">
-                                            <span>
-                                                <input type="radio" id="account1" name="radio-group" checked>
-                                                <label for="account1">Register Account</label>
-                                            </span>
-                                            <span>
-                                                <input type="radio" id="account2" name="radio-group">
-                                                <label for="account2">Guest Account</label>
-                                            </span>
-                                        </span>
-                                    </form>
-                                    <div class="ec-new-desc">By creating an account you will be able to shop faster,
-                                        be up to date on an order's status, and keep track of the orders you have
-                                        previously made.
-                                    </div>
-                                    <div class="ec-new-btn"><a href="#" class="btn btn-primary">Continue</a></div>
-
-                                </div>
-                            </div>
-                            <div class="ec-checkout-block ec-check-login">
-                                <h3 class="ec-checkout-title">Returning Customer</h3>
-                                <div class="ec-check-login-form">
-                                    <form action="#" method="post">
-                                        <span class="ec-check-login-wrap">
-                                            <label>Email Address</label>
-                                            <input type="text" name="name" placeholder="Enter your email address"
-                                                required />
-                                        </span>
-                                        <span class="ec-check-login-wrap">
-                                            <label>Password</label>
-                                            <input type="password" name="password" placeholder="Enter your password"
-                                                required />
-                                        </span>
-
-                                        <span class="ec-check-login-wrap ec-check-login-btn">
-                                            <button class="btn btn-primary" type="submit">Login</button>
-                                            <a class="ec-check-login-fp" href="#">Forgot Password?</a>
-                                        </span>
-                                    </form>
-                                </div>
-                            </div>
-
-                        </div>
+                       
                         <div class="ec-checkout-wrap margin-bottom-30 padding-bottom-3">
                             <div class="ec-checkout-block ec-check-bill">
                                 <h3 class="ec-checkout-title">Billing Details</h3>
