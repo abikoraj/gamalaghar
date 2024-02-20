@@ -34,9 +34,14 @@ class CheckoutController extends Controller
 
         $selectedProducts = $request->session()->get('selectedProducts');
 
+        $productId = $selectedProducts->pluck('id')->toArray();
+        $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
+     
+
 
         return view('user.checkout', compact('mainCategory', 'countWishList', 
         'countCarts', 'cart', 'cartproductImages', 'selectedProducts',
+            'cartproductImages',
             'relatedProducts'));
     }
 }

@@ -118,7 +118,9 @@ class CartController extends Controller
             ->where('carts.user_id', auth()->user()->id)
             ->whereIn('carts.id', $selectedProductIds)->get();
 
-        // dd($selectedProducts);
+       
+
+        // dd($cartproductImages);
 
         // Store the selected products in the session
         $request->session()->put('selectedProducts', $selectedProducts);

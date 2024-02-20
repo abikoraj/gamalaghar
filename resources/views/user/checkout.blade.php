@@ -9,22 +9,13 @@
                 <!-- checkout content Start -->
                 <div class="ec-checkout-content">
                     <div class="ec-checkout-inner">
-                       
+
                         <div class="ec-checkout-wrap margin-bottom-30 padding-bottom-3">
                             <div class="ec-checkout-block ec-check-bill">
-                                <h3 class="ec-checkout-title">Billing Details</h3>
+                                <h3 class="ec-checkout-title">Billing Details</h3><br>
                                 <div class="ec-bl-block-content">
-                                    <div class="ec-check-subtitle">Checkout Options</div>
-                                    <span class="ec-bill-option">
-                                        <span>
-                                            <input type="radio" id="bill1" name="radio-group">
-                                            <label for="bill1">I want to use an existing address</label>
-                                        </span>
-                                        <span>
-                                            <input type="radio" id="bill2" name="radio-group" checked>
-                                            <label for="bill2">I want to use new address</label>
-                                        </span>
-                                    </span>
+
+
                                     <div class="ec-check-bill-form">
                                         <form action="#" method="post">
                                             <span class="ec-bill-wrap ec-bill-half">
@@ -124,12 +115,12 @@
                                     <span class="text-right"><a class="ec-checkout-coupan">Apply Coupan</a></span>
                                 </div>
                                 <div class="ec-checkout-coupan-content">
-                                    <form class="ec-checkout-coupan-form" name="ec-checkout-coupan-form"
-                                        method="post" action="#">
+                                    <form class="ec-checkout-coupan-form" name="ec-checkout-coupan-form" method="post"
+                                        action="#">
                                         <input class="ec-coupan" type="text" required=""
                                             placeholder="Enter Your Coupan Code" name="ec-coupan" value="">
-                                        <button class="ec-coupan-btn button btn-primary" type="submit"
-                                            name="subscribe" value="">Apply</button>
+                                        <button class="ec-coupan-btn button btn-primary" type="submit" name="subscribe"
+                                            value="">Apply</button>
                                     </form>
                                 </div>
                                 <div class="ec-checkout-summary-total">
@@ -144,9 +135,17 @@
                                             <div class="ec-pro-image-outer">
                                                 <div class="ec-pro-image">
                                                     <a href="product-left-sidebar.html" class="image">
-                                                        <img class="main-image"
-                                                            src="assets/images/product-image/1_1.jpg"
-                                                            alt="{{ $products->product_name }}" />
+
+                                                        @foreach ($cartproductImages as $cartproductImage)
+                                                            @if ($cartproductImage->id == $products->id)
+                                                                <img class="main-image" src="{{ $cartproductImage->getFirstMediaUrl('product_image') }}"
+                                                                    alt="product">
+                                                            @endif
+                                                        @endforeach
+
+
+
+                                                        
                                                     </a>
                                                 </div>
                                             </div>
