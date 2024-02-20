@@ -182,7 +182,7 @@
                                 <form action="#">
                                     <span class="ec-pay-option">
                                         <span>
-                                            <input type="radio" id="pay1" name="radio-group" checked>
+                                            <input type="radio" id="pay1" name="radio-group" checked class="form-check-input">
                                             <label for="pay1">Cash On Delivery</label>
                                         </span>
                                     </span>
@@ -190,50 +190,14 @@
                                         <span class="ec-pay-opt-head">Add Comments About Your Order</span>
                                         <textarea name="your-commemt" placeholder="Comments"></textarea>
                                     </span>
-                                    <span class="ec-pay-agree"><input type="checkbox" value=""><a
-                                            href="#">I have
-                                            read and agree to the <span>Terms & Conditions</span></a><span
-                                            class="checked"></span></span>
+                                   
                                 </form>
                             </div>
                         </div>
                     </div>
                     <!-- Sidebar Payment Block -->
                 </div>
-                <div class="ec-sidebar-wrap ec-check-pay-img-wrap">
-                    <!-- Sidebar Payment Block -->
-                    <div class="ec-sidebar-block">
-                        <div class="ec-sb-title">
-                            <h3 class="ec-sidebar-title">Payment Method</h3>
-                        </div>
-                        <div class="ec-sb-block-content">
-                            <div class="ec-check-pay-img-inner">
-                                <div class="ec-check-pay-img">
-                                    <img src="assets/images/icons/payment1.png" alt="">
-                                </div>
-                                <div class="ec-check-pay-img">
-                                    <img src="assets/images/icons/payment2.png" alt="">
-                                </div>
-                                <div class="ec-check-pay-img">
-                                    <img src="assets/images/icons/payment3.png" alt="">
-                                </div>
-                                <div class="ec-check-pay-img">
-                                    <img src="assets/images/icons/payment4.png" alt="">
-                                </div>
-                                <div class="ec-check-pay-img">
-                                    <img src="assets/images/icons/payment5.png" alt="">
-                                </div>
-                                <div class="ec-check-pay-img">
-                                    <img src="assets/images/icons/payment6.png" alt="">
-                                </div>
-                                <div class="ec-check-pay-img">
-                                    <img src="assets/images/icons/payment7.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Sidebar Payment Block -->
-                </div>
+                
             </div>
         </div>
     </div>
