@@ -18,6 +18,7 @@ class CartController extends Controller
     public function index()
     {
         $mainCategory = MainCategory::with('subcategories')->get();
+        $bestSellingProducts = Product::with('media')->with('productsizeprice')->take(6)->get();
         if (auth()->check()) {
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
             $countCarts = Cart::where('user_id', auth()->user()->id)->count();
@@ -35,7 +36,7 @@ class CartController extends Controller
             $cart = [];
             $cartproductImages = [];
         }
-        return view('user.user_cart', compact('mainCategory', 'countWishList', 'countCarts', 'cart', 'cartproductImages'));
+        return view('user.user_cart', compact('mainCategory', 'countWishList', 'countCarts', 'cart', 'cartproductImages', 'bestSellingProducts'));
     }
 
     public function store(Request $request)
