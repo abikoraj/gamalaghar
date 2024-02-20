@@ -138,7 +138,7 @@
 
                                                         @foreach ($cartproductImages as $cartproductImage)
                                                             @if ($cartproductImage->id == $products->id)
-                                                                <img class="main-image mb-2"
+                                                                <img class="main-image mb-4"
                                                                     src="{{ $cartproductImage->getFirstMediaUrl('product_image') }}"
                                                                     alt="product">
                                                             @endif
