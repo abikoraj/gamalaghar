@@ -13,6 +13,7 @@ class CheckoutController extends Controller
     public function index(Request $request)
     {
         $mainCategory = MainCategory::with('subcategories')->get();
+        $relatedProducts = Product::with('media')->with('productsizeprice')->take(4)->get();
         if (auth()->check()) {
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
             $countCarts = Cart::where('user_id', auth()->user()->id)->count();
@@ -34,6 +35,8 @@ class CheckoutController extends Controller
         $selectedProducts = $request->session()->get('selectedProducts');
 
 
-        return view('user.checkout', compact('mainCategory', 'countWishList', 'countCarts', 'cart', 'cartproductImages', 'selectedProducts'));
+        return view('user.checkout', compact('mainCategory', 'countWishList', 
+        'countCarts', 'cart', 'cartproductImages', 'selectedProducts',
+            'relatedProducts'));
     }
 }
