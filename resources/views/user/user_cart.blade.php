@@ -203,11 +203,11 @@
 
         </div>
 
-         @include('user.new_product')
-         
+        
+
     </div>
 </section>
 
-
+ @include('user.new_product')
 
 @include('layout.footer')
