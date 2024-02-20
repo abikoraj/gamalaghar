@@ -105,6 +105,9 @@ class CartController extends Controller
     {
         // Retrieve selected product IDs from the form submission
         $selectedProductIds = $request->input('selectedProducts', []);
+        if(!$selectedProductIds){
+            return back()->with('error','Please select products');
+        }
 
         // Retrieve products based on the selected IDs
         $selectedProducts = Cart::join('products', 'products.id', '=', 'carts.product_id')
