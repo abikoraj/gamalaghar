@@ -51,7 +51,7 @@
                                         <tbody>
                                             @forelse ($cart as $cartData)
                                                 <tr>
-                                                    <td><input type="checkbox" name="selectedProducts[]"
+                                                    <td><input type="checkbox" name="selectedProducts[]" class="form-check-input"
                                                             value="{{ $cartData->cartid }}"></td>
                                                     @foreach ($cartproductImages as $cartproductImage)
                                                         @if ($cartproductImage->id == $cartData->id)
