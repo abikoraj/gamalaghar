@@ -61,16 +61,22 @@ class ProductController extends Controller
                 ->where('carts.user_id', auth()->user()->id)->get();
             $productId = $cart->pluck('id')->toArray();
             $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
+
+
+            $existingWishlistItem = Wishlist::where('user_id', auth()->user()->id)
+            ->where('product_id', $product->id)
+            ->first();
+
+            
         } else {
             $countWishList = "";
             $countCarts = "";
             $cart = [];
             $cartproductImages = [];
+            $existingWishlistItem=[];
         }
 
-        $existingWishlistItem = Wishlist::where('user_id', auth()->user()->id)
-            ->where('product_id', $product->id)
-            ->first();
+       
 
         return view('shop.single_product', compact(
             'mainCategory',
