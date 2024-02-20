@@ -98,7 +98,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="ec-cart-update-bottom">
-                                            <a href="#">Continue Shopping</a>
+                                            <a href="{{url('/')}}">Continue Shopping</a>
                                             <button class="btn btn-primary">Check Out</button>
                                         </div>
                                     </div>
