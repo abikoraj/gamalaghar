@@ -13,7 +13,7 @@
         <div class="row margin-minus-b-30">
             <!-- Related Product Content -->
             @foreach ($relatedProducts as $relatedProduct)
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
                     <div class="ec-product-inner">
                         <div class="ec-pro-image-outer">
                             <div class="ec-pro-image">
