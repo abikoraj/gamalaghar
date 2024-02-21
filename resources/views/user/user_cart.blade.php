@@ -51,8 +51,9 @@
                                         <tbody>
                                             @forelse ($cart as $cartData)
                                                 <tr>
-                                                    <td><input type="checkbox" name="selectedProducts[]" class="form-check-input"
-                                                            value="{{ $cartData->cartid }}"></td>
+                                                    <td><input type="checkbox" name="selectedProducts[]"
+                                                            class="form-check-input" value="{{ $cartData->cartid }}">
+                                                    </td>
                                                     @foreach ($cartproductImages as $cartproductImage)
                                                         @if ($cartproductImage->id == $cartData->id)
                                                             <td data-label="Product" class="ec-cart-pro-name"><a
@@ -70,9 +71,9 @@
                                                     <td data-label="Quantity" class="ec-cart-pro-qty"
                                                         style="text-align: center;">
                                                         <div class="cart-qty-plus-minus">
-                                                            <input class="cart-plus-minus" type="text"
-                                                                name="cartqtybutton"
+                                                            <input class="qty-input" type="text" name="cartqtybutton"
                                                                 value="{{ $cartData->quantity }}" />
+                                                        </div>
                                                     </td>
                                                     <td><span class="size">{{ $cartData->size }}</span></td>
                                                     <td data-label="Total" class="ec-cart-pro-subtotal">
@@ -98,7 +99,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="ec-cart-update-bottom">
-                                            <a href="{{url('/')}}">Continue Shopping</a>
+                                            <a href="{{ url('/') }}">Continue Shopping</a>
                                             <button class="btn btn-primary">Check Out</button>
                                         </div>
                                     </div>
@@ -198,16 +199,16 @@
 
 
 
-           
+
 
 
         </div>
 
-        
+
 
     </div>
 </section>
 
- @include('user.new_product')
+@include('user.new_product')
 
 @include('layout.footer')

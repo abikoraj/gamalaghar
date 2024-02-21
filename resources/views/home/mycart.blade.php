@@ -22,16 +22,16 @@
                         <div class="ec-pro-content">
                             <a href="single-product-left-sidebar.html"
                                 class="cart_pro_title">{{ $cartData->product_name }}</a>
-                            <span class="cart-price">Rs. {{ $cartData->price }}</span>
+                            <span class="cart-price">Rs. {{ $cartData->price }} x <span class ="qty-input"
+                                    id="qty-input">{{ $cartData->quantity }} </span></span>
 
-                                <div class="ec-pro-variation-inner ec-pro-variation-size">
-                                    <span>SIZE: {{ $cartData->size }}</span>
-                                </div>
-                                <div class="qty-plus-minus">
-                                    <input class="qty-input" type="text" name="quantity"
-                                        value="{{ $cartData->quantity }}" />
-                                </div>
-                                <a href="{{ url('cart/delete/' . $cartData->cartid) }}" class="remove">×</a>
+
+                            <div class="ec-pro-variation-inner ec-pro-variation-size">
+                                <span>SIZE: {{ $cartData->size }}</span>
+                            </div>
+                            {{-- <input class="qty-input" type="text" name="quantity"
+                                value="{{ $cartData->quantity }} " /> --}}
+                            <a href="{{ url('cart/delete/' . $cartData->cartid) }}" class="remove">×</a>
 
                         </div>
                     </li>

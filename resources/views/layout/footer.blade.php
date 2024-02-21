@@ -265,7 +265,7 @@
             $("li").each(function() {
                 var price = parseFloat($(this).find(".cart-price").text().replace('Rs. ', '').trim()) ||
                     0;
-                var quantity = parseFloat($(this).find(".qty-input").val()) || 0;
+                var quantity = parseFloat($(this).find(".qty-input").text()) || 0;
                 total += price * quantity; // Multiply price by quantity and add to total
             });
 
