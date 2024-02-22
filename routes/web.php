@@ -51,6 +51,8 @@ Route::get('cart/delete/{id}', [CartController::class, 'destroy']);
 
 Route::get('user/checkout', [CheckoutController::class,'index'])->name('checkout');
 Route::post('user/checkouts', [CartController::class, 'checkout']);
+Route::get('user/checkout/cities/{provinceId}', [CheckoutController::class,'getCities']);
+Route::get('user/checkout/areas/{cityId}', [CheckoutController::class,'getAreas']);
 
 
 Route::get('/contact_us', function () {

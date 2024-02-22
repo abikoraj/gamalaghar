@@ -18,63 +18,56 @@
 
                                     <div class="ec-check-bill-form">
                                         <form action="#" method="post">
-                                            <span class="ec-bill-wrap ec-bill-half">
-                                                <label>First Name*</label>
-                                                <input type="text" name="firstname"
-                                                    placeholder="Enter your first name" required />
-                                            </span>
-                                            <span class="ec-bill-wrap ec-bill-half">
-                                                <label>Last Name*</label>
-                                                <input type="text" name="lastname" placeholder="Enter your last name"
-                                                    required />
-                                            </span>
-                                            <span class="ec-bill-wrap">
-                                                <label>Address</label>
-                                                <input type="text" name="address" placeholder="Address Line 1" />
-                                            </span>
-                                            <span class="ec-bill-wrap ec-bill-half">
-                                                <label>City *</label>
-                                                <span class="ec-bl-select-inner">
-                                                    <select name="ec_select_city" id="ec-select-city"
-                                                        class="ec-bill-select">
-                                                        <option selected disabled>City</option>
-                                                        <option value="1">City 1</option>
-                                                        <option value="2">City 2</option>
-                                                        <option value="3">City 3</option>
-                                                        <option value="4">City 4</option>
-                                                        <option value="5">City 5</option>
-                                                    </select>
+                                            @foreach ($userDetails as $userDetail)
+                                                <span class="ec-bill-wrap ec-bill-half">
+                                                    <label>Full Name*</label>
+                                                    <input type="text" name="firstname"
+                                                        value="{{ $userDetail->name }}" />
                                                 </span>
-                                            </span>
-                                            <span class="ec-bill-wrap ec-bill-half">
-                                                <label>Post Code</label>
-                                                <input type="text" name="postalcode" placeholder="Post Code" />
-                                            </span>
+
+                                                <span class="ec-bill-wrap ec-bill-half">
+                                                    <label>Address</label>
+                                                    <input type="text" name="address" placeholder="Address Line 1"
+                                                        value="{{ $userDetail->address }}" />
+                                                </span>
+                                            @endforeach
+
+
                                             <span class="ec-bill-wrap ec-bill-half">
                                                 <label>Country *</label>
                                                 <span class="ec-bl-select-inner">
                                                     <select name="ec_select_country" id="ec-select-country"
                                                         class="ec-bill-select">
                                                         <option selected disabled>Country</option>
-                                                        <option value="1">Country 1</option>
-                                                        <option value="2">Country 2</option>
-                                                        <option value="3">Country 3</option>
-                                                        <option value="4">Country 4</option>
-                                                        <option value="5">Country 5</option>
+                                                        <option value="Nepal">Nepal</option>
                                                     </select>
                                                 </span>
                                             </span>
                                             <span class="ec-bill-wrap ec-bill-half">
-                                                <label>Region State</label>
+                                                <label>Province *</label>
                                                 <span class="ec-bl-select-inner">
-                                                    <select name="ec_select_state" id="ec-select-state"
-                                                        class="ec-bill-select">
-                                                        <option selected disabled>Region/State</option>
-                                                        <option value="1">Region/State 1</option>
-                                                        <option value="2">Region/State 2</option>
-                                                        <option value="3">Region/State 3</option>
-                                                        <option value="4">Region/State 4</option>
-                                                        <option value="5">Region/State 5</option>
+                                                    <select class="select2" name="province_id" id="provinceOption">
+                                                        <option value=""></option>
+                                                        @foreach ($provinces as $province)
+                                                            <option value="{{ $province->id }}">
+                                                                {{ $province->province }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </span>
+                                            </span>
+                                            <span class="ec-bill-wrap ec-bill-half">
+                                                <label>City *</label>
+                                                <span class="ec-bl-select-inner">
+                                                    <select class="select2" name="city_id" id="cityOption">
+                                                        <option value=""></option>
+                                                    </select>
+                                                </span>
+                                            </span>
+                                            <span class="ec-bill-wrap ec-bill-half">
+                                                <label>Area</label>
+                                                <span class="ec-bl-select-inner">
+                                                    <select class="select2" name="area_id" id="areaOption">
+                                                        <option value=""></option>
                                                     </select>
                                                 </span>
                                             </span>
@@ -108,7 +101,7 @@
                                 </div>
                                 <div>
                                     <span class="text-left">Delivery Charges</span>
-                                    <span class="text-right">$80.00</span>
+                                    <span class="text-right" id="delivery_charge">Rs. </span>
                                 </div>
                                 <div>
                                     <span class="text-left">Coupan Discount</span>
@@ -138,14 +131,11 @@
 
                                                         @foreach ($cartproductImages as $cartproductImage)
                                                             @if ($cartproductImage->id == $products->id)
-                                                                <img class="main-image" src="{{ $cartproductImage->getFirstMediaUrl('product_image') }}"
+                                                                <img class="main-image"
+                                                                    src="{{ $cartproductImage->getFirstMediaUrl('product_image') }}"
                                                                     alt="product">
                                                             @endif
                                                         @endforeach
-
-
-
-                                                        
                                                     </a>
                                                 </div>
                                             </div>
@@ -182,7 +172,8 @@
                                 <form action="#">
                                     <span class="ec-pay-option">
                                         <span>
-                                            <input type="radio" id="pay1" name="radio-group" checked class="form-check-input">
+                                            <input type="radio" id="pay1" name="radio-group" checked
+                                                class="form-check-input">
                                             <label for="pay1">Cash On Delivery</label>
                                         </span>
                                     </span>
@@ -190,17 +181,83 @@
                                         <span class="ec-pay-opt-head">Add Comments About Your Order</span>
                                         <textarea name="your-commemt" placeholder="Comments"></textarea>
                                     </span>
-                                   
+
                                 </form>
                             </div>
                         </div>
                     </div>
                     <!-- Sidebar Payment Block -->
                 </div>
-                
+
             </div>
         </div>
     </div>
 </section>
 @include('user.new_product')
 @include('layout.footer')
+
+<script>
+    $(document).ready(function() {
+        $('#provinceOption').on('change', function() {
+            var selectedOption = $(this).val();
+            if (selectedOption !== "") {
+                // Retrieve the data based on the selected option's value
+                $.ajax({
+                    url: '/user/checkout/cities/' + selectedOption,
+                    method: 'GET',
+                    success: function(response) {
+                        // Clear previous options
+                        $('#cityOption').empty();
+
+                        // Append new options based on retrieved data
+                        for (var i = 0; i < response.length; i++) {
+                            var option = $('<option>');
+                            option.val(response[i].id);
+                            option.text(response[i].city);
+                            $('#cityOption').append(option);
+                        }
+                    }
+                });
+            } else {
+                // Clear the second field if no option is selected
+                $('#cityOption').empty();
+            }
+        });
+    });
+
+    $(document).ready(function() {
+        $('#cityOption').on('change', function() {
+            var selectedOption = $(this).val();
+            if (selectedOption !== "") {
+                // Retrieve the data based on the selected option's value
+                $.ajax({
+                    url: '/user/checkout/areas/' + selectedOption,
+                    method: 'GET',
+                    success: function(response) {
+                        // Clear previous options
+                        $('#areaOption').empty();
+
+                        // Append new options based on retrieved data
+                        for (var i = 0; i < response.length; i++) {
+                            var option = $('<option>');
+                            option.val(response[i].id);
+                            option.text(response[i].area);
+                            $('#areaOption').append(option);
+                        }
+                        $('#delivery_charge').text(response.delivery_charge)
+                    }
+                });
+            } else {
+                // Clear the second field if no option is selected
+                $('#areaOption').empty();
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('.select2').select2({
+            placeholder: 'Select an option'
+        });
+    });
+</script>

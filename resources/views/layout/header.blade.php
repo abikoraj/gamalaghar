@@ -38,6 +38,7 @@
 
     <!-- Background css -->
     <link rel="stylesheet" id="bg-switcher-css" href="{{ url('assets/css/bg-4.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
