@@ -20,6 +20,8 @@
                                 </div>
                             </div>
                         </div>
+                         <form class="row g-3" action="{{ url('profile') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
                         <div class="ec-vendor-block-detail">
                             <div class="thumb-upload">
                                 <div class="thumb-edit">
@@ -36,8 +38,7 @@
                             </div>
                         </div>
                         <div class="ec-vendor-upload-detail">
-                            <form class="row g-3" action="{{ url('profile') }}" method="POST">
-                                @csrf
+                           
                                 <div class="col-md-12 space-t-15">
                                     <label class="form-label user-profile">Full Name</label>
                                     <input type="text" class="form-control"value="{{ $user->name }}"

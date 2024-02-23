@@ -64,8 +64,9 @@
                             </span>
                         @else
                             <i class="fi-rr-heart"></i>
+                            @endif
                     </div>
-                    @endif
+
 
 
                     </a>
@@ -97,8 +98,7 @@
         </div>
         <!-- Header Top responsive Action -->
     </div>
-    </div>
-    </div>
+
     <!-- Ec Header Top  End -->
     <!-- Ec Header Bottom  Start -->
     <div class="ec-header-bottom d-none d-lg-block">
@@ -124,7 +124,7 @@
                                     <div class="ec-main-menu">
                                         <ul>
                                             <li><a href="{{ url('/') }}">Home</a></li>
-                                            @forelse ($mainCategory as $data)
+                                            @foreach ($mainCategory as $data)
                                                 <li class="dropdown"><a
                                                         href="javascript:void(0)">{{ $data->main_category }}</a>
                                                     @if ($data->subcategories->isNotEmpty())
@@ -137,8 +137,8 @@
                                                         </ul>
                                                     @endif
                                                 </li>
-                                            @empty
-                                            @endforelse
+                                         
+                                            @endforeach
 
                                             <li class="dropdown"><a href="{{ url('/blog') }}">Blog</a>
                                             </li>
@@ -198,10 +198,10 @@
                                 class="fi fi-rr-menu-burger"></i><span>Shop By Catagories</span><i
                                 class="fi fi-rr-angle-small-down"></i></button>
                         <ul class="sub-menu">
-                            @forelse ($mainCategory as $data)
+                            @foreach ($mainCategory as $data)
                                 <li><a class="dropdown-item" href="#">{{ $data->main_category }}</a></li>
-                            @empty
-                            @endforelse
+                           
+                            @endforeach
                         </ul>
                     </div>
                     <!-- Header cat End -->
@@ -272,8 +272,9 @@
                 <!-- Ec Header Logo Start -->
                 <div class="col">
                     <div class="header-logo">
-                        <a href="{{url('/')}}"><img src="{{ url('assets/img/Logo.png') }}" alt="Site Logo" /><img
-                                class="dark-logo" src="{{ url('assets/img/logo-white.png') }}" alt="Site Logo"
+                        <a href="{{ url('/') }}"><img src="{{ url('assets/img/Logo.png') }}"
+                                alt="Site Logo" /><img class="dark-logo"
+                                src="{{ url('assets/img/logo-white.png') }}" alt="Site Logo"
                                 style="display: none;" /></a>
                     </div>
                 </div>
@@ -303,7 +304,7 @@
             <div class="ec-menu-content">
                 <ul>
                     <li><a href="{{ url('/') }}">Home</a></li>
-                    @forelse ($mainCategory as $data)
+                    @foreach ($mainCategory as $data)
                         <li><a href="javascript:void(0)">{{ $data->main_category }}</a>
                             @if ($data->subcategories->isNotEmpty())
                                 <ul class="sub-menu">
@@ -315,10 +316,7 @@
                                 </ul>
                             @endif
                         </li>
-
-                    @empty
-
-                    @endforelse
+                    @endforeach
 
                     <li class="dropdown"><a href="javascript:void(0)">Blog</a>
                         <ul class="sub-menu">

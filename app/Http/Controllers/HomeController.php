@@ -31,10 +31,11 @@ class HomeController extends Controller
             $countCarts = "";
             $cart=[];
             $cartproductImages=[];
+            $mainCategory = MainCategory::with('subcategories')->get();
         }
 
 
-
+       
 
 
         return view('home.home', compact('mainCategory', 'product', 'countWishList', 'cart', 'cartproductImages', 'countCarts'));
