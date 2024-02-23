@@ -1,6 +1,5 @@
 @include('layout.header')
 @include('layout.nav')
-@include('breadcrumb')
 <!-- Start Privacy & Policy page -->
 <section class="ec-page-content section-space-p">
     <div class="container">

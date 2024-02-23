@@ -1,6 +1,5 @@
 @include('layout.header')
 @include('layout.nav')
-@include('breadcrumb')
 
 <!-- User profile section -->
 <section class="ec-page-content ec-vendor-uploads ec-user-account section-space-p">
@@ -23,7 +22,7 @@
                                     <li><a href="{{ url('history') }}">Order History</a></li>
                                     <li><a href="{{ url('wishlist') }}">Wishlist</a></li>
                                     <li><a href="{{ url('cart') }}">Cart</a></li>
-                                   
+
                                 </ul>
                             </div>
                         </div>

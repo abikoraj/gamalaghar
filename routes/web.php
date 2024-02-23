@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
@@ -55,15 +56,13 @@ Route::get('user/checkout/cities/{provinceId}', [CheckoutController::class, 'get
 Route::get('user/checkout/areas/{cityId}', [CheckoutController::class, 'getAreas']);
 
 
+Route::get('user/history', [HistoryController::class, 'index']);
+
+
 Route::get('/contact_us', function () {
     return view('contact_us');
 });
 
 
-
-Route::get('/history', function () {
-    $mainCategory = MainCategory::with('subcategories')->get();
-    return view('user.history', compact('mainCategory'));
-});
 
 Route::get('about-us', [AboutUsController::class, 'index']);

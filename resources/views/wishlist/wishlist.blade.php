@@ -1,7 +1,6 @@
 @include('layout.header')
 @include('layout.nav')
 
-@include('breadcrumb')
 <!-- Ec Wishlist page -->
 <section class="ec-page-content section-space-p">
     <div class="container">

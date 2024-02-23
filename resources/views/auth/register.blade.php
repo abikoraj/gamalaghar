@@ -1,7 +1,6 @@
 @include('layout.header')
 @include('layout.nav')
 
-@include('breadcrumb')
 
 
 <!-- Start Register -->
@@ -25,7 +24,7 @@
                                 <input type="text" name="fullname" placeholder="Enter your last name" />
                                 @error('fullname')
                                 <p class="text-danger">{{$message}}</p>
-                                    
+
                                 @enderror
                             </span>
                             <span class="ec-register-wrap ec-register-half">
@@ -33,7 +32,7 @@
                                 <input type="email" name="email" placeholder="Enter your email address" />
                                  @error('email')
                                 <p class="text-danger">{{$message}}</p>
-                                    
+
                                 @enderror
                             </span>
                             <span class="ec-register-wrap ec-register-half">
@@ -41,7 +40,7 @@
                                 <input type="text" name="phone" placeholder="Enter your phone number" />
                                  @error('phone')
                                 <p class="text-danger">{{$message}}</p>
-                                    
+
                                 @enderror
                             </span>
                             <span class="ec-register-wrap ec-register-half">
@@ -63,7 +62,7 @@
                                 <span class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S"
                                     data-callback="verifyRecaptchaCallback"
                                     data-expired-callback="expiredRecaptchaCallback"></span>
-                                <input class="form-control d-none" data-recaptcha="true" 
+                                <input class="form-control d-none" data-recaptcha="true"
                                     data-error="Please complete the Captcha">
                                 <span class="help-block with-errors"></span>
                             </span>

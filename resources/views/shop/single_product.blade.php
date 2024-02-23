@@ -1,6 +1,5 @@
 @include('layout.header')
 @include('layout.nav')
-@include('breadcrumb')
 <!-- Sart Single product -->
 <section class="ec-page-content section-space-p">
     <div class="container">

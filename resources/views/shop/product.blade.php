@@ -1,6 +1,5 @@
 @include('layout.header')
 @include('layout.nav')
-@include('breadcrumb')
 <!-- Ec Shop page -->
 <section class="ec-page-content ">
     <div class="container">

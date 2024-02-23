@@ -1,6 +1,5 @@
 @include('layout.header')
 @include('layout.nav')
-@include('breadcrumb')
 <!-- Ec Blog page -->
 <section class="ec-page-content section-space-p">
     <div class="container">
@@ -123,7 +122,7 @@
             </div>
 
 
-            
+
             <div class="ec-blogs-rightside col-lg-8 order-lg-last col-md-12 order-md-first">
 
                 <!-- Blog content Start -->

@@ -1,6 +1,5 @@
 @include('layout.header')
 @include('layout.nav')
-@include('breadcrumb')
 <!-- Ec checkout page -->
 <section class="ec-page-content section-space-p">
     <div class="container">

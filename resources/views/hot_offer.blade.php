@@ -1,6 +1,5 @@
 @include('layout.header')
 @include('layout.nav')
-@include('breadcrumb')
 <!-- Start Offer section -->
 <section class="labels section-space-p">
     <div class="container">

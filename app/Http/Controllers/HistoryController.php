@@ -5,14 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\MainCategory;
 use App\Models\Product;
-use App\Models\SubCategory;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class HistoryController extends Controller
 {
-    public function index()
-    {
+    public function index(){
         $mainCategory = MainCategory::with('subcategories')->get();
         $product = Product::with('media')->latest()->get();
         if (auth()->check()) {
@@ -33,10 +31,13 @@ class HomeController extends Controller
             $cartproductImages=[];
         }
 
-
-
-
-
-        return view('home.home', compact('mainCategory', 'product', 'countWishList', 'cart', 'cartproductImages', 'countCarts'));
+        return view('user.history', compact(
+            'mainCategory',
+            'product',
+            'countWishList',
+            'countCarts',
+            'cart',
+            'cartproductImages',
+        ));
     }
 }

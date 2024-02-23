@@ -1,6 +1,5 @@
 @include('layout.header')
 @include('layout.nav')
-@include('breadcrumb')
 
 <!-- User history section -->
 <section class="ec-page-content ec-vendor-uploads ec-user-account section-space-p">
@@ -15,12 +14,9 @@
                             <div class="ec-vendor-block-items">
                                 <ul>
                                     <li><a href="user-profile.html">User Profile</a></li>
-                                    <li><a href="user-history.html">History</a></li>
+                                    <li><a href="user-history.html">Order History</a></li>
                                     <li><a href="wishlist.html">Wishlist</a></li>
                                     <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="track-order.html">Track Order</a></li>
-                                    <li><a href="user-invoice.html">Invoice</a></li>
                                 </ul>
                             </div>
                         </div>
