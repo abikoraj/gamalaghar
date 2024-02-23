@@ -4,9 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class UserDetail extends Model
+class UserDetail extends Model implements HasMedia
 {
     use HasFactory;
-    protected $guarded=['id'];
+    use InteractsWithMedia;
+    protected $guarded = ['id'];
 }

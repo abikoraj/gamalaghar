@@ -36,7 +36,7 @@ class AccountController extends Controller
             $cartproductImages = [];
         }
 
-        
+
         return view('user.profile', compact('mainCategory', 'user', 'countWishList', 'countCarts', 'cartproductImages', 'cart'));
     }
 
@@ -59,6 +59,9 @@ class AccountController extends Controller
                     'shipping_address' => $request->shipping_address,
                     'secondary_phone' => $request->secondary_phone,
                 ]);
+                if ($request->user_image) {
+                    $user->addMedia($request->user_image)->toMediaCollection('user_image');
+                }
                 return $user;
             });
             if ($user) {

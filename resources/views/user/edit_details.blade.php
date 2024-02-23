@@ -7,11 +7,11 @@
                     <div class="ec-vendor-block-img space-bottom-30">
                         <div class="ec-vendor-block-bg cover-upload">
                             <div class="thumb-upload">
-                                <div class="thumb-edit">
+                                {{-- <div class="thumb-edit">
                                     <input type='file' id="thumbUpload01" class="ec-image-upload"
                                         accept=".png, .jpg, .jpeg" />
                                     <label><i class="fi-rr-edit"></i></label>
-                                </div>
+                                </div> --}}
                                 <div class="thumb-preview ec-preview">
                                     <div class="image-thumb-preview">
                                         <img class="image-thumb-preview ec-image-preview v-img"
@@ -24,7 +24,7 @@
                             <div class="thumb-upload">
                                 <div class="thumb-edit">
                                     <input type='file' id="thumbUpload02" class="ec-image-upload"
-                                        accept=".png, .jpg, .jpeg" />
+                                        accept=".png, .jpg, .jpeg" name="user_image" />
                                     <label><i class="fi-rr-edit"></i></label>
                                 </div>
                                 <div class="thumb-preview ec-preview">
@@ -46,10 +46,6 @@
                                 <div class="col-md-12 space-t-15">
                                     <label class="form-label user-profile">Address</label>
                                     <input type="text" class="form-control" name="address">
-                                </div>
-                                <div class="col-md-12 space-t-15">
-                                    <label class="form-label user-profile">Shipping Address</label>
-                                    <input type="text" class="form-control" name="shipping_address">
                                 </div>
                                 <div class="col-md-12 space-t-15">
                                     <label class="form-label user-profile">Email ID</label>

@@ -54,73 +54,43 @@
 
                                     <div class="row">
                                         <div class="col-md-6 col-sm-12">
+                                            <strong class="user-profile">E-mail Address : </strong>
                                             <div class="ec-vendor-detail-block ec-vendor-block-email space-bottom-30">
-                                                <h6>E-mail address <a href="javasript:void(0)"
+
+                                                <h6>{{ $user->email }} <a href="javasript:void(0)"
                                                         data-link-action="editmodal" title="Edit Detail"
                                                         data-bs-toggle="modal" data-bs-target="#edit_modal"><i
                                                             class="fi-rr-edit"></i></a></h6>
                                                 <ul>
-                                                    <li><strong class="user-profile">Email: </strong>{{ $user->email }}
+                                                    <li>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-12">
+                                            <strong class="user-profile">Contact number : </strong>
                                             <div class="ec-vendor-detail-block ec-vendor-block-contact space-bottom-30">
-                                                <h6>Contact nubmer<a href="javasript:void(0)"
-                                                        data-link-action="editmodal" title="Edit Detail"
-                                                        data-bs-toggle="modal" data-bs-target="#edit_modal"><i
-                                                            class="fi-rr-edit"></i></a></h6>
-                                                <ul>
-                                                    @if ($user->userDetail)
-                                                        @if (is_null($user->userDetail->secondary_phone))
-                                                            <li><strong class="user-profile">Phone Number:
-                                                                </strong>{{ $user->phone }}</li>
-                                                        @else
-                                                            <li><strong class="user-profile">Phone Number 1:
-                                                                </strong>{{ $user->phone }}
-                                                            </li>
-                                                            <li><strong class="user-profile">Phone Number 2:
-                                                                </strong>{{ $user->userDetail->secondary_phone }}</li>
-                                                        @endif
-                                                    @else
-                                                        <li><strong class="user-profile">Phone Number:
-                                                            </strong>{{ $user->phone }}</li>
-                                                    @endif
-                                                </ul>
+                                                <h6>{{ $user->phone }}
+                                                    <a href="javasript:void(0)" data-link-action="editmodal"
+                                                        title="Edit Detail" data-bs-toggle="modal"
+                                                        data-bs-target="#edit_modal"><i class="fi-rr-edit"></i></a>
+                                                </h6>
+
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-12">
                                             <div class="ec-vendor-detail-block ec-vendor-block-address mar-b-30">
-                                                <h6>Address<a href="javasript:void(0)" data-link-action="editmodal"
+                                                <strong class="user-profile">Address :</strong>
+                                                <h6>
+                                                    @if ($user->userDetail)
+                                                        {{ $user->userDetail->address }}
+                                                    @else
+                                                        No Address Added
+                                                    @endif
+                                                    <a href="javasript:void(0)" data-link-action="editmodal"
                                                         title="Edit Detail" data-bs-toggle="modal"
-                                                        data-bs-target="#edit_modal"><i class="fi-rr-edit"></i></a></h6>
-                                                <ul>
-                                                    <li><strong class="user-profile">Home : </strong>
-                                                        @if ($user->userDetail)
-                                                            {{ $user->userDetail->address }}
-                                                        @else
-                                                            No Address Added
-                                                        @endif
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12">
-                                            <div class="ec-vendor-detail-block ec-vendor-block-address">
-                                                <h6>Shipping Address<a href="javasript:void(0)"
-                                                        data-link-action="editmodal" title="Edit Detail"
-                                                        data-bs-toggle="modal" data-bs-target="#edit_modal"><i
-                                                            class="fi-rr-edit"></i></a></h6>
-                                                <ul>
-                                                    <li><strong class="user-profile">Shipping : </strong>
-                                                        @if ($user->userDetail)
-                                                            {{ $user->userDetail->shipping_address }}
-                                                        @else
-                                                            No Address Added
-                                                        @endif
-                                                    </li>
-                                                </ul>
+                                                        data-bs-target="#edit_modal"><i class="fi-rr-edit"></i></a>
+                                                </h6>
                                             </div>
                                         </div>
                                     </div>
