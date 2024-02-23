@@ -105,8 +105,8 @@ class CartController extends Controller
     {
         // Retrieve selected product IDs from the form submission
         $selectedProductIds = $request->input('selectedProducts', []);
-        if(!$selectedProductIds){
-            return back()->with('error','Please select products');
+        if (!$selectedProductIds) {
+            return back()->with('error', 'Please select products');
         }
 
         // Retrieve products based on the selected IDs
@@ -118,7 +118,7 @@ class CartController extends Controller
             ->where('carts.user_id', auth()->user()->id)
             ->whereIn('carts.id', $selectedProductIds)->get();
 
-       
+
 
         // dd($cartproductImages);
 
