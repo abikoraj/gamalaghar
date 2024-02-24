@@ -266,7 +266,7 @@
 
 
                         $('#delivery_charge').text('Rs. ' + response.delivery_charge
-                            .toFixed(2));
+                            );
 
                     }
                 });
