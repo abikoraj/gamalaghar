@@ -1,5 +1,6 @@
 @include('layout.header')
 @include('layout.nav')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Ec checkout page -->
 <section class="ec-page-content section-space-p">
     <div class="container">
@@ -102,10 +103,7 @@
                                     <span class="text-left">Delivery Charges</span>
                                     <span class="text-right" id="delivery_charge">Rs. </span>
                                 </div>
-                                <div>
-                                    <span class="text-left">Coupan Discount</span>
-                                    <span class="text-right"><a class="ec-checkout-coupan">Apply Coupan</a></span>
-                                </div>
+
                                 <div class="ec-checkout-coupan-content">
                                     <form class="ec-checkout-coupan-form" name="ec-checkout-coupan-form" method="post"
                                         action="#">
@@ -117,7 +115,7 @@
                                 </div>
                                 <div class="ec-checkout-summary-total">
                                     <span class="text-left">Total Amount</span>
-                                    <span class="text-right">$80.00</span>
+                                    <span class="text-right"><span id="totalAmount">0.00</span></span>
                                 </div>
                             </div>
                             <div class="ec-checkout-pro">
@@ -143,7 +141,7 @@
                                                         href="product-left-sidebar.html">{{ $products->product_name }}</a>
                                                 </h5>
                                                 <span class="ec-price">
-                                                    <span class="new-price mx-4">Rs. {{ $products->price }}</span>
+                                                    <span class="new-price mx-4">Rs. 50.00</span>
                                                 </span>
                                                 <div class="ec-pro-size mx-4">
                                                     <span class="ec-pro-opt-label">Size: {{ $products->size }}</span>
@@ -258,5 +256,31 @@
         $('.select2').select2({
             placeholder: 'Select an option'
         });
+    });
+</script>
+
+
+<script>
+    $(document).ready(function() {
+        // Function to update total price
+        function updateTotalPrice() {
+            var total = 0; // Initialize total price to zero
+
+            // Loop through each item in the cart
+            $(".ec-pro-content").each(function() {
+                var price = parseFloat($(this).find(".new-price").text().replace('Rs. ', '').trim()) ||
+                    0;
+               
+                total += price; // Multiply price by quantity and add to total
+            });
+
+            // Update the total price on the page
+            $('#totalAmount').text('Rs. ' + total.toFixed(2));
+        }
+
+        // Call the function when the page is loaded
+        updateTotalPrice();
+
+       
     });
 </script>

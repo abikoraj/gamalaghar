@@ -1553,12 +1553,7 @@ progress {
     background-color: #555;
     border-color: #555;
 }
-.form-check-input:checked[type="checkbox"] {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23FFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
-}
-.form-check-input:checked[type="radio"] {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23FFF'/%3e%3c/svg%3e");
-}
+
 .form-check-input:disabled {
     pointer-events: none;
     -webkit-filter: none;
@@ -1578,9 +1573,7 @@ progress {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23FFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e");
 }
 
-.form-check-input[type="radio"] {
-    border-radius: 50%;
-}
+
 
 .form-check-input[disabled] ~ .form-check-label {
     opacity: 0.5;
@@ -23891,85 +23884,11 @@ i.ecicon.eci-star-o {
 .checkout_page .ec-checkout-wrap .ec-check-bill .ec-check-subtitle {
     margin-bottom: 10px;
 }
-.checkout_page [type="radio"]:checked {
-    position: absolute;
-    left: -9999px;
-}
-.checkout_page [type="radio"]:checked + label {
-    position: relative;
-    padding-left: 26px;
-    cursor: pointer;
-    line-height: 16px;
-    display: inline-block;
-    color: #777777;
-    letter-spacing: 0;
-}
-.checkout_page [type="radio"]:checked + label:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 16px;
-    height: 16px;
-    border: 1px solid #ddd;
-    border-radius: 100%;
-    background: #ffffff;
-    border: 1px solid #692c91;
-}
-.checkout_page [type="radio"]:checked + label:after {
-    content: "";
-    width: 8px;
-    height: 8px;
-    background: #692c91;
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    border-radius: 100%;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-}
-.checkout_page [type="radio"]:not(:checked) {
-    position: absolute;
-    left: -9999px;
-}
-.checkout_page [type="radio"]:not(:checked) + label {
-    position: relative;
-    padding-left: 26px;
-    cursor: pointer;
-    line-height: 16px;
-    display: inline-block;
-    color: #777777;
-    letter-spacing: 0;
-}
-.checkout_page [type="radio"]:not(:checked) + label:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 16px;
-    height: 16px;
-    border: 1px solid #ddd;
-    border-radius: 100%;
-    background: #ffffff;
-}
-.checkout_page [type="radio"]:not(:checked) + label:after {
-    content: "";
-    width: 8px;
-    height: 8px;
-    background: #692c91;
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    border-radius: 100%;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-    opacity: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-}
+
+
+
+
+
 .checkout_page .ec-sidebar-wrap {
     border: 1px solid #ededed;
     margin-bottom: 30px;
@@ -23981,12 +23900,7 @@ i.ecicon.eci-star-o {
     margin-bottom: 0;
     border-bottom: none;
 }
-.checkout_page .ec-checkout-pay-wrap [type="radio"]:checked + label {
-    margin-bottom: 30px;
-}
-.checkout_page .ec-checkout-pay-wrap [type="radio"]:not(:checked) + label {
-    margin-bottom: 6px;
-}
+
 .checkout_page .ec-new-product {
     margin-top: 2px;
 }
