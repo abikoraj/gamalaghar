@@ -29,11 +29,18 @@ class CheckoutController extends Controller
                 ->where('carts.user_id', auth()->user()->id)->get();
             $productId = $cart->pluck('id')->toArray();
             $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
+
+
+            $userDetails = UserDetail::join('users', 'users.id', '=', 'user_details.user_id')
+            ->select('users.id', 'users.name', 'user_details.address')
+            ->where('users.id', auth()->user()->id)
+            ->first();
         } else {
             $countWishList = "";
             $countCarts = "";
             $cart = [];
             $cartproductImages = [];
+            $userDetails=[];
         }
 
         $selectedProducts = $request->session()->get('selectedProducts');
@@ -41,10 +48,7 @@ class CheckoutController extends Controller
         $productId = $selectedProducts->pluck('id')->toArray();
         $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
 
-        $userDetails = UserDetail::join('users', 'users.id', '=', 'user_details.user_id')
-            ->select('users.id', 'users.name', 'user_details.address')
-            ->where('users.id', auth()->user()->id)
-            ->first();
+     
 
         $provinces=Province::all();
 
