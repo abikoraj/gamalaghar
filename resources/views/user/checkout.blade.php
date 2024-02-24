@@ -18,19 +18,19 @@
 
                                     <div class="ec-check-bill-form">
                                         <form action="#" method="post">
-                                            @foreach ($userDetails as $userDetail)
-                                                <span class="ec-bill-wrap ec-bill-half">
-                                                    <label>Full Name*</label>
-                                                    <input type="text" name="firstname"
-                                                        value="{{ $userDetail->name }}" />
-                                                </span>
 
-                                                <span class="ec-bill-wrap ec-bill-half">
-                                                    <label>Address</label>
-                                                    <input type="text" name="address" placeholder="Address Line 1"
-                                                        value="{{ $userDetail->address }}" />
-                                                </span>
-                                            @endforeach
+                                            <span class="ec-bill-wrap ec-bill-half">
+                                                <label>Full Name*</label>
+                                                <input type="text" name="firstname"
+                                                    value="{{ $userDetails->name }}" />
+                                            </span>
+
+                                            <span class="ec-bill-wrap ec-bill-half">
+                                                <label>Address</label>
+                                                <input type="text" name="address" placeholder="Address Line 1"
+                                                    value="{{ $userDetails->address }}" />
+                                            </span>
+
 
 
                                             <span class="ec-bill-wrap ec-bill-half">
@@ -270,18 +270,18 @@
             $(".ec-pro-content").each(function() {
                 var price = parseFloat($(this).find(".new-price").text().replace('Rs. ', '').trim()) ||
                     0;
-               
+
                 total += price; // Multiply price by quantity and add to total
             });
 
             // Update the total price on the page
             $('#totalAmount').text('Rs. ' + total.toFixed(2));
-             $('#subTotal').text('Rs. ' + total.toFixed(2));
+            $('#subTotal').text('Rs. ' + total.toFixed(2));
         }
 
         // Call the function when the page is loaded
         updateTotalPrice();
 
-       
+
     });
 </script>

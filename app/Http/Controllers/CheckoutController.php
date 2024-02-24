@@ -44,7 +44,7 @@ class CheckoutController extends Controller
         $userDetails = UserDetail::join('users', 'users.id', '=', 'user_details.user_id')
             ->select('users.id', 'users.name', 'user_details.address')
             ->where('users.id', auth()->user()->id)
-            ->get();
+            ->first();
 
         $provinces=Province::all();
 
