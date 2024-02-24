@@ -22,13 +22,13 @@
                                             <span class="ec-bill-wrap ec-bill-half">
                                                 <label>Full Name*</label>
                                                 <input type="text" name="firstname"
-                                                    value="{{ $userDetails->name }}" />
+                                                    value="{{ $userDetails->name??null }}" />
                                             </span>
 
                                             <span class="ec-bill-wrap ec-bill-half">
                                                 <label>Address</label>
                                                 <input type="text" name="address" placeholder="Address Line 1"
-                                                    value="{{ $userDetails->address }}" />
+                                                    value="{{ $userDetails->address??null }}" />
                                             </span>
 
 
