@@ -223,7 +223,7 @@
 <script src="{{ url('assets/js/index.js') }}"></script>
 <script src="{{ url('assets/js/demo-11.js') }}"></script>
 {{-- <script src="{{ url('assets/js/main.js') }}"></script> --}}
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+{{-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 
 

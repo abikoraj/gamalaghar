@@ -22,27 +22,27 @@
                                             <span class="ec-bill-wrap ec-bill-half">
                                                 <label>Full Name*</label>
                                                 <input type="text" name="firstname"
-                                                    value="{{ $userDetails->name??null }}" />
+                                                    value="{{ $userDetails->name ?? null }}" />
                                             </span>
 
                                             <span class="ec-bill-wrap ec-bill-half">
                                                 <label>Address</label>
                                                 <input type="text" name="address" placeholder="Address Line 1"
-                                                    value="{{ $userDetails->address??null }}" />
+                                                    value="{{ $userDetails->address ?? null }}" />
                                             </span>
 
 
 
-                                            <span class="ec-bill-wrap ec-bill-half">
+                                            {{-- <span class="ec-bill-wrap ec-bill-half">
                                                 <label>Country *</label>
                                                 <span class="ec-bl-select-inner">
-                                                    <select name="ec_select_country" id="ec-select-country"
+                                                    <select class="form-select" name="ec_select_country" id="ec-select-country"
                                                         class="ec-bill-select">
                                                         <option selected disabled>Country</option>
                                                         <option value="Nepal">Nepal</option>
                                                     </select>
                                                 </span>
-                                            </span>
+                                            </span> --}}
                                             <span class="ec-bill-wrap ec-bill-half">
                                                 <label>Province *</label>
                                                 <span class="ec-bl-select-inner">
@@ -101,7 +101,7 @@
                                 </div>
                                 <div>
                                     <span class="text-left">Delivery Charges</span>
-                                    <span class="text-right" id="delivery_charge">Rs. </span>
+                                    <span class="text-right" id="delivery_charge">N/A</span>
                                 </div>
 
                                 <div class="ec-checkout-coupan-content">
@@ -253,7 +253,7 @@
 
 
 
-     $(document).ready(function() {
+    $(document).ready(function() {
         $('#areaOption').on('change', function() {
             var selectedOption = $(this).val();
             if (selectedOption !== "") {
@@ -262,14 +262,16 @@
                     url: '/user/checkout/areas/deliveryCharge/' + selectedOption,
                     method: 'GET',
                     success: function(response) {
-                      
 
-                        
-                        $('#delivery_charge').text(response.delivery_charge)
+
+
+                        $('#delivery_charge').text('Rs. ' + response.delivery_charge
+                            .toFixed(2));
+
                     }
                 });
             } else {
-               
+                $('#delivery_charge').text('N/A');
             }
         });
     });
@@ -312,3 +314,28 @@
 
     });
 </script>
+
+
+<style>
+    .select2-container--default .select2-selection--single {
+        height: 48px;
+        outline: none;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+
+
+    .select2-search__field {
+
+        height: 30px !important;
+        /* Adjust height as needed */
+        font-size: 16px;
+        /* Adjust font size as needed */
+    }
+
+    .select2-selection__arrow {
+        display: none !important;
+        /* Hide the arrow */
+    }
+</style>
