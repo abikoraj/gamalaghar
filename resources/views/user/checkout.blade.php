@@ -250,7 +250,34 @@
             }
         });
     });
+
+
+
+     $(document).ready(function() {
+        $('#areaOption').on('change', function() {
+            var selectedOption = $(this).val();
+            if (selectedOption !== "") {
+                // Retrieve the data based on the selected option's value
+                $.ajax({
+                    url: '/user/checkout/areas/deliveryCharge/' + selectedOption,
+                    method: 'GET',
+                    success: function(response) {
+                      
+
+                        
+                        $('#delivery_charge').text(response.delivery_charge)
+                    }
+                });
+            } else {
+               
+            }
+        });
+    });
 </script>
+
+
+
+
 <script>
     $(document).ready(function() {
         $('.select2').select2({

@@ -76,4 +76,10 @@ class CheckoutController extends Controller
         $areas = Area::where('city_id', $cityId)->get();
         return response()->json($areas);
     }
+
+    public function getDeliveryCharge($areaID)
+    {
+        $areas = Area::find($areaID);
+        return response()->json($areas);
+    }
 }
