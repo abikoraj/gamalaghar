@@ -97,7 +97,7 @@
                             <div class="ec-checkout-summary">
                                 <div>
                                     <span class="text-left">Sub-Total</span>
-                                    <span class="text-right">Rs. {{ $selectedProducts->first()->price }}</span>
+                                    <span class="text-right"><span id="subTotal">0.00</span></span>
                                 </div>
                                 <div>
                                     <span class="text-left">Delivery Charges</span>
@@ -276,6 +276,7 @@
 
             // Update the total price on the page
             $('#totalAmount').text('Rs. ' + total.toFixed(2));
+             $('#subTotal').text('Rs. ' + total.toFixed(2));
         }
 
         // Call the function when the page is loaded
