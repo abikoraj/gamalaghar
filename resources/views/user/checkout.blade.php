@@ -141,7 +141,7 @@
                                                         href="product-left-sidebar.html">{{ $products->product_name }}</a>
                                                 </h5>
                                                 <span class="ec-price">
-                                                    <span class="new-price mx-4">Rs. 50.00</span>
+                                                    <span class="new-price mx-4">Rs. {{ $products->price }}</span>
                                                 </span>
                                                 <div class="ec-pro-size mx-4">
                                                     <span class="ec-pro-opt-label">Size: {{ $products->size }}</span>
