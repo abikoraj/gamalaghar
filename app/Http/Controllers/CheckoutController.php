@@ -8,6 +8,7 @@ use App\Models\City;
 use App\Models\MainCategory;
 use App\Models\Product;
 use App\Models\Province;
+use App\Models\User;
 use App\Models\UserDetail;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
@@ -31,7 +32,7 @@ class CheckoutController extends Controller
             $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
 
 
-            $userDetails = UserDetail::leftjoin('users', 'users.id', '=', 'user_details.user_id')
+            $userDetails = User::leftjoin('user_details', 'user_details.user_id', '=', 'users.id')
             ->select('users.id', 'users.name', 'user_details.address')
             ->where('users.id', auth()->user()->id)
             ->first();
