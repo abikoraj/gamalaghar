@@ -4,13 +4,15 @@
 <!-- Ec checkout page -->
 <section class="ec-page-content section-space-p">
     <div class="container">
-        <div class="row">
-            <div class="ec-checkout-leftside col-lg-8 col-md-12 ">
-                <!-- checkout content Start -->
-                <div class="ec-checkout-content">
-                    <div class="ec-checkout-inner">
-                        <form action="{{ url('user/order') }}" method="POST">
-                            @csrf
+        <form action="{{ url('user/order') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="row">
+
+                <div class="ec-checkout-leftside col-lg-8 col-md-12 ">
+                    <!-- checkout content Start -->
+                    <div class="ec-checkout-content">
+                        <div class="ec-checkout-inner">
+
                             <div class="ec-checkout-wrap margin-bottom-30 padding-bottom-3">
                                 <div class="ec-checkout-block ec-check-bill">
                                     <h3 class="ec-checkout-title">Billing Details</h3><br>
@@ -65,122 +67,117 @@
 
                             </div>
                             <span class="ec-check-order-btn">
-                                <input type="hidden" class="order_number" value="gg">
-                                <input type="hidden" class="user_id" value="{{ $userDetails->id }}">
-                                <input type="hidden" class="sub-total">
-                                <input type="hidden" class="delivery_charge">
+                                <input type="text" id="sub_Total" name="sub_total">
+                                <input type="text" id="deliveryCharge" name="delivery_charge">
                                 <input type="hidden" class="total-amount">
                                 <button type="submit" class="btn btn-primary">Place Order</button>
                             </span>
-                        </form>
 
-                    </div>
-                </div>
-                <!--cart content End -->
-            </div>
-            <!-- Sidebar Area Start -->
-            <div class="ec-checkout-rightside col-lg-4 col-md-12">
-                <div class="ec-sidebar-wrap">
-                    <!-- Sidebar Summary Block -->
-                    <div class="ec-sidebar-block">
-                        <div class="ec-sb-title">
-                            <h3 class="ec-sidebar-title">Summary</h3>
+
                         </div>
-                        <div class="ec-sb-block-content">
-                            <div class="ec-checkout-summary">
-                                <div>
-                                    <span class="text-left">Sub-Total</span>
-                                    <span class="text-right"><span id="subTotal">0.00</span></span>
-                                </div>
-                                <div>
-                                    <span class="text-left">Delivery Charges</span>
-                                    <span class="text-right" id="delivery_charge">N/A</span>
-                                </div>
-
-                                <div class="ec-checkout-coupan-content">
-                                    <form class="ec-checkout-coupan-form" name="ec-checkout-coupan-form" method="post"
-                                        action="#">
-                                        <input class="ec-coupan" type="text" required=""
-                                            placeholder="Enter Your Coupan Code" name="ec-coupan" value="">
-                                        <button class="ec-coupan-btn button btn-primary" type="submit" name="subscribe"
-                                            value="">Apply</button>
-                                    </form>
-                                </div>
-                                <div class="ec-checkout-summary-total">
-                                    <span class="text-left">Total Amount</span>
-                                    <span class="text-right"><span id="totalAmount">0.00</span></span>
-                                </div>
+                    </div>
+                    <!--cart content End -->
+                </div>
+                <!-- Sidebar Area Start -->
+                <div class="ec-checkout-rightside col-lg-4 col-md-12">
+                    <div class="ec-sidebar-wrap">
+                        <!-- Sidebar Summary Block -->
+                        <div class="ec-sidebar-block">
+                            <div class="ec-sb-title">
+                                <h3 class="ec-sidebar-title">Summary</h3>
                             </div>
-                            <div class="ec-checkout-pro">
-                                @foreach ($selectedProducts as $products)
-                                    <div class="col-sm-12 mb-6">
-                                        <div class="ec-product-inner">
-                                            <div class="ec-pro-image-outer">
-                                                <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.html" class="image">
+                            <div class="ec-sb-block-content">
+                                <div class="ec-checkout-summary">
+                                    <div>
+                                        <span class="text-left">Sub-Total</span>
+                                        <span class="text-right"><span id="subTotal">0.00</span></span>
+                                    </div>
+                                    <div>
+                                        <span class="text-left">Delivery Charges</span>
+                                        <span class="text-right" id="delivery_charge">N/A</span>
+                                    </div>
 
-                                                        @foreach ($cartproductImages as $cartproductImage)
-                                                            @if ($cartproductImage->id == $products->id)
-                                                                <img class="main-image"
-                                                                    src="{{ $cartproductImage->getFirstMediaUrl('product_image') }}"
-                                                                    alt="product">
-                                                            @endif
-                                                        @endforeach
-                                                    </a>
+
+                                    <div class="ec-checkout-summary-total">
+                                        <span class="text-left">Total Amount</span>
+                                        <span class="text-right"><span id="totalAmount">0.00</span></span>
+                                    </div>
+                                </div>
+                                <div class="ec-checkout-pro">
+                                    @foreach ($selectedProducts as $products)
+                                        <div class="col-sm-12 mb-6">
+                                            <div class="ec-product-inner">
+                                                <div class="ec-pro-image-outer">
+                                                    <div class="ec-pro-image">
+                                                        <a href="product-left-sidebar.html" class="image">
+
+                                                            @foreach ($cartproductImages as $cartproductImage)
+                                                                @if ($cartproductImage->id == $products->id)
+                                                                    <img class="main-image"
+                                                                        src="{{ $cartproductImage->getFirstMediaUrl('product_image') }}"
+                                                                        name="product_image" alt="product">
+                                                                @endif
+                                                            @endforeach
+                                                        </a>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title "><a
-                                                        href="product-left-sidebar.html">{{ $products->product_name }}</a>
-                                                </h5>
-                                                <span class="ec-price">
-                                                    <span class="new-price mx-4">Rs. {{ $products->price }}</span>
-                                                </span>
-                                                <div class="ec-pro-size mx-4">
-                                                    <span class="ec-pro-opt-label">Size: {{ $products->size }}</span>
+                                                <div class="ec-pro-content">
+                                                    <h5 class="ec-pro-title "><a
+                                                            href="product-left-sidebar.html">{{ $products->product_name }}</a>
+                                                    </h5>
+                                                    <span class="ec-price">
+                                                        <span class="new-price mx-4">Rs. {{ $products->price }}</span>
+                                                    </span>
+                                                    <div class="ec-pro-size mx-4">
+                                                        <span class="ec-pro-opt-label">Size:
+                                                            {{ $products->size }}</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endforeach
+                                        <input type="text" value={{ $products->product_name }} name="product_name[]">
+                                        <input type="text" value={{ $products->size }} name="size[]">
+                                        <input type="text" value={{ $products->price }} name="price[]">
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
+                        <!-- Sidebar Summary Block -->
                     </div>
-                    <!-- Sidebar Summary Block -->
-                </div>
 
-                <div class="ec-sidebar-wrap ec-checkout-pay-wrap">
-                    <!-- Sidebar Payment Block -->
-                    <div class="ec-sidebar-block">
-                        <div class="ec-sb-title">
-                            <h3 class="ec-sidebar-title">Payment Method</h3>
-                        </div>
-                        <div class="ec-sb-block-content">
-                            <div class="ec-checkout-pay">
-                                <div class="ec-pay-desc">Please select the preferred payment method to use on this
-                                    order.</div>
-                                <form action="#">
-                                    <span class="ec-pay-option">
-                                        <span>
-                                            <input type="radio" id="pay1" name="radio-group" checked
-                                                class="form-check-input">
-                                            <label for="pay1">Cash On Delivery</label>
+                    <div class="ec-sidebar-wrap ec-checkout-pay-wrap">
+                        <!-- Sidebar Payment Block -->
+                        <div class="ec-sidebar-block">
+                            <div class="ec-sb-title">
+                                <h3 class="ec-sidebar-title">Payment Method</h3>
+                            </div>
+                            <div class="ec-sb-block-content">
+                                <div class="ec-checkout-pay">
+                                    <div class="ec-pay-desc">Please select the preferred payment method to use on this
+                                        order.</div>
+                                    <form action="#">
+                                        <span class="ec-pay-option">
+                                            <span>
+                                                <input type="radio" id="pay1" name="radio-group" checked
+                                                    class="form-check-input">
+                                                <label for="pay1">Cash On Delivery</label>
+                                            </span>
                                         </span>
-                                    </span>
-                                    <span class="ec-pay-commemt">
-                                        <span class="ec-pay-opt-head">Add Comments About Your Order</span>
-                                        <textarea name="your-commemt" placeholder="Comments"></textarea>
-                                    </span>
+                                        <span class="ec-pay-commemt">
+                                            <span class="ec-pay-opt-head">Add Comments About Your Order</span>
+                                            <textarea name="your-commemt" placeholder="Comments"></textarea>
+                                        </span>
 
-                                </form>
+                                    </form>
+                                </div>
                             </div>
                         </div>
+                        <!-- Sidebar Payment Block -->
                     </div>
-                    <!-- Sidebar Payment Block -->
-                </div>
 
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 </section>
 @include('user.new_product')
@@ -259,7 +256,7 @@
 
 
                         $('#delivery_charge').text('Rs. ' + response.delivery_charge);
-                        $('.delivery_charge').val(response.delivery - charge);
+                        $('#deliveryCharge').val(response.delivery_charge);
 
                     }
                 });
@@ -300,8 +297,8 @@
             $('#totalAmount').text('Rs. ' + total.toFixed(2));
             $('#subTotal').text('Rs. ' + total.toFixed(2));
 
-            $('.sub_total').val(total.toFixed(2));
-            $('.total_amount').val(total.toFixed(2));
+            $('#sub_Total').val(total);
+            // $('.total_amount').val(total.toFixed(2));
         }
 
         // Call the function when the page is loaded
