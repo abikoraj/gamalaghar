@@ -7,6 +7,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishlistController;
@@ -55,6 +56,8 @@ Route::post('user/checkouts', [CartController::class, 'checkout']);
 Route::get('user/checkout/cities/{provinceId}', [CheckoutController::class, 'getCities']);
 Route::get('user/checkout/areas/{cityId}', [CheckoutController::class, 'getAreas']);
 Route::get('user/checkout/areas/deliveryCharge/{areaID}', [CheckoutController::class, 'getDeliveryCharge']);
+
+Route::post('user/order', [OrderController::class, 'store']);
 
 
 Route::get('user/history', [HistoryController::class, 'index']);

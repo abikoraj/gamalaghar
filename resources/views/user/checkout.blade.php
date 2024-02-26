@@ -9,20 +9,20 @@
                 <!-- checkout content Start -->
                 <div class="ec-checkout-content">
                     <div class="ec-checkout-inner">
+                        <form action="{{ url('user/order') }}" method="POST">
+                            @csrf
+                            <div class="ec-checkout-wrap margin-bottom-30 padding-bottom-3">
+                                <div class="ec-checkout-block ec-check-bill">
+                                    <h3 class="ec-checkout-title">Billing Details</h3><br>
+                                    <div class="ec-bl-block-content">
 
-                        <div class="ec-checkout-wrap margin-bottom-30 padding-bottom-3">
-                            <div class="ec-checkout-block ec-check-bill">
-                                <h3 class="ec-checkout-title">Billing Details</h3><br>
-                                <div class="ec-bl-block-content">
 
-
-                                    <div class="ec-check-bill-form">
-                                        <form action="#" method="post">
+                                        <div class="ec-check-bill-form">
 
                                             <span class="ec-bill-wrap ec-bill-half">
                                                 <label>Full Name*</label>
-                                                <input type="text" name="firstname"
-                                                    value="{{ $userDetails->name ?? null }}" />
+                                                <input type="text" name="fullname"
+                                                    value="{{ $userDetails->name }}" />
                                             </span>
 
                                             <span class="ec-bill-wrap ec-bill-half">
@@ -30,19 +30,6 @@
                                                 <input type="text" name="address" placeholder="Address Line 1"
                                                     value="{{ $userDetails->address ?? null }}" />
                                             </span>
-
-
-
-                                            {{-- <span class="ec-bill-wrap ec-bill-half">
-                                                <label>Country *</label>
-                                                <span class="ec-bl-select-inner">
-                                                    <select class="form-select" name="ec_select_country" id="ec-select-country"
-                                                        class="ec-bill-select">
-                                                        <option selected disabled>Country</option>
-                                                        <option value="Nepal">Nepal</option>
-                                                    </select>
-                                                </span>
-                                            </span> --}}
                                             <span class="ec-bill-wrap ec-bill-half">
                                                 <label>Province *</label>
                                                 <span class="ec-bl-select-inner">
@@ -71,16 +58,22 @@
                                                     </select>
                                                 </span>
                                             </span>
-                                        </form>
+                                        </div>
+
                                     </div>
-
                                 </div>
-                            </div>
 
-                        </div>
-                        <span class="ec-check-order-btn">
-                            <a class="btn btn-primary" href="#">Place Order</a>
-                        </span>
+                            </div>
+                            <span class="ec-check-order-btn">
+                                <input type="hidden" class="order_number" value="gg">
+                                <input type="hidden" class="user_id" value="{{ $userDetails->id }}">
+                                <input type="hidden" class="sub-total">
+                                <input type="hidden" class="delivery_charge">
+                                <input type="hidden" class="total-amount">
+                                <button type="submit" class="btn btn-primary">Place Order</button>
+                            </span>
+                        </form>
+
                     </div>
                 </div>
                 <!--cart content End -->
@@ -265,8 +258,8 @@
 
 
 
-                        $('#delivery_charge').text('Rs. ' + response.delivery_charge
-                            );
+                        $('#delivery_charge').text('Rs. ' + response.delivery_charge);
+                        $('.delivery_charge').val(response.delivery - charge);
 
                     }
                 });
@@ -306,6 +299,9 @@
             // Update the total price on the page
             $('#totalAmount').text('Rs. ' + total.toFixed(2));
             $('#subTotal').text('Rs. ' + total.toFixed(2));
+
+            $('.sub_total').val(total.toFixed(2));
+            $('.total_amount').val(total.toFixed(2));
         }
 
         // Call the function when the page is loaded

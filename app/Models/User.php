@@ -45,4 +45,8 @@ class User extends Authenticatable implements HasMedia
     public function userDetail(){
         return $this->hasOne(UserDetail::class, 'user_id');
     }
+
+    public function order(){
+        return $this->hasMany(Order::class, 'user_id');
+    }
 }
