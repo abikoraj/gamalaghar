@@ -47,6 +47,7 @@ class OrderController extends Controller
                 $size = $request->input('size');
                 $price = $request->input('price');
                 $product_name = $request->input('product_name');
+                $product_id = $request->input('product_id');
 
                 // Loop through the arrays and save each product
                 for (
@@ -55,16 +56,15 @@ class OrderController extends Controller
                     $i++
                 ) {
                     $orderItem = new OrderItem();
-                    $orderItem->order_id=$order->id;
+                    $orderItem->order_id = $order->id;
                     $orderItem->size = $size[$i];
                     $orderItem->product_name = $product_name[$i];
                     $orderItem->price = $price[$i];
+                    $orderItem->product_id = $product_id[$i];
                     $orderItem->save();
-                }
 
-                // if ($request->product_image) {
-                //     $product->addMedia($request->product_image)->toMediaCollection('product_image');
-                // }
+                   
+                }
 
 
 

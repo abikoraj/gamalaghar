@@ -67,8 +67,8 @@
 
                             </div>
                             <span class="ec-check-order-btn">
-                                <input type="text" id="sub_Total" name="sub_total">
-                                <input type="text" id="deliveryCharge" name="delivery_charge">
+                                <input type="hidden" id="sub_Total" name="sub_total">
+                                <input type="hidden" id="deliveryCharge" name="delivery_charge">
                                 <input type="hidden" class="total-amount">
                                 <button type="submit" class="btn btn-primary">Place Order</button>
                             </span>
@@ -115,7 +115,8 @@
                                                                 @if ($cartproductImage->id == $products->id)
                                                                     <img class="main-image"
                                                                         src="{{ $cartproductImage->getFirstMediaUrl('product_image') }}"
-                                                                        name="product_image" alt="product">
+                                                                         alt="product">
+
                                                                 @endif
                                                             @endforeach
                                                         </a>
@@ -135,6 +136,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <input type="hidden" value="{{ $products->id }}" name="product_id[]">
                                         <input type="hidden" value="{{ $products->product_name }}" name="product_name[]">
                                         <input type="hidden" value="{{ $products->size }}" name="size[]">
                                         <input type="hidden" value="{{ $products->price }}" name="price[]">
