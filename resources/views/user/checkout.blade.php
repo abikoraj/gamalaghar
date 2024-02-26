@@ -135,9 +135,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <input type="text" value={{ $products->product_name }} name="product_name[]">
-                                        <input type="text" value={{ $products->size }} name="size[]">
-                                        <input type="text" value={{ $products->price }} name="price[]">
+                                        <input type="hidden" value="{{ $products->product_name }}" name="product_name[]">
+                                        <input type="hidden" value="{{ $products->size }}" name="size[]">
+                                        <input type="hidden" value="{{ $products->price }}" name="price[]">
                                     @endforeach
                                 </div>
                             </div>
