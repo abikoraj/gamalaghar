@@ -24,7 +24,7 @@
                                             <span class="ec-bill-wrap ec-bill-half">
                                                 <label>Full Name*</label>
                                                 <input type="text" name="fullname"
-                                                    value="{{ $userDetails->name }}" />
+                                                    value="{{ $userDetails->name??null }}" />
                                             </span>
 
                                             <span class="ec-bill-wrap ec-bill-half">
