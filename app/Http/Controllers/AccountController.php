@@ -29,6 +29,7 @@ class AccountController extends Controller
             $productId = $cart->pluck('id')->toArray();
             $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
             $user = User::with(['userDetail', 'media'])->where('id', auth()->user()->id)->first();
+        
         } else {
             $countWishList = "";
             $countCarts = "";
@@ -61,6 +62,7 @@ class AccountController extends Controller
                     'secondary_phone' => $request->secondary_phone,
                 ]);
                 if ($request->user_image) {
+                    $user->clearMediaCollection('user_image');
                     $user->addMedia($request->user_image)->toMediaCollection('user_image');
                 }
                 return $user;
