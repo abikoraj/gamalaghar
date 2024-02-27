@@ -43,7 +43,7 @@
                                         </div>
                                         <div class="ec-vendor-block-detail">
                                             <img class="v-img" src="{{ $user->getFirstMediaUrl('user_image') }}"
-                                                alt="vendor image">
+                                                alt="{{ $user->name }}">
                                             <h5 class="name">{{ $user->name }}</h5>
                                         </div>
                                         <p>Hello <span class="user-profile">{{ $user->name }}!</span></p>
