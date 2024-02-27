@@ -69,7 +69,7 @@
                             <span class="ec-check-order-btn">
                                 <input type="hidden" id="sub_Total" name="sub_total">
                                 <input type="hidden" id="deliveryCharge" name="delivery_charge">
-                                <input type="hidden" class="total-amount">
+                                <input type="hidden" id="total_amount" name="total_amount">
                                 <button type="submit" class="btn btn-primary">Place Order</button>
                             </span>
 
@@ -299,6 +299,7 @@
             $('#totalAmount').text('Rs. ' + total.toFixed(2));
             $('#subTotal').text('Rs. ' + total.toFixed(2));
 
+            $('#total_amount').val(total);
             $('#sub_Total').val(total);
             // $('.total_amount').val(total.toFixed(2));
         }

@@ -17,19 +17,13 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         try {
-
-
             $city = $request->input('city_id');
             $area = $request->input('area_id');
-
             // Retrieve province, city, and area names from their respective models
             $provinceName = Province::find($request->province_id);
             $cityName = City::find($city)->city;
             $areaName = Area::find($area)->area;
-
-            $shippingAddress = "$provinceName, $cityName, $areaName";
-
-            $order = DB::transaction(function () use ($request, $shippingAddress, $provinceName, $cityName, $areaName) {
+            $order = DB::transaction(function () use ($request, $provinceName, $cityName, $areaName) {
                 $order = Order::create([
                     'user_id' => auth()->user()->id,
                     'order_number' => Str::upper(Carbon::now()->format('Yd') . Str::random(5)),
@@ -42,13 +36,10 @@ class OrderController extends Controller
                     'total_amount' => $request->total_amount,
                     'order_status' => 'Pending',
                 ]);
-
-
                 $size = $request->input('size');
                 $price = $request->input('price');
                 $product_name = $request->input('product_name');
                 $product_id = $request->input('product_id');
-
                 // Loop through the arrays and save each product
                 for (
                     $i = 0;
@@ -56,18 +47,14 @@ class OrderController extends Controller
                     $i++
                 ) {
                     $orderItem = new OrderItem();
+                    $orderItem->user_id = auth()->user()->id;
                     $orderItem->order_id = $order->id;
                     $orderItem->size = $size[$i];
                     $orderItem->product_name = $product_name[$i];
                     $orderItem->price = $price[$i];
                     $orderItem->product_id = $product_id[$i];
                     $orderItem->save();
-
-                   
                 }
-
-
-
                 return $order;
             });
             if ($order) {

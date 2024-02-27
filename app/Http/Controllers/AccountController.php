@@ -15,7 +15,7 @@ class AccountController extends Controller
     public function index()
     {
         $mainCategory = MainCategory::with('subcategories')->get();
-        $user = User::with('media')->with('userDetail')->where('id', auth()->user()->id)->first();
+        $user = User::with('userDetail')->where('id', auth()->user()->id)->first();
         // $userImages = User::with('media')->whereIn('id', [auth()->user()->id])->get();
 
 

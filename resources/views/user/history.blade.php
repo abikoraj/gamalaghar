@@ -39,90 +39,33 @@
                                         <th scope="col">ID</th>
                                         <th scope="col">Image</th>
                                         <th scope="col">Name</th>
-                                        <th scope="col">Date</th>
+                                        <th scope="col">Size</th>
                                         <th scope="col">Price</th>
-                                        <th scope="col">Status</th>
                                         <th scope="col">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row"><span>225</span></th>
-                                        <td><img class="prod-img" src="assets/images/product-image/1.jpg"
-                                                alt="product image"></td>
-                                        <td><span>Stylish baby shoes</span></td>
-                                        <td><span>16 Jul 2021</span></td>
-                                        <td><span>$65</span></td>
-                                        <td><span>Active</span></td>
-                                        <td><span class="tbl-btn"><a class="btn btn-lg btn-primary"
-                                                    href="#">View</a></span></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"><span>548</span></th>
-                                        <td><img class="prod-img" src="assets/images/product-image/2.jpg"
-                                                alt="product image"></td>
-                                        <td><span>Sweat Pullover Hoodie</span></td>
-                                        <td><span>13 Aug 2016</span></td>
-                                        <td><span>$68</span></td>
-                                        <td><span>On Hold</span></td>
-                                        <td><span class="tbl-btn"><a class="btn btn-lg btn-primary"
-                                                    href="#">View</a></span></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"><span>684</span></th>
-                                        <td><img class="prod-img" src="assets/images/product-image/3.jpg"
-                                                alt="product image"></td>
-                                        <td><span>T-shirt for girl</span></td>
-                                        <td><span>20 Jul 2015</span></td>
-                                        <td><span>$360</span></td>
-                                        <td><span>On Hold</span></td>
-                                        <td><span class="tbl-btn"><a class="btn btn-lg btn-primary"
-                                                    href="#">View</a></span></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"><span>987</span></th>
-                                        <td><img class="prod-img" src="assets/images/product-image/4.jpg"
-                                                alt="product image"></td>
-                                        <td><span>Wool hat for men</span></td>
-                                        <td><span>05 Feb 2014</span></td>
-                                        <td><span>$584</span></td>
-                                        <td><span>On Hold</span></td>
-                                        <td><span class="tbl-btn"><a class="btn btn-lg btn-primary"
-                                                    href="#">View</a></span></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"><span>225</span></th>
-                                        <td><img class="prod-img" src="assets/images/product-image/5.jpg"
-                                                alt="product image"></td>
-                                        <td><span>Women leather purse</span></td>
-                                        <td><span>23 Jul 2013</span></td>
-                                        <td><span>$65</span></td>
-                                        <td><span>On Hold</span></td>
-                                        <td><span class="tbl-btn"><a class="btn btn-lg btn-primary"
-                                                    href="#">View</a></span></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"><span>548</span></th>
-                                        <td><img class="prod-img" src="assets/images/product-image/6.jpg"
-                                                alt="product image"></td>
-                                        <td><span>Doctor kit toy</span></td>
-                                        <td><span>28 Mar 2011</span></td>
-                                        <td><span>$68</span></td>
-                                        <td><span>Disabled</span></td>
-                                        <td><span class="tbl-btn"><a class="btn btn-lg btn-primary"
-                                                    href="#">View</a></span></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"><span>684</span></th>
-                                        <td><img class="prod-img" src="assets/images/product-image/7.jpg"
-                                                alt="product image"></td>
-                                        <td><span>Teddy bear for baby</span></td>
-                                        <td><span>16 Apr 2010</span></td>
-                                        <td><span>$360</span></td>
-                                        <td><span>On Hold</span></td>
-                                        <td><span class="tbl-btn"><a class="btn btn-lg btn-primary"
-                                                    href="#">View</a></span></td>
-                                    </tr>
+                                    @forelse ($order_histories as $order_history)
+                                        <tr>
+                                            <th scope="row"><span>{{ $order_history->id }}</span></th>
+                                            <td>
+                                                @foreach ($orderproductImages as $orderproductImage)
+                                                    @if ($orderproductImage->id == $order_history->product_id)
+                                                        <img class="prod-img"
+                                                            src="{{ $orderproductImage->getFirstMediaUrl('product_image') }}"
+                                                            alt="product image">
+                                                    @endif
+                                                @endforeach
+                                            </td>
+                                            <td><span>{{ $order_history->product_name }}</span></td>
+                                            <td><span>{{ $order_history->size }}</span></td>
+                                            <td><span>Rs. {{ $order_history->price }}</span></td>
+                                            <td><span class="tbl-btn"><a class="btn btn-lg btn-primary"
+                                                        href="#">View</a></span></td>
+                                        </tr>
+                                    @empty
+                                    @endforelse
+
                                 </tbody>
                             </table>
                         </div>
