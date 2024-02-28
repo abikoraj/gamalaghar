@@ -59,5 +59,4 @@
     </div>
 </section>
 <!-- End Privacy & Policy page -->
-
 @include('layout.footer')
