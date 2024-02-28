@@ -24,7 +24,7 @@
                                             <span class="ec-bill-wrap ec-bill-half">
                                                 <label>Full Name*</label>
                                                 <input type="text" name="fullname"
-                                                    value="{{ $userDetails->name??null }}" />
+                                                    value="{{ $userDetails->name ?? null }}" />
                                             </span>
 
                                             <span class="ec-bill-wrap ec-bill-half">
@@ -115,8 +115,7 @@
                                                                 @if ($cartproductImage->id == $products->id)
                                                                     <img class="main-image"
                                                                         src="{{ $cartproductImage->getFirstMediaUrl('product_image') }}"
-                                                                         alt="product">
-
+                                                                        alt="product">
                                                                 @endif
                                                             @endforeach
                                                         </a>
@@ -127,7 +126,8 @@
                                                             href="product-left-sidebar.html">{{ $products->product_name }}</a>
                                                     </h5>
                                                     <span class="ec-price">
-                                                        <span class="new-price mx-4">Rs. {{ $products->price }}</span>
+                                                        <span class="new-price mx-4">Rs. {{ $products->price }}x
+                                                            <span>{{ $products->quantity }}</span></span>
                                                     </span>
                                                     <div class="ec-pro-size mx-4">
                                                         <span class="ec-pro-opt-label">Size:
@@ -137,9 +137,11 @@
                                             </div>
                                         </div>
                                         <input type="hidden" value="{{ $products->id }}" name="product_id[]">
-                                        <input type="hidden" value="{{ $products->product_name }}" name="product_name[]">
+                                        <input type="hidden" value="{{ $products->product_name }}"
+                                            name="product_name[]">
                                         <input type="hidden" value="{{ $products->size }}" name="size[]">
                                         <input type="hidden" value="{{ $products->price }}" name="price[]">
+                                        <input type="hidden" value="{{ $products->quantity }}" name="quantity[]">
                                     @endforeach
                                 </div>
                             </div>

@@ -40,6 +40,7 @@ class OrderController extends Controller
                 $price = $request->input('price');
                 $product_name = $request->input('product_name');
                 $product_id = $request->input('product_id');
+                $quantity = $request->input('quantity');
                 // Loop through the arrays and save each product
                 for (
                     $i = 0;
@@ -53,6 +54,7 @@ class OrderController extends Controller
                     $orderItem->product_name = $product_name[$i];
                     $orderItem->price = $price[$i];
                     $orderItem->product_id = $product_id[$i];
+                    $orderItem->quantity = $quantity[$i];
                     $orderItem->save();
                 }
                 return $order;
