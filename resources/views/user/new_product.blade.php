@@ -41,13 +41,7 @@
                                 <span class="old-price">$27.00</span>
                                 <span class="new-price">$22.00</span>
                             </span>
-                            <div class="ec-spe-pro-btn">
-                                <a href="#" class="btn btn-lg btn-primary">Add To Cart<span class="cart-icon"><i
-                                            class="fi-rr-shopping-basket"></i></a>
-                                <span class="social-btn">
-                                    <a class="wishlist"><i class="fi-rr-heart"></i></a>
-                                </span>
-                            </div>
+
                         </div>
 
                     </div>
