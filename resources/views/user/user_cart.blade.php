@@ -1,6 +1,5 @@
 @include('layout.header')
 @include('layout.nav')
-
 <!-- Ec breadcrumb start -->
 <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
     <div class="container">
@@ -64,7 +63,6 @@
                                                             </td>
                                                         @endif
                                                     @endforeach
-
                                                     <td data-label="Price" class="ec-cart-pro-price"><span
                                                             class="amount">Rs. {{ $cartData->price }}</span>
                                                     </td>
@@ -92,7 +90,6 @@
                                                     </td>
                                                 </tr>
                                             @endforelse
-
                                         </tbody>
                                     </table>
                                 </div>
@@ -196,19 +193,8 @@
                     <!-- Sidebar Summary Block -->
                 </div>
             </div> --}}
-
-
-
-
-
-
         </div>
-
-
-
     </div>
 </section>
-
 @include('user.new_product')
-
 @include('layout.footer')

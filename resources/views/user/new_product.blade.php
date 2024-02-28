@@ -41,13 +41,10 @@
                                 <span class="old-price">$27.00</span>
                                 <span class="new-price">$22.00</span>
                             </span>
-
                         </div>
-
                     </div>
                 </div>
             @endforeach
-
         </div>
     </div>
 </section>

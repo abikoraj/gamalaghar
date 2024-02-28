@@ -1,6 +1,5 @@
 @include('layout.header')
 @include('layout.nav')
-
 <!-- Ec Wishlist page -->
 <section class="ec-page-content section-space-p">
     <div class="container">
@@ -11,9 +10,7 @@
                 <div class="ec-compare-content">
                     <div class="ec-compare-inner">
                         <div class="row margin-minus-b-30">
-
                             @auth
-
                                 @forelse ($wishLists as $wishList)
                                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-6 pro-gl-content">
                                         <div class="ec-product-inner">
@@ -27,7 +24,6 @@
                                                                 @endif
                                                         @endforeach
                                                     </a>
-
                                                     <span class="percentage">20%</span>
                                                 </div>
                                             </div>
@@ -52,23 +48,17 @@
                                                 <div class="ec-spe-pro-btn">
                                                     <a href="#" class="btn btn-lg btn-primary">Add To Cart<span
                                                             class="cart-icon"><i class="fi-rr-shopping-basket"></i></a>
-
-
                                                     </span>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
-
                                 @empty
                                 <img src="{{url('assets/img/Empty-rafiki.png')}}" alt="Wishlist image" class="img-fluid d-block mx-auto" style="max-width: 300px;"/>
                                 @endforelse
                             @else
                                 <h2 class="text-center m-5">Kindly proceed with logging in to access the wishlist.</h2>
                             @endauth
-
-
                         </div>
                     </div>
                 </div>
@@ -78,7 +68,4 @@
         </div>
     </div>
 </section>
-
-
-
 @include('layout.footer')

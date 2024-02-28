@@ -1,6 +1,5 @@
 @include('layout.header')
 @include('layout.nav')
-
 <!-- User profile section -->
 <section class="ec-page-content ec-vendor-uploads ec-user-account section-space-p">
     <div class="container">
@@ -22,7 +21,6 @@
                                     <li><a href="{{ url('user/history') }}">Order History</a></li>
                                     <li><a href="{{ url('wishlist') }}">Wishlist</a></li>
                                     <li><a href="{{ url('cart') }}">Cart</a></li>
-
                                 </ul>
                             </div>
                         </div>
@@ -52,12 +50,10 @@
                                             history of orders.</p>
                                     </div>
                                     <h5>Account Information</h5>
-
                                     <div class="row">
                                         <div class="col-md-6 col-sm-12">
                                             <strong class="user-profile">E-mail Address : </strong>
                                             <div class="ec-vendor-detail-block ec-vendor-block-email space-bottom-30">
-
                                                 <h6>{{ $user->email }} <a href="javasript:void(0)"
                                                         data-link-action="editmodal" title="Edit Detail"
                                                         data-bs-toggle="modal" data-bs-target="#edit_modal"><i
@@ -76,7 +72,6 @@
                                                         title="Edit Detail" data-bs-toggle="modal"
                                                         data-bs-target="#edit_modal"><i class="fi-rr-edit"></i></a>
                                                 </h6>
-
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-12">
@@ -105,7 +100,5 @@
     </div>
 </section>
 <!-- End User profile section -->
-
 @include('user.edit_details')
-
 @include('layout.footer')

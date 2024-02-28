@@ -1,8 +1,5 @@
 @include('layout.header')
 @include('layout.nav')
-
-
-
 <!-- Start Register -->
 <section class="ec-page-content section-space-p">
     <div class="container">
@@ -23,24 +20,21 @@
                                 <label>Full Name*</label>
                                 <input type="text" name="fullname" placeholder="Enter your last name" />
                                 @error('fullname')
-                                <p class="text-danger">{{$message}}</p>
-
+                                    <p class="text-danger">{{ $message }}</p>
                                 @enderror
                             </span>
                             <span class="ec-register-wrap ec-register-half">
                                 <label>Email*</label>
                                 <input type="email" name="email" placeholder="Enter your email address" />
-                                 @error('email')
-                                <p class="text-danger">{{$message}}</p>
-
+                                @error('email')
+                                    <p class="text-danger">{{ $message }}</p>
                                 @enderror
                             </span>
                             <span class="ec-register-wrap ec-register-half">
                                 <label>Phone Number*</label>
                                 <input type="text" name="phone" placeholder="Enter your phone number" />
-                                 @error('phone')
-                                <p class="text-danger">{{$message}}</p>
-
+                                @error('phone')
+                                    <p class="text-danger">{{ $message }}</p>
                                 @enderror
                             </span>
                             <span class="ec-register-wrap ec-register-half">
@@ -52,8 +46,7 @@
                             </span>
                             <span class="ec-register-wrap ec-register-half">
                                 <label>Confirm Password*</label>
-                                <input type="password" name="confirm_password" placeholder="Confirm Your Password"
-                                     />
+                                <input type="password" name="confirm_password" placeholder="Confirm Your Password" />
                                 @error('confirm_password')
                                     {{ $message }}
                                 @enderror
@@ -77,5 +70,4 @@
     </div>
 </section>
 <!-- End Register -->
-
 @include('layout.footer')

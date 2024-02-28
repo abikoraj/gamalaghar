@@ -1,6 +1,5 @@
 @include('layout.header')
 @include('layout.nav')
-
 <!-- Ec login page -->
 <section class="ec-page-content section-space-p">
     <div class="container">
@@ -45,6 +44,4 @@
         </div>
     </div>
 </section>
-
-
 @include('layout.footer')

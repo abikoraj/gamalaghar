@@ -5,7 +5,6 @@
     <div class="container">
         <div class="row">
             <div class="ec-pro-rightside ec-common-rightside col-lg-9 order-lg-last col-md-12 order-md-first">
-
                 <!-- Single product content Start -->
                 <div class="single-pro-block">
                     <div class="single-pro-inner">
@@ -58,12 +57,8 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="ec-single-qty">
-
-
                                         <div class="qty-plus-minus">
-
                                             <form action="{{ url('cart') }}" method="POST">
                                                 @csrf
                                                 <input class="qty-input" type="text" name="quantity"
@@ -79,8 +74,6 @@
                                                         class="fi-rr-shopping-basket"></i></button>
                                         </div>
                                         </form>
-
-
                                         <div class="ec-single-wishlist">
                                             <form action="{{ url('wishlist') }}" method="POST">
                                                 @csrf
@@ -89,9 +82,7 @@
                                                     <i class="fi-rr-heart"></i></button>
                                             </form>
                                         </div>
-
                                     </div>
-
                                     <div class="ec-single-social">
                                         <ul class="mb-0">
                                             <li class="list-inline-item facebook"><a href="#"><i
@@ -116,8 +107,6 @@
                     </div>
                 </div>
                 <!--Single product content End -->
-
-
                 <!-- Single product tab start -->
                 <div class="ec-single-pro-tab">
                     <div class="ec-single-pro-tab-wrapper">
@@ -128,7 +117,6 @@
                                         role="tab" aria-controls="ec-spt-nav-details"
                                         aria-selected="true">Detail</a>
                                 </li>
-
                                 <li class="nav-item">
                                     <a class="nav-link" data-bs-toggle="tab" data-bs-target="#ec-spt-nav-review"
                                         role="tab" aria-controls="ec-spt-nav-review"
@@ -195,7 +183,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                     <div class="ec-ratting-content">
                                         <h3>Add a Review</h3>
@@ -233,9 +220,6 @@
                 </div>
                 <!-- product details description area end -->
             </div>
-
-
-
             <!-- Sidebar Area Start -->
             <div class="ec-pro-leftside ec-common-leftside col-lg-3 order-lg-first col-md-12 order-md-last">
                 <div class="ec-sidebar-slider">
@@ -267,7 +251,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -276,9 +259,6 @@
     </div>
 </section>
 <!-- End Single product -->
-
-
-
 <style>
     .ec-sb-slider-title {
         font-family: "Montserrat";
@@ -377,13 +357,8 @@
         max-width: 100%;
     }
 </style>
-
 @include('shop.related_product')
 @include('layout.footer')
-
-
-
-
 <script>
     $(document).ready(function() {
         $('.ec-pro-variation-content').on('click', 'li', function(e) {

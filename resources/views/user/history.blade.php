@@ -1,6 +1,5 @@
 @include('layout.header')
 @include('layout.nav')
-
 <!-- User history section -->
 <section class="ec-page-content ec-vendor-uploads ec-user-account section-space-p">
     <div class="container">
@@ -65,7 +64,6 @@
                                         </tr>
                                     @empty
                                     @endforelse
-
                                 </tbody>
                             </table>
                         </div>

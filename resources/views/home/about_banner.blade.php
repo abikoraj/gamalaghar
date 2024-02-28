@@ -11,7 +11,6 @@
                         allowfullscreen></iframe>
                 </div>
             </div>
-
             <div class="col-md-6">
                 <div class="ec-about-detail">
                     <h4>Gamala Ghar</h4>

@@ -7,26 +7,20 @@
         <form action="{{ url('user/order') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
-
                 <div class="ec-checkout-leftside col-lg-8 col-md-12 ">
                     <!-- checkout content Start -->
                     <div class="ec-checkout-content">
                         <div class="ec-checkout-inner">
-
                             <div class="ec-checkout-wrap margin-bottom-30 padding-bottom-3">
                                 <div class="ec-checkout-block ec-check-bill">
                                     <h3 class="ec-checkout-title">Billing Details</h3><br>
                                     <div class="ec-bl-block-content">
-
-
                                         <div class="ec-check-bill-form">
-
                                             <span class="ec-bill-wrap ec-bill-half">
                                                 <label>Full Name*</label>
                                                 <input type="text" name="fullname"
                                                     value="{{ $userDetails->name ?? null }}" />
                                             </span>
-
                                             <span class="ec-bill-wrap ec-bill-half">
                                                 <label>Address</label>
                                                 <input type="text" name="address" placeholder="Address Line 1"
@@ -61,10 +55,8 @@
                                                 </span>
                                             </span>
                                         </div>
-
                                     </div>
                                 </div>
-
                             </div>
                             <span class="ec-check-order-btn">
                                 <input type="hidden" id="sub_Total" name="sub_total">
@@ -72,8 +64,6 @@
                                 <input type="hidden" id="total_amount" name="total_amount">
                                 <button type="submit" class="btn btn-primary">Place Order</button>
                             </span>
-
-
                         </div>
                     </div>
                     <!--cart content End -->
@@ -96,8 +86,6 @@
                                         <span class="text-left">Delivery Charges</span>
                                         <span class="text-right" id="delivery_charge">N/A</span>
                                     </div>
-
-
                                     <div class="ec-checkout-summary-total">
                                         <span class="text-left">Total Amount</span>
                                         <span class="text-right"><span id="totalAmount">0.00</span></span>
@@ -110,7 +98,6 @@
                                                 <div class="ec-pro-image-outer">
                                                     <div class="ec-pro-image">
                                                         <a href="product-left-sidebar.html" class="image">
-
                                                             @foreach ($cartproductImages as $cartproductImage)
                                                                 @if ($cartproductImage->id == $products->id)
                                                                     <img class="main-image"
@@ -148,7 +135,6 @@
                         </div>
                         <!-- Sidebar Summary Block -->
                     </div>
-
                     <div class="ec-sidebar-wrap ec-checkout-pay-wrap">
                         <!-- Sidebar Payment Block -->
                         <div class="ec-sidebar-block">
@@ -171,14 +157,12 @@
                                             <span class="ec-pay-opt-head">Add Comments About Your Order</span>
                                             <textarea name="your-commemt" placeholder="Comments"></textarea>
                                         </span>
-
                                     </form>
                                 </div>
                             </div>
                         </div>
                         <!-- Sidebar Payment Block -->
                     </div>
-
                 </div>
             </div>
         </form>

@@ -24,27 +24,22 @@
                                 class="cart_pro_title">{{ $cartData->product_name }}</a>
                             <span class="cart-price">Rs. {{ $cartData->price }} x <span class ="qty-input"
                                     id="qty-input">{{ $cartData->quantity }} </span></span>
-
-
                             <div class="ec-pro-variation-inner ec-pro-variation-size">
                                 <span>SIZE: {{ $cartData->size }}</span>
                             </div>
                             {{-- <input class="qty-input" type="text" name="quantity"
                                 value="{{ $cartData->quantity }} " /> --}}
                             <a href="{{ url('cart/delete/' . $cartData->cartid) }}" class="remove">×</a>
-
                         </div>
                     </li>
                 @empty
                 @endforelse
-
             </ul>
         </div>
         <div class="ec-cart-bottom">
             <div class="cart-sub-total">
                 <table class="table cart-table">
                     <tbody>
-
                         <tr>
                             <td class="text-left">Total :</td>
                             <td class="text-right primary-color total-price" id="total-price"></td>

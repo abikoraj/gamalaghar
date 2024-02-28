@@ -4,7 +4,6 @@
 <section class="ec-page-content section-space-p">
     <div class="container">
         <div class="row">
-
             <!-- Sidebar Area Start -->
             <div class="ec-blogs-leftside col-lg-4 order-lg-first col-md-12 order-md-last">
                 <div class="ec-blog-search">
@@ -113,18 +112,13 @@
                                             Categories</span>
                                     </div>
                                 </li>
-
                             </ul>
                         </div>
                     </div>
                     <!-- Sidebar Category Block -->
                 </div>
             </div>
-
-
-
             <div class="ec-blogs-rightside col-lg-8 order-lg-last col-md-12 order-md-first">
-
                 <!-- Blog content Start -->
                 <div class="ec-blogs-content">
                     <div class="ec-blogs-inner">
@@ -140,13 +134,11 @@
                                     <div class="ec-blog-content">
                                         <h5 class="ec-blog-title"><a href="blog-detail-left-sidebar.html">The best
                                                 fashion influencers.</a></h5>
-
                                         <div class="ec-blog-date">By <span>Mr Admin</span> / February 10, 2021-2022
                                         </div>
                                         <div class="ec-blog-desc">Lorem Ipsum is simply dummy text of the printing
                                             and typesetting industry. Lorem Ipsum has been the industry's standard
                                             dummy text ever since the 1500s,</div>
-
                                         <div class="ec-blog-btn"><a href="#" class="btn btn-primary">Read More</a>
                                         </div>
                                     </div>
@@ -161,16 +153,16 @@
                                         </a>
                                     </div>
                                     <div class="ec-blog-content">
-                                        <h5 class="ec-blog-title"><a href="blog-detail-left-sidebar.html">Vogue Shopping
+                                        <h5 class="ec-blog-title"><a href="blog-detail-left-sidebar.html">Vogue
+                                                Shopping
                                                 Weekend 2021.</a></h5>
-
                                         <div class="ec-blog-date">By <span>Mr Admin</span> / February 10, 2021-2022
                                         </div>
                                         <div class="ec-blog-desc">Lorem Ipsum is simply dummy text of the printing
                                             and typesetting industry. Lorem Ipsum has been the industry's standard
                                             dummy text ever since the 1500s,</div>
-
-                                        <div class="ec-blog-btn"><a href="#" class="btn btn-primary">Read More</a>
+                                        <div class="ec-blog-btn"><a href="#" class="btn btn-primary">Read
+                                                More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -193,7 +185,8 @@
                                             and typesetting industry. Lorem Ipsum has been the industry's standard
                                             dummy text ever since the 1500s,</div>
 
-                                        <div class="ec-blog-btn"><a href="#" class="btn btn-primary">Read More</a>
+                                        <div class="ec-blog-btn"><a href="#" class="btn btn-primary">Read
+                                                More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -207,16 +200,16 @@
                                         </a>
                                     </div>
                                     <div class="ec-blog-content">
-                                        <h5 class="ec-blog-title"><a href="blog-detail-left-sidebar.html">Fashion Market
+                                        <h5 class="ec-blog-title"><a href="blog-detail-left-sidebar.html">Fashion
+                                                Market
                                                 Reveals Her Jacket.</a></h5>
-
                                         <div class="ec-blog-date">By <span>Mr Admin</span> / February 10, 2021-2022
                                         </div>
                                         <div class="ec-blog-desc">Lorem Ipsum is simply dummy text of the printing
                                             and typesetting industry. Lorem Ipsum has been the industry's standard
                                             dummy text ever since the 1500s,</div>
-
-                                        <div class="ec-blog-btn"><a href="#" class="btn btn-primary">Read More</a>
+                                        <div class="ec-blog-btn"><a href="#" class="btn btn-primary">Read
+                                                More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -232,14 +225,13 @@
                                     <div class="ec-blog-content">
                                         <h5 class="ec-blog-title"><a href="blog-detail-left-sidebar.html">Summer
                                                 Trending Fashion Market.</a></h5>
-
                                         <div class="ec-blog-date">By <span>Mr Admin</span> / February 10, 2021-2022
                                         </div>
                                         <div class="ec-blog-desc">Lorem Ipsum is simply dummy text of the printing
                                             and typesetting industry. Lorem Ipsum has been the industry's standard
                                             dummy text ever since the 1500s,</div>
-
-                                        <div class="ec-blog-btn"><a href="#" class="btn btn-primary">Read More</a>
+                                        <div class="ec-blog-btn"><a href="#" class="btn btn-primary">Read
+                                                More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -255,14 +247,13 @@
                                     <div class="ec-blog-content">
                                         <h5 class="ec-blog-title"><a href="blog-detail-left-sidebar.html">The best
                                                 fashion influencers.</a></h5>
-
                                         <div class="ec-blog-date">By <span>Mr Admin</span> / February 10, 2021-2022
                                         </div>
                                         <div class="ec-blog-desc">Lorem Ipsum is simply dummy text of the printing
                                             and typesetting industry. Lorem Ipsum has been the industry's standard
                                             dummy text ever since the 1500s,</div>
-
-                                        <div class="ec-blog-btn"><a href="#" class="btn btn-primary">Read More</a>
+                                        <div class="ec-blog-btn"><a href="#" class="btn btn-primary">Read
+                                                More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -285,11 +276,7 @@
                 </div>
                 <!--Blog content End -->
             </div>
-
-
         </div>
     </div>
 </section>
-
-
 @include('layout.footer')

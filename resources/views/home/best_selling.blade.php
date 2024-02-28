@@ -16,7 +16,6 @@
                 <div class="ec-compare-content">
                     <div class="ec-compare-inner">
                         <div class="row margin-minus-b-30">
-
                             @foreach ($product as $productData)
                                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-6 pro-gl-content">
                                     <div class="ec-product-inner">
@@ -41,12 +40,10 @@
                                                 <i class="ecicon eci-star fill"></i>
                                                 <i class="ecicon eci-star"></i>
                                             </div>
-
                                             <span class="ec-price px-3">
                                                 <span class="old-price">$12.00</span>
                                                 <span class="new-price">$10.00</span>
                                             </span>
-
                                             {{-- <div class="ec-spe-pro-btn">
                                                 <form action="{{ url('cart') }}" method="POST">
                                                     @csrf
@@ -83,5 +80,3 @@
     </div>
 </section>
 <!-- Grocery section End -->
-
-

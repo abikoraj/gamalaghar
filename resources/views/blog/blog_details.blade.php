@@ -5,7 +5,6 @@
     <div class="container">
         <div class="row">
             <div class="ec-blogs-rightside col-lg-12 col-md-12">
-
                 <!-- Blog content Start -->
                 <div class="ec-blogs-content">
                     <div class="ec-blogs-inner">

@@ -1,18 +1,10 @@
 
     @include('layout.header')
-
     @include('layout.nav')
-
-
-
     @include('home.main_banner')
-
     @include('home.category')
-
     @include('home.about_banner')
-
     @include('home.best_selling')
-
     <!-- Service section start -->
     <section class="section ec-service-sec section-space-p">
         <div class="container align-self-center">
@@ -68,18 +60,10 @@
         </div>
     </section>
     <!-- Service section End -->
-
     @include('home.bottom_banner')
     @include('home.faq')
-
     @include('home.get_in_touch')
-
-
-
     @include('layout.footer')
-
-
-
 </body>
 
 </html>

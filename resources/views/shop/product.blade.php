@@ -53,7 +53,6 @@
                     </div>
                 </div>
                 <!-- Shop Top End -->
-
                 <!-- Shop content Start -->
                 <div class="shop-pro-content">
                     <div class="shop-pro-inner">
@@ -110,7 +109,6 @@
                                                 </form>
                                             </div> --}}
                                         </div>
-
                                     </div>
                                 </div>
                             @empty
@@ -136,6 +134,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 </section>
 <!-- End Shop page -->
 
