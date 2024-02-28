@@ -8,6 +8,7 @@ use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishlistController;
@@ -61,6 +62,8 @@ Route::post('user/order', [OrderController::class, 'store']);
 
 
 Route::get('user/history', [HistoryController::class, 'index']);
+
+Route::get('privacy-policy', [PrivacyPolicyController::class, 'index']);
 
 
 Route::get('/contact_us', function () {

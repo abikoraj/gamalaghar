@@ -6,8 +6,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="section-title">
-                    <h2 class="ec-bg-title">Privacy & Policy</h2>
-                    <h2 class="ec-title">Privacy & Policy</h2>
+                    <h2 class="ec-title">Privacy Policy</h2>
                     <p class="sub-title mb-3">Welcome to the ekka multivendor marketplace</p>
                 </div>
             </div>
