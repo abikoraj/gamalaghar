@@ -13846,7 +13846,7 @@ li {
 
 .btn-primary {
     color: #ffffff;
-    background-color: #692c91;
+    background-color: #692c91 !important;
     border-color: #692c91;
     border: 0;
     -webkit-transition: all 0.3s ease 0s;
