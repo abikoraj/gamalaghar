@@ -137,7 +137,6 @@
                                                         </ul>
                                                     @endif
                                                 </li>
-                                         
                                             @endforeach
 
                                             <li class="dropdown"><a href="{{ url('/blog') }}">Blog</a>
@@ -198,9 +197,14 @@
                                 class="fi fi-rr-menu-burger"></i><span>Shop By Catagories</span><i
                                 class="fi fi-rr-angle-small-down"></i></button>
                         <ul class="sub-menu">
-                            @foreach ($mainCategory as $data)
-                                <li><a class="dropdown-item" href="#">{{ $data->main_category }}</a></li>
-                           
+                            @foreach ($mainCategory as $category)
+                                @if ($category->subcategories->isNotEmpty())
+                                    @foreach ($category->subcategories as $subcateogryData)
+                                        <li><a class="dropdown-item"
+                                                href="{{ url('products/' . $subCategory->slug) }}">{{ $subcateogryData->sub_category }}</a>
+                                        </li>
+                                    @endforeach
+                                @endif
                             @endforeach
                         </ul>
                     </div>
