@@ -11,10 +11,11 @@ class RatingController extends Controller
 {
     public function store(RatingStoreRequest $request)
     {
+        dd($request->all());
         try {
             $rating = DB::transaction(function () use ($request) {
                 $rating = Rating::create([
-                    'product_id' => $request->product_id,
+                    'product_id' => $request->productid,
                     'user_id' => auth()->user()->id,
                     'rating' => $request->rating,
                     'comment' => $request->comment,
@@ -25,7 +26,7 @@ class RatingController extends Controller
                 return response()->json(['message' => 'Rating saved!']);
             }
         } catch (\Exception $e) {
-            return response()->json(['message'=>$e->getMessage()]);
+            return response()->json(['message' => $e->getMessage()]);
         }
     }
 }

@@ -153,7 +153,8 @@
                                     <div class="ec-ratting-content">
                                         <h3>Add a Review</h3>
                                         <div class="ec-ratting-form">
-                                            <form action="#">
+                                            <form action="{{ url('product/review') }}" method="POST">
+                                                @csrf
                                                 <div class="ec-ratting-star">
                                                     <span>Your rating:</span>
                                                     <div>
@@ -162,7 +163,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="ec-ratting-input form-submit">
-                                                    <textarea name="your-commemt" placeholder="Enter Your Comment"></textarea>
+                                                    <textarea name="comment" id="comment" placeholder="Enter Your Comment"></textarea>
+                                                    <input type="hidden" id="productid" name="productid"
+                                                        value="{{ $product->id }}">
                                                     <button class="btn btn-primary" type="submit"
                                                         value="Submit">Submit</button>
                                                 </div>
@@ -365,18 +368,30 @@
 
 <script>
     saveRating = function(element) {
-        // Get the rating value from the clicked element
-        let element_value = dom_el(`#${element}`).getAttribute('rating');
+        // Retrieve the rating value from the corresponding HTML element
+        let ratingValue = dom_el(`.rating-value-${element}`).value;
 
-        // Now that you have the rating value, you can save it
-        // For example, you can make an AJAX call to save the rating
+        // Retrieve the comment value from the textarea using its ID
+        let commentValue = document.getElementById('comment').value;
+
+        // Retrieve the productid value using its ID
+        let productIdValue = document.getElementById('productid').value;
+
+        // Make an AJAX call to send the rating, comment, and productid values
         ajaxCall(
             'post',
-            '/article/rating/save',
-            `rating=${element_value}`
+            '/product/review',
+            `rating=${ratingValue}&comment=${encodeURIComponent(commentValue)}&productid=${productIdValue}`, // Include rating, comment, and productid values in the request payload
+            function(response) {
+                // Handle the response as needed
+                console.log(response);
+            }
         );
     }
 </script>
+
+
+
 
 
 

@@ -10,9 +10,11 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RatingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishlistController;
 use App\Models\MainCategory;
+use App\Models\Rating;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -64,6 +66,8 @@ Route::post('user/order', [OrderController::class, 'store']);
 Route::get('user/history', [HistoryController::class, 'index']);
 
 Route::get('privacy-policy', [PrivacyPolicyController::class, 'index']);
+
+Route::post('product/review', [RatingController::class, 'store']);
 
 
 Route::get('/contact_us', function () {

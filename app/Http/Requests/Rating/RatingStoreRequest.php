@@ -24,7 +24,7 @@ class RatingStoreRequest extends FormRequest
         return [
             'product_id' => ['required'],
             'user_id' => ['required'],
-            'rating' => ['required', 'numeric', 'min:1', 'max:5'],
+            'rating' => ['nullable', 'numeric', 'min:1', 'max:5'],
             'comment' => ['nullable'],
         ];
     }
