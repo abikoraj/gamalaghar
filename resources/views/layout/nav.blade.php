@@ -47,52 +47,43 @@
                                     </li>
                                 </ul>
                             @endauth
-
-
                         </div>
                         <!-- Header User End -->
                         <!-- Header Cart Start -->
                         <a href="{{ url('wishlist') }}" class="ec-header-btn ec-header-wishlist">
                             <div class="header-icon">
-
-
                                 @if ($countWishList)
                                     <i class="fi-rr-heart"></i>
+                                    <span class="ec-header-count">
+                                        {{ $countWishList }}
+                                    </span>
+                                @else
+                                    <i class="fi-rr-heart"></i>
+                                @endif
                             </div>
-                            <span class="ec-header-count">
-                                {{ $countWishList }}
-                            </span>
-                        @else
-                            <i class="fi-rr-heart"></i>
-                            @endif
+                        </a>
+                        <!-- Header Cart Start -->
+                        <a href="#ec-side-cart" class="ec-header-btn ec-header-cart">
+                            <div class="header-icon">
+                                @if ($countCarts)
+                                    <i class="fi-rr-shopping-basket"></i>
+                                    <span class="ec-header-count ">
+                                        {{ $countCarts }}
+                                    </span>
+                                @else
+                                    <i class="fi-rr-shopping-basket"></i>
+                                @endif
+                            </div>
+                        </a>
+                        <a href="#ec-mobile-menu" class="ec-header-btn ec-side-toggle d-lg-none">
+                            <i class="fi-rr-menu-burger"></i>
+                        </a>
                     </div>
-
-
-
-                    </a>
                     <!-- Header Cart End -->
-                    <!-- Header Cart Start -->
-                    <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                        <div class="header-icon">
-
-                            @if ($countCarts)
-                                <i class="fi-rr-shopping-basket"></i>
-                        </div>
-                        <span class="ec-header-count ec-cart-count cart-count-lable">
-                            {{ $countCarts }}
-                        </span>
-                    @else
-                        <i class="fi-rr-shopping-basket"></i>
-
                 </div>
-                @endif
-
-                </a>
                 <!-- Header Cart End -->
                 <!-- Header menu Start -->
-                <a href="#ec-mobile-menu" class="ec-header-btn ec-side-toggle d-lg-none">
-                    <i class="fi-rr-menu-burger"></i>
-                </a>
+
                 <!-- Header menu End -->
             </div>
         </div>
