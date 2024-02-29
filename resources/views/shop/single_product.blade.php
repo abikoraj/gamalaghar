@@ -24,7 +24,8 @@
                                     <h5 class="ec-single-title">{{ $product->product_name }}</h5>
                                     <div class="ec-single-rating-wrap">
                                         <div class="ec-single-rating">
-                                            <x-bladewind.rating name="star-rating" />
+                                            <x-bladewind.rating name="overall-rating" rating="2"
+                                                clickable="false" />
                                         </div>
                                     </div>
                                     <div class="ec-single-desc">{{ strip_tags($product->short_description) }}</div>
@@ -136,38 +137,7 @@
                                             <div class="ec-t-review-content">
                                                 <div class="ec-t-review-top">
                                                     <div class="ec-t-review-name">Jeny Doe</div>
-                                                    <div class="ec-t-review-rating">
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star-o"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="ec-t-review-bottom">
-                                                    <p>Lorem Ipsum is simply dummy text of the printing and
-                                                        typesetting industry. Lorem Ipsum has been the industry's
-                                                        standard dummy text ever since the 1500s, when an unknown
-                                                        printer took a galley of type and scrambled it to make a
-                                                        type specimen.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="ec-t-review-item">
-                                            <div class="ec-t-review-avtar">
-                                                <img src="assets/images/review-image/2.jpg" alt="" />
-                                            </div>
-                                            <div class="ec-t-review-content">
-                                                <div class="ec-t-review-top">
-                                                    <div class="ec-t-review-name">Linda Morgus</div>
-                                                    <div class="ec-t-review-rating">
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star-o"></i>
-                                                        <i class="ecicon eci-star-o"></i>
-                                                    </div>
+                                                    <x-bladewind.rating name="rating" clickable="false" />
                                                 </div>
                                                 <div class="ec-t-review-bottom">
                                                     <p>Lorem Ipsum is simply dummy text of the printing and
@@ -186,20 +156,10 @@
                                             <form action="#">
                                                 <div class="ec-ratting-star">
                                                     <span>Your rating:</span>
-                                                    <div class="ec-t-review-rating">
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star-o"></i>
-                                                        <i class="ecicon eci-star-o"></i>
-                                                        <i class="ecicon eci-star-o"></i>
+                                                    <div>
+                                                        <x-bladewind.rating name="user-rating"
+                                                            onclick="saveRating('user-rating')" />
                                                     </div>
-                                                </div>
-                                                <div class="ec-ratting-input">
-                                                    <input name="your-name" placeholder="Name" type="text" />
-                                                </div>
-                                                <div class="ec-ratting-input">
-                                                    <input name="your-email" placeholder="Email*" type="email"
-                                                        required />
                                                 </div>
                                                 <div class="ec-ratting-input form-submit">
                                                     <textarea name="your-commemt" placeholder="Enter Your Comment"></textarea>
@@ -402,6 +362,21 @@
         });
     });
 </script> --}}
+
+<script>
+    saveRating = function(element) {
+        // Get the rating value from the clicked element
+        let element_value = dom_el(`#${element}`).getAttribute('rating');
+
+        // Now that you have the rating value, you can save it
+        // For example, you can make an AJAX call to save the rating
+        ajaxCall(
+            'post',
+            '/article/rating/save',
+            `rating=${element_value}`
+        );
+    }
+</script>
 
 
 
