@@ -4,13 +4,12 @@
         <div class="footer-top section-space-footer-p">
             <div class="container">
                 <div class="social-links">
-                    <a href="" class="social-btn">Facebook</a>
-                    <a href="" class="social-btn">Twitter</a>
+                    <a href="{{ url('https://www.facebook.com/gamala.gharnp') }}" target="_blank"
+                        class="social-btn">Facebook</a>
                     <a href="{{ url('https://www.instagram.com/gamala.gharnp/') }}" target="_blank"
                         class="social-btn">Instagram</a>
-                    <a href="" class="social-btn">Linkedin</a>
-                    <a href="" class="social-btn">Google</a>
-                    <a href="" class="social-btn">Youtube</a>
+                    <a href="{{ url('https://www.youtube.com/@gamalaghar3745') }}" target="_blank"
+                        class="social-btn">Youtube</a>
                 </div>
 
                 <div class="row">
