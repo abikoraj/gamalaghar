@@ -7,8 +7,8 @@
         <form action="{{ url('user/order') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
-                <div class="ec-checkout-leftside col-lg-8 col-md-12 ">
-                    <!-- checkout content Start -->
+                <div class="ec-checkout-leftside col-lg-8 col-md-12">
+                    <!-- Checkout content Start -->
                     <div class="ec-checkout-content">
                         <div class="ec-checkout-inner">
                             <div class="ec-checkout-wrap margin-bottom-30 padding-bottom-3">
@@ -16,58 +16,67 @@
                                     <h3 class="ec-checkout-title">Billing Details</h3><br>
                                     <div class="ec-bl-block-content">
                                         <div class="ec-check-bill-form">
-                                            <span class="ec-bill-wrap ec-bill-half">
-                                                <label>Full Name*</label>
-                                                <input type="text" name="fullname"
-                                                    value="{{ $userDetails->name ?? null }}" />
-                                            </span>
-                                            <span class="ec-bill-wrap ec-bill-half">
-                                                <label>Address</label>
-                                                <input type="text" name="address" placeholder="Address Line 1"
-                                                    value="{{ $userDetails->address ?? null }}" />
-                                            </span>
-                                            <span class="ec-bill-wrap ec-bill-half">
-                                                <label>Province *</label>
-                                                <span class="ec-bl-select-inner">
-                                                    <select class="select2" name="province_id" id="provinceOption">
-                                                        <option value=""></option>
-                                                        @foreach ($provinces as $province)
-                                                            <option value="{{ $province->id }}">
-                                                                {{ $province->province }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </span>
-                                            </span>
-                                            <span class="ec-bill-wrap ec-bill-half">
-                                                <label>City *</label>
-                                                <span class="ec-bl-select-inner">
-                                                    <select class="select2" name="city_id" id="cityOption">
-                                                        <option value=""></option>
-                                                    </select>
-                                                </span>
-                                            </span>
-                                            <span class="ec-bill-wrap ec-bill-half">
-                                                <label>Area</label>
-                                                <span class="ec-bl-select-inner">
-                                                    <select class="select2" name="area_id" id="areaOption">
-                                                        <option value=""></option>
-                                                    </select>
-                                                </span>
-                                            </span>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <label>Full Name*</label>
+                                                    <input type="text" name="fullname"
+                                                        value="{{ $userDetails->name ?? null }}" />
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label>Address</label>
+                                                    <input type="text" name="address" placeholder="Address Line 1"
+                                                        value="{{ $userDetails->address ?? null }}" />
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <label>Province *</label>
+                                                    <span class="ec-bl-select-inner">
+                                                        <select class="select2" name="province_id" id="provinceOption">
+                                                            <option value=""></option>
+                                                            @foreach ($provinces as $province)
+                                                                <option value="{{ $province->id }}">
+                                                                    {{ $province->province }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </span>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label>City *</label>
+                                                    <span class="ec-bl-select-inner">
+                                                        <select class="select2" name="city_id" id="cityOption">
+                                                            <option value=""></option>
+                                                        </select>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+
+                                                <div class="col-lg-6">
+                                                    <label>Area</label>
+                                                    <span class="ec-bl-select-inner">
+                                                        <select class="select2" name="area_id" id="areaOption">
+                                                            <option value=""></option>
+                                                        </select>
+                                                    </span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <span class="ec-check-order-btn">
+                            <div class="ec-check-order-btn">
                                 <input type="hidden" id="sub_Total" name="sub_total">
                                 <input type="hidden" id="deliveryCharge" name="delivery_charge">
                                 <input type="hidden" id="total_amount" name="total_amount">
                                 <button type="submit" class="btn btn-primary">Place Order</button>
-                            </span>
+                            </div>
                         </div>
                     </div>
                     <!--cart content End -->
                 </div>
+
                 <!-- Sidebar Area Start -->
                 <div class="ec-checkout-rightside col-lg-4 col-md-12">
                     <div class="ec-sidebar-wrap">
