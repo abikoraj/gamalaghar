@@ -24,11 +24,7 @@
                                     <h5 class="ec-single-title">{{ $product->product_name }}</h5>
                                     <div class="ec-single-rating-wrap">
                                         <div class="ec-single-rating">
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star-o"></i>
+                                            <x-bladewind.rating name="star-rating" />
                                         </div>
                                     </div>
                                     <div class="ec-single-desc">{{ strip_tags($product->short_description) }}</div>
