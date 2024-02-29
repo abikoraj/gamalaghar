@@ -79,12 +79,7 @@
                             <i class="fi-rr-menu-burger"></i>
                         </a>
                     </div>
-                    <!-- Header Cart End -->
                 </div>
-                <!-- Header Cart End -->
-                <!-- Header menu Start -->
-
-                <!-- Header menu End -->
             </div>
         </div>
         <!-- Header Top responsive Action -->
