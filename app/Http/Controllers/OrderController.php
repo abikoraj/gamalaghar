@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Area;
+use App\Models\Cart;
 use App\Models\City;
 use App\Models\Order;
 use App\Models\OrderItem;
@@ -57,10 +58,17 @@ class OrderController extends Controller
                     $orderItem->quantity = $quantity[$i];
                     $orderItem->save();
                 }
+                $orderedProductIds = collect($product_id);
+                Cart::where('user_id', auth()->user()->id)
+                    ->whereIn('product_id', $orderedProductIds)
+                    ->delete();
                 return $order;
             });
             if ($order) {
-                return back()->with('success', 'Your Order is Placed!!');
+                return redirect('/')->with('success', 'Your Order is Placed!!');
+            }
+            else{
+                return back()->with('error', 'Please Fill the Province, City and Area');
             }
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
