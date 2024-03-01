@@ -59,6 +59,7 @@ Route::post('user/checkouts', [CartController::class, 'checkout']);
 Route::get('user/checkout/cities/{provinceId}', [CheckoutController::class, 'getCities']);
 Route::get('user/checkout/areas/{cityId}', [CheckoutController::class, 'getAreas']);
 Route::get('user/checkout/areas/deliveryCharge/{areaID}', [CheckoutController::class, 'getDeliveryCharge']);
+Route::get('user/whole-checkout', [CartController::class, 'smallCartCheckout']);
 
 Route::post('user/order', [OrderController::class, 'store']);
 

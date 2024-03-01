@@ -49,7 +49,7 @@
             </div>
             <div class="cart_btn">
                 <a href="{{ url('cart') }}" class="btn btn-primary">View Cart</a>
-                <a href="{{ url('user/checkout') }}" class="btn btn-secondary">Checkout</a>
+                <a href="{{ url('user/whole-checkout') }}" class="btn btn-secondary">Checkout</a>
             </div>
         </div>
     </div>
