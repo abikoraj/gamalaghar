@@ -9,7 +9,6 @@
                             important information about us</h3>
                     </div>
                     <div class="accordion" id="accordion">
-
                         @foreach ($faqs as $faq)
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="heading{{ $faq->id }}">
@@ -26,9 +25,6 @@
                                 </div>
                             </div>
                         @endforeach
-
-
-
                     </div>
                 </div>
             </div>
