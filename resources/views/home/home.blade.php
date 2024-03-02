@@ -1,5 +1,6 @@
 
     @include('layout.header')
+    @livewireStyles
     @include('layout.nav')
     @include('home.main_banner')
     @include('home.category')
@@ -64,6 +65,7 @@
     @include('home.faq')
     @include('home.get_in_touch')
     @include('layout.footer')
+    @livewireScripts
 </body>
 
 </html>
