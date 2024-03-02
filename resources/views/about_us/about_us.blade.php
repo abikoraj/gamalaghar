@@ -65,7 +65,6 @@
         </div>
     </div>
 </section>
-@include('about_us.testmonial')
-@include('about_us.services_section')
+
 
 @include('layout.footer')

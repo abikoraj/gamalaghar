@@ -40,9 +40,12 @@
                                                 <i class="ecicon eci-star fill"></i>
                                                 <i class="ecicon eci-star"></i>
                                             </div>
-                                            <span class="ec-price px-3">
-                                                <span class="old-price">$12.00</span>
-                                                <span class="new-price">$10.00</span>
+                                            <span class="ec-price px-3 mb-3">
+                                                {{-- <span class="old-price">$12.00</span> --}}
+                                                @if ($productData->productsizeprice->isNotEmpty())
+                                                    <span class="new-price">Rs.
+                                                        {{ $productData->productsizeprice->first()->price }}</span>
+                                                @endif
                                             </span>
                                             {{-- <div class="ec-spe-pro-btn">
                                                 <form action="{{ url('cart') }}" method="POST">
