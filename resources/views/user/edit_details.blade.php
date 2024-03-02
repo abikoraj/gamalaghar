@@ -32,7 +32,7 @@
                                 <div class="thumb-preview ec-preview">
                                     <div class="image-thumb-preview">
                                         <img class="image-thumb-preview ec-image-preview v-img"
-                                            src="assets/images/user/1.jpg" alt="edit" />
+                                            src="{{ Avatar::create($user->name)->toBase64() }}" alt="edit" />
                                     </div>
                                 </div>
                             </div>
