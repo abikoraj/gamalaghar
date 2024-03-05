@@ -24,8 +24,13 @@
                                     <h5 class="ec-single-title">{{ $product->product_name }}</h5>
                                     <div class="ec-single-rating-wrap">
                                         <div class="ec-single-rating">
-                                            <x-bladewind.rating name="overall-rating" rating="2"
-                                                clickable="false" />
+                                            <div class="ec-pro-rating">
+                                                <i class="ecicon eci-star fill"></i>
+                                                <i class="ecicon eci-star fill"></i>
+                                                <i class="ecicon eci-star fill"></i>
+                                                <i class="ecicon eci-star fill"></i>
+                                                <i class="ecicon eci-star"></i>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="ec-single-desc">{{ strip_tags($product->short_description) }}</div>
@@ -137,7 +142,13 @@
                                             <div class="ec-t-review-content">
                                                 <div class="ec-t-review-top">
                                                     <div class="ec-t-review-name">Jeny Doe</div>
-                                                    <x-bladewind.rating name="rating" clickable="false" />
+                                                    <div class="ec-pro-rating">
+                                                        <i class="ecicon eci-star fill"></i>
+                                                        <i class="ecicon eci-star fill"></i>
+                                                        <i class="ecicon eci-star fill"></i>
+                                                        <i class="ecicon eci-star fill"></i>
+                                                        <i class="ecicon eci-star"></i>
+                                                    </div>
                                                 </div>
                                                 <div class="ec-t-review-bottom">
                                                     <p>Lorem Ipsum is simply dummy text of the printing and
@@ -157,9 +168,12 @@
                                                 @csrf
                                                 <div class="ec-ratting-star">
                                                     <span>Your rating:</span>
-                                                    <div>
-                                                        <x-bladewind.rating name="user-rating"
-                                                            onclick="saveRating('user-rating')" />
+                                                    <div class="ec-pro-rating">
+                                                        <i class="ecicon eci-star fill"></i>
+                                                        <i class="ecicon eci-star fill"></i>
+                                                        <i class="ecicon eci-star fill"></i>
+                                                        <i class="ecicon eci-star fill"></i>
+                                                        <i class="ecicon eci-star"></i>
                                                     </div>
                                                 </div>
                                                 <div class="ec-ratting-input form-submit">
@@ -365,35 +379,6 @@
         });
     });
 </script> --}}
-
-<script>
-    saveRating = function(element) {
-        // Retrieve the rating value from the corresponding HTML element
-        let ratingValue = dom_el(`.rating-value-${element}`).value;
-
-        // Retrieve the comment value from the textarea using its ID
-        let commentValue = document.getElementById('comment').value;
-
-        // Retrieve the productid value using its ID
-        let productIdValue = document.getElementById('productid').value;
-
-        // Make an AJAX call to send the rating, comment, and productid values
-        ajaxCall(
-            'post',
-            '/product/review',
-            `rating=${ratingValue}&comment=${encodeURIComponent(commentValue)}&productid=${productIdValue}`, // Include rating, comment, and productid values in the request payload
-            function(response) {
-                // Handle the response as needed
-                console.log(response);
-            }
-        );
-    }
-</script>
-
-
-
-
-
 
 </body>
 
