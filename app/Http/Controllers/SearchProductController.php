@@ -16,8 +16,18 @@ class SearchProductController extends Controller
 
         $searchKeyword = $request->search_keyword;
 
-        $resultedProducts = Product::with(['media', 'productsizeprice'])->where('product_name', 'like', '%' . $searchKeyword
-            . '%')->limit(5)->get();
+        $position = $request->position;
+
+        $query = Product::with(['media', 'productsizeprice'])
+        ->where('product_name', 'like', '%' . $searchKeyword . '%');
+
+        if ($position == 4) {
+            $query->orderBy('id', 'asc');
+        } elseif ($position == 5) {
+            $query->orderBy('id', 'desc');
+        }
+
+        $resultedProducts = $query->limit(5)->get();
 
 
 
@@ -47,7 +57,8 @@ class SearchProductController extends Controller
         $faqs = Faq::all();
 
         
-        return view('search_products.search_product',compact('resultedProducts','mainCategory', 'product', 'countWishList', 'cart', 'cartproductImages', 'countCarts', 'faqs'));
+        return view('search_products.search_product',compact('resultedProducts',
+        'mainCategory', 'product', 'countWishList', 'cart', 'cartproductImages', 'countCarts', 'faqs'));
     }
     
 }
