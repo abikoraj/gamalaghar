@@ -199,8 +199,10 @@
                     <!-- Ec Header Search Start -->
                     <div class="align-self-center">
                         <div class="header-search">
-                            <form class="ec-btn-group-form" action="#">
-                                <input class="form-control" placeholder="Search Product Here..." type="text">
+                            <form class="ec-btn-group-form" action="{{ url('products/search/view') }}" method="get">
+                              
+                                <input class="form-control" placeholder="Search Product Here..." type="text"
+                                    name="search_keyword">
                                 <button class="submit" type="submit"><i class="fi-rr-search"></i></button>
                             </form>
                         </div>

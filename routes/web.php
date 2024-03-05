@@ -11,6 +11,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\SearchProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishlistController;
 use App\Models\MainCategory;
@@ -78,3 +79,7 @@ Route::get('/contact_us', function () {
 
 
 Route::get('about-us', [AboutUsController::class, 'index']);
+
+
+Route::get('products/search/view', [SearchProductController::class, 'index']);
+// Route::post('products/search/view',[SearchProductController::class,'search']);
