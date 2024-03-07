@@ -4,9 +4,10 @@
             <div class="ec-pro-image-outer">
                 <div class="ec-pro-image">
                     <a href="{{ url('product/' . $productData->slug) }}" class="image">
-                        <img class="main-image" src="{{ url('assets/img/8_1.jpg') }}" alt="Product" />
+                        <img class="main-image" src="{{ $productData->getFirstMediaUrl('product_image') }}"
+                            alt="Product" />
                     </a>
-                    <span class="percentage">20%</span>
+                    <span class="percentage">{{ $productData->discount }}%</span>
                 </div>
             </div>
             <div class="ec-pro-content">
@@ -23,8 +24,10 @@
                 <div class="ec-pro-list-desc px-3">
                     {{ strip_tags($productData->short_description) }}</div>
                 <span class="ec-price px-3">
-                    <span class="old-price">$27.00</span>
-                    <span class="new-price">$22.00</span>
+                    @if ($productData->productsizeprice->isNotEmpty())
+                        <span class="new-price">Rs.
+                            {{ $productData->productsizeprice->first()->price }}</span>
+                    @endif
                 </span>
                 {{-- <div class="ec-spe-pro-btn">
                                                 <form action="{{ url('cart') }}" method="POST">
