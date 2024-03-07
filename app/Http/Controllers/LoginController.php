@@ -22,11 +22,11 @@ class LoginController extends Controller
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
             $countCarts = Cart::where('user_id', auth()->user()->id)->count();
             $cart = Cart::join('products', 'products.id', '=', 'carts.product_id')
-            ->join('product_size_prices', 'product_size_prices.id', '=', 'carts.product_size_price_id')
-            ->join('sizes', 'sizes.id', '=', 'product_size_prices.size_id')
-            ->select('products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity', 'carts.id as cartid', 'carts.user_id')
-            ->groupBy('cartid', 'products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity', 'carts.user_id')
-            ->where('carts.user_id', auth()->user()->id)->get();
+                ->join('product_size_prices', 'product_size_prices.id', '=', 'carts.product_size_price_id')
+                ->join('sizes', 'sizes.id', '=', 'product_size_prices.size_id')
+                ->select('products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity', 'carts.id as cartid', 'carts.user_id')
+                ->groupBy('cartid', 'products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity', 'carts.user_id')
+                ->where('carts.user_id', auth()->user()->id)->get();
             $productId = $cart->pluck('id')->toArray();
             $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
         } else {
@@ -46,8 +46,12 @@ class LoginController extends Controller
         try {
             if (Auth::attempt($confidential)) {
                 $user = Auth()->user();
-                Session::put('user_id', $user->id);
-                return redirect('/')->with('success', 'Welcome ' . $user->name);
+                if ($user->role == 'user') {
+                    Session::put('user_id', $user->id);
+                    return redirect('/')->with('success', 'Welcome ' . $user->name);
+                } else {
+                    return back()->with('error', 'Incorrect email or password!');
+                }
             } else {
                 return back()->with('error', 'Incorrect email or password!');
             }
