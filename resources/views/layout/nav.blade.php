@@ -63,11 +63,12 @@
                             </div>
                         </a>
                         <!-- Header Cart Start -->
-                        <a href="#ec-side-cart" class="ec-header-btn ec-header-cart">
+                        <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
                             <div class="header-icon">
                                 @if ($countCarts)
                                     <i class="fi-rr-shopping-basket"></i>
-                                    <span class="ec-header-count ">
+
+                                    <span class="ec-header-count ec-cart-count cart-count-lable">
                                         {{ $countCarts }}
                                     </span>
                                 @else
@@ -75,6 +76,8 @@
                                 @endif
                             </div>
                         </a>
+
+
                         <a href="#ec-mobile-menu" class="ec-header-btn ec-side-toggle d-lg-none">
                             <i class="fi-rr-menu-burger"></i>
                         </a>
@@ -199,8 +202,9 @@
                     <!-- Ec Header Search Start -->
                     <div class="align-self-center">
                         <div class="header-search">
-                            <form class="ec-btn-group-form" action="{{ url('products/search/view') }}" method="get">
-                              
+                            <form class="ec-btn-group-form" action="{{ url('products/search/view') }}"
+                                method="get">
+
                                 <input class="form-control" placeholder="Search Product Here..." type="text"
                                     name="search_keyword" id="search_keyword">
                                 <button class="submit" type="submit"><i class="fi-rr-search"></i></button>
@@ -228,22 +232,17 @@
                             <!-- Header wishlist End -->
                             <!-- Header Cart Start -->
                             <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                <div class="header-icon">
+                                @if ($countCarts)
+                                    <div class="header-icon">
 
-
-                                    @if ($countCarts)
                                         <i class="fi-rr-shopping-basket"></i>
-                                </div>
-                                <span class="ec-header-count ec-cart-count cart-count-lable">
-                                    {{ $countCarts }}
-                                </span>
-                            @else
-                                <i class="fi-rr-shopping-basket"></i>
+                                    </div>
+                                    <span class="ec-header-count ec-cart-count cart-count-lable">
+                                        {{ $countCarts }}
+                                    </span>
+                                @else
+                                    <i class="fi-rr-shopping-basket"></i>
                                 @endif
-
-
-
-
                             </a>
                             <!-- Header Cart End -->
                         </div>
