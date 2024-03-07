@@ -21,7 +21,7 @@
                                     <img class="main-image"
                                         src="{{ $relatedProduct->getFirstMediaUrl('product_image') }}" alt="Product" />
                                 </a>
-                                <span class="percentage">20%</span>
+                                <span class="percentage">{{ $relatedProduct->discount }}%</span>
                             </div>
                         </div>
                         <div class="ec-pro-content">
@@ -35,11 +35,11 @@
                                 <i class="ecicon eci-star fill"></i>
                                 <i class="ecicon eci-star"></i>
                             </div>
-                            <div class="ec-pro-list-desc px-3">
-                                {{ strip_tags($relatedProduct->short_description) }}</div>
-                            <span class="ec-price px-3">
-                                <span class="old-price">$27.00</span>
-                                <span class="new-price">$22.00</span>
+                            <span class="ec-price px-3 mb-3">
+                                @if ($relatedProduct->productsizeprice->isNotEmpty())
+                                    <span class="new-price">Rs.
+                                        {{ $relatedProduct->productsizeprice->first()->price }}</span>
+                                @endif
                             </span>
                         </div>
                     </div>

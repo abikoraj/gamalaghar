@@ -12,14 +12,15 @@ use Illuminate\Http\Request;
 class SearchProductController extends Controller
 {
 
-    public function index(Request $request){
+    public function index(Request $request)
+    {
 
         $searchKeyword = $request->search_keyword;
 
         $position = $request->position;
 
         $query = Product::with(['media', 'productsizeprice'])
-        ->where('product_name', 'like', '%' . $searchKeyword . '%');
+            ->where('product_name', 'like', '%' . $searchKeyword . '%');
 
         if ($position == 4) {
             $query->orderBy('id', 'asc');
@@ -29,9 +30,6 @@ class SearchProductController extends Controller
 
         $resultedProducts = $query->limit(5)->get();
 
-
-
-        
         $mainCategory = MainCategory::with('subcategories')->get();
         $product = Product::with(['media', 'productsizeprice'])->latest()->get();
         // $productSizePrice=ProductSizePrice::where('')
@@ -54,11 +52,14 @@ class SearchProductController extends Controller
             $mainCategory = MainCategory::with('subcategories')->get();
         }
 
-        $faqs = Faq::all();
-
-        
-        return view('search_products.search_product',compact('resultedProducts',
-        'mainCategory', 'product', 'countWishList', 'cart', 'cartproductImages', 'countCarts', 'faqs'));
+        return view('search_products.search_product', compact(
+            'resultedProducts',
+            'mainCategory',
+            'product',
+            'countWishList',
+            'cart',
+            'cartproductImages',
+            'countCarts',
+        ));
     }
-    
 }

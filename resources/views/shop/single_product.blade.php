@@ -218,8 +218,10 @@
                                         <i class="ecicon eci-star"></i>
                                     </div>
                                     <span class="ec-price">
-                                        <span class="old-price">$100.00</span>
-                                        <span class="new-price">$80.00</span>
+                                        @if ($bestSellingProduct->productsizeprice->isNotEmpty())
+                                            <span class="new-price">Rs.
+                                                {{ $bestSellingProduct->productsizeprice->first()->price }}</span>
+                                        @endif
                                     </span>
                                 </div>
                             </div>

@@ -26,7 +26,7 @@
                                                         src="{{ $productData->getFirstMediaUrl('product_image') }}"
                                                         alt="Product" />
                                                 </a>
-                                                <span class="percentage">{{ $productData->discount }}</span>
+                                                <span class="percentage">{{ $productData->discount }}%</span>
                                             </div>
                                         </div>
                                         <div class="ec-pro-content">
@@ -41,34 +41,12 @@
                                                 <i class="ecicon eci-star"></i>
                                             </div>
                                             <span class="ec-price px-3 mb-3">
-                                                {{-- <span class="old-price">$12.00</span> --}}
                                                 @if ($productData->productsizeprice->isNotEmpty())
                                                     <span class="new-price">Rs.
                                                         {{ $productData->productsizeprice->first()->price }}</span>
                                                 @endif
                                             </span>
-                                            {{-- <div class="ec-spe-pro-btn">
-                                                <form action="{{ url('cart') }}" method="POST">
-                                                    @csrf
-                                                    <input type="hidden" name="product_id"
-                                                        value="{{ $productData->id }}">
-                                                    <input type="hidden" name="quantity" value="1">
-                                                    <button id="cart" class="btn btn-lg btn-primary">Add To
-                                                        Cart<span class="cart-icon"><i
-                                                                class="fi-rr-shopping-basket"></i></button>
-                                                </form>
-                                                <form id="wishlistForm_{{ $productData->id }}"
-                                                    action="{{ url('wishlist') }}" method="POST">
-                                                    @csrf
-                                                    <input type="hidden" name="product_id"
-                                                        value="{{ $productData->id }}">
-                                                    <span class="social-btn">
-                                                        <button class="wishlist" type="button"
-                                                            data-form-id="wishlistForm_{{ $productData->id }}"><i
-                                                                class="fi-rr-heart"></i></button>
-                                                    </span>
-                                                </form>
-                                            </div> --}}
+
                                         </div>
                                     </div>
                                 </div>
