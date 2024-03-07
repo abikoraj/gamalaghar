@@ -100,7 +100,7 @@
                         <div class="footer">
                             <div class="float-right">
                                 <div class="privacy">
-                                    <span class="green-text"><a href="">Terms of
+                                    <span class="green-text"><a href="{{ url('terms-condition') }}">Terms of
                                             Use</a></span>
                                     <span><a href="{{ url('privacy-policy') }}">| Privacy Policy</a></span>
                                 </div>

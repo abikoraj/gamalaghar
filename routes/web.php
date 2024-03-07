@@ -12,6 +12,7 @@ use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\SearchProductController;
+use App\Http\Controllers\TermsAndConditionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishlistController;
 use App\Models\MainCategory;
@@ -68,6 +69,7 @@ Route::post('user/order', [OrderController::class, 'store']);
 Route::get('user/history', [HistoryController::class, 'index']);
 
 Route::get('privacy-policy', [PrivacyPolicyController::class, 'index']);
+Route::get('terms-condition', [TermsAndConditionController::class, 'index']);
 
 Route::post('product/review', [RatingController::class, 'store']);
 
