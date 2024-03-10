@@ -45,8 +45,8 @@
                                 method="get">
                                 <select name="position" id="position">
                                     <option selected disabled>Position</option>
-                                    <option value="4">Price, low to high</option>
-                                    <option value="5">Price, high to low</option>
+                                    <option value="low-to-high">Price, low to high</option>
+                                    <option value="high-to-low">Price, high to low</option>
                                 </select>
                             </form>
                         </div>
@@ -57,9 +57,9 @@
                 <div class="shop-pro-content">
                     <div class="shop-pro-inner">
                         <div class="row">
-                            <div id="search-results">
+                           
                                 @include('search_products.search_content')
-                            </div>
+                            
                         </div>
                         <div>
                             <!-- Ec Pagination Start -->
