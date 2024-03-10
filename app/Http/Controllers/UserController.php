@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\User\CreateUserRequest;
+use App\Mail\UserVerificationMail;
 use App\Models\Cart;
 use App\Models\MainCategory;
 use App\Models\Product;
@@ -12,6 +13,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -70,6 +73,18 @@ class UserController extends Controller
                     'email_verified_at'=>Carbon::today(),
                     'role'=>'user',
                 ]);
+
+                $token = Str::random(60);
+
+                DB::table('password_resets')->insert([
+                    'email' => $request->email,
+                    'token' => $token,
+                    'created_at' => now(),
+                ]);
+
+                Mail::to($request->email)->send(new UserVerificationMail($user, $token));
+
+                
                 return $user;
             });
             if ($user) {
