@@ -20,17 +20,13 @@ class SearchProductController extends Controller
         $position = $request->position;
 
         $query = Product::with(['media', 'productsizeprice'])
-           ->where('product_name', 'like', '%' . $searchKeyword . '%');
+            ->where('product_name', 'like', '%' . $searchKeyword . '%');
 
         if ($position == "low-to-high") {
-            $query->with(['productsizeprice' => function ($query) {
-                $query->orderBy('price', 'asc');
-            }]);
-           
+
+            $query->orderBy('product_price', 'asc');
         } elseif ($position == "high-to-low") {
-            $query->with(['productsizeprice' => function ($query) {
-                $query->orderBy('price', 'desc');
-            }]);
+            $query->orderBy('product_price', 'desc');
         }
 
         $resultedProducts = $query->limit(5)->get();
