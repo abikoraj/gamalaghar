@@ -3,7 +3,7 @@
     @livewireStyles
     @include('layout.nav')
     @include('home.main_banner')
-    @include('home.category')
+    {{-- @include('home.category') --}}
     @include('home.about_banner')
     @include('home.best_selling')
     <!-- Service section start -->
