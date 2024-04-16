@@ -28,7 +28,7 @@ class NewsLetterController extends Controller
                 return back()->with('success', 'You have been added to NewsLetter!');
             }
         } catch (\Exception $e) {
-            return back()->with('error', 'Error Occurred!');
+            return back()->with('error', $e->getMessage());
         }
     }
 }
