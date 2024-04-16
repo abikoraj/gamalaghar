@@ -7,6 +7,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NewsLetterController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\ProductController;
@@ -90,3 +91,5 @@ Route::get('products/search/view', [SearchProductController::class, 'index']);
 
 Route::get('googleLogin2',[SocialiteController::class, 'googleLogin']);
 Route::get('auth/google/callback', [SocialiteController::class, 'googleHandle']);
+
+Route::post('newsletter', [NewsLetterController::class, 'store']);

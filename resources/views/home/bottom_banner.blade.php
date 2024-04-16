@@ -13,13 +13,14 @@
                             <span>Be the First to know. Sign up for the newsletter today</span>
                         </div>
                         <div class="newsletter-email py-2">
-                            <form>
+                            <form action="{{ url('newsletter') }}" method="POST">
+                                @csrf
                                 <div class="py-1 email-wrap">
-                                    <input class="email" type="text" placeholder="Your email address"
+                                    <input class="email" type="email" placeholder="Your email address"
                                         name="email">
                                 </div>
                                 <div class="sub-wrap">
-                                    <button class="sub" type="button">Subscribe</button>
+                                    <button class="sub" type="submit">Subscribe</button>
                                 </div>
                             </form>
                         </div>
