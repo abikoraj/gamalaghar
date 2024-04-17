@@ -16,9 +16,11 @@ class UserVerificationMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public $user, $token;
+    public function __construct($user, $token)
     {
-        //
+        $this->user=$user;
+        $this->token=$token;
     }
 
     /**
@@ -34,11 +36,13 @@ class UserVerificationMail extends Mailable
     /**
      * Get the message content definition.
      */
-    public function content(): Content
+    public function build()
     {
-        return new Content(
-            markdown: 'mail.user-verification-mail',
-        );
+
+        $data['user'] = $this->user;
+        $data['token'] = $this->token;
+        $data['url'] = env("FRONTEND_URL") .  "/complete_registration?token=$this->token";
+        return $this->markdown('mail.user-verification-mail')->with($data);
     }
 
     /**

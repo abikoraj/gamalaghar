@@ -36,6 +36,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('register', [UserController::class, 'index']);
 Route::post('register', [UserController::class, 'store']);
 
+Route::get('complete_registration', [UserController::class, 'verifyMail']);
+
 
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'login']);

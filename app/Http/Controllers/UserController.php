@@ -6,6 +6,7 @@ use App\Http\Requests\User\CreateUserRequest;
 use App\Mail\UserVerificationMail;
 use App\Models\Cart;
 use App\Models\MainCategory;
+use App\Models\PasswordReset;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Wishlist;
@@ -125,5 +126,38 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+
+    public function verifyMail(Request $request)
+    {
+        $token = request()->token;
+
+        if (!$token) {
+            return back()->with('error','Invalid Token');
+        }
+
+        $passwordReset = PasswordReset::where('token', $token)->first();
+        if (!$passwordReset) {
+          
+            return back()->with('error', 'Token Not Found!');
+        }
+
+        $user = User::where('email', $passwordReset->email)->first();
+
+        if (!$user) {
+            return back()->with('error', 'User Not Found!');
+        }
+        try {
+            DB::transaction(function () use ($user, $request, $token) {
+                $user->email_verified_at = now();
+                $user->save();
+                PasswordReset::where('token', $token)->delete();
+            });
+        } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
+
+        return redirect('/')->with('success','User verified successfully!');
     }
 }
