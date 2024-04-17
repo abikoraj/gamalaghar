@@ -33,7 +33,7 @@ return [
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_SECRET_ID'),
-        'redirect' => 'https://gamalaghar.shrawanmaharjan.com.np/auth/google/callback',
+        'redirect' => 'https://gamalaghar.com/auth/google/callback',
     ],
 
 ];
