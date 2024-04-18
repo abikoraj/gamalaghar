@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-4 ec-footer-cat">
+                    <div class="col-md-7 ec-footer-cat">
                         <div class="ec-footer-widget">
                             <div class="footer-logo">
                                 <a href="index.html"><img src="{{ url('assets/img/Logo.png') }}" alt="Site Logo" /><img
@@ -33,8 +33,8 @@
                                 <ul class="align-items-center">
                                     <li class="ec-footer-link"><a href="{{ url('about-us') }}">About Gamala Ghar</a>
                                     </li>
-                                    <li class="ec-footer-link"><a href="#">Plans & Pricing</a></li>
-                                    <li class="ec-footer-link"><a href="#">Services</a></li>
+                                    {{-- <li class="ec-footer-link"><a href="#">Plans & Pricing</a></li>
+                                    <li class="ec-footer-link"><a href="#">Services</a></li> --}}
                                     <li class="ec-footer-link"><a href="#">Blog</a></li>
                                 </ul>
                             </div>
@@ -47,13 +47,13 @@
                                 <ul class="align-items-center">
                                     <li class="ec-footer-link"><a href="#">Home</a></li>
                                     <li class="ec-footer-link"><a href="{{ url('about-us') }}">About Us</a></li>
-                                    <li class="ec-footer-link"><a href="#">Testimonial</a></li>
+                                    {{-- <li class="ec-footer-link"><a href="#">Testimonial</a></li> --}}
                                     <li class="ec-footer-link"><a href="#">Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-lg-2 ec-footer-cat">
+                    {{-- <div class="col-sm-12 col-lg-2 ec-footer-cat">
                         <div class="ec-footer-widget">
                             <h4 class="ec-footer-heading">Our Products</h4>
                             <div class="ec-footer-links ec-footer-dropdown">
@@ -65,8 +65,8 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-12 col-lg-2 ec-footer-cat">
+                    </div> --}}
+                    {{-- <div class="col-sm-12 col-lg-2 ec-footer-cat">
                         <div class="ec-footer-widget">
                             <h4 class="ec-footer-heading">Resources</h4>
                             <div class="ec-footer-links ec-footer-dropdown">
@@ -78,7 +78,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
