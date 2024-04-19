@@ -61,6 +61,10 @@
                             </span>
                             <span class="ec-register-wrap ec-register-btn">
                                 <button class="btn btn-primary" type="submit">Register</button>
+                                <a href="{{ URL::to('googleLogin2') }}"><img
+                                        src="{{ url('assets/img/google_signin.png') }}" class="mx-auto d-block"
+                                        style="max-width: 200px;" /></a>
+
                             </span>
                         </form>
                     </div>
