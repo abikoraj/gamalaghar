@@ -6,15 +6,22 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
-    <title>GamalaGhar</title>
-    <meta name="keywords"
-        content="apparel, catalog, clean, ecommerce, ecommerce HTML, electronics, fashion, html eCommerce, html store, minimal, multipurpose, multipurpose ecommerce, online store, responsive ecommerce template, shops" />
-    <meta name="description" content="Best ecommerce html template for single and multi vendor store.">
-    <meta name="author" content="ashishmaraviya">
+    <x-meta
+    title="Gamala Ghar"
+    description="Gamala Ghar is an innovative ecommerce platform dedicated to providing a wide range of
+                                indoor plants to enhance the ambiance and freshness of homes. With a focus on promoting
+                                well-being and creating healthier living spaces, Gamala Ghar offers a curated selection
+                                of indoor plants that are not only visually appealing but also contribute to improving
+                                indoor air quality and overall mood."
+    image="{{url('assets/img/gamala-ghar-logo.png')}}"
+/>
+
+
+ 
     <!-- site Favicon -->
-    <link rel="icon" href="{{ url('assets/img/favicon-11.png') }}" sizes="32x32" />
-    <link rel="apple-touch-icon" href="{{ url('assets/img/favicon-11.png') }}" />
-    <meta name="msapplication-TileImage" content="{{ url('assets/img/favicon-11.png') }}" />
+    <link rel="icon" href="{{url('assets/img/gamala-ghar-logo.png')}}" sizes="32x32" />
+    <link rel="apple-touch-icon" href="{{url('assets/img/gamala-ghar-logo.png')}}" />
+    <meta name="msapplication-TileImage" content="{{url('assets/img/gamala-ghar-logo.png')}}" />
 
     <!-- css Icon Font -->
     <link rel="stylesheet" href="{{ url('assets/css/ecicons.min.css') }}" />

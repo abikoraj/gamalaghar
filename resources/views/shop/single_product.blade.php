@@ -86,8 +86,17 @@
                                     </div>
                                     <div class="ec-single-social">
                                         <ul class="mb-0">
-                                            <li class="list-inline-item facebook"><a href="#"><i
-                                                        class="ecicon eci-facebook"></i></a></li>
+
+
+
+                                            <li class="list-inline-item facebook">
+
+                                                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->fullUrl()) }}"
+                                                target="_blank"><i
+                                                        class="ecicon eci-facebook"></i></a>
+                                              
+                                                    
+                                                    </li>
                                             <li class="list-inline-item twitter"><a href="#"><i
                                                         class="ecicon eci-twitter"></i></a></li>
 
