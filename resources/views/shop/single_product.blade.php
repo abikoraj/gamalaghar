@@ -344,6 +344,7 @@
         // 批量渲染
         rate.render({
             elem: '.user_rating_data',
+            readonly: true
 
         });
     });
@@ -356,6 +357,7 @@
         // 批量渲染
         rate.render({
             elem: '.average_user_rating',
+            readonly: true
 
         });
     });
