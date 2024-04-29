@@ -1,5 +1,6 @@
 @include('layout.header')
 @include('layout.nav')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/layui/2.9.8/css/layui.css" />
 <!-- Sart Single product -->
 <section class="ec-page-content section-space-p">
     <div class="container">
@@ -25,11 +26,9 @@
                                     <div class="ec-single-rating-wrap">
                                         <div class="ec-single-rating">
                                             <div class="ec-pro-rating">
-                                                <i class="ecicon eci-star fill"></i>
-                                                <i class="ecicon eci-star fill"></i>
-                                                <i class="ecicon eci-star fill"></i>
-                                                <i class="ecicon eci-star fill"></i>
-                                                <i class="ecicon eci-star"></i>
+                                                <div class="average_user_rating"
+                                                                lay-options="{value: {{ $averageRatingValue }}, theme: '#FF8000'}">
+                                                            </div>
                                             </div>
                                         </div>
                                     </div>
@@ -91,16 +90,7 @@
                                                         class="ecicon eci-facebook"></i></a></li>
                                             <li class="list-inline-item twitter"><a href="#"><i
                                                         class="ecicon eci-twitter"></i></a></li>
-                                            <li class="list-inline-item instagram"><a href="#"><i
-                                                        class="ecicon eci-instagram"></i></a></li>
-                                            <li class="list-inline-item youtube-play"><a href="#"><i
-                                                        class="ecicon eci-youtube-play"></i></a></li>
-                                            <li class="list-inline-item behance"><a href="#"><i
-                                                        class="ecicon eci-behance"></i></a></li>
-                                            <li class="list-inline-item whatsapp"><a href="#"><i
-                                                        class="ecicon eci-whatsapp"></i></a></li>
-                                            <li class="list-inline-item plus"><a href="#"><i
-                                                        class="ecicon eci-plus"></i></a></li>
+
                                         </ul>
                                     </div>
                                 </div>
@@ -140,48 +130,44 @@
                                                 <img src="assets/images/review-image/1.jpg" alt="" />
                                             </div>
                                             <div class="ec-t-review-content">
-                                                <div class="ec-t-review-top">
-                                                    <div class="ec-t-review-name">Jeny Doe</div>
-                                                    <div class="ec-pro-rating">
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star"></i>
+                                                @forelse ($userReviews as $userReview)
+                                                    <div class="ec-t-review-top">
+                                                        <div class="ec-t-review-name">{{ $userReview->name }}</div>
+                                                        <div class="ec-pro-rating">
+                                                            <div class="user_rating_data"
+                                                                lay-options="{value: {{ $userReview->user_rating }}, theme: '#FF8000'}">
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="ec-t-review-bottom">
-                                                    <p>Lorem Ipsum is simply dummy text of the printing and
-                                                        typesetting industry. Lorem Ipsum has been the industry's
-                                                        standard dummy text ever since the 1500s, when an unknown
-                                                        printer took a galley of type and scrambled it to make a
-                                                        type specimen.
-                                                    </p>
-                                                </div>
+                                                    <div class="ec-t-review-bottom">
+                                                        <p>{{ $userReview->user_review }}
+                                                        </p>
+                                                    </div>
+                                                @empty
+                                                @endforelse
+
                                             </div>
                                         </div>
                                     </div>
                                     <div class="ec-ratting-content">
                                         <h3>Add a Review</h3>
                                         <div class="ec-ratting-form">
-                                            <form action="{{ url('product/review') }}" method="POST">
+                                            <form action="{{ url('user-review') }}" method="POST">
                                                 @csrf
                                                 <div class="ec-ratting-star">
                                                     <span>Your rating:</span>
-                                                    <div class="ec-pro-rating">
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star"></i>
+                                                    <div id="ID-rate-demo">
+
+
                                                     </div>
                                                 </div>
+                                                <input type="hidden" id="ratingInput" name="user_rating">
                                                 <div class="ec-ratting-input form-submit">
-                                                    <textarea name="comment" id="comment" placeholder="Enter Your Comment"></textarea>
-                                                    <input type="hidden" id="productid" name="productid"
+                                                    <textarea name="user_review" id="comment" placeholder="Enter Your Comment"></textarea>
+                                                    <input type="hidden" id="productid" name="product_id"
                                                         value="{{ $product->id }}">
-                                                    <button class="btn btn-primary" type="submit"
-                                                        value="Submit">Submit</button>
+                                                    <button class="btn btn-primary" id="submitReviewBtn"
+                                                        type="submit">Submit</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -332,7 +318,70 @@
         max-width: 100%;
     }
 </style>
+
+
+<!-- 引入 layui.js -->
+
 @include('shop.related_product')
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/layui/2.9.8/layui.js"></script>
+
+<script>
+    layui.use(function() {
+        var rate = layui.rate;
+        // 渲染
+        rate.render({
+            elem: '#ID-rate-demo'
+        });
+    });
+</script>
+
+
+<script>
+    layui.use(function() {
+        var rate = layui.rate;
+        // 批量渲染
+        rate.render({
+            elem: '.user_rating_data',
+
+        });
+    });
+</script>
+
+
+<script>
+    layui.use(function() {
+        var rate = layui.rate;
+        // 批量渲染
+        rate.render({
+            elem: '.average_user_rating',
+
+        });
+    });
+</script>
+
+
+
+<script>
+    layui.use(['rate'], function() {
+        var rate = layui.rate;
+
+        // Render layui rating component
+        rate.render({
+            elem: '#ID-rate-demo',
+            half: true,
+            choose: function(value) {
+                console.log(value); // Output the selected rating value to console
+                // Set the rating value to the hidden input field
+                $('#ratingInput').val(value);
+            }
+        });
+    });
+</script>
+
+
+
 @include('layout.footer')
 <script>
     $(document).ready(function() {

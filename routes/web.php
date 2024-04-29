@@ -16,9 +16,11 @@ use App\Http\Controllers\SearchProductController;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\TermsAndConditionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserReviewController;
 use App\Http\Controllers\WishlistController;
 use App\Models\MainCategory;
 use App\Models\Rating;
+use App\Models\UserReview;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -95,3 +97,5 @@ Route::get('googleLogin2',[SocialiteController::class, 'googleLogin']);
 Route::get('auth/google/callback', [SocialiteController::class, 'googleHandle']);
 
 Route::post('newsletter', [NewsLetterController::class, 'store']);
+
+Route::post('user-review',[UserReviewController::class,'store']);

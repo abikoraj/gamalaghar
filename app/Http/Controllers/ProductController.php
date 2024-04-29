@@ -8,8 +8,10 @@ use App\Models\Product;
 use App\Models\ProductSizePrice;
 use App\Models\Size;
 use App\Models\SubCategory;
+use App\Models\UserReview;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -50,6 +52,16 @@ class ProductController extends Controller
         $bestSellingProducts = Product::with('media')->with('productsizeprice')->take(6)->get();
         $relatedProducts = Product::with('media')->with('productsizeprice')->take(4)->get();
 
+        $productID=Product::where('slug',$slug)->first();
+        $userReviews=UserReview::join('users', 'users.id','=', 'user_reviews.user_id')
+        ->where('user_reviews.product_id', $productID->id)->get();
+
+        $userAverageRating = UserReview::where('product_id', $productID->id)
+        ->select(DB::raw('AVG(user_reviews.user_rating) as average_rating'))
+        ->first();
+
+        $averageRatingValue = $userAverageRating->average_rating ?? 0;
+
         if (auth()->check()) {
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
             $countCarts = Cart::where('user_id', auth()->user()->id)->count();
@@ -88,7 +100,9 @@ class ProductController extends Controller
             'cart',
             'cartproductImages',
             'countCarts',
-            'existingWishlistItem'
+            'existingWishlistItem',
+            'userReviews',
+            'averageRatingValue'
         ));
     }
 
