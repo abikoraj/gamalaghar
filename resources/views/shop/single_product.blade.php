@@ -97,7 +97,8 @@
                                               
                                                     
                                                     </li>
-                                            <li class="list-inline-item twitter"><a href="#"><i
+                                            <li class="list-inline-item twitter"><a href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&media=="{{ $product->getFirstMediaUrl('product_image') }}"
+                                                target="_blank"><i
                                                         class="ecicon eci-twitter"></i></a></li>
 
                                         </ul>
