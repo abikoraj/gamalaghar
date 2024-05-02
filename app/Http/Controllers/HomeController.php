@@ -16,13 +16,10 @@ class HomeController extends Controller
     public function index()
     {
 
-
-
-
-        
         $mainCategory = MainCategory::with('subcategories')->get();
         $product = Product::with(['media', 'productsizeprice'])->latest()->get();
         // $productSizePrice=ProductSizePrice::where('')
+        
         if (auth()->check()) {
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
             $countCarts = Cart::where('user_id', auth()->user()->id)->count();

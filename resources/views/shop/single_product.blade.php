@@ -27,8 +27,8 @@
                                         <div class="ec-single-rating">
                                             <div class="ec-pro-rating">
                                                 <div class="average_user_rating"
-                                                                lay-options="{value: {{ $averageRatingValue }}, theme: '#FF8000'}">
-                                                            </div>
+                                                    lay-options="{value: {{ $averageRatingValue }}, theme: '#FF8000'}">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -86,21 +86,13 @@
                                     </div>
                                     <div class="ec-single-social">
                                         <ul class="mb-0">
-
-
-
                                             <li class="list-inline-item facebook">
-
-                                                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->fullUrl()) }}"
-                                                target="_blank"><i
-                                                        class="ecicon eci-facebook"></i></a>
-                                              
-                                                    
-                                                    </li>
-                                            <li class="list-inline-item twitter"><a href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&media=="{{ $product->getFirstMediaUrl('product_image') }}"
-                                                target="_blank"><i
-                                                        class="ecicon eci-twitter"></i></a></li>
-
+                                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->fullUrl()) }}"
+                                                    target="_blank"><i class="ecicon eci-facebook"></i></a>
+                                            </li>
+                                            <li class="list-inline-item twitter"><a
+                                                    href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&media=="{{ $product->getFirstMediaUrl('product_image') }}"
+                                                    target="_blank"><i class="ecicon eci-twitter"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -207,11 +199,9 @@
                                             href="{{ url('product/' . $bestSellingProduct->slug) }}">{{ $bestSellingProduct->product_name }}</a>
                                     </h5>
                                     <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star"></i>
+                                        <div class="average_user_rating"
+                                            lay-options="{value: {{ $averageRatingValue }}, theme: '#FF8000'}">
+                                        </div>
                                     </div>
                                     <span class="ec-price">
                                         @if ($bestSellingProduct->productsizeprice->isNotEmpty())

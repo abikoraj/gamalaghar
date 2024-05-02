@@ -29,11 +29,9 @@
                                     href="{{ url('product/' . $relatedProduct->slug) }}">{{ $relatedProduct->product_name }}</a>
                             </div>
                             <div class="ec-pro-rating px-3">
-                                <i class="ecicon eci-star fill"></i>
-                                <i class="ecicon eci-star fill"></i>
-                                <i class="ecicon eci-star fill"></i>
-                                <i class="ecicon eci-star fill"></i>
-                                <i class="ecicon eci-star"></i>
+                                <div class="average_user_rating"
+                                    lay-options="{value: {{ $averageRatingValue }}, theme: '#FF8000'}">
+                                </div>
                             </div>
                             <span class="ec-price px-3 mb-3">
                                 @if ($relatedProduct->productsizeprice->isNotEmpty())
