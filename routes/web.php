@@ -61,6 +61,7 @@ Route::post('wishlist', [WishlistController::class, 'store']);
 Route::get('cart', [CartController::class, 'index']);
 Route::post('cart', [CartController::class, 'store']);
 Route::get('cart/delete/{id}', [CartController::class, 'destroy']);
+Route::get('cart/update/{id}', [CartController::class, 'updateCartQuantity']);
 
 Route::get('user/checkout', [CheckoutController::class, 'index'])->name('checkout')->middleware('auth');
 Route::post('user/checkouts', [CartController::class, 'checkout']);

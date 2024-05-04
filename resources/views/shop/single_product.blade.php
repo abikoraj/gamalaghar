@@ -59,8 +59,10 @@
                                         </div>
                                     </div>
                                     <div class="ec-single-qty">
+                                         
                                         <div class="qty-plus-minus">
                                             <form action="{{ url('cart') }}" method="POST">
+                                           
                                                 @csrf
                                                 <input class="qty-input" type="text" name="quantity"
                                                     value="1" />

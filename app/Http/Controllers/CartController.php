@@ -140,4 +140,22 @@ class CartController extends Controller
         $request->session()->put('selectedProducts', $selectedProducts);
         return redirect()->route('checkout');
     }
+
+    public function updateCartQuantity(Request $request, $id)
+    {
+       
+
+        // Retrieve the cart item
+        $cart = Cart::find($id);
+        $cart->update([
+            'quantity'=>$request->query('quantity')
+        ]);
+
+
+       
+        $subtotal = $cart->price * $cart->quantity;
+
+        
+        return back()->with('success','Quantity Updated Successfully!');
+    }
 }

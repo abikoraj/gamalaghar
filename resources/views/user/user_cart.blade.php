@@ -55,8 +55,7 @@
                                                     </td>
                                                     @foreach ($cartproductImages as $cartproductImage)
                                                         @if ($cartproductImage->id == $cartData->id)
-                                                            <td data-label="Product" class="ec-cart-pro-name"><a
-                                                                    href="product-left-sidebar.html"><img
+                                                            <td data-label="Product" class="ec-cart-pro-name"><a><img
                                                                         class="ec-cart-pro-img mr-4"
                                                                         src="{{ $cartproductImage->getFirstMediaUrl('product_image') }}"
                                                                         alt="{{ $cartData->product_name }}" />{{ $cartData->product_name }}</a>
@@ -66,20 +65,32 @@
                                                     <td data-label="Price" class="ec-cart-pro-price"><span
                                                             class="amount">Rs. {{ $cartData->price }}</span>
                                                     </td>
+
                                                     <td data-label="Quantity" class="ec-cart-pro-qty"
                                                         style="text-align: center;">
                                                         <div class="cart-qty-plus-minus">
-                                                            <input class="qty-input" type="text" name="cartqtybutton"
-                                                                value="{{ $cartData->quantity }}" />
+                                                            <input class="qty-input quantityInput" type="text"
+                                                                name="quantity" value="{{ $cartData->quantity }}" />
                                                         </div>
                                                     </td>
                                                     <td><span class="size">{{ $cartData->size }}</span></td>
+
+
                                                     <td data-label="Total" class="ec-cart-pro-subtotal">
-                                                        Rs. {{ $cartData->price * $cartData->quantity }}</td>
+                                                        <!-- Use a span with a unique id for the subtotal -->
+                                                        <span id="subtotal">Rs.
+                                                            {{ $cartData->price * $cartData->quantity }}</span>
+                                                    </td>
                                                     <td data-label="Remove" class="ec-cart-pro-remove">
                                                         <a href="{{ url('cart/delete/' . $cartData->cartid) }}"><i
                                                                 class="ecicon eci-trash-o"></i></a>
+
+                                                        <a class="updateQuantityLink"
+                                                            href="{{ url('cart/update/' . $cartData->cartid . '?quantity=' . $cartData->quantity) }}"><i
+                                                                class="bx bx-edit-alt"></i></a>
+
                                                     </td>
+
                                                 </tr>
                                             @empty
                                                 <tr>
@@ -107,6 +118,22 @@
                 </div>
                 <!--cart content End -->
             </div>
+
+
+
+            <script>
+                $(document).ready(function() {
+                    $('.quantityInput').on('input', function() {
+                        var newQuantity = $(this).val();
+                        var updateLink = $(this).closest('tr').find('.updateQuantityLink').attr('href');
+                        var updatedLink = updateLink.split('?')[0] + '?quantity=' + newQuantity;
+                        $(this).closest('tr').find('.updateQuantityLink').attr('href', updatedLink);
+                    });
+                });
+            </script>
+
+
+
             {{-- <!-- Sidebar Area Start -->
             <div class="ec-cart-rightside col-lg-4 col-md-12">
                 <div class="ec-sidebar-wrap">
