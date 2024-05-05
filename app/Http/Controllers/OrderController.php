@@ -17,24 +17,35 @@ class OrderController extends Controller
 {
     public function store(Request $request)
     {
+        $request->validate([
+            'payment_option'=>['required'],
+            'fullname'=>['required'],
+            'address'=>['required']
+        ]);
         try {
             $city = $request->input('city_id');
             $area = $request->input('area_id');
             // Retrieve province, city, and area names from their respective models
             $provinceName = Province::find($request->province_id);
             $cityName = City::find($city)->city;
-            $areaName = Area::find($area)->area;
+            $areaName="";
+            if($area){
+                $areaName = Area::find($area)->area;
+            }
+           
             $order = DB::transaction(function () use ($request, $provinceName, $cityName, $areaName) {
                 $order = Order::create([
                     'user_id' => auth()->user()->id,
                     'order_number' => Str::upper(Carbon::now()->format('Yd') . Str::random(5)),
                     'fullname' => $request->fullname,
                     'province' => $provinceName->province,
-                    'city' => $cityName,
-                    'area' => $areaName,
+                    'city' => $cityName??null,
+                    'area' => $areaName??null,
                     'sub_total' => $request->sub_total,
                     'delivery_charge' => $request->delivery_charge,
                     'total_amount' => $request->total_amount,
+                    'payment_option_id'=>$request->payment_option,
+                    'comment'=>$request->comment,
                     'order_status' => 'Pending',
                 ]);
                 $size = $request->input('size');

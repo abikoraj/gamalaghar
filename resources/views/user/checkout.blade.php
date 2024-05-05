@@ -20,12 +20,18 @@
                                                 <div class="col-lg-6">
                                                     <label>Full Name*</label>
                                                     <input type="text" name="fullname"
-                                                        value="{{ $userDetails->name ?? null }}" />
+                                                        value="{{ $userDetails->name ?? null }}"/>
+                                                        @error('fullname')
+                                                            <p class="text-danger">{{$message}}</p>
+                                                        @enderror
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <label>Address</label>
                                                     <input type="text" name="address" placeholder="Address Line 1"
                                                         value="{{ $userDetails->address ?? null }}" />
+                                                         @error('address')
+                                                            <p class="text-danger">{{$message}}</p>
+                                                        @enderror
                                                 </div>
 
                                             </div>
@@ -89,23 +95,24 @@
                                 <div class="ec-checkout-summary">
                                     <div>
                                         <span class="text-left">Sub-Total</span>
-                                        <span class="text-right"><span id="subTotal">0.00</span></span>
+                                        <span class="text-right"><span id="sub_Total">{{ $sub_total }}</span></span>
                                     </div>
                                     <div>
                                         <span class="text-left">Delivery Charges</span>
-                                        <span class="text-right" id="delivery_charge">N/A</span>
+                                        <span class="text-right" id="delivery_charge">100</span>
                                     </div>
                                     <div class="ec-checkout-summary-total">
                                         <span class="text-left">Total Amount</span>
-                                        <span class="text-right"><span id="totalAmount">0.00</span></span>
+                                        <span class="text-right"><span
+                                                id="total_Amount">{{ $sub_total + 100 }}</span></span>
                                     </div>
                                 </div>
                                 <div class="ec-checkout-pro">
                                     @foreach ($selectedProducts as $products)
                                         <div class="col-sm-12 mb-6">
                                             <div class="ec-product-inner">
-                                                <div class="ec-pro-image-outer">
-                                                    <div class="ec-pro-image">
+                                                <div class="ec-pro-image-outer mb-2">
+                                                    <div class="ec-pro-image p-2">
                                                         <a href="product-left-sidebar.html" class="image">
                                                             @foreach ($cartproductImages as $cartproductImage)
                                                                 @if ($cartproductImage->id == $products->id)
@@ -117,7 +124,7 @@
                                                         </a>
                                                     </div>
                                                 </div>
-                                                <div class="ec-pro-content">
+                                                <div class="ec-pro-content mt-3">
                                                     <h5 class="ec-pro-title "><a
                                                             href="product-left-sidebar.html">{{ $products->product_name }}</a>
                                                     </h5>
@@ -156,15 +163,22 @@
                                         order.</div>
                                     <form action="#">
                                         <span class="ec-pay-option">
-                                            <span>
-                                                <input type="radio" id="pay1" name="radio-group" checked
-                                                    class="form-check-input">
-                                                <label for="pay1">Cash On Delivery</label>
-                                            </span>
+                                            @forelse ($paymentOptions as $paymentOption)
+                                                <span>
+                                                    <input type="radio" id="pay1" name="payment_option" 
+                                                        class="form-check-input" value="{{$paymentOption->id}}">
+                                                    <label for="pay1">{{$paymentOption->payment_name}}</label>
+                                                </span>
+                                                @error('payment_option')
+                                                    <p class="text-danger">{{$message}}</p>
+                                                @enderror
+                                            @empty
+                                            @endforelse
+
                                         </span>
                                         <span class="ec-pay-commemt">
                                             <span class="ec-pay-opt-head">Add Comments About Your Order</span>
-                                            <textarea name="your-commemt" placeholder="Comments"></textarea>
+                                            <textarea name="comment" placeholder="Comments"></textarea>
                                         </span>
                                     </form>
                                 </div>

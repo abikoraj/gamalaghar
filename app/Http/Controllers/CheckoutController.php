@@ -6,12 +6,14 @@ use App\Models\Area;
 use App\Models\Cart;
 use App\Models\City;
 use App\Models\MainCategory;
+use App\Models\PaymentOption;
 use App\Models\Product;
 use App\Models\Province;
 use App\Models\User;
 use App\Models\UserDetail;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CheckoutController extends Controller
 {
@@ -49,6 +51,13 @@ class CheckoutController extends Controller
         $productId = $selectedProducts->pluck('id')->toArray();
         $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
 
+        $sub_total = Cart::join('product_size_prices', 'product_size_prices.id', '=', 'carts.product_size_price_id')
+        ->where('user_id', auth()->user()->id)
+        ->whereIn('carts.product_id', $productId)
+        ->sum(DB::raw('product_size_prices.price * carts.quantity'));
+
+        $paymentOptions=PaymentOption::get();
+
      
 
         $provinces=Province::all();
@@ -63,7 +72,9 @@ class CheckoutController extends Controller
             'cartproductImages',
             'relatedProducts',
             'userDetails',
-            'provinces'
+            'provinces',
+            'sub_total',
+            'paymentOptions'
         ));
     }
 
