@@ -73,9 +73,9 @@
                                 </div>
                             </div>
                             <div class="ec-check-order-btn">
-                                <input type="hidden" id="sub_Total" name="sub_total">
-                                <input type="hidden" id="deliveryCharge" name="delivery_charge">
-                                <input type="hidden" id="total_amount" name="total_amount">
+                                <input type="hidden" id="subTotal" name="sub_total" value="{{ $sub_total }}">
+                                <input type="hidden" id="delivery_Charge" name="delivery_charge" value="100">
+                                <input type="hidden"  name="total_amount" value="{{ $sub_total + 100 }}">
                                 <button type="submit" class="btn btn-primary">Place Order</button>
                             </div>
                         </div>
@@ -308,8 +308,8 @@
             $('#totalAmount').text('Rs. ' + total.toFixed(2));
             $('#subTotal').text('Rs. ' + total.toFixed(2));
 
-            $('#total_amount').val(total);
-            $('#sub_Total').val(total);
+            // $('#total_amount').val(total);
+            // $('#sub_Total').val(total);
             // $('.total_amount').val(total.toFixed(2));
         }
 
