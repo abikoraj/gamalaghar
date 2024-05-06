@@ -25,7 +25,7 @@
             <div class="ec-shop-rightside col-lg-9 col-md-12">
                 <div class="ec-vendor-dashboard-card">
                     <div class="ec-vendor-card-header">
-                        <h5>Product History</h5>
+                        <h5>Order History</h5>
                         <div class="ec-header-btn">
                             <a class="btn btn-lg btn-primary" href="#">Shop Now</a>
                         </div>

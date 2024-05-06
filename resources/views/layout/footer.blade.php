@@ -49,7 +49,7 @@
                             <h4 class="ec-footer-heading">Quick Links</h4>
                             <div class="ec-footer-links ec-footer-dropdown">
                                 <ul class="align-items-center">
-                                    <li class="ec-footer-link"><a href="#">About Us</a></li>
+                                    <li class="ec-footer-link"><a href="{{ url('about-us') }}">About Us</a></li>
                                     <li class="ec-footer-link"><a href="#">Blog</a></li>
                                 </ul>
                             </div>
