@@ -3,14 +3,14 @@
     <div class="footer-container ec-footer">
         <div class="footer-top section-space-footer-p">
             <div class="container">
-                <div class="social-links">
+                {{-- <div class="social-links">
                     <a href="{{ url('https://www.facebook.com/gamala.gharnp') }}" target="_blank"
                         class="social-btn">Facebook</a>
                     <a href="{{ url('https://www.instagram.com/gamala.gharnp/') }}" target="_blank"
                         class="social-btn">Instagram</a>
                     <a href="{{ url('https://www.youtube.com/@gamalaghar3745') }}" target="_blank"
                         class="social-btn">Youtube</a>
-                </div>
+                </div> --}}
 
                 <div class="row">
                     <div class="col-md-7 ec-footer-cat">
@@ -28,14 +28,18 @@
                     </div>
                     <div class="col-sm-12 col-lg-2 ec-footer-cat">
                         <div class="ec-footer-widget">
-                            <h4 class="ec-footer-heading">About</h4>
+                            <h4 class="ec-footer-heading">Socials</h4>
                             <div class="ec-footer-links ec-footer-dropdown">
                                 <ul class="align-items-center">
-                                    <li class="ec-footer-link"><a href="{{ url('about-us') }}">About Gamala Ghar</a>
-                                    </li>
-                                    {{-- <li class="ec-footer-link"><a href="#">Plans & Pricing</a></li>
-                                    <li class="ec-footer-link"><a href="#">Services</a></li> --}}
-                                    <li class="ec-footer-link"><a href="#">Blog</a></li>
+                                    <li class="ec-footer-link"><a
+                                            href="{{ url('https://www.facebook.com/gamala.gharnp') }}"
+                                            target="_blank">Facebook</a></li>
+                                    <li class="ec-footer-link"><a
+                                            href="{{ url('https://www.instagram.com/gamala.gharnp/') }}"
+                                            target="_blank">Instagram</a></li>
+                                    <li class="ec-footer-link"><a
+                                            href="{{ url('https://www.youtube.com/@gamalaghar3745') }}"
+                                            target="_blank">Youtube</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -45,10 +49,8 @@
                             <h4 class="ec-footer-heading">Quick Links</h4>
                             <div class="ec-footer-links ec-footer-dropdown">
                                 <ul class="align-items-center">
-                                    <li class="ec-footer-link"><a href="#">Home</a></li>
-                                    <li class="ec-footer-link"><a href="{{ url('about-us') }}">About Us</a></li>
-                                    {{-- <li class="ec-footer-link"><a href="#">Testimonial</a></li> --}}
-                                    <li class="ec-footer-link"><a href="#">Contact Us</a></li>
+                                    <li class="ec-footer-link"><a href="#">About Us</a></li>
+                                    <li class="ec-footer-link"><a href="#">Blog</a></li>
                                 </ul>
                             </div>
                         </div>
