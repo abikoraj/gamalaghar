@@ -33595,6 +33595,10 @@ input[type="email"]:focus::-webkit-input-placeholder {
     color: #692c91;
 }
 
+.email::placeholder{
+    color: rgba(0, 0, 0, 0.5) !important;
+}
+
 .sub {
     background-color: #692c91 !important;
     color: white;
