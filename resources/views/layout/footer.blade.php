@@ -91,8 +91,8 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="footer-bottom-copy">
-                            <div class="ec-copy">Copyright © <span id="copyright_year"></span> <a class="site-name"
-                                    href="index.html">Gamala Ghar 2024 | www.gamalaghar.com</a>
+                            <div class="ec-copy">Copyright © <span id="copyright_year"></span> <a style="color: #692c91" class="site-name"
+                                    href="{{ url('/') }}">Gamala Ghar 2024 | www.gamalaghar.com</a>
                                 all
                                 rights reserved
                             </div>
