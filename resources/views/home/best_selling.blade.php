@@ -19,36 +19,41 @@
                             @foreach ($product as $productData)
                                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-6 pro-gl-content">
                                     <div class="ec-product-inner">
-                                        <div class="ec-pro-image-outer">
-                                            <div class="ec-pro-image">
-                                                <a href="product-left-sidebar.html" class="image">
-                                                    <img class="main-image"
-                                                        src="{{ $productData->getFirstMediaUrl('product_image') }}"
-                                                        alt="Product" />
-                                                </a>
-                                                <span class="percentage">{{ $productData->discount }}%</span>
+                                        <a href="{{ url('product/' . $productData->slug) }}">
+                                            <div class="ec-pro-image-outer">
+                                                <div class="ec-pro-image">
+                                                    <div class="image">
+                                                    {{-- <a href="{{ url('product/' . $productData->slug) }}" class="image"> --}}
+                                                        <img class="main-image"
+                                                            src="{{ $productData->getFirstMediaUrl('product_image') }}"
+                                                            alt="Product" />
+                                                    {{-- </a> --}}
+                                                    </div>
+                                                    <span class="percentage">{{ $productData->discount }}%</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="ec-pro-content">
-                                            <h5 class="ec-pro-title"><a
-                                                    href="{{ url('product/' . $productData->slug) }}">{{ $productData->product_name }}</a>
-                                            </h5>
-                                            <div class="ec-pro-rating px-3">
-                                                <i class="ecicon eci-star fill"></i>
-                                                <i class="ecicon eci-star fill"></i>
-                                                <i class="ecicon eci-star fill"></i>
-                                                <i class="ecicon eci-star fill"></i>
-                                                <i class="ecicon eci-star"></i>
-                                            </div>
-                                            <span class="ec-price px-3 mb-3">
-                                                @if ($productData->productsizeprice->isNotEmpty())
-                                                    <span class="new-price">Rs.
-                                                        {{ $productData->productsizeprice->first()->price }}</span>
-                                                @endif
-                                            </span>
+                                            <div class="ec-pro-content">
+                                                <h5 class="ec-pro-title"><a
+                                                        href="{{ url('product/' . $productData->slug) }}">{{ $productData->product_name }}</a>
+                                                </h5>
+                                                <div class="ec-pro-rating px-3">
+                                                    <i class="ecicon eci-star fill"></i>
+                                                    <i class="ecicon eci-star fill"></i>
+                                                    <i class="ecicon eci-star fill"></i>
+                                                    <i class="ecicon eci-star fill"></i>
+                                                    <i class="ecicon eci-star"></i>
+                                                </div>
+                                                <span class="ec-price px-3 mb-3">
+                                                    @if ($productData->productsizeprice->isNotEmpty())
+                                                        <span class="new-price">Rs.
+                                                            {{ $productData->productsizeprice->first()->price }}</span>
+                                                    @endif
+                                                </span>
 
-                                        </div>
+                                            </div>
+                                        </a>
                                     </div>
+
                                 </div>
                             @endforeach
                         </div>
