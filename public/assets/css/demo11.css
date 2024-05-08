@@ -17251,9 +17251,9 @@ body {
     padding: 40px 0;
 }
 
-.section-space-pb {
+/* .section-space-pb {
     padding-bottom: 40px;
-}
+} */
 
 .section-space-pt {
     padding-top: 40px;
@@ -17264,7 +17264,7 @@ body {
 }
 
 .section-space-m {
-    margin: 40px 0;
+    margin: 0 0;
 }
 
 .section-space-mt {
@@ -21769,18 +21769,18 @@ i.ecicon.eci-star.fill {
     .section-space-ptb-100 {
         padding: 70px 0;
     }
-    .section-space-m {
+    /* .section-space-m {
         margin: 35px 0;
-    }
+    } */
     .section-space-ptb-80 {
         padding: 70px 0;
     }
-    .section-space-mt {
+    /* .section-space-mt {
         margin-top: 35px;
     }
     .section-space-mb {
         margin-bottom: 35px;
-    }
+    } */
     .ec-achievement-sec::before {
         width: 100%;
         border-radius: 0px;

@@ -13951,9 +13951,9 @@ h6 {
     padding: 50px 0;
 }
 
-.section-space-pb {
+/* .section-space-pb {
     padding-bottom: 50px;
-}
+} */
 
 .section-space-pt {
     padding-top: 50px;
@@ -13963,9 +13963,9 @@ h6 {
     padding: 100px 0;
 }
 
-.section-space-m {
+/* .section-space-m {
     margin: 50px 0;
-}
+} */
 
 .section-space-mt {
     margin-top: 50px;
@@ -16391,7 +16391,7 @@ h6 {
 
 /*----  Social Style  ----*/
 .header-top {
-    padding: 10px 0;
+    padding: 10px 50px;
     border-bottom: 1px solid #eeeeee;
 }
 
@@ -16533,7 +16533,7 @@ h6 {
 
 .ec-header-bottom {
     background-color: transparent;
-    padding: 25px 0;
+    padding: 25px 50px;
     border-bottom: 1px solid #eeeeee;
 }
 
@@ -33619,5 +33619,9 @@ input[type="email"]:focus::-webkit-input-placeholder {
     }
 }
 /*# sourceMappingURL=style.css.map */
+
+.ec-slide-content{
+    padding: 0 50px;
+}
 
 
