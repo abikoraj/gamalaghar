@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderConfirmationMail;
 use App\Models\Area;
 use App\Models\Cart;
 use App\Models\City;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Province;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class OrderController extends Controller
@@ -73,6 +77,9 @@ class OrderController extends Controller
                 Cart::where('user_id', auth()->user()->id)
                     ->whereIn('product_id', $orderedProductIds)
                     ->delete();
+
+                $user=User::find(auth()->user()->id);
+                Mail::to(Auth()->user()->email)->send(new OrderConfirmationMail($user));
                 return $order;
             });
             if ($order) {
