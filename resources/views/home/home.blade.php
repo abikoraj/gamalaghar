@@ -7,9 +7,9 @@
 
 @include('home.about_banner')
 <!-- Service section start -->
-<section class="section ec-service-sec section-space-p">
+<section class="section ec-service-sec section-space-p d-none d-md-block">
     <div class="container align-self-center">
-        <div class="row">
+        <div class="row features-banner">
             <div class="col-lg-4 col-md-12">
                 <div class="main-content-detail">
                     <div class="main-content left">
@@ -21,7 +21,7 @@
                     </div>
                     <div class="main-content left">
                         <div class="detail-content">
-                            <h6 class="ec-service-title">Trust Gurantee</h6>
+                            <h6 class="ec-service-title">Trust Guarantee</h6>
                             <p class="ec-service-detail">Shop worry-free with our secure transactions and reliable
                                 customer support</p>
                         </div>
@@ -57,6 +57,7 @@
         </div>
     </div>
 </section>
+
 <!-- Service section End -->
 @include('home.bottom_banner')
 @include('home.faq')

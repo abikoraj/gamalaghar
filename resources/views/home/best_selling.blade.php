@@ -9,7 +9,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row best-selling-side">
             <!-- Compare Content Start -->
             <div class="ec-wish-rightside col-lg-12 col-md-12">
                 <!-- Compare content Start -->

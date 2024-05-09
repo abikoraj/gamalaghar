@@ -3,7 +3,7 @@
     <div class="ec-slider">
         <div class="ec-slide-item d-flex slide-1">
             <div class="container align-self-center">
-                <div class="row">
+                <div class="row main-banner">
                     <div class="col-sm-12 align-self-center">
                         <div class="ec-slide-content slider-animation">
                             <h2 class="ec-slide-stitle">Indoor plants

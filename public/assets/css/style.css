@@ -13948,7 +13948,7 @@ h6 {
 }
 
 .section-space-p {
-    padding: 50px 0;
+    padding: 50px 50px;
 }
 
 /* .section-space-pb {
@@ -13976,7 +13976,7 @@ h6 {
 }
 
 .section-space-footer-p {
-    padding: 50px 0;
+    padding: 50px 50px;
 }
 
 /*----  Margin  ----*/
@@ -33621,6 +33621,14 @@ input[type="email"]:focus::-webkit-input-placeholder {
 /*# sourceMappingURL=style.css.map */
 
 .ec-slide-content{
+    padding: 0 50px;
+}
+
+.best-selling-side{
+    padding: 0 50px;
+}
+
+.feature-banner{
     padding: 0 50px;
 }
 

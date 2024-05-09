@@ -29,7 +29,7 @@
                                 increase creativity. </p>
                         </div>
                     </div>
-                    <div class="ec-detail-list">
+                    {{-- <div class="ec-detail-list">
                         <div class="detail-list-img"><img src="{{ url('assets/img/plant.png') }}" alt="plant-img">
                         </div>
                         <div>
@@ -37,7 +37,7 @@
                             <p class="detail-txt">Indoor plants act as natural air purifiers, filtering out harmful
                                 toxins and pollutants from the air.</p>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

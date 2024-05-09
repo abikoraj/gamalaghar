@@ -16641,7 +16641,7 @@ body.ec-open:before {
 }
 
 .footer-copy {
-    padding: 10px 0;
+    padding: 10px 50px;
 }
 .footer-copy .footer-bottom-copy {
     font-size: 13px;
@@ -19136,7 +19136,7 @@ section.ec-instagram-section {
     content: "";
     width: 52px;
     height: 114px;
-    background: url(../img/shape.png);
+    /* background: url(../img/shape.png); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

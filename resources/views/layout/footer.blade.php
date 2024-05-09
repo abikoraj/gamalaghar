@@ -13,7 +13,7 @@
                 </div> --}}
 
                 <div class="row">
-                    <div class="col-md-7 ec-footer-cat">
+                    <div class="col-md-8 ec-footer-cat">
                         <div class="ec-footer-widget">
                             <div class="footer-logo">
                                 <a href="index.html"><img src="{{ url('assets/img/Logo.png') }}" alt="Site Logo" /><img

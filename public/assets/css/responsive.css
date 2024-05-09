@@ -152,7 +152,7 @@
       padding: 70px 0;
     }
     .section-space-m {
-      margin: 35px 0;
+      margin: 0 0;
     }
     .section-space-mt {
       margin-top: 35px;
@@ -2594,6 +2594,10 @@
     .ec-blog-card:hover .title-content {
       margin-top: 40px;
     }
+
+    .best-selling-side{
+        padding: 0 0;
+    }
   }
   @media (max-width: 480px) {
     .hero-container {
@@ -2621,6 +2625,9 @@
     .ec-page-detail .ec-cat-bnr a span {
       height: 180px;
     }
+    .best-selling-side{
+        padding: 0 0 !important;
+    }
   }
   @media only screen and (max-width: 375px) {
     .ec-banner-block-1 .banner-block .banner-text {
@@ -2634,6 +2641,10 @@
     }
     .ec-page-detail .ec-cat-bnr a span {
       height: 150px;
+    }
+
+    .best-selling-side{
+        padding: 0 0;
     }
   }
   /*# sourceMappingURL=responsive.css.map */
