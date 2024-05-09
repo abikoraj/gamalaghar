@@ -16424,7 +16424,7 @@ body.ec-open:before {
 }
 @media only screen and (max-width: 767px) {
     .header-logo a img {
-        width: 100px;
+        width: 150px !important;
     }
     .col.text-center.header-top-center {
         display: none;
@@ -21532,7 +21532,7 @@ i.ecicon.eci-star.fill {
         letter-spacing: 5px;
     }
     .ec-slide-content .btn {
-        padding: 0 15px;
+        padding: 0 5px;
         height: 40px;
         line-height: 40px;
     }
@@ -22988,13 +22988,13 @@ i.ecicon.eci-star.fill {
 }
 @media only screen and (max-width: 575px) {
     .ec-main-slider .ec-slide-content .ec-slide-stitle {
-        font-size: 14px;
+        font-size: 11px;
         letter-spacing: 0.04rem;
-        line-height: 34px;
+        line-height: 15px;
     }
     .ec-main-slider .ec-slide-content .ec-slide-title {
         margin: 0;
-        line-height: 40px;
+        line-height: 5px;
     }
     .ec-main-slider .ec-slide-content .ec-slide-title span {
         line-height: 40px;

@@ -2628,6 +2628,9 @@
     .best-selling-side{
         padding: 0 0 !important;
     }
+    .header-top{
+        padding: 10px 0;
+    }
   }
   @media only screen and (max-width: 375px) {
     .ec-banner-block-1 .banner-block .banner-text {
