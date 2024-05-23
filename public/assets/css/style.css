@@ -20507,10 +20507,10 @@ select::-ms-expand {
     margin-right: 4px;
 }
 .filter__label:nth-child(1):before {
-    content: "$";
+    content: "Rs.";
 }
 .filter__label:nth-child(3):before {
-    content: "$";
+    content: "Rs.";
 }
 
 .filter__input {
@@ -20518,7 +20518,7 @@ select::-ms-expand {
     border: none;
     border-radius: 0;
     padding: 0;
-    max-width: 48px;
+    max-width: 78px;
     line-height: 30px;
     background: #ffffff;
     text-align: center;
