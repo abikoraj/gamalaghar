@@ -16,7 +16,7 @@
                 <div class="col header-top-right d-none d-lg-block">
                     <div class="header-top-lan-curr d-flex justify-content-end">
                         <!-- Phone Number   -->
-                        <div class="header-top-message"><i class='bx bxs-phone' style='color:#692c91'></i> 9810907768
+                        <div class="header-top-message"><i class='bx bxs-phone' style='color:#692c91'></i> 9801890046
                         </div>
                     </div>
                 </div>
