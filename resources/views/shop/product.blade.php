@@ -1,6 +1,14 @@
 @include('layout.header')
 @include('layout.nav')
 <!-- Ec Shop page -->
+<style>
+        /* Center the button */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px; /* Adjust spacing as needed */
+        }
+    </style>
 <section class="ec-page-content ">
     <div class="container">
         <div class="row">
@@ -15,17 +23,28 @@
                         <div class="ec-sb-title">
                             <h3 class="ec-sidebar-title">Price</h3>
                         </div>
-                        <div class="ec-sb-block-content es-price-slider">
-                            <div class="ec-price-filter">
-                                <div id="ec-sliderPrice" class="filter__slider-price" data-min="0" data-max="250"
-                                    data-step="10"></div>
-                                <div class="ec-price-input">
-                                    <label class="filter__label"><input type="text" class="filter__input"></label>
-                                    <span class="ec-price-divider"></span>
-                                    <label class="filter__label"><input type="text" class="filter__input"></label>
+                       <form id="priceFilterForm" action="{{ url('products') }}/{{$slug}}" method="GET">
+                            <div class="ec-sb-block-content es-price-slider">
+                                <div class="ec-price-filter">
+                                    <div id="ec-sliderPrice" class="filter__slider-price" data-min="0"
+                                        data-max="10000" data-step="10"></div>
+                                    <div class="ec-price-input">
+                                         <label class="filter__label">
+                                           <input type="text" id="minPrice" class="filter__input" name="min_price">
+                                            </label>
+                                        <span class="ec-price-divider"></span>
+                                        <label class="filter__label">
+                                            <input type="text" id="maxPrice" class="filter__input" name="max_price">
+                                        </label>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="button-container">
+                                    <button class="btn btn-primary" type="submit">Update</button>
                                 </div>
                             </div>
-                        </div>
+
+                        </form>
                     </div>
                 </div>
             </div>
@@ -40,15 +59,19 @@
                     <div class="col-md-6 ec-sort-select">
                         <span class="sort-by">Sort by</span>
                         <div>
-                            <select name="ec-select" id="ec-select">
-                                <option selected disabled>Position</option>
-                                <option value="4">Price, low to high</option>
-                                <option value="5">Price, high to low</option>
-                            </select>
+                            <form class="ec-btn-group-form" id="myForm" action="{{ url('products') }}/{{$slug}}"
+                                method="get">
+                                <select name="position" id="position">
+                                    <option selected disabled>Position</option>
+                                    <option value="low-to-high">Price, low to high</option>
+                                    <option value="high-to-low">Price, high to low</option>
+                                </select>
+                            </form>
                         </div>
                     </div>
                 </div>
                 <!-- Shop Top End -->
+
                 <!-- Shop content Start -->
                 <div class="shop-pro-content">
                     <div class="shop-pro-inner">
@@ -80,7 +103,7 @@
                                             <span class="ec-price px-3 mb-3">
                                                 @if ($productData->productsizeprice->isNotEmpty())
                                                     <span class="new-price">Rs.
-                                                        {{ $productData->productsizeprice->first()->price }}</span>
+                                                        {{ $productData->product_price }}</span>
                                                 @endif
                                             </span>
 
@@ -91,21 +114,9 @@
                             @endforelse
                         </div>
                         <div>
-                            <!-- Ec Pagination Start -->
-                            <div class="ec-pro-pagination">
-                                <span>Showing 1-12 of 21 item(s)</span>
-                                <ul class="ec-pro-pagination-inner">
-                                    <li><a class="active" href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a class="next" href="#">Next <i class="ecicon eci-angle-right"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- Ec Pagination End -->
+                            {{ $product->links('pagination::bootstrap-5') }}
                         </div>
+                        <br>
                         <!--Shop content End -->
                     </div>
                 </div>
@@ -116,3 +127,49 @@
 <!-- End Shop page -->
 
 @include('layout.footer')
+
+<script>
+    $(document).ready(function() {
+        var form = $('#priceFilterForm');
+
+        // Initialize the slider with jQuery UI
+        $("#ec-sliderPrice").slider({
+            range: true,
+            min: 0,
+            max: 250,
+            step: 10,
+            values: [0, 250],
+            slide: function(event, ui) {
+                $("#minPrice").val(ui.values[0]);
+                $("#maxPrice").val(ui.values[1]);
+            },
+            change: function(event, ui) {
+                // Update the input fields
+                $("#minPrice").val(ui.values[0]);
+                $("#maxPrice").val(ui.values[1]);
+                // Submit the form when slider values change
+                form.submit();
+            }
+        });
+
+        // Set initial values
+        $("#minPrice").val($("#ec-sliderPrice").slider("values", 0));
+        $("#maxPrice").val($("#ec-sliderPrice").slider("values", 1));
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var form = document.getElementById('myForm');
+        var select = document.getElementById('position');
+
+        select.addEventListener('change', function() {
+            // Execute any code you want here before the form submission
+            // For example, you can log the selected value to the console
+            console.log("Selected value:", select.value);
+
+            // Then submit the form
+            form.submit();
+        });
+    });
+</script>
