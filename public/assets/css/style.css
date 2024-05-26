@@ -20568,7 +20568,7 @@ select::-ms-expand {
     margin: 0 auto 0;
 }
 .ec-login-wrapper .ec-login-container {
-    border: 1px solid #ededed;
+    border: 1px solid black;
     padding: 34px 38px 34px;
     text-align: left;
     background-color: #fff;
@@ -20592,7 +20592,7 @@ select::-ms-expand {
 }
 .ec-login-wrapper .ec-login-container .ec-login-form input {
     background-color: transparent;
-    border: 1px solid #eeeeee;
+    border: 1px solid black;
     color: #777;
     font-size: 14px;
     margin-bottom: 27px;
@@ -20660,7 +20660,7 @@ select::-ms-expand {
     margin: 0 auto 0;
 }
 .ec-register-wrapper .ec-register-container {
-    border: 1px solid #ededed;
+    border: 1px solid black;
     padding: 30px;
     text-align: left;
     background-color: #fff;
@@ -20698,7 +20698,7 @@ select::-ms-expand {
 }
 .ec-register-wrapper .ec-register-container .ec-register-form input {
     background-color: transparent;
-    border: 1px solid #ededed;
+    border: 1px solid black;
     color: #777;
     font-size: 14px;
     margin-bottom: 26px;
