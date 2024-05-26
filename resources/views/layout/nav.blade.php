@@ -113,7 +113,7 @@
                                     <div class="ec-main-menu">
                                         <ul>
                                             <li><a href="{{ url('/') }}">Home</a></li>
-                                            <li><a href="{{ url('about-us') }}">About Us</a></li>
+                                            {{-- <li><a href="{{ url('about-us') }}">About Us</a></li> --}}
                                             @foreach ($mainCategory as $data)
                                                 <li class="dropdown"><a
                                                         href="javascript:void(0)">{{ $data->main_category }}</a>
@@ -129,7 +129,7 @@
                                                 </li>
                                             @endforeach
 
-                                            <li class="dropdown"><a href="{{ url('/blog') }}">Blog</a>
+                                            {{-- <li class="dropdown"><a href="{{ url('/blog') }}">Blog</a> --}}
                                             </li>
                                         </ul>
                                     </div>
