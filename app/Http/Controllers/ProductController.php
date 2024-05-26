@@ -16,11 +16,34 @@ use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
 
-    public function showProduct($slug)
+    public function showProduct(Request $request,$slug)
     {
         $mainCategory = MainCategory::with('subcategories')->get();
         $subCategory = SubCategory::where('slug', $slug)->first();
-        $product = Product::with('media')->where('sub_category_id', $subCategory->id)->get();
+
+        $searchKeyword = $request->search_keyword;
+        $minPrice = $request->min_price;
+        $maxPrice = $request->max_price;
+        $position = $request->position;
+
+        $query = Product::with(['media', 'productsizeprice'])
+            ->where('sub_category_id', $subCategory->id);
+
+        if (!is_null($minPrice)) {
+            $query->where('product_price', '>=', $minPrice);
+        }
+
+        if (!is_null($maxPrice)) {
+            $query->where('product_price', '<=', $maxPrice);
+        }
+
+        if ($position == "low-to-high") {
+
+            $query->orderBy('product_price', 'asc');
+        } elseif ($position == "high-to-low") {
+            $query->orderBy('product_price', 'desc');
+        }
+        $product = $query->paginate(8);
 
         if (auth()->check()) {
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
@@ -39,7 +62,7 @@ class ProductController extends Controller
             $cart = [];
             $cartproductImages = [];
         }
-        return view('shop.product', compact('mainCategory', 'subCategory', 'product', 'countWishList', 'cart', 'cartproductImages', 'countCarts'));
+        return view('shop.product', compact('mainCategory', 'subCategory', 'product', 'countWishList', 'cart', 'cartproductImages', 'countCarts','slug'));
     }
 
     public function showSingleProduct($slug)
