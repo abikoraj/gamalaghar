@@ -59,10 +59,10 @@
                                         </div>
                                     </div>
                                     <div class="ec-single-qty">
-                                         
+
                                         <div class="qty-plus-minus">
                                             <form action="{{ url('cart') }}" method="POST">
-                                           
+
                                                 @csrf
                                                 <input class="qty-input" type="text" name="quantity"
                                                     value="1" />
@@ -190,7 +190,7 @@
                     <div class="ec-sb-pro-sl">
                         @foreach ($bestSellingProducts as $bestSellingProduct)
                         @endforeach
-                        <div>
+                        <a href="{{url('product/' .$bestSellingProduct->slug)}}">
                             <div class="ec-sb-pro-sl-item">
                                 <a href="{{ url('product/' . $bestSellingProduct->slug) }}"
                                     class="sidekka_pro_img"><img
@@ -213,7 +213,7 @@
                                     </span>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
