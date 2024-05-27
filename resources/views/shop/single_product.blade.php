@@ -189,22 +189,16 @@
                     <h5 class="ec-sb-slider-title">Best Sellers</h5>
                     <div class="ec-sb-pro-sl">
                         @foreach ($bestSellingProducts as $bestSellingProduct)
-                        <a href="{{url('product/' .$bestSellingProduct->slug)}}">
+                        @endforeach
+                        <div>
                             <div class="ec-sb-pro-sl-item">
-                                <div class="sidekka_pro_img">
-                                {{-- <a href="{{ url('product/' . $bestSellingProduct->slug) }}" class="sidekka_pro_img"> --}}
-                                    <img
+                                <a href="{{ url('product/' . $bestSellingProduct->slug) }}"
+                                    class="sidekka_pro_img"><img
                                         src="{{ $bestSellingProduct->getFirstMediaUrl('product_image') }}"
-                                        alt="product" />
-                                {{-- </a> --}}
-                                </div>
+                                        alt="product" /></a>
                                 <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title">
-                                        <div>
-                                            {{$bestSellingProduct->product_name}}</a>
-                                        </div>
-                                        {{-- <a href="{{ url('product/' . $bestSellingProduct->slug) }}">
-                                            {{ $bestSellingProduct->product_name }} </a> --}}
+                                    <h5 class="ec-pro-title"><a
+                                            href="{{ url('product/' . $bestSellingProduct->slug) }}">{{ $bestSellingProduct->product_name }}</a>
                                     </h5>
                                     <div class="ec-pro-rating">
                                         <div class="average_user_rating"
@@ -219,9 +213,7 @@
                                     </span>
                                 </div>
                             </div>
-                        </a>
-                        @endforeach
-
+                        </div>
                     </div>
                 </div>
             </div>
