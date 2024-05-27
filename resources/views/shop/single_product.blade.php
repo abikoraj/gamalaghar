@@ -189,7 +189,6 @@
                     <h5 class="ec-sb-slider-title">Best Sellers</h5>
                     <div class="ec-sb-pro-sl">
                         @foreach ($bestSellingProducts as $bestSellingProduct)
-                        @endforeach
                         <a href="{{url('product/' .$bestSellingProduct->slug)}}">
                             <div class="ec-sb-pro-sl-item">
                                 <div class="sidekka_pro_img">
@@ -221,6 +220,8 @@
                                 </div>
                             </div>
                         </a>
+                        @endforeach
+
                     </div>
                 </div>
             </div>
