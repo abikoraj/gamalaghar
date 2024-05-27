@@ -192,13 +192,20 @@
                         @endforeach
                         <a href="{{url('product/' .$bestSellingProduct->slug)}}">
                             <div class="ec-sb-pro-sl-item">
-                                <a href="{{ url('product/' . $bestSellingProduct->slug) }}"
-                                    class="sidekka_pro_img"><img
+                                <div class="sidekka_pro_img">
+                                {{-- <a href="{{ url('product/' . $bestSellingProduct->slug) }}" class="sidekka_pro_img"> --}}
+                                    <img
                                         src="{{ $bestSellingProduct->getFirstMediaUrl('product_image') }}"
-                                        alt="product" /></a>
+                                        alt="product" />
+                                {{-- </a> --}}
+                                </div>
                                 <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="{{ url('product/' . $bestSellingProduct->slug) }}">{{ $bestSellingProduct->product_name }}</a>
+                                    <h5 class="ec-pro-title">
+                                        <div>
+                                            {{$bestSellingProduct->product_name}}</a>
+                                        </div>
+                                        {{-- <a href="{{ url('product/' . $bestSellingProduct->slug) }}">
+                                            {{ $bestSellingProduct->product_name }} </a> --}}
                                     </h5>
                                     <div class="ec-pro-rating">
                                         <div class="average_user_rating"
