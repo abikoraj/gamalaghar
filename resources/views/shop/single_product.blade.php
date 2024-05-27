@@ -41,7 +41,7 @@
                                         </div>
                                         <div class="ec-single-stoke">
                                             <span id="product-stock-status" class="ec-single-ps-title">IN STOCK</span>
-                                            {{ $product->productsizeprice->first()->product_stock }}
+                                            {{-- {{ $product->productsizeprice->first()->product_stock }} --}}
                                         </div>
                                     </div>
                                     <div class="ec-pro-variation">
