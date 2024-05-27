@@ -15,12 +15,13 @@
             @foreach ($relatedProducts as $relatedProduct)
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
                     <div class="ec-product-inner">
+                        <a href="{{url('product/'.$relatedProduct->slug)}}" >
                         <div class="ec-pro-image-outer">
                             <div class="ec-pro-image">
-                                <a href="{{ url('product/' . $relatedProduct->slug) }}" class="image">
+                                <div class="image">
                                     <img class="main-image"
                                         src="{{ $relatedProduct->getFirstMediaUrl('product_image') }}" alt="Product" />
-                                </a>
+                                </div>
                                 <span class="percentage">{{ $relatedProduct->discount }}%</span>
                             </div>
                         </div>
@@ -40,6 +41,7 @@
                                 @endif
                             </span>
                         </div>
+                        <a>
                     </div>
                 </div>
             @endforeach
