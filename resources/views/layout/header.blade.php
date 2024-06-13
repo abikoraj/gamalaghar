@@ -17,7 +17,7 @@
 />
 
 
- 
+
     <!-- site Favicon -->
     <link rel="icon" href="{{url('assets/img/gamala-ghar-logo.png')}}" sizes="32x32" />
     <link rel="apple-touch-icon" href="{{url('assets/img/gamala-ghar-logo.png')}}" />
@@ -61,6 +61,9 @@
 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
     @livewireStyles()
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/layui/2.9.8/css/layui.css" />
+
 
 </head>
 

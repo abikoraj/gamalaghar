@@ -293,3 +293,91 @@
         // For example, updateQuantityValue(10); will set the quantity value to 10 and trigger the updateTotalPrice() function.
     });
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/layui/2.9.8/layui.js"></script>
+
+<script>
+    layui.use(function() {
+        var rate = layui.rate;
+        // 渲染
+        rate.render({
+            elem: '#ID-rate-demo'
+        });
+    });
+</script>
+
+
+<script>
+    layui.use(function() {
+        var rate = layui.rate;
+        // 批量渲染
+        rate.render({
+            elem: '.user_rating_data',
+            readonly: true
+
+        });
+    });
+</script>
+
+
+<script>
+    layui.use(function() {
+        var rate = layui.rate;
+        // 批量渲染
+        rate.render({
+            elem: '.average_user_rating',
+            readonly: true
+
+        });
+    });
+</script>
+
+
+
+<script>
+    layui.use(['rate'], function() {
+        var rate = layui.rate;
+
+        // Render layui rating component
+        rate.render({
+            elem: '#ID-rate-demo',
+            half: true,
+            choose: function(value) {
+                console.log(value); // Output the selected rating value to console
+                // Set the rating value to the hidden input field
+                $('#ratingInput').val(value);
+            }
+        });
+    });
+</script>
+
+
+
+<script>
+    $(document).ready(function() {
+        $('.ec-pro-variation-content').on('click', 'li', function(e) {
+            e.preventDefault();
+            var sizeId = $(this).data('size-id');
+
+            $.ajax({
+                url: '{{ route('get.price') }}',
+                method: 'GET',
+                data: {
+                    size_id: sizeId
+                },
+                success: function(response) {
+                    $('#product-new-price').text('Rs. ' + response.price);
+                    $('#product_size_price_id').val(response.productsizeid);
+                    $('#product-stock-status').text(response.stock);
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+
+    </html>
