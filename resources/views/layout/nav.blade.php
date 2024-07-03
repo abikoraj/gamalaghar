@@ -35,6 +35,7 @@
                                         <form action="{{ url('logout') }}" method="POST">
                                             @csrf
                                             <button class="dropdown-item">Logout</button>
+                                        </form>
                                     </li>
                                 </ul>
                             @else
@@ -42,9 +43,7 @@
                                         class="fi-rr-user"></i></button>
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li><a class="dropdown-item" href="{{ url('register') }}">Register</a></li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ url('/login') }}">Login</a>
-                                    </li>
+                                    <li><a class="dropdown-item" href="{{ url('/login') }}">Login</a></li>
                                 </ul>
                             @endauth
                         </div>
@@ -67,7 +66,6 @@
                             <div class="header-icon">
                                 @if ($countCarts)
                                     <i class="fi-rr-shopping-basket"></i>
-
                                     <span class="ec-header-count ec-cart-count cart-count-lable">
                                         {{ $countCarts }}
                                     </span>
@@ -76,8 +74,6 @@
                                 @endif
                             </div>
                         </a>
-
-
                         <a href="#ec-mobile-menu" class="ec-header-btn ec-side-toggle d-lg-none">
                             <i class="fi-rr-menu-burger"></i>
                         </a>
@@ -113,7 +109,6 @@
                                     <div class="ec-main-menu">
                                         <ul>
                                             <li><a href="{{ url('/') }}">Home</a></li>
-                                            {{-- <li><a href="{{ url('about-us') }}">About Us</a></li> --}}
                                             @foreach ($mainCategory as $data)
                                                 <li class="dropdown"><a
                                                         href="javascript:void(0)">{{ $data->main_category }}</a>
@@ -128,9 +123,6 @@
                                                     @endif
                                                 </li>
                                             @endforeach
-
-                                            {{-- <li class="dropdown"><a href="{{ url('/blog') }}">Blog</a> --}}
-                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -166,7 +158,6 @@
                                         <li><a class="dropdown-item" href="{{ url('/login') }}">Login</a></li>
                                     </ul>
                                 @endauth
-
                             </div>
                             <!-- Header User End -->
                         </div>
@@ -184,14 +175,14 @@
                     <!-- Header cat Start -->
                     <div class="header-cat-btn ec-dropdown">
                         <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
-                                class="fi fi-rr-menu-burger"></i><span>Shop By Catagories</span><i
+                                class="fi fi-rr-menu-burger"></i><span>Shop By Categories</span><i
                                 class="fi fi-rr-angle-small-down"></i></button>
                         <ul class="sub-menu">
                             @foreach ($mainCategory as $category)
                                 @if ($category->subcategories->isNotEmpty())
-                                    @foreach ($category->subcategories as $subcateogryData)
+                                    @foreach ($category->subcategories as $subcategory)
                                         <li><a class="dropdown-item"
-                                                href="{{ url('products/' . $subCategory->slug) }}">{{ $subcateogryData->sub_category }}</a>
+                                                href="{{ url('products/' . $subcategory->slug) }}">{{ $subcategory->sub_category }}</a>
                                         </li>
                                     @endforeach
                                 @endif
@@ -205,7 +196,6 @@
                         <div class="header-search">
                             <form class="ec-btn-group-form" action="{{ url('products/search/view') }}"
                                 method="get">
-
                                 <input class="form-control" placeholder="Search Product Here..." type="text"
                                     name="search_keyword" id="search_keyword">
                                 <button class="submit" type="submit"><i class="fi-rr-search"></i></button>
@@ -219,7 +209,6 @@
                         <div class="ec-header-bottons">
                             <!-- Header wishlist Start -->
                             <a href="{{ url('wishlist') }}" class="ec-header-btn ec-header-wishlist">
-
                                 @if ($countWishList)
                                     <div class="header-icon"><i class="fi-rr-heart"></i></div>
                                     <span class="ec-header-count">
@@ -228,98 +217,29 @@
                                 @else
                                     <div class="header-icon"><i class="fi-rr-heart"></i></div>
                                 @endif
-
                             </a>
                             <!-- Header wishlist End -->
                             <!-- Header Cart Start -->
                             <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
                                 @if ($countCarts)
                                     <div class="header-icon">
-
                                         <i class="fi-rr-shopping-basket"></i>
                                     </div>
                                     <span class="ec-header-count ec-cart-count cart-count-lable">
                                         {{ $countCarts }}
                                     </span>
                                 @else
-                                    <i class="fi-rr-shopping-basket"></i>
+                                    <div class="header-icon">
+                                        <i class="fi-rr-shopping-basket"></i>
+                                    </div>
                                 @endif
                             </a>
-                            <!-- Header Cart End -->
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
     <!-- Ec Header Button End -->
-
-
-    <!-- Header responsive Bottom  Start -->
-    <div class="ec-header-bottom d-lg-none">
-        <div class="container position-relative">
-            <div class="row ">
-
-                <!-- Ec Header Logo Start -->
-                <div class="col">
-                    <div class="header-logo">
-                        <a href="{{ url('/') }}"><img src="{{ url('assets/img/Logo.png') }}"
-                                alt="Site Logo" /><img class="dark-logo"
-                                src="{{ url('assets/img/logo-white.png') }}" alt="Site Logo"
-                                style="display: none;" /></a>
-                    </div>
-                </div>
-                <!-- Ec Header Logo End -->
-                <!-- Ec Header Search Start -->
-                <div class="col">
-                    <div class="header-search">
-                        <form class="ec-btn-group-form" action="#">
-                            <input class="form-control" placeholder="Enter Your Product Name..." type="text">
-                            <button class="submit" type="submit"><i class="fi-rr-search"></i></button>
-                        </form>
-                    </div>
-                </div>
-                <!-- Ec Header Search End -->
-            </div>
-        </div>
-    </div>
-    <!-- Header responsive Bottom  End -->
-
-    <!-- ekka Mobile Menu Start -->
-    <div id="ec-mobile-menu" class="ec-side-cart ec-mobile-menu">
-        <div class="ec-menu-title">
-            <span class="menu_title">My Menu</span>
-            <button class="ec-close">×</button>
-        </div>
-        <div class="ec-menu-inner">
-            <div class="ec-menu-content">
-                <ul>
-                    <li><a href="{{ url('/') }}">Home</a></li>
-                    @foreach ($mainCategory as $data)
-                        <li><a href="javascript:void(0)">{{ $data->main_category }}</a>
-                            @if ($data->subcategories->isNotEmpty())
-                                <ul class="sub-menu">
-                                    @foreach ($data->subcategories as $subCategory)
-                                        <li><a
-                                                href="{{ url('products/' . $subCategory->slug) }} ">{{ $subCategory->sub_category }}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            @endif
-                        </li>
-                    @endforeach
-
-                    <li class="dropdown"><a href="javascript:void(0)">Blog</a>
-                        <ul class="sub-menu">
-                            <li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-    <!-- ekka mobile Menu End -->
 </header>
-<!-- Header End  -->
+<!-- Header End -->

@@ -1,15 +1,16 @@
 @include('layout.header')
 @include('layout.nav')
-<!-- Ec Shop page -->
+
 <style>
-        /* Center the button */
-        .button-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px; /* Adjust spacing as needed */
-        }
-    </style>
-<section class="ec-page-content ">
+    /* Center the button */
+    .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px; /* Adjust spacing as needed */
+    }
+</style>
+
+<section class="ec-page-content">
     <div class="container">
         <div class="row">
             <!-- Sidebar Area Start -->
@@ -23,15 +24,14 @@
                         <div class="ec-sb-title">
                             <h3 class="ec-sidebar-title">Price</h3>
                         </div>
-                       <form id="priceFilterForm" action="{{ url('products') }}/{{$slug}}" method="GET">
+                        <form id="priceFilterForm" action="{{ url('products') }}/{{$slug}}" method="GET">
                             <div class="ec-sb-block-content es-price-slider">
                                 <div class="ec-price-filter">
-                                    <div id="ec-sliderPrice" class="filter__slider-price" data-min="0"
-                                        data-max="10000" data-step="10"></div>
+                                    <div id="ec-sliderPrice" class="filter__slider-price" data-min="0" data-max="10000" data-step="10"></div>
                                     <div class="ec-price-input">
-                                         <label class="filter__label">
-                                           <input type="text" id="minPrice" class="filter__input" name="min_price">
-                                            </label>
+                                        <label class="filter__label">
+                                            <input type="text" id="minPrice" class="filter__input" name="min_price">
+                                        </label>
                                         <span class="ec-price-divider"></span>
                                         <label class="filter__label">
                                             <input type="text" id="maxPrice" class="filter__input" name="max_price">
@@ -43,11 +43,13 @@
                                     <button class="btn btn-primary" type="submit">Update</button>
                                 </div>
                             </div>
-
                         </form>
                     </div>
                 </div>
             </div>
+            <!-- Sidebar Area End -->
+
+            <!-- Shop Content Area Start -->
             <div class="ec-shop-rightside col-lg-9 order-lg-last col-md-12 order-md-first margin-b-30">
                 <!-- Shop Top Start -->
                 <div class="ec-pro-list-top d-flex">
@@ -59,8 +61,7 @@
                     <div class="col-md-6 ec-sort-select">
                         <span class="sort-by">Sort by</span>
                         <div>
-                            <form class="ec-btn-group-form" id="myForm" action="{{ url('products') }}/{{$slug}}"
-                                method="get">
+                            <form class="ec-btn-group-form" id="myForm" action="{{ url('products') }}/{{$slug}}" method="get">
                                 <select name="position" id="position">
                                     <option selected disabled>Position</option>
                                     <option value="low-to-high">Price, low to high</option>
@@ -72,49 +73,39 @@
                 </div>
                 <!-- Shop Top End -->
 
-                <!-- Shop content Start -->
+                <!-- Shop Content Start -->
                 <div class="shop-pro-content">
                     <div class="shop-pro-inner">
                         <div class="row">
                             @forelse ($product as $productData)
-                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
-                                    <div class="ec-product-inner">
-                                        <a href="{{url('product/'.$productData->slug)}}">
-                                            <div class="ec-pro-image-outer">
-                                                <div class="ec-pro-image">
-                                                    <div class="image">
-                                                    {{-- <a href="{{ url('product/' . $productData->slug) }}" class="image"> --}}
-                                                        <img class="main-image"
-                                                            src="{{ $productData->getFirstMediaUrl('product_image') }}"
-                                                            alt="Product" />
-                                                    {{-- </a> --}}
-                                                    </div>
-                                                    <span class="percentage">{{ $productData->discount }}%</span>
-                                                </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                                <div class="ec-product-inner">
+                                    <a href="{{url('product/'.$productData->slug)}}">
+                                        <div class="ec-pro-image-outer">
+                                            <div class="ec-pro-image">
+                                                <img class="main-image" src="{{ $productData->getFirstMediaUrl('product_image') }}" alt="Product" />
+                                                <span class="percentage">{{ $productData->discount }}%</span>
                                             </div>
-                                            <div class="ec-pro-content">
-                                                <div class="ec-pro-title"><a
-                                                        href="{{ url('product/' . $productData->slug) }}">{{ $productData->product_name }}</a>
-                                                </div>
-                                                <div class="ec-pro-rating px-3">
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star"></i>
-                                                </div>
-                                                <span class="ec-price px-3 mb-3">
-                                                    @if ($productData->productsizeprice->isNotEmpty())
-                                                        <span class="new-price">Rs.
-                                                            {{ $productData->product_price }}</span>
-                                                    @endif
-                                                </span>
-
+                                        </div>
+                                        <div class="ec-pro-content">
+                                            <div class="ec-pro-title">
+                                                <a href="{{ url('product/' . $productData->slug) }}">{{ $productData->product_name }}</a>
                                             </div>
-                                        </a>
-
-                                    </div>
+                                            <div class="ec-pro-rating px-3">
+                                                @for ($i = 0; $i < 4; $i++)
+                                                <i class="ecicon eci-star fill"></i>
+                                                @endfor
+                                                <i class="ecicon eci-star"></i>
+                                            </div>
+                                            <span class="ec-price px-3 mb-3">
+                                                @if ($productData->productsizeprice->isNotEmpty())
+                                                <span class="new-price">Rs. {{ $productData->product_price }}</span>
+                                                @endif
+                                            </span>
+                                        </div>
+                                    </a>
                                 </div>
+                            </div>
                             @empty
                             @endforelse
                         </div>
@@ -122,14 +113,15 @@
                             {{ $product->links('pagination::bootstrap-5') }}
                         </div>
                         <br>
-                        <!--Shop content End -->
                     </div>
                 </div>
+                <!-- Shop Content End -->
             </div>
+            <!-- Shop Content Area End -->
         </div>
     </div>
 </section>
-<!-- End Shop page -->
+<!-- Ec Shop page End -->
 
 @include('layout.footer')
 
@@ -137,7 +129,7 @@
     $(document).ready(function() {
         var form = $('#priceFilterForm');
 
-        // Initialize the slider with jQuery UI
+        // Initialize the price range slider with jQuery UI
         $("#ec-sliderPrice").slider({
             range: true,
             min: 0,
@@ -160,20 +152,9 @@
         // Set initial values
         $("#minPrice").val($("#ec-sliderPrice").slider("values", 0));
         $("#maxPrice").val($("#ec-sliderPrice").slider("values", 1));
-    });
-</script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var form = document.getElementById('myForm');
-        var select = document.getElementById('position');
-
-        select.addEventListener('change', function() {
-            // Execute any code you want here before the form submission
-            // For example, you can log the selected value to the console
-            console.log("Selected value:", select.value);
-
-            // Then submit the form
+        // Handle form submission on select change
+        $('#position').on('change', function() {
             form.submit();
         });
     });
