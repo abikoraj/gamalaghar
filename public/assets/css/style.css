@@ -33632,4 +33632,9 @@ input[type="email"]:focus::-webkit-input-placeholder {
     padding: 0 50px;
 }
 
+.unique-cart-form{
+    display: flex;
+    justify-content: space-between;
+}
+
 

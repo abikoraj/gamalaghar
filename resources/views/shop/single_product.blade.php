@@ -4,9 +4,8 @@
 <!-- Start Single Product Section -->
 <section class="ec-page-content section-space-p">
     <div class="container">
-        <div class="row">
             <!-- Product Details Section -->
-            <div class="ec-pro-rightside ec-common-rightside col-lg-9 order-lg-last col-md-12 order-md-first">
+            <div class="ec-pro-rightside ec-common-rightside order-md-first">
                 <div class="single-pro-block">
                     <div class="single-pro-inner">
                         <div class="row">
@@ -66,6 +65,26 @@
                                                 </div>
                                             </form>
                                         </div>
+                                        <div class="ec-single-wishlist">
+                                            <form action="{{ url('wishlist') }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                <button type="submit" class="ec-btn-group wishlist" title="Wishlist"><i class="fi-rr-heart"></i></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="ec-single-qty">
+                                        <form action="{{url('cart')}}" method="POST" class="unique-cart-form">
+                                            @csrf
+                                            <div class="qty-plus-minus">
+                                                    <input class="qty-input" type="text" name="quantity" value="1" />
+                                            </div>
+                                            <div class="ec-single-cart">
+                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                <input type="hidden" name="product_size_price_id" id="product_size_price_id" value="{{ $product->productsizeprice->first()->id }}">
+                                                <button id="cart" class="btn btn-primary">Add To Cart <span class="cart-icon mx-2 mt-1"><i class="fi-rr-shopping-basket"></i></span></button>
+                                            </div>
+                                        </form>
                                         <div class="ec-single-wishlist">
                                             <form action="{{ url('wishlist') }}" method="POST">
                                                 @csrf
@@ -152,7 +171,7 @@
                 <!-- Product Details Description Area End -->
             </div>
             <!-- Sidebar Area Start -->
-            <div class="ec-pro-leftside ec-common-leftside col-lg-3 order-lg-first col-md-12 order-md-last">
+            {{-- <div class="ec-pro-leftside ec-common-leftside col-lg-3 order-lg-first col-md-12 order-md-last">
                 <div class="ec-sidebar-slider">
                     <h5 class="ec-sb-slider-title">Best Sellers</h5>
                     <div class="ec-sb-pro-sl">
@@ -176,9 +195,8 @@
                         @endforeach
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- Sidebar Area End -->
-        </div>
     </div>
 </section>
 <!-- End Single Product Section -->
