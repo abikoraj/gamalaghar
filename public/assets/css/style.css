@@ -17282,6 +17282,7 @@ body.ec-open:before {
     box-shadow: none;
     padding: 8px 15px;
     line-height: 22px;
+    background-color: #ffffff;
 }
 .ec-side-cart .ec-cart-inner .ec-cart-bottom .cart-sub-total {
     display: -webkit-box;
