@@ -17260,7 +17260,7 @@ body {
 }
 
 .section-space-ptb-80 {
-    padding: 80px 0;
+    padding: 50px 0;
 }
 
 .section-space-m {
@@ -20865,6 +20865,7 @@ i.ecicon.eci-star.fill {
     padding-top: 15px;
     border: 1px solid #eee;
     border-radius: 5px;
+    padding-bottom: 15px;
 }
 .ec-content-right .ec-contact-form .form-group #comments:focus {
     border: 1px solid #692c91;
@@ -21532,7 +21533,7 @@ i.ecicon.eci-star.fill {
         letter-spacing: 5px;
     }
     .ec-slide-content .btn {
-        padding: 0 5px;
+        padding: 2px 5px;
         height: 40px;
         line-height: 40px;
     }

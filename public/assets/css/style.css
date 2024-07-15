@@ -463,7 +463,7 @@ sup {
 }
 
 a {
-    color: #555;
+    color: #555 !important;
     text-decoration: underline;
     -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
@@ -13845,7 +13845,7 @@ li {
 }
 
 .btn-primary {
-    color: #ffffff;
+    color: #ffffff !important;
     background-color: #692c91 !important;
     border-color: #692c91;
     border: 0;
@@ -14033,7 +14033,7 @@ h6 {
     width: 40px;
     height: 40px;
     background-color: #692c91;
-    color: #ffffff;
+    color: #ffffff !important;
     right: 15px;
     bottom: 70px;
     text-align: center;
@@ -22212,7 +22212,7 @@ i.ecicon.eci-star-o {
     border: 1px solid #692c91;
 }
 .ec-single-pro-tab-nav .nav-tabs .nav-link.active {
-    color: #ffffff;
+    color: #ffffff !important;
     background-color: #692c91;
     border: 1px solid #692c91;
 }
