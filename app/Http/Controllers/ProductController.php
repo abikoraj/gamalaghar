@@ -43,7 +43,7 @@ class ProductController extends Controller
         } elseif ($position == "high-to-low") {
             $query->orderBy('product_price', 'desc');
         }
-        $product = $query->paginate(8);
+        $product = $query->paginate(9);
 
         if (auth()->check()) {
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
@@ -102,7 +102,7 @@ class ProductController extends Controller
             ->where('product_id', $product->id)
             ->first();
 
-            
+
         } else {
             $countWishList = "";
             $countCarts = "";
@@ -111,7 +111,7 @@ class ProductController extends Controller
             $existingWishlistItem=[];
         }
 
-       
+
 
         return view('shop.single_product', compact(
             'mainCategory',
