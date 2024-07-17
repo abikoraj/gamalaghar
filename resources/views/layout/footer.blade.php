@@ -53,7 +53,7 @@
                         <div class="footer-bottom-copy">
                             <div class="ec-copy">
                                 Copyright © <span id="copyright_year"></span>
-                                <a style="color: #692c91" class="site-name" href="{{ url('/') }}">Gamala Ghar 2024 | www.gamalaghar.com</a>
+                                <a style="color: #692c91 !important;" class="site-name" href="{{ url('/') }}">Gamala Ghar 2024 | www.gamalaghar.com</a>
                                 All rights reserved
                             </div>
                         </div>
