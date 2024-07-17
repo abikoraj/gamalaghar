@@ -4502,8 +4502,8 @@ textarea.form-control.is-invalid {
 .page-item.active .page-link {
     z-index: 3;
     color: #ffffff;
-    background-color: #555;
-    border-color: #555;
+    background-color: #692c91;
+    border-color: #692c91;
 }
 
 .page-item.disabled .page-link {
