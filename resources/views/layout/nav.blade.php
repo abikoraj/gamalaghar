@@ -241,5 +241,31 @@
         </div>
     </div>
     <!-- Ec Header Button End -->
+
+    <div id="ec-mobile-menu" class="ec-side-cart ec-mobile-menu">
+        <div class="ec-menu-title">
+            <span class="menu_title">My Menu</span>
+            <button class="ec-close">×</button>
+        </div>
+        <div class="ec-menu-inner">
+            <div class="ec-menu-content">
+                <ul>
+                    <li><a href="{{url('/')}}">Home</a></li>
+                    @foreach ($mainCategory as $data)
+                    <li><a href="javascript:void(0)">{{$data->main_category}}</a>
+                        @if ($data->subcategories->isNotEmpty())
+                        <ul class="sub-menu">
+                            @foreach ($data->subcategories as $subCategory)
+                            <li><a href="{{url('products/' . $subCategory->slug)}}">{{$subCategory->sub_category}}</a></li>
+                            @endforeach
+                        </ul>
+                        @endif
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- ekka mobile Menu End -->
 </header>
 <!-- Header End -->

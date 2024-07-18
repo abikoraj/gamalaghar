@@ -157,6 +157,7 @@
 <script src="{{ url('assets/js/jquery.magnific-popup.min.js') }}"></script>
 <script src="{{ url('assets/js/index.js') }}"></script>
 <script src="{{ url('assets/js/demo-11.js') }}"></script>
+{{-- <script src="{{ url('assets/js/main.js') }}"></script> --}}
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 
 @livewireScripts
