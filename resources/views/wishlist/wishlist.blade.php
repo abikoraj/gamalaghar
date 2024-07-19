@@ -38,18 +38,9 @@
                                                     <i class="ecicon eci-star fill"></i>
                                                     <i class="ecicon eci-star"></i>
                                                 </div>
-                                                <div class="ec-pro-list-desc">Lorem Ipsum is simply dummy text of the
-                                                    printing and typesetting industry. Lorem Ipsum is simply dutmmy text
-                                                    ever since the 1500s, when an unknown printer took a galley.</div>
                                                 <span class="ec-price px-3">
-
                                                     <span class="new-price">${{ $wishList->price }}</span>
                                                 </span>
-                                                <div class="ec-spe-pro-btn">
-                                                    <a href="#" class="btn btn-lg btn-primary">Add To Cart<span
-                                                            class="cart-icon"><i class="fi-rr-shopping-basket"></i></a>
-                                                    </span>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
