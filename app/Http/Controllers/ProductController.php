@@ -69,7 +69,14 @@ class ProductController extends Controller
     {
         $mainCategory = MainCategory::with('subcategories')->get();
         $product = Product::with('media')->with('productsizeprice')->where('slug', $slug)->first();
-        $size = Size::all();
+        // $size = Size::all();
+
+        $size = Size::whereIn('id', function ($query) use ($product) {
+            $query->select('size_id')
+                  ->from('product_size_prices')
+                  ->where('product_id', $product->id)
+                  ->where('product_stock', '>', 0);
+        })->get();
 
 
         $bestSellingProducts = Product::with('media')->with('productsizeprice')->take(6)->get();
@@ -130,21 +137,35 @@ class ProductController extends Controller
     }
 
     public function getPrice(Request $request)
-    {
-        $sizeId = $request->size_id;
-        $productSizePrice = ProductSizePrice::where('size_id', $sizeId)->first();
-        if ($productSizePrice->product_stock == 0) {
-            return response()->json([
-                'productsizeid' => $productSizePrice->id,
-                'price' => $productSizePrice->price,
-                'stock' => 'OUT OF STOCK',
-            ]);
-        } else {
-            return response()->json([
-                'productsizeid' => $productSizePrice->id,
-                'price' => $productSizePrice->price,
-                'stock' => "IN STOCK",
-            ]);
-        }
+{
+    $productId = $request->product_id;
+    $sizeId = $request->size_id;
+
+    // Fetch the product size price based on product ID and size ID
+    $productSizePrice = ProductSizePrice::where('product_id', $productId)
+                                        ->where('size_id', $sizeId)
+                                        ->first();
+
+    if (!$productSizePrice) {
+        // If no matching record is found, return an error response
+        return response()->json([
+            'error' => 'Product size not found',
+        ], 404);
     }
+
+    if ($productSizePrice->product_stock == 0) {
+        return response()->json([
+            'productsizeid' => $productSizePrice->id,
+            'price' => $productSizePrice->price,
+
+        ]);
+    } else {
+        return response()->json([
+            'productsizeid' => $productSizePrice->id,
+            'price' => $productSizePrice->price,
+            'stock' => $productSizePrice->product_stock,
+        ]);
+    }
+}
+
 }

@@ -165,7 +165,7 @@
                                         <span class="ec-pay-option">
                                             @forelse ($paymentOptions as $paymentOption)
                                                 <span>
-                                                    <input type="radio" id="pay1" name="payment_option" 
+                                                    <input type="radio" id="pay1" name="payment_option"
                                                         class="form-check-input" value="{{$paymentOption->id}}">
                                                     <label for="pay1">{{$paymentOption->payment_name}}</label>
                                                 </span>
@@ -328,8 +328,6 @@
         font-size: 16px;
         padding: 10px;
     }
-
-
 
     .select2-search__field {
 

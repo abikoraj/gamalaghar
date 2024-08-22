@@ -222,7 +222,7 @@
     });
 </script>
 
-<script>
+{{-- <script>
     $(document).ready(function() {
         $('.ec-pro-variation-content').on('click', 'li', function(e) {
             e.preventDefault();
@@ -243,7 +243,41 @@
             });
         });
     });
+</script> --}}
+
+
+<script>
+    $(document).ready(function() {
+        $('.ec-pro-variation-content').on('click', 'li', function(e) {
+            e.preventDefault();
+
+            var sizeId = $(this).data('size-id');
+            var productId = $('#product-id').val(); // Retrieve product ID from hidden input field
+
+            $.ajax({
+                url: '{{ route('get.price') }}',
+                method: 'GET',
+                data: {
+                    size_id: sizeId,
+                    product_id: productId
+                },
+                success: function(response) {
+                    if (response.error) {
+                        alert(response.error);
+                    } else {
+                        $('#product-new-price').text('Rs. ' + response.price);
+                        $('#product_size_price_id').val(response.productsizeid);
+                        $('#product-stock-value').text(response.stock);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        });
+    });
 </script>
+
 
 </body>
 </html>

@@ -37,8 +37,8 @@
                                         <span class="new-price" id="product-new-price">Rs. {{ $product->productsizeprice->first()->price }}</span>
                                     </div>
                                     <div class="ec-single-stoke">
-                                        <span id="product-stock-status" class="ec-single-ps-title">IN STOCK</span>
-                                        {{ $product->productsizeprice->first()->product_stock }}
+                                        <span id="product-stock-status" class="ec-single-ps-title">STOCK AVAILABLE</span>
+                                        <span id="product-stock-value">{{ $product->productsizeprice->first()->product_stock }}</span>
                                     </div>
                                 </div>
                                 <div class="ec-pro-variation">
@@ -48,6 +48,7 @@
                                             <ul>
                                                 @foreach ($size as $sizeData)
                                                     <li data-size-id="{{ $sizeData->id }}"><span>{{ $sizeData->size }}</span></li>
+                                                    <input type="hidden" id="product-id" value="{{ $product->id }}">
                                                 @endforeach
                                             </ul>
                                         </div>
