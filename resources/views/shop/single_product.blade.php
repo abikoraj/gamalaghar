@@ -47,7 +47,7 @@
                                         <div class="ec-pro-variation-content">
                                             <ul>
                                                 @foreach ($size as $sizeData)
-                                                    <li data-size-id="{{ $sizeData->id }}"><span>{{ $sizeData->size }}</span></li>
+                                                    <li class="size-option {{ $sizeData->id == $lastSizeId ? 'active' : '' }}" data-size-id="{{ $sizeData->id }}"><span>{{ $sizeData->size }}</span></li>
                                                     <input type="hidden" id="product-id" value="{{ $product->id }}">
                                                 @endforeach
                                             </ul>

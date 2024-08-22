@@ -33640,3 +33640,25 @@ input[type="email"]:focus::-webkit-input-placeholder {
 }
 
 
+/* size button on the single product page */
+.size-option {
+    cursor: pointer !important;
+    padding: 10px !important;
+    border: 1px solid #ccc !important;
+    margin: 5px !important;
+    border-radius: 5px !important;
+}
+
+.size-option.selected {
+    border-color: #007bff !important; /* Highlight color for selected item */
+    background-color: #e9f5ff !important; /* Background color for selected item */
+    font-weight: bold !important;
+}
+
+.size-option.active {
+    background-color: #f0f0f0 !important; /* Highlight color */
+    border: 1px solid #007bff !important; /* Optional border color */
+}
+
+
+

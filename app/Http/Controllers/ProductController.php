@@ -78,6 +78,7 @@ class ProductController extends Controller
                   ->where('product_stock', '>', 0);
         })->get();
 
+        $lastSizeId = $size->last()->id;
 
         $bestSellingProducts = Product::with('media')->with('productsizeprice')->take(6)->get();
         $relatedProducts = Product::with('media')->with('productsizeprice')->take(4)->get();
@@ -124,6 +125,7 @@ class ProductController extends Controller
             'mainCategory',
             'product',
             'size',
+            'lastSizeId',
             'relatedProducts',
             'bestSellingProducts',
             'countWishList',
