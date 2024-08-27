@@ -99,7 +99,7 @@
                                     </div>
                                     <div>
                                         <span class="text-left">Delivery Charges</span>
-                                        <span class="text-right" id="delivery_charge">100</span>
+                                        <span class="text-right" id="delivery_charge"></span>
                                     </div>
                                     <div class="ec-checkout-summary-total">
                                         <span class="text-left">Total Amount</span>
@@ -255,27 +255,34 @@
 
 
     $(document).ready(function() {
-        $('#areaOption').on('change', function() {
-            var selectedOption = $(this).val();
-            if (selectedOption !== "") {
-                // Retrieve the data based on the selected option's value
-                $.ajax({
-                    url: '/user/checkout/areas/deliveryCharge/' + selectedOption,
-                    method: 'GET',
-                    success: function(response) {
+    $('#areaOption').on('change', function() {
+        var selectedOption = $(this).val();
+        if (selectedOption !== "") {
+            // Retrieve the data based on the selected option's value
+            $.ajax({
+                url: '/user/checkout/areas/deliveryCharge/' + selectedOption,
+                method: 'GET',
+                success: function(response) {
+                    var deliveryCharge = response.delivery_charge;
+                    $('#delivery_charge').text('Rs. ' + deliveryCharge);
+                    $('#deliveryCharge').val(deliveryCharge);
 
+                    // Calculate the new total amount
+                    var subTotal = parseFloat('{{ $sub_total }}');
+                    var totalAmount = subTotal + parseFloat(deliveryCharge);
 
-
-                        $('#delivery_charge').text('Rs. ' + response.delivery_charge);
-                        $('#deliveryCharge').val(response.delivery_charge);
-
-                    }
-                });
-            } else {
-                $('#delivery_charge').text('N/A');
-            }
-        });
+                    // Update the total amount in the UI
+                    $('#total_Amount').text('Rs. ' + totalAmount);
+                }
+            });
+        } else {
+            $('#delivery_charge').text('N/A');
+            // Reset total amount to subTotal since delivery charge is not applicable
+            $('#total_Amount').text('Rs. {{ $sub_total }}');
+        }
     });
+});
+
 </script>
 
 
