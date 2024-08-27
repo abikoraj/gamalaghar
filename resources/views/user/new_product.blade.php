@@ -5,7 +5,6 @@
             <div class="col-md-12 text-center">
                 <div class="section-title">
                     <h2 class="ec-bg-title">Related products</h2>
-                    <h2 class="ec-title">Related products</h2>
                     <p class="sub-title">Browse The Collection of Top Products</p>
                 </div>
             </div>
