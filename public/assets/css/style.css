@@ -21589,7 +21589,18 @@ h4.ec-faq-title::after {
 
 .single-slide.zoom-image-hover {
     border: 1px solid #eeeeee !important;
+    position: relative;
+    overflow: hidden;
 }
+
+.single-slide.zoom-image-hover .img-responsive {
+    transition: transform 0.5s ease;
+    transform-origin: center center; /* Default zoom origin */
+  }
+
+  .single-slide.zoom-image-hover:hover .img-responsive {
+    transform: scale(1.2); /* Adjust the scale value to control the zoom level */
+  }
 
 .single-nav-thumb {
     width: 100%;

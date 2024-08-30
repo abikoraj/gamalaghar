@@ -14,7 +14,9 @@
                             <div class="single-product-scroll">
                                 <div class="single-product-cover">
                                     <div class="single-slide zoom-image-hover">
-                                        <img class="img-responsive" src="{{ $product->getFirstMediaUrl('product_image') }}" alt="{{ $product->product_name }}">
+                                        <img class="img-responsive"
+                                            src="{{ $product->getFirstMediaUrl('product_image') }}"
+                                            alt="{{ $product->product_name }}">
                                     </div>
                                 </div>
                             </div>
@@ -26,7 +28,9 @@
                                 <div class="ec-single-rating-wrap">
                                     <div class="ec-single-rating">
                                         <div class="ec-pro-rating">
-                                            <div class="average_user_rating" lay-options="{value: {{ $averageRatingValue }}, theme: '#FF8000'}"></div>
+                                            <div class="average_user_rating"
+                                                lay-options="{value: {{ $averageRatingValue }}, theme: '#FF8000'}">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -34,11 +38,14 @@
                                 <div class="ec-single-price-stoke">
                                     <div class="ec-single-price">
                                         <span class="ec-single-ps-title">As low as</span>
-                                        <span class="new-price" id="product-new-price">Rs. {{ $product->productsizeprice->first()->price }}</span>
+                                        <span class="new-price" id="product-new-price">Rs.
+                                            {{ $product->productsizeprice->first()->price }}</span>
                                     </div>
                                     <div class="ec-single-stoke">
-                                        <span id="product-stock-status" class="ec-single-ps-title">STOCK AVAILABLE</span>
-                                        <span id="product-stock-value">{{ $product->productsizeprice->first()->product_stock }}</span>
+                                        <span id="product-stock-status" class="ec-single-ps-title">STOCK
+                                            AVAILABLE</span>
+                                        <span
+                                            id="product-stock-value">{{ $product->productsizeprice->first()->product_stock }}</span>
                                     </div>
                                 </div>
                                 <div class="ec-pro-variation">
@@ -47,7 +54,9 @@
                                         <div class="ec-pro-variation-content">
                                             <ul>
                                                 @foreach ($size as $sizeData)
-                                                    <li class="size-option {{ $sizeData->id == $lastSizeId ? 'active' : '' }}" data-size-id="{{ $sizeData->id }}"><span>{{ $sizeData->size }}</span></li>
+                                                    <li class="size-option {{ $sizeData->id == $lastSizeId ? 'active' : '' }}"
+                                                        data-size-id="{{ $sizeData->id }}">
+                                                        <span>{{ $sizeData->size }}</span></li>
                                                     <input type="hidden" id="product-id" value="{{ $product->id }}">
                                                 @endforeach
                                             </ul>
@@ -55,29 +64,38 @@
                                     </div>
                                 </div>
                                 <div class="ec-single-qty">
-                                    <form action="{{url('cart')}}" method="POST" class="unique-cart-form">
+                                    <form action="{{ url('cart') }}" method="POST" class="unique-cart-form">
                                         @csrf
                                         <div class="qty-plus-minus">
-                                                <input class="qty-input" type="text" name="quantity" value="1" />
+                                            <input class="qty-input" type="text" name="quantity" value="1" />
                                         </div>
                                         <div class="ec-single-cart">
                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                            <input type="hidden" name="product_size_price_id" id="product_size_price_id" value="{{ $product->productsizeprice->first()->id }}">
-                                            <button id="cart" class="btn btn-primary">Add To Cart <span class="cart-icon mx-2 mt-1"><i class="fi-rr-shopping-basket"></i></span></button>
+                                            <input type="hidden" name="product_size_price_id"
+                                                id="product_size_price_id"
+                                                value="{{ $product->productsizeprice->first()->id }}">
+                                            <button id="cart" class="btn btn-primary">Add To Cart <span
+                                                    class="cart-icon mx-2 mt-1"><i
+                                                        class="fi-rr-shopping-basket"></i></span></button>
                                         </div>
                                     </form>
                                     <div class="ec-single-wishlist">
                                         <form action="{{ url('wishlist') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                            <button type="submit" class="ec-btn-group wishlist" title="Wishlist"><i class="fi-rr-heart"></i></button>
+                                            <button type="submit" class="ec-btn-group wishlist" title="Wishlist"><i
+                                                    class="fi-rr-heart"></i></button>
                                         </form>
                                     </div>
                                 </div>
                                 <div class="ec-single-social">
                                     <ul class="mb-0">
-                                        <li class="list-inline-item facebook"><a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->fullUrl()) }}" target="_blank"><i class="ecicon eci-facebook"></i></a></li>
-                                        <li class="list-inline-item twitter"><a href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&media={{ $product->getFirstMediaUrl('product_image') }}" target="_blank"><i class="ecicon eci-twitter"></i></a></li>
+                                        <li class="list-inline-item facebook"><a
+                                                href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->fullUrl()) }}"
+                                                target="_blank"><i class="ecicon eci-facebook"></i></a></li>
+                                        <li class="list-inline-item twitter"><a
+                                                href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&media={{ $product->getFirstMediaUrl('product_image') }}"
+                                                target="_blank"><i class="ecicon eci-twitter"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -91,10 +109,12 @@
                     <div class="ec-single-pro-tab-nav">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#ec-spt-nav-details" role="tab" aria-controls="ec-spt-nav-details" aria-selected="true">Detail</a>
+                                <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#ec-spt-nav-details"
+                                    role="tab" aria-controls="ec-spt-nav-details" aria-selected="true">Detail</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#ec-spt-nav-review" role="tab" aria-controls="ec-spt-nav-review" aria-selected="false">Reviews</a>
+                                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#ec-spt-nav-review"
+                                    role="tab" aria-controls="ec-spt-nav-review" aria-selected="false">Reviews</a>
                             </li>
                         </ul>
                     </div>
@@ -114,7 +134,9 @@
                                                 <div class="ec-t-review-top">
                                                     <div class="ec-t-review-name">{{ $userReview->name }}</div>
                                                     <div class="ec-pro-rating">
-                                                        <div class="user_rating_data" lay-options="{value: {{ $userReview->user_rating }}, theme: '#FF8000'}"></div>
+                                                        <div class="user_rating_data"
+                                                            lay-options="{value: {{ $userReview->user_rating }}, theme: '#FF8000'}">
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="ec-t-review-bottom">
@@ -138,8 +160,10 @@
                                             <input type="hidden" id="ratingInput" name="user_rating">
                                             <div class="ec-ratting-input form-submit">
                                                 <textarea name="user_review" id="comment" placeholder="Enter Your Comment"></textarea>
-                                                <input type="hidden" id="productid" name="product_id" value="{{ $product->id }}">
-                                                <button class="btn btn-primary" id="submitReviewBtn" type="submit">Submit</button>
+                                                <input type="hidden" id="productid" name="product_id"
+                                                    value="{{ $product->id }}">
+                                                <button class="btn btn-primary" id="submitReviewBtn"
+                                                    type="submit">Submit</button>
                                             </div>
                                         </form>
                                     </div>
@@ -156,4 +180,32 @@
 <!-- End Single Product Section -->
 
 @include('shop.related_product')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const zoomElements = document.querySelectorAll('.zoom-image-hover');
+
+        zoomElements.forEach(element => {
+            element.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const width = rect.width;
+                const height = rect.height;
+
+                // Calculate percentages
+                const xPercent = (x / width) * 100;
+                const yPercent = (y / height) * 100;
+
+                // Apply the calculated percentages as transform-origin
+                this.querySelector('.img-responsive').style.transformOrigin =
+                    `${xPercent}% ${yPercent}%`;
+            });
+
+            // Reset transform-origin when mouse leaves
+            element.addEventListener('mouseleave', function() {
+                this.querySelector('.img-responsive').style.transformOrigin = 'center center';
+            });
+        });
+    });
+</script>
 @include('layout.footer')
