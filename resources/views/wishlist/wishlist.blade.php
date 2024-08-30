@@ -25,6 +25,9 @@
                                                         @endforeach
                                                     </a>
                                                     <span class="percentage">20%</span>
+                                                    <span class="ec-com-remove ec-remove-wish">
+                                                        <a href="#">x</a>
+                                                    </span>
                                                 </div>
                                             </div>
                                             <div class="ec-pro-content">
