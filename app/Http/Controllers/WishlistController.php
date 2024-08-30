@@ -58,41 +58,85 @@ class WishlistController extends Controller
         return view('wishlist.wishlist', compact('mainCategory', 'wishLists', 'productImages', 'countWishList', 'cart', 'cartproductImages', 'countCarts'));
     }
 
+    // public function store(WishlistCreateRequest $request)
+    // {
+    //     try {
+    //         // Check if the user is logged in
+    //         if (Auth::check()) {
+    //             // Check if the product is already in the user's wishlist
+    //             $existingWishlistItem = Wishlist::where('user_id', auth()->user()->id)
+    //                 ->where('product_id', $request->product_id)
+    //                 ->first();
+
+    //             // If the product is not already in the wishlist, add it
+    //             if (!$existingWishlistItem) {
+    //                 $wishlist = DB::transaction(function () use ($request) {
+    //                     $wishlist = Wishlist::create([
+    //                         'user_id' => auth()->user()->id,
+    //                         'product_id' => $request->product_id,
+    //                     ]);
+    //                     return $wishlist;
+    //                 });
+
+    //                 if ($wishlist) {
+    //                     return back()->with('success', 'Added to Wishlist');
+    //                 } else {
+    //                     return back();
+    //                 }
+    //             } else {
+    //                 $wishlist = DB::transaction(function () use ($wishlist) {
+    //                     $wishlist->delete();
+    //                     return $wishlist;
+    //                 });
+    //                 if ($wishlist) {
+    //                     return back()->with('success', 'Product Earsed From Wishlist');
+    //                 }
+    //             }
+    //         } else {
+    //             return redirect('login')->with('error', 'Please Login First');
+    //         }
+    //     } catch (\Exception $e) {
+    //         return back()->with('error', $e->getMessage());
+    //     }
+    // }
+
     public function store(WishlistCreateRequest $request)
-    {
-        try {
-            // Check if the user is logged in
-            if (Auth::check()) {
-                // Check if the product is already in the user's wishlist
-                $existingWishlistItem = Wishlist::where('user_id', auth()->user()->id)
-                    ->where('product_id', $request->product_id)
-                    ->first();
+{
+    try {
+        // Check if the user is logged in
+        if (Auth::check()) {
+            $userId = auth()->user()->id;
+            $productId = $request->product_id;
 
-                // If the product is not already in the wishlist, add it
-                if (!$existingWishlistItem) {
-                    $wishlist = DB::transaction(function () use ($request) {
-                        $wishlist = Wishlist::create([
-                            'user_id' => auth()->user()->id,
-                            'product_id' => $request->product_id,
-                        ]);
-                        return $wishlist;
-                    });
+            // Check if the product is already in the user's wishlist
+            $existingWishlistItem = Wishlist::where('user_id', $userId)
+                ->where('product_id', $productId)
+                ->first();
 
-                    if ($wishlist) {
-                        return back()->with('success', 'Added to Wishlist');
-                    } else {
-                        return back();
-                    }
-                } else {
-                    return back();
-                }
+            if ($existingWishlistItem) {
+                // If the product is in the wishlist, delete it
+                DB::transaction(function () use ($existingWishlistItem) {
+                    $existingWishlistItem->delete();
+                });
+                return back()->with('success', 'Product Removed from Wishlist');
             } else {
-                return redirect('login')->with('error', 'Please Login First');
+                // If the product is not in the wishlist, add it
+                DB::transaction(function () use ($userId, $productId) {
+                    Wishlist::create([
+                        'user_id' => $userId,
+                        'product_id' => $productId,
+                    ]);
+                });
+                return back()->with('success', 'Added to Wishlist');
             }
-        } catch (\Exception $e) {
-            return back()->with('error', $e->getMessage());
+        } else {
+            return redirect('login')->with('error', 'Please Login First');
         }
+    } catch (\Exception $e) {
+        return back()->with('error', $e->getMessage());
     }
+}
+
 
     public function destroy($id) {
         $wishlist = Wishlist::find($id);

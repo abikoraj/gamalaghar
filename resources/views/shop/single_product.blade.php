@@ -56,7 +56,8 @@
                                                 @foreach ($size as $sizeData)
                                                     <li class="size-option {{ $sizeData->id == $lastSizeId ? 'active' : '' }}"
                                                         data-size-id="{{ $sizeData->id }}">
-                                                        <span>{{ $sizeData->size }}</span></li>
+                                                        <span>{{ $sizeData->size }}</span>
+                                                    </li>
                                                     <input type="hidden" id="product-id" value="{{ $product->id }}">
                                                 @endforeach
                                             </ul>
@@ -204,6 +205,35 @@
             // Reset transform-origin when mouse leaves
             element.addEventListener('mouseleave', function() {
                 this.querySelector('.img-responsive').style.transformOrigin = 'center center';
+            });
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.wishlist').forEach(button => {
+            button.addEventListener('click', function() {
+                const productId = this.getAttribute('data-product-id');
+
+                fetch('{{ url('wishlist') }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector(
+                                'meta[name="csrf-token"]').getAttribute('content')
+                        },
+                        body: JSON.stringify({
+                            product_id: productId
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'added') {
+                            this.style.backgroundColor = 'red';
+                        } else if (data.status === 'removed') {
+                            this.style.backgroundColor = 'white';
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
             });
         });
     });
