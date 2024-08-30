@@ -12,7 +12,6 @@
                         <div class="row margin-minus-b-30">
                             @auth
                                 @forelse ($wishLists as $wishList)
-                                echo $wishList->wishlistid;
                                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-6 pro-gl-content">
                                         <div class="ec-product-inner">
                                             <div class="ec-pro-image-outer">
