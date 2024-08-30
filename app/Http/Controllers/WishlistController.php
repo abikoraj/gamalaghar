@@ -95,7 +95,7 @@ class WishlistController extends Controller
     }
 
     public function destroy($id) {
-        $wishlist = Wishlist::find('1');
+        $wishlist = Wishlist::find($id);
         if (is_null($wishlist)) {
             return back()->with('error', 'Product Not Found!');
         }
