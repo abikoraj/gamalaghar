@@ -22040,6 +22040,20 @@ h4.ec-faq-title::after {
     background-color: #ffffff;
     border: 1px solid #eeeeee;
 }
+
+/* Style for button when product is in wishlist */
+.single-pro-content .ec-single-qty .ec-btn-group.in-wishlist {
+    background-color: #692c91; /* Change to the color you want for 'in wishlist' state */
+    border-color: #692c91; /* Optional: change border color if needed */
+    color: #ffffff; /* Optional: change text/icon color */
+}
+
+/* Style for button when product is not in wishlist */
+.single-pro-content .ec-single-qty .ec-btn-group.not-in-wishlist {
+    background-color: #ffffff; /* Change to the color you want for 'not in wishlist' state */
+    border-color: #d3d3d3; /* Optional: change border color if needed */
+    color: #000000; /* Optional: change text/icon color */
+}
 .single-pro-content .ec-single-qty .ec-btn-group i {
     line-height: 22px;
 }

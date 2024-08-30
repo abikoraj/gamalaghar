@@ -84,10 +84,12 @@
                                         <form action="{{ url('wishlist') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                            <button type="submit" class="ec-btn-group wishlist" title="Wishlist"><i
-                                                    class="fi-rr-heart"></i></button>
+                                            <button type="submit" class="ec-btn-group wishlist {{ $existingWishlistItem ? 'in-wishlist' : 'not-in-wishlist' }}" title="Wishlist">
+                                                <i class="fi-rr-heart"></i>
+                                            </button>
                                         </form>
                                     </div>
+
                                 </div>
                                 <div class="ec-single-social">
                                     <ul class="mb-0">
