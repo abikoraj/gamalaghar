@@ -37,7 +37,6 @@ class WishlistController extends Controller
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
             $countCarts = Cart::where('user_id', auth()->user()->id)->count();
 
-
             $cart = Cart::join('products', 'products.id', '=', 'carts.product_id')
                 ->join('product_size_prices', 'product_size_prices.id', '=', 'carts.product_size_price_id')
                 ->join('sizes', 'sizes.id', '=', 'product_size_prices.size_id')
@@ -55,8 +54,6 @@ class WishlistController extends Controller
             $cart = [];
             $cartproductImages = [];
         }
-
-
 
         return view('wishlist.wishlist', compact('mainCategory', 'wishLists', 'productImages', 'countWishList', 'cart', 'cartproductImages', 'countCarts'));
     }
