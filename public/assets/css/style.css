@@ -21599,7 +21599,7 @@ h4.ec-faq-title::after {
   }
 
   .single-slide.zoom-image-hover:hover .img-responsive {
-    transform: scale(1.2); /* Adjust the scale value to control the zoom level */
+    transform: scale(1.8); /* Adjust the scale value to control the zoom level */
   }
 
 .single-nav-thumb {
