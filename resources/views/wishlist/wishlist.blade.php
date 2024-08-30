@@ -26,7 +26,8 @@
                                                     </a>
                                                     <span class="percentage">20%</span>
                                                     <span class="ec-com-remove ec-remove-wish">
-                                                        <a href="#">x</a>
+                                                        <a href="{{ url('wishlist/delete/' . $wishList->id) }}"><i
+                                                            class="ecicon eci-trash-o"></i></a>
                                                     </span>
                                                 </div>
                                             </div>

@@ -96,4 +96,22 @@ class WishlistController extends Controller
             return back()->with('error', $e->getMessage());
         }
     }
+
+    public function destroy($id) {
+        $wishlist = Wishlist::find($id);
+        if (is_null($wishlist)) {
+            return back()->with('error', 'Product Not Found!');
+        }
+        try {
+            $wishlist = DB::transaction(function () use ($wishlist) {
+                $wishlist->delete();
+                return $wishlist;
+            });
+            if ($wishlist) {
+                return back()->with('success', 'Product Earsed From Wishlist');
+            }
+        } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
+    }
 }

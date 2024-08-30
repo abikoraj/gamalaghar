@@ -143,7 +143,7 @@ class CartController extends Controller
 
     public function updateCartQuantity(Request $request, $id)
     {
-       
+
 
         // Retrieve the cart item
         $cart = Cart::find($id);
@@ -152,10 +152,8 @@ class CartController extends Controller
         ]);
 
 
-       
-        $subtotal = $cart->price * $cart->quantity;
 
-        
+        $subtotal = $cart->price * $cart->quantity;
         return back()->with('success','Quantity Updated Successfully!');
     }
 }

@@ -57,6 +57,8 @@ Route::post('profile', [AccountController::class, 'edituserdetails']);
 
 Route::get('wishlist', [WishlistController::class, 'index']);
 Route::post('wishlist', [WishlistController::class, 'store']);
+Route::get('wishlist/delete/{id}', [CartController::class, 'destroy']);
+
 
 Route::get('cart', [CartController::class, 'index']);
 Route::post('cart', [CartController::class, 'store']);

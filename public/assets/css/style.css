@@ -23636,7 +23636,7 @@ i.ecicon.eci-star-o {
 }
 .ec-compare-inner .ec-com-remove a {
     font-size: 18px;
-    color: #ffffff;
+    color: #ffffff !important;
     font-weight: 500;
     line-height: 5px;
     padding-bottom: 1px;
