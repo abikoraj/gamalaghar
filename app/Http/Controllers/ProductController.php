@@ -116,7 +116,7 @@ class ProductController extends Controller
             $countCarts = "";
             $cart = [];
             $cartproductImages = [];
-            $existingWishlistItem=[];
+            $existingWishlistItem= false;
         }
 
 
