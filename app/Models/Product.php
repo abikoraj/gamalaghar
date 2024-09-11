@@ -17,4 +17,8 @@ class Product extends Model implements HasMedia
     {
         return $this->hasMany(ProductSizePrice::class, 'product_id');
     }
+
+    public function productImages(){
+        return $this->hasMany(ProductImage::class,'product_id');
+    }
 }

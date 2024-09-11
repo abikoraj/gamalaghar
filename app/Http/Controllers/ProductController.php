@@ -26,7 +26,7 @@ class ProductController extends Controller
         $maxPrice = $request->max_price;
         $position = $request->position;
 
-        $query = Product::with(['media', 'productsizeprice'])
+        $query = Product::with(['media', 'productsizeprice','productImages'])
             ->where('sub_category_id', $subCategory->id);
 
         if (!is_null($minPrice)) {
@@ -68,7 +68,8 @@ class ProductController extends Controller
     public function showSingleProduct($slug)
     {
         $mainCategory = MainCategory::with('subcategories')->get();
-        $product = Product::with('media')->with('productsizeprice')->where('slug', $slug)->first();
+        $product = Product::with('media','productImages')->with('productsizeprice')->where('slug', $slug)->first();
+        // dd($product);
         // $size = Size::all();
 
         $size = Size::whereIn('id', function ($query) use ($product) {

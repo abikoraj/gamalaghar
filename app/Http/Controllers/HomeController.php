@@ -17,7 +17,8 @@ class HomeController extends Controller
     {
 
         $mainCategory = MainCategory::with('subcategories')->get();
-        $product = Product::with(['media', 'productsizeprice'])->latest()->get();
+        $product = Product::with(['media', 'productsizeprice','productImages'])->latest()->get();
+        // dd($product);
         // $productSizePrice=ProductSizePrice::where('')
         
         if (auth()->check()) {

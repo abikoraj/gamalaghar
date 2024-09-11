@@ -23,11 +23,32 @@
                                             <div class="ec-pro-image-outer">
                                                 <div class="ec-pro-image">
                                                     <div class="image">
-                                                    {{-- <a href="{{ url('product/' . $productData->slug) }}" class="image"> --}}
-                                                        <img class="main-image"
+                                                        {{-- < href="{{ url('product/' . $productData->slug) }}" class="image"> --}}
+
+                                                        @if ($productData->productImages->isNotEmpty())
+                                                            @php
+                                                                $firstImage = $productData->productImages->first();
+                                                                $firstMedia = $firstImage
+                                                                    ->getMedia('product_image')
+                                                                    ->first();
+                                                            @endphp
+
+                                                            @if ($firstMedia)
+                                                                <img src="{{ $firstMedia->getUrl() }}"
+                                                                    class="main-image">
+                                                            @endif
+                                                        @endif
+
+                                                        {{-- old_code --}}
+
+                                                        {{-- <img class="main-image"
                                                             src="{{ $productData->getFirstMediaUrl('product_image') }}"
-                                                            alt="Product" />
-                                                    {{-- </a> --}}
+                                                            alt="Product" /> --}}
+                                                            
+                                                        {{-- old_code --}}
+
+
+                                                        {{-- </a> --}}
                                                     </div>
                                                     <span class="percentage">{{ $productData->discount }}%</span>
                                                 </div>
