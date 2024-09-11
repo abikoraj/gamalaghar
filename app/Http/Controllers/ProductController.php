@@ -68,7 +68,7 @@ class ProductController extends Controller
     public function showSingleProduct($slug)
     {
         $mainCategory = MainCategory::with('subcategories')->get();
-        $product = Product::with('media')->with('productsizeprice')->where('slug', $slug)->first();
+        $product = Product::with('media')->with('productsizeprice')->where('slug', $slug)->firstOrFail();
         // $size = Size::all();
 
         $size = Size::whereIn('id', function ($query) use ($product) {

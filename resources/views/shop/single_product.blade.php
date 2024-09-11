@@ -10,29 +10,20 @@
                 <div class="single-pro-inner">
                     <div class="row">
                         <!-- Product Images -->
-                        {{-- <div class="single-pro-img">
+                        <div class="single-pro-img">
                             <div class="single-product-scroll">
                                 <div class="single-product-cover">
                                     <div class="single-slide zoom-image-hover">
                                         <img class="img-responsive"
-                                            src="{{ $product->getFirstMediaUrl('product_image') }}"
+                                            src="{{ $product->getFirstMediaURL('product_image') }}"
                                             alt="{{ $product->product_name }}">
                                     </div>
                                 </div>
                             </div>
-                        </div> --}}
-                        <div class="single-pro-img">
-                            <div class="single-product-scroll">
-                                <div class="single-product-cover">
-                                    @foreach ($product->getMedia('product_image') as $image)
-                                        <div class="single-slide zoom-image-hover">
-                                            <img class="img-responsive" src="{{ $image->getUrl() }}"
-                                                alt="{{ $product->product_name }}">
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
                         </div>
+
+                        <!-- Main Product Image -->
+
                         <!-- Product Description -->
                         <div class="single-pro-desc">
                             <div class="single-pro-content">
@@ -131,7 +122,8 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-bs-toggle="tab" data-bs-target="#ec-spt-nav-review"
-                                    role="tab" aria-controls="ec-spt-nav-review" aria-selected="false">Reviews</a>
+                                    role="tab" aria-controls="ec-spt-nav-review"
+                                    aria-selected="false">Reviews</a>
                             </li>
                         </ul>
                     </div>
@@ -144,7 +136,7 @@
                                 <div class="ec-t-review-wrapper">
                                     <div class="ec-t-review-item">
                                         <div class="ec-t-review-avtar">
-                                            <img src="assets/images/review-image/1.jpg" alt="User Avatar" />
+                                            <img src="{{url('assets/img/review-image/1.jpg')}}" alt="User Avatar" />
                                         </div>
                                         <div class="ec-t-review-content">
                                             @forelse ($userReviews as $userReview)
