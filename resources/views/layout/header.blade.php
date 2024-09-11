@@ -6,22 +6,20 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
-    <x-meta
-    title="Gamala Ghar"
-    description="Gamala Ghar is an innovative ecommerce platform dedicated to providing a wide range of
+    <x-meta title="Gamala Ghar"
+        description="Gamala Ghar is an innovative ecommerce platform dedicated to providing a wide range of
                                 indoor plants to enhance the ambiance and freshness of homes. With a focus on promoting
                                 well-being and creating healthier living spaces, Gamala Ghar offers a curated selection
                                 of indoor plants that are not only visually appealing but also contribute to improving
                                 indoor air quality and overall mood."
-    image="{{url('assets/img/gamala-ghar-logo.png')}}"
-/>
+        image="{{ url('assets/img/gamala-ghar-logo.png') }}" />
 
 
 
     <!-- site Favicon -->
-    <link rel="icon" href="{{url('assets/img/gamala-ghar-logo.png')}}" sizes="32x32" />
-    <link rel="apple-touch-icon" href="{{url('assets/img/gamala-ghar-logo.png')}}" />
-    <meta name="msapplication-TileImage" content="{{url('assets/img/gamala-ghar-logo.png')}}" />
+    <link rel="icon" href="{{ url('assets/img/gamala-ghar-logo.png') }}" sizes="32x32" />
+    <link rel="apple-touch-icon" href="{{ url('assets/img/gamala-ghar-logo.png') }}" />
+    <meta name="msapplication-TileImage" content="{{ url('assets/img/gamala-ghar-logo.png') }}" />
 
     <!-- css Icon Font -->
     <link rel="stylesheet" href="{{ url('assets/css/ecicons.min.css') }}" />
@@ -63,6 +61,19 @@
     @livewireStyles()
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/layui/2.9.8/css/layui.css" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WH6HCNY10L"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-WH6HCNY10L');
+    </script>
 
 
 </head>

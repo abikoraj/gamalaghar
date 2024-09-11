@@ -10,7 +10,7 @@
                 <div class="single-pro-inner">
                     <div class="row">
                         <!-- Product Images -->
-                        <div class="single-pro-img">
+                        {{-- <div class="single-pro-img">
                             <div class="single-product-scroll">
                                 <div class="single-product-cover">
                                     <div class="single-slide zoom-image-hover">
@@ -18,6 +18,18 @@
                                             src="{{ $product->getFirstMediaUrl('product_image') }}"
                                             alt="{{ $product->product_name }}">
                                     </div>
+                                </div>
+                            </div>
+                        </div> --}}
+                        <div class="single-pro-img">
+                            <div class="single-product-scroll">
+                                <div class="single-product-cover">
+                                    @foreach ($product->getMedia('product_image') as $image)
+                                        <div class="single-slide zoom-image-hover">
+                                            <img class="img-responsive" src="{{ $image->getUrl() }}"
+                                                alt="{{ $product->product_name }}">
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -84,7 +96,9 @@
                                         <form action="{{ url('wishlist') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                            <button type="submit" class="ec-btn-group wishlist {{ $existingWishlistItem ? 'in-wishlist' : 'not-in-wishlist' }}" title="Wishlist">
+                                            <button type="submit"
+                                                class="ec-btn-group wishlist {{ $existingWishlistItem ? 'in-wishlist' : 'not-in-wishlist' }}"
+                                                title="Wishlist">
                                                 <i class="fi-rr-heart"></i>
                                             </button>
                                         </form>
