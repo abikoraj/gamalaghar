@@ -23,7 +23,7 @@
                                             <div class="ec-pro-image-outer">
                                                 <div class="ec-pro-image">
                                                     <div class="image">
-                                                        {{-- < href="{{ url('product/' . $productData->slug) }}" class="image"> --}}
+                                                        {{-- <a href="{{ url('product/' . $productData->slug) }}" class="image"> --}}
 
                                                         @if ($productData->productImages->isNotEmpty())
                                                             @php
@@ -44,7 +44,7 @@
                                                         {{-- <img class="main-image"
                                                             src="{{ $productData->getFirstMediaUrl('product_image') }}"
                                                             alt="Product" /> --}}
-                                                            
+
                                                         {{-- old_code --}}
 
 
