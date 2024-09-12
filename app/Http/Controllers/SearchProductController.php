@@ -41,7 +41,7 @@ class SearchProductController extends Controller
         $resultedProducts = $query->paginate(8);
 
         $mainCategory = MainCategory::with('subcategories')->get();
-        $product = Product::with(['media', 'productsizeprice'])->latest()->get();
+        $product = Product::with(['media', 'productImages','productsizeprice'])->latest()->get();
         // $productSizePrice=ProductSizePrice::where('')
         if (auth()->check()) {
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();

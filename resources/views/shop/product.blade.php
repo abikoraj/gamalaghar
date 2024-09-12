@@ -6,7 +6,8 @@
     .button-container {
         display: flex;
         justify-content: center;
-        margin-top: 20px; /* Adjust spacing as needed */
+        margin-top: 20px;
+        /* Adjust spacing as needed */
     }
 </style>
 
@@ -24,10 +25,11 @@
                         <div class="ec-sb-title">
                             <h3 class="ec-sidebar-title">Price</h3>
                         </div>
-                        <form id="priceFilterForm" action="{{ url('products') }}/{{$slug}}" method="GET">
+                        <form id="priceFilterForm" action="{{ url('products') }}/{{ $slug }}" method="GET">
                             <div class="ec-sb-block-content es-price-slider">
                                 <div class="ec-price-filter">
-                                    <div id="ec-sliderPrice" class="filter__slider-price" data-min="0" data-max="10000" data-step="10"></div>
+                                    <div id="ec-sliderPrice" class="filter__slider-price" data-min="0"
+                                        data-max="10000" data-step="10"></div>
                                     <div class="ec-price-input">
                                         <label class="filter__label">
                                             <input type="text" id="minPrice" class="filter__input" name="min_price">
@@ -61,7 +63,8 @@
                     <div class="col-md-6 ec-sort-select">
                         <span class="sort-by">Sort by</span>
                         <div>
-                            <form class="ec-btn-group-form" id="myForm" action="{{ url('products') }}/{{$slug}}" method="get">
+                            <form class="ec-btn-group-form" id="myForm"
+                                action="{{ url('products') }}/{{ $slug }}" method="get">
                                 <select name="position" id="position">
                                     <option selected disabled>Position</option>
                                     <option value="low-to-high">Price, low to high</option>
@@ -78,47 +81,50 @@
                     <div class="shop-pro-inner">
                         <div class="row">
                             @forelse ($product as $productData)
-                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
-                                <div class="ec-product-inner">
-                                    <a href="{{url('product/'.$productData->slug)}}">
-                                        <div class="ec-pro-image-outer">
-                                            <div class="ec-pro-image">
-                                                {{-- <img class="main-image" src="{{ $productData->getFirstMediaUrl('product_image') }}" alt="Product" /> --}}
-                                                @if ($productData->productImages->isNotEmpty())
-                                                            @php
-                                                                $firstImage = $productData->productImages->first();
-                                                                $firstMedia = $firstImage
-                                                                    ->getMedia('product_image')
-                                                                    ->first();
-                                                            @endphp
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                                    <div class="ec-product-inner">
+                                        <a href="{{ url('product/' . $productData->slug) }}">
+                                            <div class="ec-pro-image-outer">
+                                                <div class="ec-pro-image">
+                                                    {{-- <img class="main-image" src="{{ $productData->getFirstMediaUrl('product_image') }}" alt="Product" /> --}}
+                                                    @if ($productData->productImages->isNotEmpty())
+                                                        @php
+                                                            $firstImage = $productData->productImages->first();
+                                                            $firstMedia = $firstImage
+                                                                ->getMedia('product_image')
+                                                                ->first();
+                                                        @endphp
 
-                                                            @if ($firstMedia)
-                                                                <img src="{{ $firstMedia->getUrl() }}"
-                                                                    class="main-image">
-                                                            @endif
+                                                        @if ($firstMedia)
+                                                            <img src="{{ $firstMedia->getUrl() }}" class="main-image">
                                                         @endif
-                                                <span class="percentage">{{ $productData->discount }}%</span>
+                                                    @else
+                                                        <img class="main-image" src="{{ $productData->getFirstMediaUrl('product_image') }}" alt="Product" />
+                                                    @endif
+                                                    <span class="percentage">{{ $productData->discount }}%</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="ec-pro-content">
-                                            <div class="ec-pro-title">
-                                                <a href="{{ url('product/' . $productData->slug) }}">{{ $productData->product_name }}</a>
+                                            <div class="ec-pro-content">
+                                                <div class="ec-pro-title">
+                                                    <a
+                                                        href="{{ url('product/' . $productData->slug) }}">{{ $productData->product_name }}</a>
+                                                </div>
+                                                <div class="ec-pro-rating px-3">
+                                                    @for ($i = 0; $i < 4; $i++)
+                                                        <i class="ecicon eci-star fill"></i>
+                                                    @endfor
+                                                    <i class="ecicon eci-star"></i>
+                                                </div>
+                                                <span class="ec-price px-3 mb-3">
+                                                    @if ($productData->productsizeprice->isNotEmpty())
+                                                        <span class="new-price">Rs.
+                                                            {{ $productData->product_price }}</span>
+                                                    @endif
+                                                </span>
                                             </div>
-                                            <div class="ec-pro-rating px-3">
-                                                @for ($i = 0; $i < 4; $i++)
-                                                <i class="ecicon eci-star fill"></i>
-                                                @endfor
-                                                <i class="ecicon eci-star"></i>
-                                            </div>
-                                            <span class="ec-price px-3 mb-3">
-                                                @if ($productData->productsizeprice->isNotEmpty())
-                                                <span class="new-price">Rs. {{ $productData->product_price }}</span>
-                                                @endif
-                                            </span>
-                                        </div>
-                                    </a>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
                             @empty
                             @endforelse
                         </div>

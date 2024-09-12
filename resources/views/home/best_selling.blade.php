@@ -37,6 +37,10 @@
                                                                 <img src="{{ $firstMedia->getUrl() }}"
                                                                     class="main-image">
                                                             @endif
+                                                        @else
+                                                            <img class="main-image"
+                                                                src="{{ $productData->getFirstMediaUrl('product_image') }}"
+                                                                alt="Product" />
                                                         @endif
 
                                                         {{-- old_code --}}
