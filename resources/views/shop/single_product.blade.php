@@ -14,10 +14,6 @@
                             <div class="single-product-scroll">
                                 <div class="single-product-cover">
                                     <div class="single-slide zoom-image-hover">
-                                        {{-- <img class="img-responsive" src="{{ url('assets/img/7_2.jpg') }}"
-                                            alt=""> --}}
-
-
 
                                         <div id="carouselExampleIndicators" class="carousel slide">
                                             <div class="carousel-indicators">
@@ -235,32 +231,61 @@
 
 @include('shop.related_product')
 <script>
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     const zoomElements = document.querySelectorAll('.zoom-image-hover');
+
+    //     zoomElements.forEach(element => {
+    //         element.addEventListener('mousemove', function(e) {
+    //             const rect = this.getBoundingClientRect();
+    //             const x = e.clientX - rect.left;
+    //             const y = e.clientY - rect.top;
+    //             const width = rect.width;
+    //             const height = rect.height;
+
+    //             // Calculate percentages
+    //             const xPercent = (x / width) * 100;
+    //             const yPercent = (y / height) * 100;
+
+    //             // Apply the calculated percentages as transform-origin
+    //             this.querySelector('.img-responsive').style.transformOrigin =
+    //                 `${xPercent}% ${yPercent}%`;
+    //         });
+
+    //         // Reset transform-origin when mouse leaves
+    //         element.addEventListener('mouseleave', function() {
+    //             this.querySelector('.img-responsive').style.transformOrigin = 'center center';
+    //         });
+    //     });
+    // });
+
     document.addEventListener('DOMContentLoaded', function() {
-        const zoomElements = document.querySelectorAll('.zoom-image-hover');
+    const zoomElements = document.querySelectorAll('.carousel-item'); // Target each carousel item
 
-        zoomElements.forEach(element => {
-            element.addEventListener('mousemove', function(e) {
-                const rect = this.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const width = rect.width;
-                const height = rect.height;
+    zoomElements.forEach(element => {
+        element.addEventListener('mousemove', function(e) {
+            const img = this.querySelector('img'); // Select the image within the carousel item
+            const rect = img.getBoundingClientRect(); // Get the image's bounding box
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const width = rect.width;
+            const height = rect.height;
 
-                // Calculate percentages
-                const xPercent = (x / width) * 100;
-                const yPercent = (y / height) * 100;
+            // Calculate percentages for zoom effect
+            const xPercent = (x / width) * 100;
+            const yPercent = (y / height) * 100;
 
-                // Apply the calculated percentages as transform-origin
-                this.querySelector('.img-responsive').style.transformOrigin =
-                    `${xPercent}% ${yPercent}%`;
-            });
+            // Apply calculated percentages as transform-origin to the image
+            img.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+        });
 
-            // Reset transform-origin when mouse leaves
-            element.addEventListener('mouseleave', function() {
-                this.querySelector('.img-responsive').style.transformOrigin = 'center center';
-            });
+        // Reset transform-origin when mouse leaves the image area
+        element.addEventListener('mouseleave', function() {
+            const img = this.querySelector('img');
+            img.style.transformOrigin = 'center center'; // Reset to center
         });
     });
+});
+
 
     // document.addEventListener('DOMContentLoaded', function() {
     //     document.querySelectorAll('.wishlist').forEach(button => {
