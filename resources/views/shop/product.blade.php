@@ -99,7 +99,9 @@
                                                             <img src="{{ $firstMedia->getUrl() }}" class="main-image">
                                                         @endif
                                                     @else
-                                                        <img class="main-image" src="{{ $productData->getFirstMediaUrl('product_image') }}" alt="Product" />
+                                                        <img class="main-image"
+                                                            src="{{ $productData->getFirstMediaUrl('product_image') }}"
+                                                            alt="Product" />
                                                     @endif
                                                     <span class="percentage">{{ $productData->discount }}%</span>
                                                 </div>

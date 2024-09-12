@@ -37,7 +37,7 @@
                 <div class="row">
                     <div class="col-md-6 ec-cms-block ec-abcms-block text-center">
                         <div class="ec-cms-block-inner">
-                            <img class="a-img mt-5" src="{{url('assets/img/gamala-ghar-banner.jpg')}}" alt="about">
+                            <img class="a-img mt-5" src="{{ url('assets/img/gamala-ghar-banner.jpg') }}" alt="about">
                         </div>
                     </div>
                     <div class="col-md-6 ec-cms-block ec-abcms-block text-center">

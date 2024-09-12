@@ -268,7 +268,7 @@
         zoomElements.forEach(element => {
             element.addEventListener('mousemove', function(e) {
                 const img = this.querySelector(
-                'img'); // Select the image within the carousel item
+                    'img'); // Select the image within the carousel item
                 const rect = img.getBoundingClientRect(); // Get the image's bounding box
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;

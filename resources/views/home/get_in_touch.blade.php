@@ -18,7 +18,7 @@
                 <div class="col-lg-6 col-md-12 ec-content-right">
                     <div class="ec-content-right">
                         <div class="ec-contact-form">
-                            
+
 
 
                             @livewire('contact-us-livewire')

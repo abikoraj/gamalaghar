@@ -20,24 +20,25 @@
                                 </div>
                             </div>
                         </div>
-                         <form class="row g-3" action="{{ url('profile') }}" method="POST" enctype="multipart/form-data">
-                                @csrf
-                        <div class="ec-vendor-block-detail">
-                            <div class="thumb-upload">
-                                <div class="thumb-edit">
-                                    <input type='file' id="thumbUpload02" class="ec-image-upload"
-                                        accept=".png, .jpg, .jpeg" name="user_image" />
-                                    <label><i class="fi-rr-edit"></i></label>
-                                </div>
-                                <div class="thumb-preview ec-preview">
-                                    <div class="image-thumb-preview">
-                                        <img class="image-thumb-preview ec-image-preview v-img"
-                                            src="{{ Avatar::create($user->name)->toBase64() }}" alt="edit" />
+                        <form class="row g-3" action="{{ url('profile') }}" method="POST"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <div class="ec-vendor-block-detail">
+                                <div class="thumb-upload">
+                                    <div class="thumb-edit">
+                                        <input type='file' id="thumbUpload02" class="ec-image-upload"
+                                            accept=".png, .jpg, .jpeg" name="user_image" />
+                                        <label><i class="fi-rr-edit"></i></label>
+                                    </div>
+                                    <div class="thumb-preview ec-preview">
+                                        <div class="image-thumb-preview">
+                                            <img class="image-thumb-preview ec-image-preview v-img"
+                                                src="{{ Avatar::create($user->name)->toBase64() }}" alt="edit" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="ec-vendor-upload-detail">
+                            <div class="ec-vendor-upload-detail">
                                 <div class="col-md-12 space-t-15">
                                     <label class="form-label user-profile">Full Name</label>
                                     <input type="text" class="form-control"value="{{ $user->name }}"
@@ -66,12 +67,12 @@
                                     <a href="#" class="btn btn-lg btn-secondary qty_close" data-bs-dismiss="modal"
                                         aria-label="Close">Close</a>
                                 </div>
-                            </form>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 <!-- Modal end -->

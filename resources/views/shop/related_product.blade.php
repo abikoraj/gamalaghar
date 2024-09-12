@@ -14,7 +14,7 @@
             @foreach ($relatedProducts as $relatedProduct)
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
                     <div class="ec-product-inner">
-                        <a href="{{ url('product/'.$relatedProduct->slug) }}">
+                        <a href="{{ url('product/' . $relatedProduct->slug) }}">
                             <div class="ec-pro-image-outer">
                                 <div class="ec-pro-image">
                                     <div class="image">

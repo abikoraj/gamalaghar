@@ -18,16 +18,16 @@
                                                 <div class="ec-pro-image">
                                                     <a href="product-left-sidebar.html" class="image">
                                                         @foreach ($productImages as $productImage)
-                                                        @if($productImage->id == $wishList->id)
-                                                            <img src="{{ $productImage->getFirstMediaUrl('product_image') }}"
-                                                                alt="{{ $wishList->product_name }}">
-                                                                @endif
+                                                            @if ($productImage->id == $wishList->id)
+                                                                <img src="{{ $productImage->getFirstMediaUrl('product_image') }}"
+                                                                    alt="{{ $wishList->product_name }}">
+                                                            @endif
                                                         @endforeach
                                                     </a>
                                                     <span class="percentage">20%</span>
                                                     <span class="ec-com-remove ec-remove-wish">
                                                         <a href="{{ url('wishlist/delete/' . $wishList->wishlistid) }}"><i
-                                                            class="ecicon eci-trash-o"></i></a>
+                                                                class="ecicon eci-trash-o"></i></a>
                                                     </span>
                                                 </div>
                                             </div>
@@ -49,7 +49,8 @@
                                         </div>
                                     </div>
                                 @empty
-                                <img src="{{url('assets/img/Empty-rafiki.png')}}" alt="Wishlist image" class="img-fluid d-block mx-auto" style="max-width: 300px;"/>
+                                    <img src="{{ url('assets/img/Empty-rafiki.png') }}" alt="Wishlist image"
+                                        class="img-fluid d-block mx-auto" style="max-width: 300px;" />
                                 @endforelse
                             @else
                                 <h2 class="text-center m-5">Kindly proceed with logging in to access the wishlist.</h2>

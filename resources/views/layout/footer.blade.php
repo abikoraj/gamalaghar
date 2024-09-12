@@ -10,10 +10,14 @@
                             <div class="footer-logo">
                                 <a href="index.html">
                                     <img src="{{ url('assets/img/Logo.png') }}" alt="Site Logo" />
-                                    <img class="dark-logo" src="{{ url('assets/img/logo-white.png') }}" alt="Site Logo" style="display: none;" />
+                                    <img class="dark-logo" src="{{ url('assets/img/logo-white.png') }}" alt="Site Logo"
+                                        style="display: none;" />
                                 </a>
                             </div>
-                            <p>At Gamala Ghar, customers can explore a diverse array of indoor plants suitable for various preferences and living spaces. Whether it's lush foliage plants like peace lilies and snake plants, or flowering varieties like orchids and begonias, there's something for every taste and style.</p>
+                            <p>At Gamala Ghar, customers can explore a diverse array of indoor plants suitable for
+                                various preferences and living spaces. Whether it's lush foliage plants like peace
+                                lilies and snake plants, or flowering varieties like orchids and begonias, there's
+                                something for every taste and style.</p>
                         </div>
                     </div>
                     <!-- Social Links -->
@@ -22,9 +26,12 @@
                             <h4 class="ec-footer-heading">Socials</h4>
                             <div class="ec-footer-links ec-footer-dropdown">
                                 <ul class="align-items-center">
-                                    <li class="ec-footer-link"><a href="https://www.facebook.com/gamala.gharnp" target="_blank">Facebook</a></li>
-                                    <li class="ec-footer-link"><a href="https://www.instagram.com/gamala.gharnp/" target="_blank">Instagram</a></li>
-                                    <li class="ec-footer-link"><a href="https://www.youtube.com/@gamalaghar3745" target="_blank">YouTube</a></li>
+                                    <li class="ec-footer-link"><a href="https://www.facebook.com/gamala.gharnp"
+                                            target="_blank">Facebook</a></li>
+                                    <li class="ec-footer-link"><a href="https://www.instagram.com/gamala.gharnp/"
+                                            target="_blank">Instagram</a></li>
+                                    <li class="ec-footer-link"><a href="https://www.youtube.com/@gamalaghar3745"
+                                            target="_blank">YouTube</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -53,7 +60,8 @@
                         <div class="footer-bottom-copy">
                             <div class="ec-copy">
                                 Copyright © <span id="copyright_year"></span>
-                                <a style="color: #692c91 !important;" class="site-name" href="{{ url('/') }}">Gamala Ghar 2024 | www.gamalaghar.com</a>
+                                <a style="color: #692c91 !important;" class="site-name"
+                                    href="{{ url('/') }}">Gamala Ghar 2024 | www.gamalaghar.com</a>
                                 All rights reserved
                             </div>
                         </div>
@@ -105,7 +113,8 @@
     <div class="container">
         <div class="ec-nav-panel">
             <div class="ec-nav-panel-icons">
-                <a href="#ec-mobile-menu" class="navbar-toggler-btn ec-header-btn ec-side-toggle"><i class="fi fi-rr-menu-burger"></i></a>
+                <a href="#ec-mobile-menu" class="navbar-toggler-btn ec-header-btn ec-side-toggle"><i
+                        class="fi fi-rr-menu-burger"></i></a>
             </div>
             <div class="ec-nav-panel-icons">
                 <a href="#ec-side-cart" class="toggle-cart ec-header-btn ec-side-toggle">
@@ -184,7 +193,8 @@
         function updateTotalPrice() {
             var total = 0;
             $("li").each(function() {
-                var price = parseFloat($(this).find(".cart-price").text().replace('Rs. ', '').trim()) || 0;
+                var price = parseFloat($(this).find(".cart-price").text().replace('Rs. ', '').trim()) ||
+                    0;
                 var quantity = parseFloat($(this).find(".qty-input").text()) || 0;
                 total += price * quantity;
             });
@@ -217,8 +227,14 @@
             }
         });
 
-        rate.render({ elem: '.user_rating_data', readonly: true });
-        rate.render({ elem: '.average_user_rating', readonly: true });
+        rate.render({
+            elem: '.user_rating_data',
+            readonly: true
+        });
+        rate.render({
+            elem: '.average_user_rating',
+            readonly: true
+        });
     });
 </script>
 
@@ -279,86 +295,85 @@
 </script> --}}
 
 <script>
-//     $(document).ready(function() {
-//     $('.ec-pro-variation-content').on('click', 'li', function(e) {
-//         e.preventDefault();
+    //     $(document).ready(function() {
+    //     $('.ec-pro-variation-content').on('click', 'li', function(e) {
+    //         e.preventDefault();
 
-//         // Remove 'selected' class from all items
-//         $('.size-option').removeClass('selected');
+    //         // Remove 'selected' class from all items
+    //         $('.size-option').removeClass('selected');
 
-//         // Add 'selected' class to the clicked item
-//         $(this).addClass('selected');
+    //         // Add 'selected' class to the clicked item
+    //         $(this).addClass('selected');
 
-//         var sizeId = $(this).data('size-id');
-//         var productId = $('#product-id').val(); // Retrieve product ID from hidden input field
+    //         var sizeId = $(this).data('size-id');
+    //         var productId = $('#product-id').val(); // Retrieve product ID from hidden input field
 
-//         $.ajax({
-//             url: '{{ route('get.price') }}',
-//             method: 'GET',
-//             data: {
-//                 size_id: sizeId,
-//                 product_id: productId
-//             },
-//             success: function(response) {
-//                 if (response.error) {
-//                     alert(response.error);
-//                 } else {
-//                     $('#product-new-price').text('Rs. ' + response.price);
-//                     $('#product_size_price_id').val(response.productsizeid);
-//                     $('#product-stock-value').text(response.stock);
-//                 }
-//             },
-//             error: function(xhr, status, error) {
-//                 console.error(error);
-//             }
-//         });
-//     });
-// });
+    //         $.ajax({
+    //             url: '{{ route('get.price') }}',
+    //             method: 'GET',
+    //             data: {
+    //                 size_id: sizeId,
+    //                 product_id: productId
+    //             },
+    //             success: function(response) {
+    //                 if (response.error) {
+    //                     alert(response.error);
+    //                 } else {
+    //                     $('#product-new-price').text('Rs. ' + response.price);
+    //                     $('#product_size_price_id').val(response.productsizeid);
+    //                     $('#product-stock-value').text(response.stock);
+    //                 }
+    //             },
+    //             error: function(xhr, status, error) {
+    //                 console.error(error);
+    //             }
+    //         });
+    //     });
+    // });
 
 
-$(document).ready(function() {
-    // Automatically highlight the last option
-    var $lastOption = $('.ec-pro-variation-content .size-option').last();
-    $lastOption.addClass('active');
+    $(document).ready(function() {
+        // Automatically highlight the last option
+        var $lastOption = $('.ec-pro-variation-content .size-option').last();
+        $lastOption.addClass('active');
 
-    $('.ec-pro-variation-content').on('click', 'li.size-option', function(e) {
-        e.preventDefault();
+        $('.ec-pro-variation-content').on('click', 'li.size-option', function(e) {
+            e.preventDefault();
 
-        var sizeId = $(this).data('size-id');
-        var productId = $('#product-id').val();
+            var sizeId = $(this).data('size-id');
+            var productId = $('#product-id').val();
 
-        // Remove 'active' class from all size options
-        $('.ec-pro-variation-content .size-option').removeClass('active');
+            // Remove 'active' class from all size options
+            $('.ec-pro-variation-content .size-option').removeClass('active');
 
-        // Add 'active' class to the clicked size option
-        $(this).addClass('active');
+            // Add 'active' class to the clicked size option
+            $(this).addClass('active');
 
-        $.ajax({
-            url: '{{ route('get.price') }}',
-            method: 'GET',
-            data: {
-                size_id: sizeId,
-                product_id: productId
-            },
-            success: function(response) {
-                if (response.error) {
-                    alert(response.error);
-                } else {
-                    $('#product-new-price').text('Rs. ' + response.price);
-                    $('#product_size_price_id').val(response.productsizeid);
-                    $('#product-stock-value').text(response.stock);
+            $.ajax({
+                url: '{{ route('get.price') }}',
+                method: 'GET',
+                data: {
+                    size_id: sizeId,
+                    product_id: productId
+                },
+                success: function(response) {
+                    if (response.error) {
+                        alert(response.error);
+                    } else {
+                        $('#product-new-price').text('Rs. ' + response.price);
+                        $('#product_size_price_id').val(response.productsizeid);
+                        $('#product-stock-value').text(response.stock);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
                 }
-            },
-            error: function(xhr, status, error) {
-                console.error(error);
-            }
+            });
         });
     });
-});
-
-
 </script>
 
 
 </body>
+
 </html>

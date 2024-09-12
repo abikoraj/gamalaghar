@@ -18,7 +18,7 @@
                                     </button>
                                 </h2>
                                 <div id="collapse{{ $faq->id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ $faq->id }}"
-                                    data-bs-parent="#accordion">
+                                    data-bs-parent="#accordion">ƒ
                                     <div class="accordion-body">
                                         {{ $faq->answer }}
                                     </div>

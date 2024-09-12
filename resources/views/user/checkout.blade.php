@@ -20,18 +20,18 @@
                                                 <div class="col-lg-6">
                                                     <label>Full Name*</label>
                                                     <input type="text" name="fullname"
-                                                        value="{{ $userDetails->name ?? null }}"/>
-                                                        @error('fullname')
-                                                            <p class="text-danger">{{$message}}</p>
-                                                        @enderror
+                                                        value="{{ $userDetails->name ?? null }}" />
+                                                    @error('fullname')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <label>Address</label>
                                                     <input type="text" name="address" placeholder="Address Line 1"
                                                         value="{{ $userDetails->address ?? null }}" />
-                                                         @error('address')
-                                                            <p class="text-danger">{{$message}}</p>
-                                                        @enderror
+                                                    @error('address')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
 
                                             </div>
@@ -75,7 +75,7 @@
                             <div class="ec-check-order-btn">
                                 <input type="hidden" id="subTotal" name="sub_total" value="{{ $sub_total }}">
                                 <input type="hidden" id="delivery_Charge" name="delivery_charge" value="100">
-                                <input type="hidden"  name="total_amount" value="{{ $sub_total + 100 }}">
+                                <input type="hidden" name="total_amount" value="{{ $sub_total + 100 }}">
                                 <button type="submit" class="btn btn-primary">Place Order</button>
                             </div>
                         </div>
@@ -166,11 +166,11 @@
                                             @forelse ($paymentOptions as $paymentOption)
                                                 <span>
                                                     <input type="radio" id="pay1" name="payment_option"
-                                                        class="form-check-input" value="{{$paymentOption->id}}">
-                                                    <label for="pay1">{{$paymentOption->payment_name}}</label>
+                                                        class="form-check-input" value="{{ $paymentOption->id }}">
+                                                    <label for="pay1">{{ $paymentOption->payment_name }}</label>
                                                 </span>
                                                 @error('payment_option')
-                                                    <p class="text-danger">{{$message}}</p>
+                                                    <p class="text-danger">{{ $message }}</p>
                                                 @enderror
                                             @empty
                                             @endforelse
@@ -255,34 +255,33 @@
 
 
     $(document).ready(function() {
-    $('#areaOption').on('change', function() {
-        var selectedOption = $(this).val();
-        if (selectedOption !== "") {
-            // Retrieve the data based on the selected option's value
-            $.ajax({
-                url: '/user/checkout/areas/deliveryCharge/' + selectedOption,
-                method: 'GET',
-                success: function(response) {
-                    var deliveryCharge = response.delivery_charge;
-                    $('#delivery_charge').text('Rs. ' + deliveryCharge);
-                    $('#deliveryCharge').val(deliveryCharge);
+        $('#areaOption').on('change', function() {
+            var selectedOption = $(this).val();
+            if (selectedOption !== "") {
+                // Retrieve the data based on the selected option's value
+                $.ajax({
+                    url: '/user/checkout/areas/deliveryCharge/' + selectedOption,
+                    method: 'GET',
+                    success: function(response) {
+                        var deliveryCharge = response.delivery_charge;
+                        $('#delivery_charge').text('Rs. ' + deliveryCharge);
+                        $('#deliveryCharge').val(deliveryCharge);
 
-                    // Calculate the new total amount
-                    var subTotal = parseFloat('{{ $sub_total }}');
-                    var totalAmount = subTotal + parseFloat(deliveryCharge);
+                        // Calculate the new total amount
+                        var subTotal = parseFloat('{{ $sub_total }}');
+                        var totalAmount = subTotal + parseFloat(deliveryCharge);
 
-                    // Update the total amount in the UI
-                    $('#total_Amount').text('Rs. ' + totalAmount);
-                }
-            });
-        } else {
-            $('#delivery_charge').text('N/A');
-            // Reset total amount to subTotal since delivery charge is not applicable
-            $('#total_Amount').text('Rs. {{ $sub_total }}');
-        }
+                        // Update the total amount in the UI
+                        $('#total_Amount').text('Rs. ' + totalAmount);
+                    }
+                });
+            } else {
+                $('#delivery_charge').text('N/A');
+                // Reset total amount to subTotal since delivery charge is not applicable
+                $('#total_Amount').text('Rs. {{ $sub_total }}');
+            }
+        });
     });
-});
-
 </script>
 
 

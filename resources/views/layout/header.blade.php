@@ -66,18 +66,18 @@
 
 </head>
 
- <!-- Google tag (gtag.js) -->
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-WH6HCNY10L"></script>
- <script>
-     window.dataLayer = window.dataLayer || [];
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WH6HCNY10L"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
 
-     function gtag() {
-         dataLayer.push(arguments);
-     }
-     gtag('js', new Date());
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-     gtag('config', 'G-WH6HCNY10L');
- </script>
+    gtag('config', 'G-WH6HCNY10L');
+</script>
 
 <body>
     @include('home.mycart')

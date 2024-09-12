@@ -16,8 +16,7 @@
                                 </span>
                                 <span class="ec-contact-wrap">
                                     <label>Last Name*</label>
-                                    <input type="text" name="lastname" placeholder="Enter your last name"
-                                        required />
+                                    <input type="text" name="lastname" placeholder="Enter your last name" required />
                                 </span>
                                 <span class="ec-contact-wrap">
                                     <label>Email*</label>
@@ -31,12 +30,10 @@
                                 </span>
                                 <span class="ec-contact-wrap">
                                     <label>Comments/Questions*</label>
-                                    <textarea name="address"
-                                        placeholder="Please leave your comments here.."></textarea>
+                                    <textarea name="address" placeholder="Please leave your comments here.."></textarea>
                                 </span>
                                 <span class="ec-contact-wrap ec-recaptcha">
-                                    <span class="g-recaptcha"
-                                        data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S"
+                                    <span class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S"
                                         data-callback="verifyRecaptchaCallback"
                                         data-expired-callback="expiredRecaptchaCallback"></span>
                                     <input class="form-control d-none" data-recaptcha="true" required
@@ -62,10 +59,12 @@
                         <h1 class="ec_contact_info_head">Contact us</h1>
                         <ul class="align-items-center">
                             <li class="ec-contact-item"><i class="ecicon eci-map-marker"
-                                    aria-hidden="true"></i><span>Address :</span>71 Pilgrim Avenue Chevy Chase, east california. east california. MD
+                                    aria-hidden="true"></i><span>Address :</span>71 Pilgrim Avenue Chevy Chase, east
+                                california. east california. MD
                                 20815, USA</li>
                             <li class="ec-contact-item align-items-center"><i class="ecicon eci-phone"
-                                    aria-hidden="true"></i><span>Call Us :</span><a href="tel:+440123456789">+977 9810907768</a></li>
+                                    aria-hidden="true"></i><span>Call Us :</span><a href="tel:+440123456789">+977
+                                    9810907768</a></li>
                             <li class="ec-contact-item align-items-center"><i class="ecicon eci-envelope"
                                     aria-hidden="true"></i><span>Email :</span><a
                                     href="mailto:example@ec-email.com">example@ec-email.com</a></li>

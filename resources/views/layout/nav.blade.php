@@ -250,17 +250,19 @@
         <div class="ec-menu-inner">
             <div class="ec-menu-content">
                 <ul>
-                    <li><a href="{{url('/')}}">Home</a></li>
+                    <li><a href="{{ url('/') }}">Home</a></li>
                     @foreach ($mainCategory as $data)
-                    <li><a href="javascript:void(0)">{{$data->main_category}}</a>
-                        @if ($data->subcategories->isNotEmpty())
-                        <ul class="sub-menu">
-                            @foreach ($data->subcategories as $subCategory)
-                            <li><a href="{{url('products/' . $subCategory->slug)}}">{{$subCategory->sub_category}}</a></li>
-                            @endforeach
-                        </ul>
-                        @endif
-                    </li>
+                        <li><a href="javascript:void(0)">{{ $data->main_category }}</a>
+                            @if ($data->subcategories->isNotEmpty())
+                                <ul class="sub-menu">
+                                    @foreach ($data->subcategories as $subCategory)
+                                        <li><a
+                                                href="{{ url('products/' . $subCategory->slug) }}">{{ $subCategory->sub_category }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </li>
                     @endforeach
                 </ul>
             </div>
