@@ -7,11 +7,6 @@
                     <div class="ec-vendor-block-img space-bottom-30">
                         <div class="ec-vendor-block-bg cover-upload">
                             <div class="thumb-upload">
-                                {{-- <div class="thumb-edit">
-                                    <input type='file' id="thumbUpload01" class="ec-image-upload"
-                                        accept=".png, .jpg, .jpeg" />
-                                    <label><i class="fi-rr-edit"></i></label>
-                                </div> --}}
                                 <div class="thumb-preview ec-preview">
                                     <div class="image-thumb-preview">
                                         <img class="image-thumb-preview ec-image-preview v-img"

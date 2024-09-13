@@ -181,31 +181,6 @@
 </script>
 
 
-{{-- <script>
-    $(document).ready(function() {
-        $('#ec-select').change(function() {
-            var searchKeyword = $('#search_keyword')
-                .val(); // assuming you have an input field with id 'search_keyword'
-            var position = $(this).val();
-
-            $.ajax({
-                url: '/products/search/view', // URL to your search endpoint
-                method: 'GET',
-                data: {
-                    search_keyword: searchKeyword,
-                    position: position
-                },
-                success: function(response) {
-                    // $('#search-results').html(response);
-                },
-                error: function(xhr, status, error) {
-                    console.error(error);
-                }
-            });
-        });
-    });
-</script> --}}
-
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         var form = document.getElementById('myForm');
@@ -221,31 +196,3 @@
         });
     });
 </script>
-
-{{-- <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var form = document.getElementById('priceFilterForm');
-
-        $("#ec-sliderPrice").slider({
-            range: true,
-            min: 0,
-            max: 250,
-            step: 10,
-            values: [0, 250],
-            slide: function(event, ui) {
-                $("#minPrice").val(ui.values[0]);
-                $("#maxPrice").val(ui.values[1]);
-            },
-            change: function(event, ui) {
-                // Submit the form when slider values change
-                form.submit();
-            }
-        });
-
-        // Set initial values
-        $("#minPrice").val($("#ec-sliderPrice").slider("values", 0));
-        $("#maxPrice").val($("#ec-sliderPrice").slider("values", 1));
-
-
-    });
-</script> --}}

@@ -10,11 +10,6 @@
                     <!-- Sidebar Category Block -->
                     <div class="ec-sidebar-block">
                         <div class="ec-vendor-block">
-                            <!-- <div class="ec-vendor-block-bg"></div>
-                            <div class="ec-vendor-block-detail">
-                                <img class="v-img" src="assets/images/user/1.jpg" alt="vendor image">
-                                <h5>Mariana Johns</h5>
-                            </div> -->
                             <div class="ec-vendor-block-items">
                                 <ul>
                                     <li><a href="user-profile.html">User Profile</a></li>

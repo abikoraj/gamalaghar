@@ -26,7 +26,6 @@
                                                     data-bs-slide-to="2" aria-label="Slide 3"></button>
                                             </div>
                                             <div class="carousel-inner">
-
                                                 @if ($product->productImages->isNotEmpty())
                                                     @foreach ($product->productImages as $productImage)
                                                         @foreach ($productImage->getMedia('product_image') as $media)
@@ -54,20 +53,10 @@
                                                 <span class="visually-hidden">Next</span>
                                             </button>
                                         </div>
-
-
-
-
                                     </div>
-
                                 </div>
-
                             </div>
                         </div>
-
-
-                        <!-- Main Product Image -->
-
                         <!-- Product Description -->
                         <div class="single-pro-desc">
                             <div class="single-pro-content">
@@ -235,32 +224,6 @@
 
 @include('shop.related_product')
 <script>
-    // document.addEventListener('DOMContentLoaded', function() {
-    //     const zoomElements = document.querySelectorAll('.zoom-image-hover');
-
-    //     zoomElements.forEach(element => {
-    //         element.addEventListener('mousemove', function(e) {
-    //             const rect = this.getBoundingClientRect();
-    //             const x = e.clientX - rect.left;
-    //             const y = e.clientY - rect.top;
-    //             const width = rect.width;
-    //             const height = rect.height;
-
-    //             // Calculate percentages
-    //             const xPercent = (x / width) * 100;
-    //             const yPercent = (y / height) * 100;
-
-    //             // Apply the calculated percentages as transform-origin
-    //             this.querySelector('.img-responsive').style.transformOrigin =
-    //                 `${xPercent}% ${yPercent}%`;
-    //         });
-
-    //         // Reset transform-origin when mouse leaves
-    //         element.addEventListener('mouseleave', function() {
-    //             this.querySelector('.img-responsive').style.transformOrigin = 'center center';
-    //         });
-    //     });
-    // });
 
     document.addEventListener('DOMContentLoaded', function() {
         const zoomElements = document.querySelectorAll('.carousel-item'); // Target each carousel item
@@ -290,35 +253,5 @@
             });
         });
     });
-
-
-    // document.addEventListener('DOMContentLoaded', function() {
-    //     document.querySelectorAll('.wishlist').forEach(button => {
-    //         button.addEventListener('click', function() {
-    //             const productId = this.getAttribute('data-product-id');
-
-    //             fetch('{{ url('wishlist') }}', {
-    //                     method: 'POST',
-    //                     headers: {
-    //                         'Content-Type': 'application/json',
-    //                         'X-CSRF-TOKEN': document.querySelector(
-    //                             'meta[name="csrf-token"]').getAttribute('content')
-    //                     },
-    //                     body: JSON.stringify({
-    //                         product_id: productId
-    //                     })
-    //                 })
-    //                 .then(response => response.json())
-    //                 .then(data => {
-    //                     if (data.status === 'added') {
-    //                         this.style.backgroundColor = 'red';
-    //                     } else if (data.status === 'removed') {
-    //                         this.style.backgroundColor = 'white';
-    //                     }
-    //                 })
-    //                 .catch(error => console.error('Error:', error));
-    //         });
-    //     });
-    // });
 </script>
 @include('layout.footer')

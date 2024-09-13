@@ -86,7 +86,6 @@
                                         <a href="{{ url('product/' . $productData->slug) }}">
                                             <div class="ec-pro-image-outer">
                                                 <div class="ec-pro-image">
-                                                    {{-- <img class="main-image" src="{{ $productData->getFirstMediaUrl('product_image') }}" alt="Product" /> --}}
                                                     @if ($productData->productImages->isNotEmpty())
                                                         @php
                                                             $firstImage = $productData->productImages->first();

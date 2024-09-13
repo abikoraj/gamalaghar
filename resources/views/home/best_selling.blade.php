@@ -23,8 +23,6 @@
                                             <div class="ec-pro-image-outer">
                                                 <div class="ec-pro-image">
                                                     <div class="image">
-                                                        {{-- <a href="{{ url('product/' . $productData->slug) }}" class="image"> --}}
-
                                                         @if ($productData->productImages->isNotEmpty())
                                                             @php
                                                                 $firstImage = $productData->productImages->first();
@@ -42,17 +40,6 @@
                                                                 src="{{ $productData->getFirstMediaUrl('product_image') }}"
                                                                 alt="Product" />
                                                         @endif
-
-                                                        {{-- old_code --}}
-
-                                                        {{-- <img class="main-image"
-                                                            src="{{ $productData->getFirstMediaUrl('product_image') }}"
-                                                            alt="Product" /> --}}
-
-                                                        {{-- old_code --}}
-
-
-                                                        {{-- </a> --}}
                                                     </div>
                                                     <span class="percentage">{{ $productData->discount }}%</span>
                                                 </div>

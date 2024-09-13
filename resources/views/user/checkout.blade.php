@@ -33,7 +33,6 @@
                                                         <p class="text-danger">{{ $message }}</p>
                                                     @enderror
                                                 </div>
-
                                             </div>
                                             <div class="row">
                                                 <div class="col-lg-6">
@@ -58,7 +57,6 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-
                                                 <div class="col-lg-6">
                                                     <label>Area</label>
                                                     <span class="ec-bl-select-inner">
@@ -82,7 +80,6 @@
                     </div>
                     <!--cart content End -->
                 </div>
-
                 <!-- Sidebar Area Start -->
                 <div class="ec-checkout-rightside col-lg-4 col-md-12">
                     <div class="ec-sidebar-wrap">
@@ -174,7 +171,6 @@
                                                 @enderror
                                             @empty
                                             @endforelse
-
                                         </span>
                                         <span class="ec-pay-commemt">
                                             <span class="ec-pay-opt-head">Add Comments About Your Order</span>
@@ -252,8 +248,6 @@
         });
     });
 
-
-
     $(document).ready(function() {
         $('#areaOption').on('change', function() {
             var selectedOption = $(this).val();
@@ -284,9 +278,6 @@
     });
 </script>
 
-
-
-
 <script>
     $(document).ready(function() {
         $('.select2').select2({
@@ -294,7 +285,6 @@
         });
     });
 </script>
-
 
 <script>
     $(document).ready(function() {
@@ -321,7 +311,6 @@
 
         // Call the function when the page is loaded
         updateTotalPrice();
-
 
     });
 </script>

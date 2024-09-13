@@ -30,8 +30,6 @@
                                 <div class="ec-pro-variation-inner ec-pro-variation-size">
                                     <span>SIZE: {{ $cartData->size }}</span>
                                 </div>
-                                {{-- <input class="qty-input" type="text" name="quantity"
-                                value="{{ $cartData->quantity }} " /> --}}
                                 <a href="{{ url('cart/delete/' . $cartData->cartid) }}" class="remove">×</a>
                             </div>
                         </li>
