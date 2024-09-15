@@ -81,8 +81,8 @@ class ProductController extends Controller
 
         $lastSizeId = $size->last()->id;
 
-        $bestSellingProducts = Product::with('media')->with('productsizeprice')->take(6)->get();
-        $relatedProducts = Product::with('media')->with('productsizeprice')->take(4)->get();
+        $bestSellingProducts = Product::with('media', 'productImages')->with('productsizeprice')->take(6)->get();
+        $relatedProducts = Product::with('media', 'productImages')->with('productsizeprice')->take(4)->get();
 
         $productID=Product::where('slug',$slug)->first();
         $userReviews=UserReview::join('users', 'users.id','=', 'user_reviews.user_id')

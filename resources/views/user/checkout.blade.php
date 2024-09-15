@@ -113,9 +113,23 @@
                                                         <a href="product-left-sidebar.html" class="image">
                                                             @foreach ($cartproductImages as $cartproductImage)
                                                                 @if ($cartproductImage->id == $products->id)
-                                                                    <img class="main-image"
-                                                                        src="{{ $cartproductImage->getFirstMediaUrl('product_image') }}"
-                                                                        alt="product">
+                                                                    @if ($cartproductImage->productImages->isNotEmpty())
+                                                                        @php
+                                                                            $firstImage = $cartproductImage->productImages->first();
+                                                                            $firstMedia = $firstImage
+                                                                                ->getMedia('product_image')
+                                                                                ->first();
+                                                                        @endphp
+
+                                                                        @if ($firstMedia)
+                                                                            <img src="{{ $firstMedia->getUrl() }}"
+                                                                                class="main-image">
+                                                                        @endif
+                                                                    @else
+                                                                        <img class="main-image"
+                                                                            src="{{ $cartproductImage->getFirstMediaUrl('product_image') }}"
+                                                                            alt="Product" />
+                                                                    @endif
                                                                 @endif
                                                             @endforeach
                                                         </a>

@@ -18,9 +18,20 @@
                             <div class="ec-pro-image-outer">
                                 <div class="ec-pro-image">
                                     <div class="image">
-                                        <img class="main-image"
-                                            src="{{ $relatedProduct->getFirstMediaUrl('product_image') }}"
-                                            alt="Product" />
+                                        @if ($relatedProduct->productImages->isNotEmpty())
+                                            @php
+                                                $firstImage = $relatedProduct->productImages->first();
+                                                $firstMedia = $firstImage->getMedia('product_image')->first();
+                                            @endphp
+
+                                            @if ($firstMedia)
+                                                <img src="{{ $firstMedia->getUrl() }}" class="main-image">
+                                            @endif
+                                        @else
+                                            <img class="main-image"
+                                                src="{{ $relatedProduct->getFirstMediaUrl('product_image') }}"
+                                                alt="Product" />
+                                        @endif
                                     </div>
                                     <span class="percentage">{{ $relatedProduct->discount }}%</span>
                                 </div>
