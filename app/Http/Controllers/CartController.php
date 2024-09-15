@@ -29,7 +29,7 @@ class CartController extends Controller
                 ->groupBy('cartid', 'products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity', 'carts.user_id')
                 ->where('carts.user_id', auth()->user()->id)->get();
             $productId = $cart->pluck('id')->toArray();
-            $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
+            $cartproductImages = Product::with('media', 'productImages')->whereIn('id', $productId)->get();
         } else {
             $countWishList = "";
             $countCarts = "";

@@ -16,8 +16,20 @@
                             <a href="product-left-sidebar.html" class="sidecart_pro_img">
                                 @foreach ($cartproductImages as $cartproductImage)
                                     @if ($cartproductImage->id == $cartData->id)
-                                        <img src="{{ $cartproductImage->getFirstMediaUrl('product_image') }}"
-                                            alt="product">
+                                        @if ($cartproductImage->productImages->isNotEmpty())
+                                            @php
+                                                $firstImage = $cartproductImage->productImages->first();
+                                                $firstMedia = $firstImage->getMedia('product_image')->first();
+                                            @endphp
+
+                                            @if ($firstMedia)
+                                                <img src="{{ $firstMedia->getUrl() }}" class="main-image">
+                                            @endif
+                                        @else
+                                            <img class="main-image"
+                                                src="{{ $cartproductImage->getFirstMediaUrl('product_image') }}"
+                                                alt="Product" />
+                                        @endif
                                     @endif
                                 @endforeach
                             </a>
