@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
 
-    public function showProduct(Request $request,$slug)
+    public function showProduct(Request $request, $slug)
     {
         $mainCategory = MainCategory::with('subcategories')->get();
         $subCategory = SubCategory::where('slug', $slug)->first();
@@ -26,7 +26,7 @@ class ProductController extends Controller
         $maxPrice = $request->max_price;
         $position = $request->position;
 
-        $query = Product::with(['media', 'productsizeprice','productImages'])
+        $query = Product::with(['media', 'productsizeprice', 'productImages'])
             ->where('sub_category_id', $subCategory->id);
 
         if (!is_null($minPrice)) {
@@ -38,12 +38,15 @@ class ProductController extends Controller
         }
 
         if ($position == "low-to-high") {
-
             $query->orderBy('product_price', 'asc');
         } elseif ($position == "high-to-low") {
             $query->orderBy('product_price', 'desc');
         }
         $product = $query->paginate(9);
+
+        // Initialize arrays to avoid undefined variable errors
+        $userReviews = [];
+        $averageRatingValue = [];
 
         foreach ($product as $products) {
             // Get the user reviews for the current product
@@ -62,6 +65,7 @@ class ProductController extends Controller
             // Add the average rating to the array
             $averageRatingValue[$products->id] = $userAverageRating->average_rating ?? 0;
         }
+
         if (auth()->check()) {
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
             $countCarts = Cart::where('user_id', auth()->user()->id)->count();
@@ -79,9 +83,10 @@ class ProductController extends Controller
             $cart = [];
             $cartproductImages = [];
         }
-        return view('shop.product', compact('mainCategory', 'subCategory', 'product', 'countWishList', 'cart', 'cartproductImages', 'countCarts','slug', 'userReviews',
-            'averageRatingValue'));
+
+        return view('shop.product', compact('mainCategory', 'subCategory', 'product', 'countWishList', 'cart', 'cartproductImages', 'countCarts', 'slug', 'userReviews', 'averageRatingValue'));
     }
+
 
     public function showSingleProduct($slug)
     {
