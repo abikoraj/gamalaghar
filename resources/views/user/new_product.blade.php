@@ -40,7 +40,7 @@
                                 <div class="ec-pro-title"><a
                                         href="{{ url('product/' . $relatedProduct->slug) }}">{{ $relatedProduct->product_name }}</a>
                                 </div>
-                                <div class="ec-pro-rating px-3">
+                                <div class="ec-pro-rating px-3">commit
                                     <div class="average_user_rating"
                                     lay-options="{value: {{ $averageRatingValues[$relatedProduct->id] ?? 0 }}, theme: '#FF8000'}">
                                 </div>
