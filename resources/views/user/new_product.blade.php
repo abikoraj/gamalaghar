@@ -42,8 +42,8 @@
                                 </div>
                                 <div class="ec-pro-rating px-3">
                                     <div class="average_user_rating"
-                                        lay-options="{value: {{ $averageRatingValue }}, theme: '#FF8000'}">
-                                    </div>
+                                    lay-options="{value: {{ $averageRatingValues[$relatedProduct->id] ?? 0 }}, theme: '#FF8000'}">
+                                </div>
                                 </div>
                                 <span class="ec-price px-3 mb-3">
                                     @if ($relatedProduct->productsizeprice->isNotEmpty())
