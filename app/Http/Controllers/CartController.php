@@ -14,7 +14,6 @@ use League\CommonMark\Extension\CommonMark\Parser\Inline\BacktickParser;
 class CartController extends Controller
 {
 
-
     public function index()
     {
         $mainCategory = MainCategory::with('subcategories')->get();
@@ -118,10 +117,6 @@ class CartController extends Controller
             ->where('carts.user_id', auth()->user()->id)
             ->whereIn('carts.id', $selectedProductIds)->get();
 
-
-
-        // dd($cartproductImages);
-
         // Store the selected products in the session
         $request->session()->put('selectedProducts', $selectedProducts);
 
@@ -143,15 +138,11 @@ class CartController extends Controller
 
     public function updateCartQuantity(Request $request, $id)
     {
-
-
         // Retrieve the cart item
         $cart = Cart::find($id);
         $cart->update([
             'quantity'=>$request->query('quantity')
         ]);
-
-
 
         $subtotal = $cart->price * $cart->quantity;
         return back()->with('success','Quantity Updated Successfully!');

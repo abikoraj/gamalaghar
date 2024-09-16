@@ -317,10 +317,6 @@
             // Update the total price on the page
             $('#totalAmount').text('Rs. ' + total.toFixed(2));
             $('#subTotal').text('Rs. ' + total.toFixed(2));
-
-            // $('#total_amount').val(total);
-            // $('#sub_Total').val(total);
-            // $('.total_amount').val(total.toFixed(2));
         }
 
         // Call the function when the page is loaded
