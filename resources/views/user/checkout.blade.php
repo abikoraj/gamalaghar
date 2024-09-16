@@ -201,7 +201,7 @@
         </form>
     </div>
 </section>
-@include('user.new_product')
+@include('shop.related_product')
 @include('layout.footer')
 
 <script>
