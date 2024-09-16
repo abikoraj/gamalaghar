@@ -44,8 +44,24 @@ class ProductController extends Controller
             $query->orderBy('product_price', 'desc');
         }
         $product = $query->paginate(9);
-        $averageRatingValue = $userAverageRating->average_rating ?? 0;
 
+        foreach ($product as $products) {
+            // Get the user reviews for the current product
+            $productReviews = UserReview::join('users', 'users.id', '=', 'user_reviews.user_id')
+                ->where('user_reviews.product_id', $products->id)
+                ->get();
+
+            // Add the reviews to the array
+            $userReviews[$products->id] = $productReviews;
+
+            // Calculate the average rating for the current product
+            $userAverageRating = UserReview::where('product_id', $products->id)
+                ->select(DB::raw('AVG(user_reviews.user_rating) as average_rating'))
+                ->first();
+
+            // Add the average rating to the array
+            $averageRatingValue[$products->id] = $userAverageRating->average_rating ?? 0;
+        }
         if (auth()->check()) {
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
             $countCarts = Cart::where('user_id', auth()->user()->id)->count();
@@ -63,7 +79,8 @@ class ProductController extends Controller
             $cart = [];
             $cartproductImages = [];
         }
-        return view('shop.product', compact('mainCategory', 'subCategory', 'product', 'countWishList', 'cart', 'cartproductImages', 'countCarts','slug'));
+        return view('shop.product', compact('mainCategory', 'subCategory', 'product', 'countWishList', 'cart', 'cartproductImages', 'countCarts','slug', 'userReviews',
+            'averageRatingValue'));
     }
 
     public function showSingleProduct($slug)
