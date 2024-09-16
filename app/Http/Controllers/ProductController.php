@@ -44,6 +44,7 @@ class ProductController extends Controller
             $query->orderBy('product_price', 'desc');
         }
         $product = $query->paginate(9);
+        $averageRatingValue = $userAverageRating->average_rating ?? 0;
 
         if (auth()->check()) {
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();

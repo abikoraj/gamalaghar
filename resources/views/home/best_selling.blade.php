@@ -49,11 +49,10 @@
                                                         href="{{ url('product/' . $productData->slug) }}">{{ $productData->product_name }}</a>
                                                 </h5>
                                                 <div class="ec-pro-rating px-3">
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star"></i>
+                                                    <div class="average_user_rating"
+                                                        lay-options="{value: {{ $averageRatingValues[$productData->id] ?? 0 }}, theme: '#FF8000'}">
+                                                    </div>
+
                                                 </div>
                                                 <span class="ec-price px-3 mb-3">
                                                     @if ($productData->productsizeprice->isNotEmpty())
