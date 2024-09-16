@@ -13,7 +13,7 @@
 
                     @forelse ($cart as $cartData)
                         <li>
-                            <a href="product-left-sidebar.html" class="sidecart_pro_img">
+                            <div class="sidecart_pro_img">
                                 @foreach ($cartproductImages as $cartproductImage)
                                     @if ($cartproductImage->id == $cartData->id)
                                         @if ($cartproductImage->productImages->isNotEmpty())
@@ -32,7 +32,7 @@
                                         @endif
                                     @endif
                                 @endforeach
-                            </a>
+                            </div>
 
                             <div class="ec-pro-content">
                                 <a href="single-product-left-sidebar.html"
