@@ -21,6 +21,23 @@ class CheckoutController extends Controller
     {
         $mainCategory = MainCategory::with('subcategories')->get();
         $relatedProducts = Product::with('media')->with('productsizeprice')->take(4)->get();
+        foreach ($relatedProducts as $products) {
+            // Get the user reviews for the current product
+            $productReviews = UserReview::join('users', 'users.id', '=', 'user_reviews.user_id')
+                ->where('user_reviews.product_id', $products->id)
+                ->get();
+
+            // Add the reviews to the array
+            $userReviews[$products->id] = $productReviews;
+
+            // Calculate the average rating for the current product
+            $userAverageRating = UserReview::where('product_id', $products->id)
+                ->select(DB::raw('AVG(user_reviews.user_rating) as average_rating'))
+                ->first();
+
+            // Add the average rating to the array
+            $averageRatingValues[$products->id] = $userAverageRating->average_rating ?? 0;
+        }
         if (auth()->check()) {
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
             $countCarts = Cart::where('user_id', auth()->user()->id)->count();
@@ -58,7 +75,7 @@ class CheckoutController extends Controller
 
         $paymentOptions=PaymentOption::get();
 
-     
+
 
         $provinces=Province::all();
 
