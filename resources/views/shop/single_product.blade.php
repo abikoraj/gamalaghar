@@ -17,6 +17,52 @@
 
                                         <div id="carouselExampleIndicators" class="carousel slide">
                                             <div class="carousel-indicators">
+                                                @if ($product->productImages->isNotEmpty() && $product->productImages->count() > 1)
+                                                    @foreach ($product->productImages as $index => $productImage)
+                                                        <button type="button" data-bs-target="#carouselExampleIndicators"
+                                                            data-bs-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"
+                                                            aria-label="Slide {{ $index + 1 }}"></button>
+                                                    @endforeach
+                                                @endif
+                                            </div>
+                                            <div class="carousel-inner">
+                                                @if ($product->productImages->isNotEmpty())
+                                                    @foreach ($product->productImages as $productImage)
+                                                        @foreach ($productImage->getMedia('product_image') as $media)
+                                                            <div class="carousel-item {{ $loop->parent->first && $loop->first ? 'active' : '' }}">
+                                                                <img src="{{ $media->getUrl() }}" class="d-block w-100"
+                                                                    alt="{{ $product->product_name }}">
+                                                            </div>
+                                                        @endforeach
+                                                    @endforeach
+                                                @else
+                                                    <img class="main-image" src="{{ $product->getFirstMediaUrl('product_image') }}" alt="Product" />
+                                                @endif
+                                            </div>
+
+                                            @if ($product->productImages->count() > 1)
+                                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- <div class="single-pro-img">
+                            <div class="single-product-scroll">
+                                <div class="single-product-cover">
+                                    <div class="single-slide zoom-image-hover">
+
+                                        <div id="carouselExampleIndicators" class="carousel slide">
+                                            <div class="carousel-indicators">
                                                 <button type="button" data-bs-target="#carouselExampleIndicators"
                                                     data-bs-slide-to="0" class="active" aria-current="true"
                                                     aria-label="Slide 1"></button>
@@ -58,7 +104,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- Product Description -->
                         <div class="single-pro-desc">
                             <div class="single-pro-content">
