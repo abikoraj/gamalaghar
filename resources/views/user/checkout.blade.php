@@ -45,6 +45,9 @@
                                                                     {{ $province->province }}</option>
                                                             @endforeach
                                                         </select>
+                                                        @error('province_id')
+                                                            <p class="text-danger">{{ $message }}</p>
+                                                        @enderror
                                                     </span>
                                                 </div>
                                                 <div class="col-lg-6">
@@ -53,6 +56,9 @@
                                                         <select class="select2" name="city_id" id="cityOption">
                                                             <option value=""></option>
                                                         </select>
+                                                        @error('city_id')
+                                                            <p class="text-danger">{{ $message }}</p>
+                                                        @enderror
                                                     </span>
                                                 </div>
                                             </div>
@@ -63,6 +69,9 @@
                                                         <select class="select2" name="area_id" id="areaOption">
                                                             <option value=""></option>
                                                         </select>
+                                                        @error('area_id')
+                                                            <p class="text-danger">{{ $message }}</p>
+                                                        @enderror
                                                     </span>
                                                 </div>
                                             </div>
