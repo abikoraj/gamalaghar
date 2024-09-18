@@ -44,18 +44,15 @@ class CartController extends Controller
             if (!Auth::check()) {
                 return redirect('login');
             }
-
             $user_id = auth()->user()->id;
             $product_id = $request->product_id;
             $product_size_price_id = $request->product_size_price_id;
-
             $cart = DB::transaction(function () use ($user_id, $product_id, $product_size_price_id, $request) {
                 // Check if the product already exists in the user's cart
                 $existingCart = Cart::where('user_id', $user_id)
                     ->where('product_id', $product_id)
                     ->where('product_size_price_id', $product_size_price_id)
                     ->first();
-
                 if ($existingCart) {
                     // If the product exists, update the quantity
                     $existingCart->update([
@@ -107,7 +104,6 @@ class CartController extends Controller
         if (!$selectedProductIds) {
             return back()->with('error', 'Please select products');
         }
-
         // Retrieve products based on the selected IDs
         $selectedProducts = Cart::join('products', 'products.id', '=', 'carts.product_id')
             ->join('product_size_prices', 'product_size_prices.id', '=', 'carts.product_size_price_id')
@@ -116,10 +112,8 @@ class CartController extends Controller
             ->groupBy('cartid', 'products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity', 'carts.user_id')
             ->where('carts.user_id', auth()->user()->id)
             ->whereIn('carts.id', $selectedProductIds)->get();
-
         // Store the selected products in the session
         $request->session()->put('selectedProducts', $selectedProducts);
-
         return redirect()->route('checkout'); // Assuming you have a named route for your checkout page
     }
 
@@ -131,7 +125,6 @@ class CartController extends Controller
         ->groupBy('cartid', 'products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity', 'carts.user_id')
         ->where('carts.user_id', auth()->user()->id)
         ->get();
-
         $request->session()->put('selectedProducts', $selectedProducts);
         return redirect()->route('checkout');
     }
@@ -143,7 +136,6 @@ class CartController extends Controller
         $cart->update([
             'quantity'=>$request->query('quantity')
         ]);
-
         $subtotal = $cart->price * $cart->quantity;
         return back()->with('success','Quantity Updated Successfully!');
     }

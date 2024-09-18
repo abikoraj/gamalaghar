@@ -18,7 +18,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-
         $mainCategory = MainCategory::with('subcategories')->get();
         $product = Product::with(['media', 'productsizeprice','productImages'])->latest()->get();
          // Loop through each product to get its reviews and average rating
@@ -27,19 +26,15 @@ class HomeController extends Controller
         $productReviews = UserReview::join('users', 'users.id', '=', 'user_reviews.user_id')
             ->where('user_reviews.product_id', $products->id)
             ->get();
-
         // Add the reviews to the array
         $userReviews[$products->id] = $productReviews;
-
         // Calculate the average rating for the current product
         $userAverageRating = UserReview::where('product_id', $products->id)
             ->select(DB::raw('AVG(user_reviews.user_rating) as average_rating'))
             ->first();
-
         // Add the average rating to the array
         $averageRatingValues[$products->id] = $userAverageRating->average_rating ?? 0;
     }
-
         if (auth()->check()) {
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
             $countCarts = Cart::where('user_id', auth()->user()->id)->count();
@@ -58,7 +53,6 @@ class HomeController extends Controller
             $cartproductImages = [];
             $mainCategory = MainCategory::with('subcategories')->get();
         }
-
         $faqs = Faq::all();
         return view('home.home', compact(
             'mainCategory',

@@ -27,15 +27,12 @@ class CheckoutController extends Controller
             $productReviews = UserReview::join('users', 'users.id', '=', 'user_reviews.user_id')
                 ->where('user_reviews.product_id', $products->id)
                 ->get();
-
             // Add the reviews to the array
             $userReviews[$products->id] = $productReviews;
-
             // Calculate the average rating for the current product
             $userAverageRating = UserReview::where('product_id', $products->id)
                 ->select(DB::raw('AVG(user_reviews.user_rating) as average_rating'))
                 ->first();
-
             // Add the average rating to the array
             $averageRatingValues[$products->id] = $userAverageRating->average_rating ?? 0;
         }
@@ -50,8 +47,6 @@ class CheckoutController extends Controller
                 ->where('carts.user_id', auth()->user()->id)->get();
             $productId = $cart->pluck('id')->toArray();
             $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
-
-
             $userDetails = User::leftjoin('user_details', 'user_details.user_id', '=', 'users.id')
             ->select('users.id', 'users.name', 'user_details.address')
             ->where('users.id', auth()->user()->id)
@@ -63,23 +58,15 @@ class CheckoutController extends Controller
             $cartproductImages = [];
             $userDetails=[];
         }
-
         $selectedProducts = $request->session()->get('selectedProducts');
-
         $productId = $selectedProducts->pluck('id')->toArray();
         $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
-
         $sub_total = Cart::join('product_size_prices', 'product_size_prices.id', '=', 'carts.product_size_price_id')
         ->where('user_id', auth()->user()->id)
         ->whereIn('carts.product_id', $productId)
         ->sum(DB::raw('product_size_prices.price * carts.quantity'));
-
         $paymentOptions=PaymentOption::get();
-
-
-
         $provinces=Province::all();
-
         return view('user.checkout', compact(
             'mainCategory',
             'countWishList',

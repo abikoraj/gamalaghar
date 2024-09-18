@@ -41,13 +41,9 @@ class UserController extends Controller
             $cart = [];
             $cartproductImages = [];
         }
-
-
         $mainCategory = MainCategory::with('subcategories')->get();
         return view('auth.register',compact('mainCategory', 'countWishList', 'cartproductImages', 'cart', 'countCarts'));
     }
-
-
 
     /**
      * Store a newly created resource in storage.
@@ -57,7 +53,6 @@ class UserController extends Controller
         if ($request->password !== $request->confirm_password) {
             return back()->with('error', 'Password does not match with Confirm Password!');
         }
-
         try {
             $user=DB::transaction(function() use($request){
                 $user=User::create([
@@ -68,18 +63,13 @@ class UserController extends Controller
                     'email_verified_at'=>Carbon::today(),
                     'role'=>'user',
                 ]);
-
                 $token = Str::random(60);
-
                 DB::table('password_resets')->insert([
                     'email' => $request->email,
                     'token' => $token,
                     'created_at' => now(),
                 ]);
-
                 Mail::to($request->email)->send(new UserVerificationMail($user, $token));
-
-
                 return $user;
             });
             if ($user) {
@@ -93,19 +83,15 @@ class UserController extends Controller
     public function verifyMail(Request $request)
     {
         $token = request()->token;
-
         if (!$token) {
             return back()->with('error','Invalid Token');
         }
-
         $passwordReset = PasswordReset::where('token', $token)->first();
         if (!$passwordReset) {
 
             return back()->with('error', 'Token Not Found!');
         }
-
         $user = User::where('email', $passwordReset->email)->first();
-
         if (!$user) {
             return back()->with('error', 'User Not Found!');
         }
@@ -118,7 +104,6 @@ class UserController extends Controller
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }
-
         return redirect('/')->with('success','User verified successfully!');
     }
 }

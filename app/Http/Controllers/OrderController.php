@@ -36,7 +36,6 @@ class OrderController extends Controller
             if($area){
                 $areaName = Area::find($area)->area;
             }
-           
             $order = DB::transaction(function () use ($request, $provinceName, $cityName, $areaName) {
                 $order = Order::create([
                     'user_id' => auth()->user()->id,

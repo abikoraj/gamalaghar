@@ -37,8 +37,6 @@ class HistoryController extends Controller
             $order_histories = [];
             $orderproductImages = [];
         }
-
-
         return view('user.history', compact(
             'mainCategory',
             'product',

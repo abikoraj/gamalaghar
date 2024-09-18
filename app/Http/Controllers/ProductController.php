@@ -20,48 +20,38 @@ class ProductController extends Controller
     {
         $mainCategory = MainCategory::with('subcategories')->get();
         $subCategory = SubCategory::where('slug', $slug)->first();
-
         $searchKeyword = $request->search_keyword;
         $minPrice = $request->min_price;
         $maxPrice = $request->max_price;
         $position = $request->position;
-
         $query = Product::with(['media', 'productsizeprice', 'productImages'])
             ->where('sub_category_id', $subCategory->id);
-
         if (!is_null($minPrice)) {
             $query->where('product_price', '>=', $minPrice);
         }
-
         if (!is_null($maxPrice)) {
             $query->where('product_price', '<=', $maxPrice);
         }
-
         if ($position == "low-to-high") {
             $query->orderBy('product_price', 'asc');
         } elseif ($position == "high-to-low") {
             $query->orderBy('product_price', 'desc');
         }
         $product = $query->paginate(9);
-
         // Initialize arrays to avoid undefined variable errors
         $userReviews = [];
         $averageRatingValue = [];
-
         foreach ($product as $products) {
             // Get the user reviews for the current product
             $productReviews = UserReview::join('users', 'users.id', '=', 'user_reviews.user_id')
                 ->where('user_reviews.product_id', $products->id)
                 ->get();
-
             // Add the reviews to the array
             $userReviews[$products->id] = $productReviews;
-
             // Calculate the average rating for the current product
             $userAverageRating = UserReview::where('product_id', $products->id)
                 ->select(DB::raw('AVG(user_reviews.user_rating) as average_rating'))
                 ->first();
-
             // Add the average rating to the array
             $averageRatingValue[$products->id] = $userAverageRating->average_rating ?? 0;
         }
@@ -83,7 +73,6 @@ class ProductController extends Controller
             $cart = [];
             $cartproductImages = [];
         }
-
         return view('shop.product', compact('mainCategory', 'subCategory', 'product', 'countWishList', 'cart', 'cartproductImages', 'countCarts', 'slug', 'userReviews', 'averageRatingValue'));
     }
 
@@ -92,31 +81,22 @@ class ProductController extends Controller
     {
         $mainCategory = MainCategory::with('subcategories')->get();
         $product = Product::with('media','productImages')->with('productsizeprice')->where('slug', $slug)->first();
-        // dd($product);
-        // $size = Size::all();
-
         $size = Size::whereIn('id', function ($query) use ($product) {
             $query->select('size_id')
                   ->from('product_size_prices')
                   ->where('product_id', $product->id)
                   ->where('product_stock', '>', 0);
         })->get();
-
         $lastSizeId = $size->last()->id;
-
         $bestSellingProducts = Product::with('media', 'productImages')->with('productsizeprice')->take(6)->get();
         $relatedProducts = Product::with('media', 'productImages')->with('productsizeprice')->take(4)->get();
-
         $productID=Product::where('slug',$slug)->first();
         $userReviews=UserReview::join('users', 'users.id','=', 'user_reviews.user_id')
         ->where('user_reviews.product_id', $productID->id)->get();
-
         $userAverageRating = UserReview::where('product_id', $productID->id)
         ->select(DB::raw('AVG(user_reviews.user_rating) as average_rating'))
         ->first();
-
         $averageRatingValue = $userAverageRating->average_rating ?? 0;
-
         if (auth()->check()) {
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
             $countCarts = Cart::where('user_id', auth()->user()->id)->count();
@@ -128,13 +108,9 @@ class ProductController extends Controller
                 ->where('carts.user_id', auth()->user()->id)->get();
             $productId = $cart->pluck('id')->toArray();
             $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
-
-
             $existingWishlistItem = Wishlist::where('user_id', auth()->user()->id)
             ->where('product_id', $product->id)
             ->first();
-
-
         } else {
             $countWishList = "";
             $countCarts = "";
@@ -142,9 +118,6 @@ class ProductController extends Controller
             $cartproductImages = [];
             $existingWishlistItem= false;
         }
-
-
-
         return view('shop.single_product', compact(
             'mainCategory',
             'product',
@@ -166,7 +139,6 @@ class ProductController extends Controller
 {
     $productId = $request->product_id;
     $sizeId = $request->size_id;
-
     // Fetch the product size price based on product ID and size ID
     $productSizePrice = ProductSizePrice::where('product_id', $productId)
                                         ->where('size_id', $sizeId)
@@ -178,7 +150,6 @@ class ProductController extends Controller
             'error' => 'Product size not found',
         ], 404);
     }
-
     if ($productSizePrice->product_stock == 0) {
         return response()->json([
             'productsizeid' => $productSizePrice->id,

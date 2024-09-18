@@ -15,8 +15,6 @@ class AccountController extends Controller
     public function index()
     {
         $mainCategory = MainCategory::with('subcategories')->get();
-
-
         if (auth()->check()) {
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
             $countCarts = Cart::where('user_id', auth()->user()->id)->count();
@@ -29,7 +27,7 @@ class AccountController extends Controller
             $productId = $cart->pluck('id')->toArray();
             $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
             $user = User::with(['userDetail', 'media'])->where('id', auth()->user()->id)->first();
-        
+
         } else {
             $countWishList = "";
             $countCarts = "";
@@ -37,8 +35,6 @@ class AccountController extends Controller
             $cartproductImages = [];
             $user = [];
         }
-
-
         return view('user.profile', compact('mainCategory', 'user', 'countWishList', 'countCarts', 'cartproductImages', 'cart'));
     }
 

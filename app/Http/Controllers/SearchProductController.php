@@ -14,32 +14,26 @@ class SearchProductController extends Controller
 
     public function index(Request $request)
     {
-
         $searchKeyword = $request->search_keyword;
         $minPrice = $request->min_price;
         $maxPrice = $request->max_price;
         $position = $request->position;
-
         $query = Product::with(['media', 'productsizeprice'])
             ->where('product_name', 'like', '%' . $searchKeyword . '%');
 
         if (!is_null($minPrice)) {
             $query->where('product_price', '>=', $minPrice);
         }
-
         if (!is_null($maxPrice)) {
             $query->where('product_price', '<=', $maxPrice);
         }
-
         if ($position == "low-to-high") {
 
             $query->orderBy('product_price', 'asc');
         } elseif ($position == "high-to-low") {
             $query->orderBy('product_price', 'desc');
         }
-
         $resultedProducts = $query->paginate(8);
-
         $mainCategory = MainCategory::with('subcategories')->get();
         $product = Product::with(['media', 'productImages','productsizeprice'])->latest()->get();
         // $productSizePrice=ProductSizePrice::where('')
@@ -61,7 +55,6 @@ class SearchProductController extends Controller
             $cartproductImages = [];
             $mainCategory = MainCategory::with('subcategories')->get();
         }
-
         return view('search_products.search_product', compact(
             'resultedProducts',
             'mainCategory',

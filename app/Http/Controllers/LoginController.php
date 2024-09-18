@@ -17,7 +17,6 @@ class LoginController extends Controller
     public function index()
     {
         $mainCategory = MainCategory::with('subcategories')->get();
-
         if (auth()->check()) {
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
             $countCarts = Cart::where('user_id', auth()->user()->id)->count();
@@ -35,8 +34,6 @@ class LoginController extends Controller
             $cart = [];
             $cartproductImages = [];
         }
-
-
         return view('auth.login', compact('mainCategory', 'countWishList', 'cart', 'cartproductImages', 'countCarts'));
     }
 

@@ -12,7 +12,6 @@ class TermsAndConditionController extends Controller
 {
     public function index()
     {
-
         $mainCategory = MainCategory::with('subcategories')->get();
         $product = Product::with('media')->latest()->get();
         if (auth()->check()) {

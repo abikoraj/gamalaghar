@@ -16,27 +16,21 @@ class SocialiteController extends Controller
     public function googleHandle()
     {
         try {
-           
             $socialiteUser = Socialite::driver('google')->user();
-
             $user = User::where('email', $socialiteUser->getEmail())->first();
-
             if (!$user) {
                 // Create a new user if not found
                 $user = new User();
-                $user->name = $socialiteUser->getName(); 
+                $user->name = $socialiteUser->getName();
                 $user->email = $socialiteUser->getEmail();
-                $user->phone = null; 
-                $user->password ="123"; 
-                $user->role = 'user'; 
+                $user->phone = null;
+                $user->password ="123";
+                $user->role = 'user';
                 $user->save();
             }
-
             Auth::login($user);
+            return redirect('/');
 
-            return redirect('/'); 
-
-        
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }
