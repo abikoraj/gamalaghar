@@ -42,18 +42,12 @@ class UserController extends Controller
             $cartproductImages = [];
         }
 
-        
+
         $mainCategory = MainCategory::with('subcategories')->get();
         return view('auth.register',compact('mainCategory', 'countWishList', 'cartproductImages', 'cart', 'countCarts'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -85,7 +79,7 @@ class UserController extends Controller
 
                 Mail::to($request->email)->send(new UserVerificationMail($user, $token));
 
-                
+
                 return $user;
             });
             if ($user) {
@@ -95,39 +89,6 @@ class UserController extends Controller
             return back()->with('error', $e->getMessage());
         }
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
-
 
     public function verifyMail(Request $request)
     {
@@ -139,7 +100,7 @@ class UserController extends Controller
 
         $passwordReset = PasswordReset::where('token', $token)->first();
         if (!$passwordReset) {
-          
+
             return back()->with('error', 'Token Not Found!');
         }
 

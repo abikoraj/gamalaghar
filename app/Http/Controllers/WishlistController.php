@@ -58,47 +58,7 @@ class WishlistController extends Controller
         return view('wishlist.wishlist', compact('mainCategory', 'wishLists', 'productImages', 'countWishList', 'cart', 'cartproductImages', 'countCarts'));
     }
 
-    // public function store(WishlistCreateRequest $request)
-    // {
-    //     try {
-    //         // Check if the user is logged in
-    //         if (Auth::check()) {
-    //             // Check if the product is already in the user's wishlist
-    //             $existingWishlistItem = Wishlist::where('user_id', auth()->user()->id)
-    //                 ->where('product_id', $request->product_id)
-    //                 ->first();
-
-    //             // If the product is not already in the wishlist, add it
-    //             if (!$existingWishlistItem) {
-    //                 $wishlist = DB::transaction(function () use ($request) {
-    //                     $wishlist = Wishlist::create([
-    //                         'user_id' => auth()->user()->id,
-    //                         'product_id' => $request->product_id,
-    //                     ]);
-    //                     return $wishlist;
-    //                 });
-
-    //                 if ($wishlist) {
-    //                     return back()->with('success', 'Added to Wishlist');
-    //                 } else {
-    //                     return back();
-    //                 }
-    //             } else {
-    //                 $wishlist = DB::transaction(function () use ($wishlist) {
-    //                     $wishlist->delete();
-    //                     return $wishlist;
-    //                 });
-    //                 if ($wishlist) {
-    //                     return back()->with('success', 'Product Earsed From Wishlist');
-    //                 }
-    //             }
-    //         } else {
-    //             return redirect('login')->with('error', 'Please Login First');
-    //         }
-    //     } catch (\Exception $e) {
-    //         return back()->with('error', $e->getMessage());
-    //     }
-    // }
+    
 
     public function store(WishlistCreateRequest $request)
 {

@@ -21,8 +21,6 @@ class HomeController extends Controller
 
         $mainCategory = MainCategory::with('subcategories')->get();
         $product = Product::with(['media', 'productsizeprice','productImages'])->latest()->get();
-        // dd($product);
-        // $productSizePrice=ProductSizePrice::where('')
          // Loop through each product to get its reviews and average rating
     foreach ($product as $products) {
         // Get the user reviews for the current product
