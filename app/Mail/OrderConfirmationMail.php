@@ -13,13 +13,20 @@ class OrderConfirmationMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $user;
+    public $order;
+    public $products;
+    public $totalPrice;
+
     /**
      * Create a new message instance.
      */
-    public $user;
-    public function __construct($user)
+    public function __construct($user, $order, $products, $totalPrice)
     {
         $this->user = $user;
+        $this->order = $order;
+        $this->products = $products;
+        $this->totalPrice = $totalPrice;
     }
 
     /**
@@ -37,10 +44,14 @@ class OrderConfirmationMail extends Mailable
      */
     public function build()
     {
-
-        $data['user'] = $this->user;
-        return $this->markdown('mail.order-confirmation-mail')->with($data);
+        return $this->markdown('mail.order-confirmation-mail')->with([
+            'user' => $this->user,
+            'orderNumber' => $this->order->order_number,
+            'products' => $this->products,  // Array of products with name, quantity, and price
+            'totalPrice' => $this->totalPrice
+        ]);
     }
+
 
     /**
      * Get the attachments for the message.

@@ -77,8 +77,22 @@ class OrderController extends Controller
                     ->whereIn('product_id', $orderedProductIds)
                     ->delete();
 
-                $user=User::find(auth()->user()->id);
-                Mail::to(Auth()->user()->email)->send(new OrderConfirmationMail($user));
+                    $user = User::find(auth()->user()->id);
+
+                    // Prepare products and total price data for the email
+                    $products = [];
+                    $totalPrice = 0;
+                    for ($i = 0; $i < count($size); $i++) {
+                        $products[] = [
+                            'name' => $product_name[$i],
+                            'quantity' => $quantity[$i],
+                            'price' => $price[$i]
+                        ];
+                        $totalPrice += $price[$i] * $quantity[$i];
+                    }
+
+                    // Send the email with order, products, and total price
+                    Mail::to($user->email)->send(new OrderConfirmationMail($user, $order, $products, $totalPrice));
                 return $order;
             });
             if ($order) {
