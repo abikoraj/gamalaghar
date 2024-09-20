@@ -14467,9 +14467,8 @@ li {
 }
 .ec-cc-style .cc-header img {
     padding: 5px;
-    width: 30%;
+    width: 80%;
     border: 2px solid #fff;
-    border-radius: 100%;
 }
 .ec-cc-style .cc-header h2,
 .ec-cc-style .cc-header .h2 {
@@ -14478,7 +14477,7 @@ li {
     font-size: 18px;
     font-weight: 700;
     line-height: 30px;
-    color: #fff;
+    color: #692c91;
 }
 .ec-cc-style .cc-header p {
     margin-bottom: 0;
@@ -14586,8 +14585,7 @@ li {
     background-color: #fff;
 }
 .ec-cc-style .cc-panel .cc-header {
-    background-color: #00969b;
-    color: #fff;
+    color: #692c91;
 }
 .ec-cc-style .cc-footer .cc-call-button svg {
     stroke: #444444;
@@ -18136,10 +18134,11 @@ body {
     z-index: 15;
 }
 .ec-cc-style .cc-panel .cc-header {
-    background-color: #692c91;
+    background-color: #fff;
 }
 .ec-cc-style .cc-footer .cc-call-button:before {
     background-color: #692c91;
+    opacity: 0.6;
 }
 
 /*-----  Select Style  -----*/

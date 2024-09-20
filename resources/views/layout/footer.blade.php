@@ -93,12 +93,8 @@
             <p>Need help? Just give me a call.</p>
         </div>
         <div class="cc-footer">
-            <a href="tel:+919099153528" class="cc-call-button">
+            <a href="tel:+9779851014752" class="cc-call-button">
                 <span>Call me</span>
-                <svg width="13px" height="10px" viewBox="0 0 13 10">
-                    <path d="M1,5 L11,5"></path>
-                    <polyline points="8 1 12 5 8 9"></polyline>
-                </svg>
             </a>
         </div>
     </div>
