@@ -14596,7 +14596,8 @@ li {
     background-color: #00969b;
 }
 .ec-cc-style .cc-footer .cc-call-button:hover:before {
-    background-color: #555;
+    background-color: #692c91;
+    opacity: 1;
 }
 .ec-cc-style .cc-footer .cc-call-button:hover span {
     color: #fff;
