@@ -93,7 +93,7 @@
             <p>Need help? Just give me a call.</p>
         </div>
         <div class="cc-footer">
-            <a href="tel:9813371345" class="cc-call-button">
+            <a href="tel:=+977 9813371345" class="cc-call-button">
                 <span>Call me</span>
             </a>
         </div>
