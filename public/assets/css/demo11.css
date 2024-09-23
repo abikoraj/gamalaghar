@@ -20825,7 +20825,6 @@ i.ecicon.eci-star.fill {
     align-items: center;
 }
 .ec-content-right .ec-contact-form {
-    margin-left: -135px;
     padding: 40px;
     background: rgb(255, 255, 255);
     border-radius: 15px;
@@ -20866,6 +20865,7 @@ i.ecicon.eci-star.fill {
     border: 1px solid #eee;
     border-radius: 5px;
     padding-bottom: 15px;
+    padding-left: 15px;
 }
 .ec-content-right .ec-contact-form .form-group #comments:focus {
     border: 1px solid #692c91;
