@@ -32,6 +32,8 @@
                                             target="_blank">Instagram</a></li>
                                     <li class="ec-footer-link"><a href="https://www.youtube.com/@gamalaghar3745"
                                             target="_blank">YouTube</a></li>
+                                    <li class="ec-footer-link"><a href="https://www.tiktok.com/@gamalaghar"
+                                        target="_blank">Tiktok</a></li>
                                 </ul>
                             </div>
                         </div>
