@@ -31,7 +31,7 @@ class WishlistController extends Controller
                 $productID = $wishLists->pluck('id')->toArray();
                 $productImages = Product::with('media', 'productImages')->whereIn('id', $productID)->get();
                 $userReviews=UserReview::join('users', 'users.id','=', 'user_reviews.user_id')
-                    ->where('user_reviews.product_id', $productID->id)->get();
+                    ->whereIn('user_reviews.product_id', $productID->id)->get();
                 $userAverageRating = UserReview::where('product_id', $productID->id)
                     ->select(DB::raw('AVG(user_reviews.user_rating) as average_rating'))
                     ->first();
