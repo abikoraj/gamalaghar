@@ -42,11 +42,10 @@
                                         <th scope="col">Actions</th>
                                     </tr>
                                 </thead>
-
                                 @forelse ($order_histories as $order_id => $orderItems)
                                     <tbody>
                                         <tr>
-                                            <th colspan="5">Order Number: {{ $orderItems->first()->order->order_number }}</th> <!-- Display order_number -->
+                                            <th colspan="5">Order ID: {{ $order_number }}</th> <!-- Optionally show order ID or timestamp -->
                                         </tr>
                                         @foreach ($orderItems as $order_history)
                                             <tr>
@@ -66,13 +65,13 @@
                                             </tr>
                                         @endforeach
                                     </tbody>
+                                    <br>
                                 @empty
                                     <tr>
                                         <td colspan="5">No order history found.</td>
                                     </tr>
                                 @endforelse
                             </table>
-
 
                         </div>
                     </div>
