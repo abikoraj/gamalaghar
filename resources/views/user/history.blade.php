@@ -42,10 +42,11 @@
                                         <th scope="col">Actions</th>
                                     </tr>
                                 </thead>
+
                                 @forelse ($order_histories as $order_id => $orderItems)
                                     <tbody>
                                         <tr>
-                                            <th colspan="5">Order ID: {{ $order_id }}</th> <!-- Optionally show order ID or timestamp -->
+                                            <th colspan="5">Order Number: {{ $orderItems->first()->order->order_number }}</th> <!-- Display order_number -->
                                         </tr>
                                         @foreach ($orderItems as $order_history)
                                             <tr>
@@ -71,6 +72,7 @@
                                     </tr>
                                 @endforelse
                             </table>
+
 
                         </div>
                     </div>
