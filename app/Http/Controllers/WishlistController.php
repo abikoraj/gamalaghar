@@ -29,7 +29,7 @@ class WishlistController extends Controller
             if ($wishLists->isNotEmpty()) {
                 $productID = $wishLists->pluck('id')->toArray();
 
-                $productImages = Product::with('media')->whereIn('id', $productID)->get();
+                $productImages = Product::with('media', 'productImages')->whereIn('id', $productID)->get();
             } else {
 
                 $productImages = [];
@@ -58,7 +58,7 @@ class WishlistController extends Controller
         return view('wishlist.wishlist', compact('mainCategory', 'wishLists', 'productImages', 'countWishList', 'cart', 'cartproductImages', 'countCarts'));
     }
 
-    
+
 
     public function store(WishlistCreateRequest $request)
 {

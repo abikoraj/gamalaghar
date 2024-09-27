@@ -18,6 +18,20 @@
                                                 <div class="ec-pro-image">
                                                     <a href="product-left-sidebar.html" class="image">
                                                         @foreach ($productImages as $productImage)
+                                                        @if ($productImage->productImages->isNotEmpty())
+                                                        @php
+                                                            $firstImage = $productImage->productImages->first();
+                                                            $firstMedia = $firstImage->getMedia('product_image')->first();
+                                                        @endphp
+
+                                                        @if ($firstMedia)
+                                                            <img src="{{ $firstMedia->getUrl() }}" class="main-image">
+                                                        @endif
+                                                    @else
+                                                        <img class="main-image"
+                                                            src="{{ $productImage->getFirstMediaUrl('product_image') }}"
+                                                            alt="Product" />
+                                                    @endif
                                                             @if ($productImage->id == $wishList->id)
                                                                 <img src="{{ $productImage->getFirstMediaUrl('product_image') }}"
                                                                     alt="{{ $wishList->product_name }}">
