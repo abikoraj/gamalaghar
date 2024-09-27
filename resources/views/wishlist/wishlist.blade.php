@@ -14,11 +14,6 @@
                                 @forelse ($wishLists as $wishList)
                                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
                                         <div class="ec-product-inner">
-                                            <span class="ec-com-remove ec-remove-wish">
-                                                <i class="ecicon eci-trash-o">
-                                                    <a href="{{url('wishlist/delete/.' .$wishList->wishlistid)}}"></a>
-                                                </i>
-                                            </span>
                                             <a href="{{ url('product/' . $wishList->slug) }}">
                                                 <div class="ec-pro-image-outer">
                                                     <div class="ec-pro-image">
@@ -60,6 +55,12 @@
                                                     </div>
                                                     <span class="ec-price px-3">
                                                         <span class="new-price">Rs. {{ $wishList->price }}</span>
+                                                    </span>
+                                                    <span class="ec-com-remove ec-remove-wish">
+                                                        <a href="{{url('wishlist/delete/.' .$wishList->wishlistid)}}">
+                                                            <i class="ecicon eci-trash-o">
+                                                            </i>
+                                                        </a>
                                                     </span>
                                                 </div>
                                             </a>
