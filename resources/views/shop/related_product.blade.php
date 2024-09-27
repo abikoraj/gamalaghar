@@ -36,23 +36,23 @@
                                     <span class="percentage">{{ $relatedProduct->discount }}%</span>
                                 </div>
                             </div>
-                        </a>
-                        <div class="ec-pro-content">
-                            <div class="ec-pro-title"><a
-                                    href="{{ url('product/' . $relatedProduct->slug) }}">{{ $relatedProduct->product_name }}</a>
-                            </div>
-                            <div class="ec-pro-rating px-3">
-                                <div class="average_user_rating"
-                                    lay-options="{value: {{ $averageRatingValue }}, theme: '#FF8000'}">
+                            <div class="ec-pro-content">
+                                <div class="ec-pro-title"><a
+                                        href="{{ url('product/' . $relatedProduct->slug) }}">{{ $relatedProduct->product_name }}</a>
                                 </div>
+                                <div class="ec-pro-rating px-3">
+                                    <div class="average_user_rating"
+                                        lay-options="{value: {{ $averageRatingValue }}, theme: '#FF8000'}">
+                                    </div>
+                                </div>
+                                <span class="ec-price px-3 mb-3">
+                                    @if ($relatedProduct->productsizeprice->isNotEmpty())
+                                        <span class="new-price">Rs.
+                                            {{ $relatedProduct->productsizeprice->first()->price }}</span>
+                                    @endif
+                                </span>
                             </div>
-                            <span class="ec-price px-3 mb-3">
-                                @if ($relatedProduct->productsizeprice->isNotEmpty())
-                                    <span class="new-price">Rs.
-                                        {{ $relatedProduct->productsizeprice->first()->price }}</span>
-                                @endif
-                            </span>
-                        </div>
+                        </a>
                     </div>
                 </div>
             @endforeach
