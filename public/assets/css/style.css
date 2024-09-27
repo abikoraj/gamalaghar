@@ -23634,7 +23634,7 @@ i.ecicon.eci-star-o {
     position: absolute;
     width: 24px;
     height: 24px;
-    top: 11px;
+    bottom: 11px;
     left: auto;
     right: 11px;
     border-radius: 100%;
