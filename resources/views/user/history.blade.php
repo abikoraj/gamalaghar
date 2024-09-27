@@ -35,7 +35,6 @@
                             <table class="table ec-table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">ID</th>
                                         <th scope="col">Image</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Size</th>
@@ -43,29 +42,36 @@
                                         <th scope="col">Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    @forelse ($order_histories as $order_history)
+                                @forelse ($order_histories as $order_id => $orderItems)
+                                    <tbody>
                                         <tr>
-                                            <th scope="row"><span>{{ $order_history->id }}</span></th>
-                                            <td>
-                                                @foreach ($orderproductImages as $orderproductImage)
-                                                    @if ($orderproductImage->id == $order_history->product_id)
-                                                        <img class="prod-img"
-                                                            src="{{ $orderproductImage->getFirstMediaUrl('product_image') }}"
-                                                            alt="product image">
-                                                    @endif
-                                                @endforeach
-                                            </td>
-                                            <td><span>{{ $order_history->product_name }}</span></td>
-                                            <td><span>{{ $order_history->size }}</span></td>
-                                            <td><span>Rs. {{ $order_history->price }}</span></td>
-                                            <td><span class="tbl-btn"><a class="btn btn-lg btn-primary"
-                                                        href="#">View</a></span></td>
+                                            <th colspan="5">Order ID: {{ $order_id }}</th> <!-- Optionally show order ID or timestamp -->
                                         </tr>
-                                    @empty
-                                    @endforelse
-                                </tbody>
+                                        @foreach ($orderItems as $order_history)
+                                            <tr>
+                                                <td>
+                                                    @foreach ($orderproductImages as $orderproductImage)
+                                                        @if ($orderproductImage->id == $order_history->product_id)
+                                                            <img class="prod-img"
+                                                                src="{{ $orderproductImage->getFirstMediaUrl('product_image') }}"
+                                                                alt="product image">
+                                                        @endif
+                                                    @endforeach
+                                                </td>
+                                                <td><span>{{ $order_history->product_name }}</span></td>
+                                                <td><span>{{ $order_history->size }}</span></td>
+                                                <td><span>Rs. {{ $order_history->price }}</span></td>
+                                                <td><span class="tbl-btn"><a class="btn btn-lg btn-primary" href="#">View</a></span></td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                @empty
+                                    <tr>
+                                        <td colspan="5">No order history found.</td>
+                                    </tr>
+                                @endforelse
                             </table>
+
                         </div>
                     </div>
                 </div>
