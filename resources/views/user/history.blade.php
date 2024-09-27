@@ -45,7 +45,7 @@
                                 @forelse ($order_histories as $order_id => $orderItems)
                                     <tbody>
                                         <tr>
-                                            <th colspan="5">Order ID: {{ $order_number }}</th> <!-- Optionally show order ID or timestamp -->
+                                            <th colspan="5">Order ID: {{ $orderItems->order_number }}</th> <!-- Optionally show order ID or timestamp -->
                                         </tr>
                                         @foreach ($orderItems as $order_history)
                                             <tr>
