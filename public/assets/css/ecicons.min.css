@@ -133,6 +133,7 @@ span[class*="fi-ts-"]:before {
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: white;
 }
 .fi-rr-a:before {
     content: "\f101";
