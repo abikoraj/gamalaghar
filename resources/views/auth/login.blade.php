@@ -7,7 +7,8 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="section-title">
-                    <h2 class="ec-bg-title ec-title">Log In</h2>
+                    <h2 class="ec-bg-title">Log In</h2>
+                    <h2 class="ec-title">Log In</h2>
                     <p class="sub-title mb-3">Get a Faster Shopping Experience</p>
                 </div>
             </div>
@@ -20,7 +21,7 @@
                             <form action="{{ url('login') }}" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="email">Email Address*</label>
+                                    <label for="email">Email Address<span class="layui-font-red">*</span></label>
                                     <input type="email" name="email" id="email" class="form-control"
                                         placeholder="Enter your email address" required>
                                     @error('email')
@@ -28,7 +29,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">Password*</label>
+                                    <label for="password">Password<span class="layui-font-red">*</span></label>
                                     <input type="password" name="password" id="password" class="form-control"
                                         placeholder="Enter your password" required>
                                     @error('password')
