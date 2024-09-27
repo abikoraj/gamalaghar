@@ -66,7 +66,6 @@
                                             </tr>
                                         @endforeach
                                     </tbody>
-                                    <br>
                                 @empty
                                     <tr>
                                         <td colspan="5">No order history found.</td>
