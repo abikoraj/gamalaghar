@@ -16,54 +16,68 @@ use Illuminate\Support\Facades\DB;
 class WishlistController extends Controller
 {
     public function index()
-    {
-        $mainCategory = MainCategory::with('subcategories')->get();
+{
+    $mainCategory = MainCategory::with('subcategories')->get();
 
-        if (auth()->check()) {
-            $wishLists = Wishlist::join('products', 'products.id', '=', 'wishlists.product_id')
-                ->join('product_size_prices', 'products.id', '=', 'product_size_prices.product_id')
-                ->select('wishlists.id as wishlistid','products.id', 'products.product_name', 'products.description', 'products.slug',  \DB::raw('MAX(product_size_prices.price) as price'))
-                ->groupBy('wishlistid','products.id', 'products.product_name', 'products.description', 'products.slug')
-                ->where('wishlists.user_id', auth()->user()->id)
+    if (auth()->check()) {
+        $wishLists = Wishlist::join('products', 'products.id', '=', 'wishlists.product_id')
+            ->join('product_size_prices', 'products.id', '=', 'product_size_prices.product_id')
+            ->select('wishlists.id as wishlistid','products.id', 'products.product_name', 'products.description', 'products.slug',  \DB::raw('MAX(product_size_prices.price) as price'))
+            ->groupBy('wishlistid','products.id', 'products.product_name', 'products.description', 'products.slug')
+            ->where('wishlists.user_id', auth()->user()->id)
+            ->get();
+
+        if ($wishLists->isNotEmpty()) {
+            $productIDs = $wishLists->pluck('id')->toArray();
+
+            // Get product images
+            $productImages = Product::with('media', 'productImages')
+                ->whereIn('id', $productIDs)
                 ->get();
 
-            if ($wishLists->isNotEmpty()) {
-                $productID = $wishLists->pluck('id')->toArray();
-                $productImages = Product::with('media', 'productImages')->whereIn('id', $productID)->get();
-                $userReviews=UserReview::join('users', 'users.id','=', 'user_reviews.user_id')
-                    ->whereIn('user_reviews.product_id', $productID->id)->get();
-                $userAverageRating = UserReview::where('product_id', $productID->id)
-                    ->select(DB::raw('AVG(user_reviews.user_rating) as average_rating'))
-                    ->first();
-                $averageRatingValue = $userAverageRating->average_rating ?? 0;
-            } else {
-                $productImages = [];
-                $userReviews = [];
-                $averageRatingValue = [];
-            }
-            $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
-            $countCarts = Cart::where('user_id', auth()->user()->id)->count();
+            // Get user reviews for all products in wishlist
+            $userReviews = UserReview::join('users', 'users.id', '=', 'user_reviews.user_id')
+                ->whereIn('user_reviews.product_id', $productIDs)
+                ->get();
 
-            $cart = Cart::join('products', 'products.id', '=', 'carts.product_id')
-                ->join('product_size_prices', 'product_size_prices.id', '=', 'carts.product_size_price_id')
-                ->join('sizes', 'sizes.id', '=', 'product_size_prices.size_id')
-                ->select('products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity', 'carts.id as cartid', 'carts.user_id')
-                ->groupBy('cartid', 'products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity', 'carts.user_id')
-                ->where('carts.user_id', auth()->user()->id)->get();
-            $productId = $cart->pluck('id')->toArray();
-            $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
+            // Calculate the average rating for all products in wishlist
+            $userAverageRating = UserReview::whereIn('product_id', $productIDs)
+                ->select(DB::raw('AVG(user_reviews.user_rating) as average_rating'))
+                ->first();
+
+            // Average rating value
+            $averageRatingValue = $userAverageRating->average_rating ?? 0;
         } else {
-            // Handle the case where the user is not authenticated
             $productImages = [];
-            $wishLists = [];
-            $countWishList = "";
-            $countCarts = "";
-            $cart = [];
-            $cartproductImages = [];
+            $userReviews = [];
+            $averageRatingValue = 0;
         }
 
-        return view('wishlist.wishlist', compact('mainCategory', 'wishLists', 'productImages', 'countWishList', 'cart', 'cartproductImages', 'countCarts', 'userReviews', 'averageRatingValue'));
+        $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
+        $countCarts = Cart::where('user_id', auth()->user()->id)->count();
+
+        $cart = Cart::join('products', 'products.id', '=', 'carts.product_id')
+            ->join('product_size_prices', 'product_size_prices.id', '=', 'carts.product_size_price_id')
+            ->join('sizes', 'sizes.id', '=', 'product_size_prices.size_id')
+            ->select('products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity', 'carts.id as cartid', 'carts.user_id')
+            ->groupBy('cartid', 'products.id', 'products.product_name', 'products.slug', 'product_size_prices.price', 'sizes.size', 'carts.quantity', 'carts.user_id')
+            ->where('carts.user_id', auth()->user()->id)
+            ->get();
+
+        $productId = $cart->pluck('id')->toArray();
+        $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
+    } else {
+        $productImages = [];
+        $wishLists = [];
+        $countWishList = "";
+        $countCarts = "";
+        $cart = [];
+        $cartproductImages = [];
     }
+
+    return view('wishlist.wishlist', compact('mainCategory', 'wishLists', 'productImages', 'countWishList', 'cart', 'cartproductImages', 'countCarts', 'userReviews', 'averageRatingValue'));
+}
+
 
 
 
