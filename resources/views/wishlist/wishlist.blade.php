@@ -41,7 +41,6 @@
                                                             @endforeach
                                                         </div>
                                                         <span class="percentage">20%</span>
-
                                                     </div>
                                                 </div>
                                                 <div class="ec-pro-content">

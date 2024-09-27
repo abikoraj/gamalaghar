@@ -12,4 +12,10 @@ class OrderItem extends Model implements HasMedia
     use HasFactory;
     use InteractsWithMedia;
     protected $guarded = ['id'];
+
+    public function order()
+{
+    return $this->belongsTo(Order::class, 'order_id'); // Adjust the relationship if your foreign key is different
+}
+
 }
