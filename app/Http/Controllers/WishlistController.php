@@ -7,6 +7,7 @@ use App\Models\Cart;
 use App\Models\MainCategory;
 use App\Models\Product;
 use App\Models\Wishlist;
+use App\Models\UserReview;
 use Illuminate\Http\Client\ResponseSequence;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,11 +29,17 @@ class WishlistController extends Controller
 
             if ($wishLists->isNotEmpty()) {
                 $productID = $wishLists->pluck('id')->toArray();
-
                 $productImages = Product::with('media', 'productImages')->whereIn('id', $productID)->get();
+                $userReviews=UserReview::join('users', 'users.id','=', 'user_reviews.user_id')
+                    ->where('user_reviews.product_id', $productID->id)->get();
+                $userAverageRating = UserReview::where('product_id', $productID->id)
+                    ->select(DB::raw('AVG(user_reviews.user_rating) as average_rating'))
+                    ->first();
+                $averageRatingValue = $userAverageRating->average_rating ?? 0;
             } else {
-
                 $productImages = [];
+                $userReviews = [];
+                $averageRatingValue = [];
             }
             $countWishList = Wishlist::where('user_id', auth()->user()->id)->count();
             $countCarts = Cart::where('user_id', auth()->user()->id)->count();
@@ -55,7 +62,7 @@ class WishlistController extends Controller
             $cartproductImages = [];
         }
 
-        return view('wishlist.wishlist', compact('mainCategory', 'wishLists', 'productImages', 'countWishList', 'cart', 'cartproductImages', 'countCarts'));
+        return view('wishlist.wishlist', compact('mainCategory', 'wishLists', 'productImages', 'countWishList', 'cart', 'cartproductImages', 'countCarts', 'userReviews', 'averageRatingValue'));
     }
 
 
