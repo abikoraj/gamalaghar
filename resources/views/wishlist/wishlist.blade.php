@@ -57,7 +57,7 @@
                                                         <span class="new-price">Rs. {{ $wishList->price }}</span>
                                                     </span>
                                                     <span class="ec-com-remove ec-remove-wish">
-                                                        <a href="{{url('wishlist/delete/.' .$wishList->wishlistid)}}">
+                                                        <a href="{{url('wishlist/delete/' .$wishList->wishlistid)}}">
                                                             <i class="ecicon eci-trash-o">
                                                             </i>
                                                         </a>
