@@ -74,6 +74,7 @@ class WishlistController extends Controller
         $cart = [];
         $cartproductImages = [];
         $userReviews = [];
+        $averageRatingValue = "";
 
     }
 
