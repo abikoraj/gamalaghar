@@ -73,6 +73,8 @@ class WishlistController extends Controller
         $countCarts = "";
         $cart = [];
         $cartproductImages = [];
+        $userReviews = [];
+
     }
 
     return view('wishlist.wishlist', compact('mainCategory', 'wishLists', 'productImages', 'countWishList', 'cart', 'cartproductImages', 'countCarts', 'userReviews', 'averageRatingValue'));
