@@ -41,11 +41,12 @@
                                                             @endforeach
                                                         </div>
                                                         <span class="percentage">20%</span>
-                                                        {{-- <span class="ec-com-remove ec-remove-wish"> --}}
+                                                        <span class="ec-com-reomove ec-remove-wish"></span>
+                                                        {{-- <span class="ec-com-remove ec-remove-wish">
                                                             <a href="{{ url('wishlist/delete/' . $wishList->wishlistid) }}">
                                                                 <i class="ecicon eci-trash-o"></i>
                                                             </a>
-                                                        {{-- </span> --}}
+                                                        </span> --}}
                                                     </div>
                                                 </div>
                                                 <div class="ec-pro-content">
