@@ -30,11 +30,12 @@ class HistoryController extends Controller
         $productId = $cart->pluck('id')->toArray();
         $cartproductImages = Product::with('media')->whereIn('id', $productId)->get();
 
-        // Fetch order histories and group by `order_id` or timestamp
-        $order_histories = OrderItem::where('user_id', auth()->user()->id)
-            ->orderBy('created_at', 'desc') // Assuming we are grouping by order timestamp
+        // Fetch order histories and group by `order_id`
+        $order_histories = OrderItem::with('order') // Load the related Order
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
             ->get()
-            ->groupBy('order_id'); // Group by `order_id` or another appropriate field
+            ->groupBy('order_id');
 
         $orderproductId = $order_histories->flatten()->pluck('product_id')->toArray();
         $orderproductImages = Product::with('media')->whereIn('id', $orderproductId)->get();
@@ -43,7 +44,7 @@ class HistoryController extends Controller
         $countCarts = "";
         $cart = [];
         $cartproductImages = [];
-        $order_histories = collect(); // Set as empty collection to avoid errors
+        $order_histories = collect();
         $orderproductImages = [];
     }
 
@@ -58,5 +59,6 @@ class HistoryController extends Controller
         'orderproductImages'
     ));
 }
+
 
 }

@@ -42,10 +42,11 @@
                                         <th scope="col">Actions</th>
                                     </tr>
                                 </thead>
+
                                 @forelse ($order_histories as $order_id => $orderItems)
                                     <tbody>
                                         <tr>
-                                            <th colspan="5">Order ID: {{ $orderItems->order_number }}</th> <!-- Optionally show order ID or timestamp -->
+                                            <th colspan="5">Order Number: {{ $orderItems->first()->order->order_number ?? 'N/A' }}</th> <!-- Display order_number -->
                                         </tr>
                                         @foreach ($orderItems as $order_history)
                                             <tr>
@@ -53,8 +54,8 @@
                                                     @foreach ($orderproductImages as $orderproductImage)
                                                         @if ($orderproductImage->id == $order_history->product_id)
                                                             <img class="prod-img"
-                                                                src="{{ $orderproductImage->getFirstMediaUrl('product_image') }}"
-                                                                alt="product image">
+                                                                 src="{{ $orderproductImage->getFirstMediaUrl('product_image') }}"
+                                                                 alt="product image">
                                                         @endif
                                                     @endforeach
                                                 </td>
@@ -72,6 +73,7 @@
                                     </tr>
                                 @endforelse
                             </table>
+
 
                         </div>
                     </div>
