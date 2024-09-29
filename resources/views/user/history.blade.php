@@ -64,10 +64,10 @@
 
                                                         @if ($firstMedia)
                                                             <img src="{{ $firstMedia->getUrl() }}"
-                                                                class="main-image">
+                                                                class="prod-img">
                                                         @endif
                                                     @else
-                                                        <img class="main-image"
+                                                        <img class="prod-img"
                                                             src="{{ $orderproductImage->getFirstMediaUrl('product_image') }}"
                                                             alt="Product" />
                                                     @endif
