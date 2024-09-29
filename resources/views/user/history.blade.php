@@ -53,9 +53,29 @@
                                                 <td>
                                                     @foreach ($orderproductImages as $orderproductImage)
                                                         @if ($orderproductImage->id == $order_history->product_id)
-                                                            <img class="prod-img"
+
+                                                        @if ($orderproductImage->productImages->isNotEmpty())
+                                                        @php
+                                                            $firstImage = $orderproductImage->productImages->first();
+                                                            $firstMedia = $firstImage
+                                                                ->getMedia('product_image')
+                                                                ->first();
+                                                        @endphp
+
+                                                        @if ($firstMedia)
+                                                            <img src="{{ $firstMedia->getUrl() }}"
+                                                                class="main-image">
+                                                        @endif
+                                                    @else
+                                                        <img class="main-image"
+                                                            src="{{ $orderproductImage->getFirstMediaUrl('product_image') }}"
+                                                            alt="Product" />
+                                                    @endif
+
+
+                                                            {{-- <img class="prod-img"
                                                                  src="{{ $orderproductImage->getFirstMediaUrl('product_image') }}"
-                                                                 alt="product image">
+                                                                 alt="product image"> --}}
                                                         @endif
                                                     @endforeach
                                                 </td>

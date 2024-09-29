@@ -38,7 +38,7 @@ class HistoryController extends Controller
             ->groupBy('order_id');
 
         $orderproductId = $order_histories->flatten()->pluck('product_id')->toArray();
-        $orderproductImages = Product::with('media')->whereIn('id', $orderproductId)->get();
+        $orderproductImages = Product::with('media', 'productImages')->whereIn('id', $orderproductId)->get();
     } else {
         $countWishList = "";
         $countCarts = "";
