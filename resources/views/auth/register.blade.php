@@ -17,35 +17,35 @@
                         <form action="{{ url('register') }}" method="post">
                             @csrf
                             <span class="ec-register-wrap">
-                                <label>Full Name*</label>
-                                <input type="text" name="fullname" placeholder="Enter your last name" />
+                                <label>Full Name<span class="layui-font-red">*</span></label>
+                                <input type="text" name="fullname" placeholder="Enter your full name" />
                                 @error('fullname')
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
                             </span>
                             <span class="ec-register-wrap ec-register-half">
-                                <label>Email*</label>
+                                <label>Email<span class="layui-font-red">*</span></label>
                                 <input type="email" name="email" placeholder="Enter your email address" />
                                 @error('email')
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
                             </span>
                             <span class="ec-register-wrap ec-register-half">
-                                <label>Phone Number*</label>
+                                <label>Phone Number<span class="layui-font-red">*</span></label>
                                 <input type="text" name="phone" placeholder="Enter your phone number" />
                                 @error('phone')
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
                             </span>
                             <span class="ec-register-wrap ec-register-half">
-                                <label>Password*</label>
+                                <label>Password<span class="layui-font-red">*</span></label>
                                 <input type="password" name="password" placeholder="Enter your password" />
                                 @error('password')
                                     {{ $message }}
                                 @enderror
                             </span>
                             <span class="ec-register-wrap ec-register-half">
-                                <label>Confirm Password*</label>
+                                <label>Confirm Password<span class="layui-font-red">*</span></label>
                                 <input type="password" name="confirm_password" placeholder="Confirm Your Password" />
                                 @error('confirm_password')
                                     {{ $message }}
