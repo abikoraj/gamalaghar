@@ -67,10 +67,10 @@
 
                                                                         @if ($firstMedia)
                                                                             <img src="{{ $firstMedia->getUrl() }}"
-                                                                                class="main-image">
+                                                                                class="prod-img">
                                                                         @endif
                                                                     @else
-                                                                        <img class="main-image"
+                                                                        <img class="prod-img"
                                                                             src="{{ $cartproductImage->getFirstMediaUrl('product_image') }}"
                                                                             alt="Product" />
                                                                     @endif
@@ -81,7 +81,6 @@
                                                     <td data-label="Price" class="ec-cart-pro-price"><span
                                                             class="amount">Rs. {{ $cartData->price }}</span>
                                                     </td>
-
                                                     <td data-label="Quantity" class="ec-cart-pro-qty"
                                                         style="text-align: center;">
                                                         <div class="cart-qty-plus-minus">
@@ -90,8 +89,6 @@
                                                         </div>
                                                     </td>
                                                     <td><span class="size">{{ $cartData->size }}</span></td>
-
-
                                                     <td data-label="Total" class="ec-cart-pro-subtotal">
                                                         <!-- Use a span with a unique id for the subtotal -->
                                                         <span id="subtotal">Rs.
@@ -104,9 +101,7 @@
                                                         <a class="updateQuantityLink"
                                                             href="{{ url('cart/update/' . $cartData->cartid . '?quantity=' . $cartData->quantity) }}"><i
                                                                 class="bx bx-edit-alt"></i></a>
-
                                                     </td>
-
                                                 </tr>
                                             @empty
                                                 <tr>

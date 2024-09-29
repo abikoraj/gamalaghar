@@ -46,43 +46,40 @@
                                 @forelse ($order_histories as $order_id => $orderItems)
                                     <tbody>
                                         <tr>
-                                            <th colspan="5">Order Number: {{ $orderItems->first()->order->order_number ?? 'N/A' }}</th> <!-- Display order_number -->
+                                            <th colspan="5">Order Number:
+                                                {{ $orderItems->first()->order->order_number ?? 'N/A' }}</th>
+                                            <!-- Display order_number -->
                                         </tr>
                                         @foreach ($orderItems as $order_history)
                                             <tr>
                                                 <td>
                                                     @foreach ($orderproductImages as $orderproductImage)
                                                         @if ($orderproductImage->id == $order_history->product_id)
+                                                            @if ($orderproductImage->productImages->isNotEmpty())
+                                                                @php
+                                                                    $firstImage = $orderproductImage->productImages->first();
+                                                                    $firstMedia = $firstImage
+                                                                        ->getMedia('product_image')
+                                                                        ->first();
+                                                                @endphp
 
-                                                        @if ($orderproductImage->productImages->isNotEmpty())
-                                                        @php
-                                                            $firstImage = $orderproductImage->productImages->first();
-                                                            $firstMedia = $firstImage
-                                                                ->getMedia('product_image')
-                                                                ->first();
-                                                        @endphp
-
-                                                        @if ($firstMedia)
-                                                            <img src="{{ $firstMedia->getUrl() }}"
-                                                                class="prod-img">
-                                                        @endif
-                                                    @else
-                                                        <img class="prod-img"
-                                                            src="{{ $orderproductImage->getFirstMediaUrl('product_image') }}"
-                                                            alt="Product" />
-                                                    @endif
-
-
-                                                            {{-- <img class="prod-img"
-                                                                 src="{{ $orderproductImage->getFirstMediaUrl('product_image') }}"
-                                                                 alt="product image"> --}}
+                                                                @if ($firstMedia)
+                                                                    <img src="{{ $firstMedia->getUrl() }}"
+                                                                        class="prod-img">
+                                                                @endif
+                                                            @else
+                                                                <img class="prod-img"
+                                                                    src="{{ $orderproductImage->getFirstMediaUrl('product_image') }}"
+                                                                    alt="Product" />
+                                                            @endif
                                                         @endif
                                                     @endforeach
                                                 </td>
                                                 <td><span>{{ $order_history->product_name }}</span></td>
                                                 <td><span>{{ $order_history->size }}</span></td>
                                                 <td><span>Rs. {{ $order_history->price }}</span></td>
-                                                <td><span class="tbl-btn"><a class="btn btn-lg btn-primary" href="#">View</a></span></td>
+                                                <td><span class="tbl-btn"><a class="btn btn-lg btn-primary"
+                                                            href="#">View</a></span></td>
                                             </tr>
                                         @endforeach
                                     </tbody>
