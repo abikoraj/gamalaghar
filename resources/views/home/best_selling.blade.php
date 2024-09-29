@@ -41,7 +41,9 @@
                                                                 alt="Product" />
                                                         @endif
                                                     </div>
-                                                    <span class="percentage">{{ $productData->discount }}%</span>
+                                                    @if ($productData->discount)
+                                                        <span class="percentage">{{ $productData->discount }}%</span>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="ec-pro-content">

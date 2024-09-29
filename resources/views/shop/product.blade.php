@@ -102,7 +102,9 @@
                                                             src="{{ $productData->getFirstMediaUrl('product_image') }}"
                                                             alt="Product" />
                                                     @endif
-                                                    <span class="percentage">{{ $productData->discount }}%</span>
+                                                    @if ($productData->discount > 0)
+                                                        <span class="percentage">{{ $productData->discount }}%</span>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="ec-pro-content">

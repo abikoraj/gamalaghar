@@ -73,7 +73,7 @@ class UserController extends Controller
                 return $user;
             });
             if ($user) {
-                return back()->with('success', 'You are registered successfully!');
+                return redirect()->route('login')->with('success', 'You are registered successfully!');
             }
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
